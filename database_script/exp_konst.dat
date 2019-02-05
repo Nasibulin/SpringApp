@@ -1,0 +1,4 @@
+FILE="C:\Users\Nasibulin\Documents\WEB\konst.DMP"
+LOG="C:\Users\Nasibulin\Documents\WEB\exp_konst.log"
+TABLES=('KONST.CATEGORY', 'KONST.PRODUCT')
+FEEDBACK=1000
