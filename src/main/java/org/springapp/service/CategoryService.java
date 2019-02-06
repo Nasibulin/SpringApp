@@ -11,5 +11,6 @@ public interface CategoryService {
 //    void deleteNote(Integer id);
     List<Category> findByParentIdEquals(int i);
     List<Category> findAll();
+    List<Category> findByParentIdEqualsAndIdLessThan(int i, int j);
     //List<Note> findAll();
 }

@@ -50,5 +50,10 @@ public class CategoryServiceImpl implements CategoryService{
         return repository.findAll();
     }
 
+    @Override
+    public List<Category> findByParentIdEqualsAndIdLessThan(int i, int j) {
+      return repository.findByParentIdEqualsAndIdLessThan(i, j);
+    }
+
 
 }

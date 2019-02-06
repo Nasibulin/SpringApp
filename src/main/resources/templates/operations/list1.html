@@ -19,8 +19,8 @@
         </thead>
         <tbody>
         <tr th:each="note : ${notes}">
-            <td th:text="${category.id}" style="text-align: center">#</td>
-            <td th:text="${category.category}">Category</td>
+            <td th:text="${note.id}" style="text-align: center">#</td>
+            <td th:text="${note.message}">Message</td>
             <td th:text="${#dates.format(note.date, 'EEE, d MMM yyyy HH:mm')}" style="text-align: center">Date</td>
             <td style="text-align: center">
                 <i th:if="${note.done} == true" class="fa fa-plus-square-o" style="font-size:20px;color:#337ab7"></i>
