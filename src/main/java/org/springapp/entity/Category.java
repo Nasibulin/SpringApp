@@ -1,56 +1,46 @@
 package org.springapp.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-@Table(name = "test", schema = "db", catalog = "")
+@Table(name = "category", schema = "db", catalog = "")
 public class Category {
 
     @Id
     @GeneratedValue
     private int id;
-    @Column(name = "message")
-    private String message;
-    @Column(name = "datetime")
-    private Date date;
-    @Column(name = "done")
-    private boolean done;
+
+    @Column(name = "parent_id")
+    private int parentId;
+
+    @Column(name = "category")
+    private String category;
 
     public Category() {
     }
 
-    public Category(String message) {
-        this.message = message;
-        this.date = new Date();
-        this.done = false;
+    public Category(String category) {
+        this.category=category;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getMessage() {
-        return message;
+    public int getParentId() {
+        return parentId;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
     }
 
-    public Date getDate() {
-        return date;
+    public String getCategory() {
+        return category;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public boolean isDone() {
-        return done;
-    }
-
-    public void setDone(boolean finished) {
-        this.done = finished;
-    }
 }

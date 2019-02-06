@@ -1,17 +1,17 @@
 package org.springapp.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
 import org.springapp.entity.Note;
 import org.springapp.service.NoteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,7 +25,7 @@ public class NoteController {
         this.service = service;
     }
 
-    @GetMapping("/")
+    @GetMapping("/something")
     public String list(Model model, HttpSession session) {
         List<Note> notebook = filterAndSort();
         model.addAttribute("notes", notebook);

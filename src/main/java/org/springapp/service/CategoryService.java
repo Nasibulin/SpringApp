@@ -1,15 +1,15 @@
 package org.springapp.service;
 
-import org.springapp.entity.Note;
+import org.springapp.entity.Category;
 
 import java.util.List;
 
 public interface CategoryService {
-    Note getNoteById(Integer id);
-    void saveNote(Note note);
-    void updateNote(Integer id, String message, boolean done);
-    void deleteNote(Integer id);
-    List<Note> findAllByOrderByDateAsc();
-    List<Note> findAllByOrderByDateDesc();
+    Category getCategoryById(Integer id);
+//    void saveNote(Category category);
+//    void updateNote(Integer id, String message, boolean done);
+//    void deleteNote(Integer id);
+    List<Category> findByParentIdEquals(int i);
+    List<Category> findAll();
     //List<Note> findAll();
 }

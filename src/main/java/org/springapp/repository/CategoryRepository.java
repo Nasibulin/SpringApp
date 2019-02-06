@@ -1,12 +1,13 @@
 package org.springapp.repository;
 
+import org.springapp.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springapp.entity.Note;
 
 import java.util.List;
 
-public interface CategoryRepository extends JpaRepository<Note, Integer> {
+public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
-    List<Note> findAllByOrderByDateAsc();
-    List<Note> findAllByOrderByDateDesc();
+    List<Category> findByParentIdEquals(int i);
+    List<Category> findAll();
+
 }
