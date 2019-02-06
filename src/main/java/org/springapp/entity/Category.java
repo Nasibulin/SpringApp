@@ -3,7 +3,7 @@ package org.springapp.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "category", schema = "db", catalog = "")
+@Table(name = "category", schema = "springapp", catalog = "")
 public class Category {
 
     @Id
