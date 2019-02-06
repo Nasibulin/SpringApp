@@ -85,7 +85,7 @@ public class CategoryController {
     private List<Category> filterAndSort() {
         List<Category> category = null;
 
-        category = service.findAll();
+        category = service.findByParentIdEquals(-1);
 
         return category;
     }
