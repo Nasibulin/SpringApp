@@ -8,16 +8,18 @@
         <tr>
             <th style="width: 5%">#</th>
             <th style="width: 60%">Category</th>
-            <th style="width: 5%">Edit</th>
-            <th style="width: 5%">Delete</th>
+            <th style="width: 5%">Qty</th>
+            <th style="width: 5%">Add to cart</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="category : ${categorys}">
             <td th:text="${category.id}" style="text-align: center">#</td>
             <td th:text="${category.category}">Category</td>
-            <td style="text-align: center"><a th:href="@{'/edit/{id}'(id=${category.id})}"><i class="fa fa-address-book" style="font-size:20px"></i></a></td>
-            <td style="text-align: center"><a th:href="@{'/delete/{id}'(id=${category.id})}"><i class="fa fa-shopping-basket" style="font-size:20px"></i></a></td>
+            <td style="text-align: center"><div class="form-group1">
+                <input type="number" class="form-control" id="amount" th:name="amount" th:value="1" min="0" maxlength="20"/>
+            </div></td>
+            <td style="text-align: center"><button type="submit" class="btn btn-primary">Add to cart</button></td>
         </tr>
         </tbody>
     </table>
