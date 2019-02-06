@@ -25,7 +25,7 @@ public class CategoryController {
     public String list(Model model, HttpSession session) {
         List<Category> category = filterAndSort();
         model.addAttribute("categorys", category);
-//        model.addAttribute("sort", sortDateMethod);
+        model.addAttribute("sort", sortDateMethod);
 //        @SuppressWarnings("unchecked")
 //        List<String> msgs = (List<String>) session.getAttribute("MY_MESSAGES");
 //

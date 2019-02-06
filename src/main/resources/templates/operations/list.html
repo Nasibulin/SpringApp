@@ -16,8 +16,8 @@
         <tr th:each="category : ${categorys}">
             <td th:text="${category.id}" style="text-align: center">#</td>
             <td th:text="${category.category}">Category</td>
-            <td style="text-align: center"><a th:href="@{'/edit/{id}'(id=${note.id})}"><i class="fa fa-address-book" style="font-size:20px"></i></a></td>
-            <td style="text-align: center"><a th:href="@{'/delete/{id}'(id=${note.id})}"><i class="fa fa-shopping-basket" style="font-size:20px"></i></a></td>
+            <td style="text-align: center"><a th:href="@{'/edit/{id}'(id=${category.id})}"><i class="fa fa-address-book" style="font-size:20px"></i></a></td>
+            <td style="text-align: center"><a th:href="@{'/delete/{id}'(id=${category.id})}"><i class="fa fa-shopping-basket" style="font-size:20px"></i></a></td>
         </tr>
         </tbody>
     </table>

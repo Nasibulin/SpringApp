@@ -25,7 +25,7 @@ public class NoteController {
         this.service = service;
     }
 
-    @GetMapping("/something")
+    @GetMapping("/qqq")
     public String list(Model model, HttpSession session) {
         List<Note> notebook = filterAndSort();
         model.addAttribute("notes", notebook);
