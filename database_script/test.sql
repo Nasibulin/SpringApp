@@ -14,7 +14,7 @@ BEFORE INSERT ON test
 FOR EACH ROW
 
 BEGIN
-  SELECT test_seq_tr.NEXTVAL
+  SELECT test_seq.NEXTVAL
   INTO   :new.id
   FROM   dual;
 END;
