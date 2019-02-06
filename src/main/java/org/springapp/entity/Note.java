@@ -1,11 +1,10 @@
 package org.springapp.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
-@Table(name = "test", schema = "springapp", catalog = "")
+@Table(name = "test", schema = "db", catalog = "")
 public class Note {
 
     @Id
