@@ -1,9 +1,13 @@
 package org.springapp.controllers;
 
 import org.springapp.entity.Category;
+import org.springapp.repository.CategoryRepository;
 import org.springapp.service.CategoryService;
 import org.springapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +21,8 @@ public class CategoryController {
     private CategoryService service;
     private ProductService productService;
     private String sortDateMethod = "ASC";
+    @Autowired
+    private CategoryRepository repository;
 
     @Autowired
     public void setCategoryService(CategoryService service) {
@@ -29,8 +35,10 @@ public class CategoryController {
     }
 
     @GetMapping("/")
-    public String list(Model model, HttpSession session) {
+    public String list(@PageableDefault(size = 10) Pageable pageable, Model model, HttpSession session) {
         List<Category> category = filterAndSort();
+        Page<Category> page = repository.findAll(pageable);
+        model.addAttribute("page", page);
         model.addAttribute("categorys", category);
         model.addAttribute("sort", sortDateMethod);
 //        @SuppressWarnings("unchecked")
@@ -91,10 +99,10 @@ public class CategoryController {
 
     private List<Category> filterAndSort() {
         List<Category> category = null;
+//        category = service.findByIdEquals(
+//                productService.getProductById(1024).getCategory().getId());
 
-        //System.out.println(productService.getProductById(1024));
-        category = service.findByIdEquals(productService.getProductById(1024).getCategory().getId());
-
+        category = service.findByParentIdEquals(8);
         return category;
     }
 
