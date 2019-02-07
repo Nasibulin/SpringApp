@@ -15,7 +15,7 @@
         <tbody>
         <tr th:each="category : ${categorys}">
             <td th:text="${category.id}" style="text-align: center">#</td>
-            <td th:text="${category.category}">Category</td>
+            <td th:text="${category.catname}">Category</td>
             <td style="text-align: center"><div class="form-group1">
                 <input type="number" class="form-control" id="amount" th:name="amount" th:value="1" min="0" maxlength="20"/>
             </div></td>

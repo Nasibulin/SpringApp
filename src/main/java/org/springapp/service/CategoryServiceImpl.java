@@ -55,5 +55,4 @@ public class CategoryServiceImpl implements CategoryService{
       return repository.findByParentIdEqualsAndIdLessThan(i, j);
     }
 
-
 }

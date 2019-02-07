@@ -85,7 +85,7 @@ public class CategoryController {
     private List<Category> filterAndSort() {
         List<Category> category = null;
 
-        category = service.findByParentIdEqualsAndIdLessThan(-1,10);
+        category = service.findByParentIdEquals(-1);
 
         return category;
     }

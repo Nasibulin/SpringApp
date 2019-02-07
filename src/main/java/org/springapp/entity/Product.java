@@ -2,12 +2,12 @@ package org.springapp.entity;
 
 import javax.persistence.*;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Entity
 @Table(name = "product", schema = "springapp", catalog = "")
 public class Product {
 
-    @Id
-    @GeneratedValue
     private int id;
 
     @Column(name = "part_number")
@@ -51,6 +51,9 @@ public class Product {
         this.price = price;
     }
 
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id")
     public int getId() {
         return id;
     }
