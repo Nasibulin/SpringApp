@@ -3,9 +3,10 @@ package org.springapp.service;
 import org.springapp.entity.Category;
 import org.springapp.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 @Service
@@ -27,6 +28,13 @@ public class CategoryServiceImpl implements CategoryService{
     public List<Category> findByParentIdEquals(Integer id) {
         return repository.findByParentIdEquals(id);
     }
+    @Override
+    public Page<Category> findByParentIdEquals(Integer i, Pageable pageable){
+
+        return repository.findByParentIdEquals(i, pageable);
+
+    }
+
 
     @Override
     public List<Category> findAll() {

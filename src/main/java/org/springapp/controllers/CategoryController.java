@@ -37,7 +37,7 @@ public class CategoryController {
     @GetMapping("/")
     public String list(@PageableDefault(size = 10) Pageable pageable, Model model, HttpSession session) {
         List<Category> category = filterAndSort();
-        Page<Category> page = repository.findAll(pageable);
+        Page<Category> page = repository.findByParentIdEquals(8,pageable);
         model.addAttribute("page", page);
         model.addAttribute("categorys", category);
         model.addAttribute("sort", sortDateMethod);

@@ -13,5 +13,5 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
     List<Category> findByParentIdEqualsAndIdLessThan(Integer i, Integer j);
     List<Category> findByIdEquals(Integer id);
     List<Category> findByParentIdEquals(Integer id);
-    Page<Category> findById(Integer i, Pageable pageable);
+    Page<Category> findByParentIdEquals(Integer i, Pageable pageable);
 }
