@@ -9,5 +9,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findByIdEquals(int i);
     List<Product> findAll();
-    List<Product> findByPartNumberEquals(String partnumber);
+    Product getProductById(Integer id);
 }

@@ -2,6 +2,7 @@ package org.springapp.controllers;
 
 import org.springapp.entity.Category;
 import org.springapp.service.CategoryService;
+import org.springapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +15,17 @@ import java.util.List;
 public class CategoryController {
 
     private CategoryService service;
+    private ProductService productService;
     private String sortDateMethod = "ASC";
 
     @Autowired
     public void setCategoryService(CategoryService service) {
         this.service = service;
+    }
+
+    @Autowired
+    public void setProductService(ProductService service) {
+        this.productService = service;
     }
 
     @GetMapping("/")
@@ -85,7 +92,8 @@ public class CategoryController {
     private List<Category> filterAndSort() {
         List<Category> category = null;
 
-        category = service.findByParentIdEquals(-1);
+        //System.out.println(productService.getProductById(1024));
+        category = service.findByIdEquals(productService.getProductById(1024).getCategory().getId());
 
         return category;
     }

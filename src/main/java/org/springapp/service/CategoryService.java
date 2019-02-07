@@ -7,8 +7,9 @@ import java.util.List;
 public interface CategoryService {
     Category getCategoryById(Integer id);
 
-    List<Category> findByParentIdEquals(int i);
+    List<Category> findByParentIdEquals(Integer i);
     List<Category> findAll();
-    List<Category> findByParentIdEqualsAndIdLessThan(int i, int j);
+    List<Category> findByIdEquals(Integer id);
+    List<Category> findByParentIdEqualsAndIdLessThan(Integer i, Integer j);
 
 }

@@ -22,27 +22,9 @@ public class CategoryServiceImpl implements CategoryService{
         return repository.getOne(id);
     }
 
-//    @Override
-//    public void saveNote(Note note) {
-//        repository.save(note);
-//    }
-//
-//    @Override
-//    public void updateNote(Integer id, String message, boolean done) {
-//        Note updated = repository.getOne(id);
-//        updated.setDone(done);
-//        updated.setMessage(message);
-//        repository.save(updated);
-//    }
-//
-//    @Override
-//    public void deleteNote(Integer id) {
-//        repository.deleteById(id);
-//    }
-
     @Override
-    public List<Category> findByParentIdEquals(int i) {
-        return repository.findByParentIdEquals(i);
+    public List<Category> findByParentIdEquals(Integer id) {
+        return repository.findByParentIdEquals(id);
     }
 
     @Override
@@ -51,7 +33,12 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public List<Category> findByParentIdEqualsAndIdLessThan(int i, int j) {
+    public List<Category> findByIdEquals(Integer id) {
+        return repository.findByIdEquals(id);
+    }
+
+    @Override
+    public List<Category> findByParentIdEqualsAndIdLessThan(Integer i, Integer j) {
       return repository.findByParentIdEqualsAndIdLessThan(i, j);
     }
 

@@ -1,6 +1,7 @@
 package org.springapp.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -17,13 +18,13 @@ public class Category {
     @Column(name = "catname")
     private String catname;
 
-    @OneToMany(mappedBy = "category", cascade=CascadeType.ALL, orphanRemoval=true)
-    private Set<Product> productSet;
+
+    private Set<Product> productSet = new HashSet<Product>();
 
     public Category() {
     }
 
-
+    @OneToMany(mappedBy = "category", cascade=CascadeType.ALL, orphanRemoval=true)
     public Set<Product> getProductSet() {
         return productSet;
     }

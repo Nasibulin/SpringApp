@@ -1,14 +1,11 @@
 package org.springapp.service;
 
-import org.springapp.entity.Category;
+import org.springapp.entity.Product;
 
 import java.util.List;
 
 public interface ProductService {
-    Category getCategoryById(Integer id);
-
-    List<Category> findByParentIdEquals(int i);
-    List<Category> findAll();
-    List<Category> findByParentIdEqualsAndIdLessThan(int i, int j);
-
+    Product getProductById(Integer id);
+    List<Product> findByIdEquals(Integer i);
+    List<Product> findAll();
 }
