@@ -6,10 +6,21 @@ import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = Category.NamedQuery_GetCatTreeById,
+                procedureName = "cat_tree",
+                resultClasses = Category.class,
+                parameters = {
+                        @StoredProcedureParameter(name = "id", type = Integer.class, mode = ParameterMode.IN),
+                        @StoredProcedureParameter(name = "cat", type = void.class, mode = ParameterMode.REF_CURSOR)
+                }
+        )})
+
 @Entity
 @Table(name = "category", schema = "springapp", catalog = "")
 public class Category {
-
+    public static final String NamedQuery_GetCatTreeById = "GetCatTreeById";
     private int id;
 
     @Column(name = "parent_id")

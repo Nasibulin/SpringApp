@@ -51,4 +51,8 @@ public class CategoryServiceImpl implements CategoryService{
       return repository.findByParentIdEqualsAndIdLessThan(i, j);
     }
 
+    @Override
+    public List<Category> GetCatTreeById(Integer id) {
+        return repository.GetCatTreeById(id);
+    }
 }

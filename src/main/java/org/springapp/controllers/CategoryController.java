@@ -12,6 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.StoredProcedureQuery;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -38,9 +42,12 @@ public class CategoryController {
     public String list(@PageableDefault(size = 8) Pageable pageable, Model model, HttpSession session) {
         List<Category> category = filterAndSort();
         Page<Category> page = repository.findByParentIdEquals(8,pageable);
+        List<Category> cat_tree = service.GetCatTreeById(999);
+
         model.addAttribute("page", page);
         model.addAttribute("categorys", category);
         model.addAttribute("sort", sortDateMethod);
+
 //        @SuppressWarnings("unchecked")
 //        List<String> msgs = (List<String>) session.getAttribute("MY_MESSAGES");
 //
