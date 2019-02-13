@@ -21,6 +21,7 @@ public class CategoryController {
     private CategoryService service;
     private ProductService productService;
     private String sortDateMethod = "ASC";
+
     @Autowired
     private CategoryRepository repository;
 
@@ -38,11 +39,11 @@ public class CategoryController {
     public String list(@PageableDefault(size = 8) Pageable pageable, Model model, HttpSession session) {
         List<Category> category = filterAndSort();
         Page<Category> page = repository.findByParentIdEquals(8,pageable);
-        List<Category> cat_tree = service.GetCatTreeById(999);
-        cat_tree.forEach(System.out::println);
+        //List<Category> catname = repository.findCatnameById(999);
+        repository.findCatnameById(999).forEach(System.out::println);
 
         model.addAttribute("page", page);
-        model.addAttribute("categorys", category);
+        model.addAttribute("categories", category);
         model.addAttribute("sort", sortDateMethod);
 
 //        @SuppressWarnings("unchecked")

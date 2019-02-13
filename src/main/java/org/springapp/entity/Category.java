@@ -6,19 +6,28 @@ import java.util.Set;
 
 @NamedStoredProcedureQueries({
         @NamedStoredProcedureQuery(
-                name = Category.NamedQuery_GetCatTreeById,
+                name = Category.NamedQuery_findCatnameById,
                 procedureName = "cat_tree",
                 resultClasses = Category.class,
                 parameters = {
-                        @StoredProcedureParameter(name = "id", type = Integer.class, mode = ParameterMode.IN),
+                        @StoredProcedureParameter(name = "catid", type = Integer.class, mode = ParameterMode.IN),
                         @StoredProcedureParameter(name = "cat", type = void.class, mode = ParameterMode.REF_CURSOR)
                 }
         )})
 
+@SqlResultSetMapping(
+        name = "findCatnameById",
+        entities = @EntityResult(
+                entityClass = Category.class,
+                fields = {
+                        @FieldResult(name = "id", column = "id"),
+                        @FieldResult(name = "parent_Id", column = "parent_id"),
+                        @FieldResult(name = "catname", column = "catname")}))
+
 @Entity
 @Table(name = "category", schema = "springapp", catalog = "")
 public class Category {
-    public static final String NamedQuery_GetCatTreeById = "GetCatTreeById";
+    public static final String NamedQuery_findCatnameById = "findCatnameById";
     private int id;
 
     @Column(name = "parent_id")

@@ -52,7 +52,7 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public List<Category> GetCatTreeById(Integer id) {
-        return repository.GetCatTreeById(id);
+    public List<Category> findCatnameById(Integer id) {
+        return repository.findCatnameById(id);
     }
 }
