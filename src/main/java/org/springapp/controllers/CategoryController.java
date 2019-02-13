@@ -39,8 +39,11 @@ public class CategoryController {
     public String list(@PageableDefault(size = 8) Pageable pageable, Model model, HttpSession session) {
         List<Category> category = filterAndSort();
         Page<Category> page = repository.findByParentIdEquals(8,pageable);
-        //List<Category> catname = repository.findCatnameById(999);
-        repository.findCatnameById(999).forEach(System.out::println);
+        List<Object[]> catname = service.findCatnameById(999);
+        Object[] a = catname.get(0);
+        Category b = (Category) a[0];
+
+        System.out.println(b);
 
         model.addAttribute("page", page);
         model.addAttribute("categories", category);

@@ -17,5 +17,5 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
     List<Category> findByParentIdEquals(Integer id);
     Page<Category> findByParentIdEquals(Integer i, Pageable pageable);
     @Procedure(name = Category.NamedQuery_findCatnameById)
-    List<Category> findCatnameById(@Param("catid") Integer catId);
+    List<Object[]> findCatnameById(@Param("catid") Integer catId);
 }

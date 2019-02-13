@@ -1,10 +1,11 @@
 package org.springapp.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "product", schema = "springapp", catalog = "")
-public class Product {
+public class Product implements Serializable {
 
     private int id;
 
