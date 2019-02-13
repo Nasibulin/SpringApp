@@ -2,8 +2,6 @@ package org.springapp.entity;
 
 import javax.persistence.*;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 @Entity
 @Table(name = "product", schema = "springapp", catalog = "")
 public class Product {
@@ -52,7 +50,8 @@ public class Product {
     }
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
+    @SequenceGenerator(sequenceName = "product_seq", allocationSize = 1, name = "product_seq")
     @Column(name = "id")
     public int getId() {
         return id;
