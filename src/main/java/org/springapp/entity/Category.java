@@ -1,6 +1,7 @@
 package org.springapp.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,7 +12,7 @@ import java.util.Set;
                         "findCatnameById"
                 },
                 procedureName = "cat_tree",
-                resultClasses = Category.class,
+                //resultClasses = Category.class,
                 parameters = {
                         @StoredProcedureParameter(name = "catid", type = Integer.class, mode = ParameterMode.IN),
                         @StoredProcedureParameter(name = "cat", type = void.class, mode = ParameterMode.REF_CURSOR)
@@ -29,7 +30,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "category", schema = "springapp", catalog = "")
-public class Category {
+public class Category implements Serializable {
     public static final String NamedQuery_findCatnameById = "findCatnameById";
     private int id;
 
