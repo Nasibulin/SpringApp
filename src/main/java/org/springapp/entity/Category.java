@@ -18,11 +18,13 @@ import java.util.Set;
                 resultSetMappings = {
                         "CatnameMapping"
                 },
+                hints = { @QueryHint(name = "callable", value = "true") },
                 procedureName = "cat_tree",
                 //resultClasses = Category.class,
                 parameters = {
-                        @StoredProcedureParameter(name = "catid", type = Integer.class, mode = ParameterMode.IN),
-                        @StoredProcedureParameter(name = "cat", type = void.class, mode = ParameterMode.REF_CURSOR)
+                        @StoredProcedureParameter(name = "cat", type = void.class, mode = ParameterMode.REF_CURSOR),
+                        @StoredProcedureParameter(name = "catid", type = Integer.class, mode = ParameterMode.IN)
+
                 }
         )})
 
