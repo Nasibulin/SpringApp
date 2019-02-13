@@ -40,9 +40,8 @@ public class CategoryController {
     public String list(@PageableDefault(size = 8) Pageable pageable, Model model, HttpSession session) throws SQLException {
         List<Category> category = filterAndSort();
         Page<Category> page = repository.findByParentIdEquals(8,pageable);
-        List<Object[]> catname = service.findCatnameById(999);
-        System.out.println(catname.size());
-        Object[] obj = catname.get(0);
+        List<Category> catname = service.findCatnameById(999);
+        catname.forEach(System.out::println);
 
         model.addAttribute("catname", catname);
         model.addAttribute("page", page);
@@ -112,6 +111,11 @@ public class CategoryController {
 
         category = service.findByParentIdEquals(8);
         return category;
+    }
+
+    private List<Category> findCatnameById(Integer id) {
+        List<Category> categoryList = repository.findCatnameById(id);
+        return categoryList;
     }
 
 }

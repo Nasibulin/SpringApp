@@ -7,13 +7,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Service
 public class CategoryServiceImpl implements CategoryService{
 
     private CategoryRepository repository;
-
+    @PersistenceContext
+    private EntityManager em;
     @Autowired
     public void setProductRepository(CategoryRepository repository) {
         this.repository = repository;
@@ -52,7 +55,7 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public List<Object[]> findCatnameById(Integer id) {
+    public List<Category> findCatnameById(Integer id) {
         return repository.findCatnameById(id);
     }
 }

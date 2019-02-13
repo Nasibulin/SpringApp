@@ -6,38 +6,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-
-
-
 @Entity
 @Table(name = "category", schema = "springapp", catalog = "")
-
-@NamedStoredProcedureQueries({
-        @NamedStoredProcedureQuery(
-                name = Category.NamedQuery_findCatnameById,
-                resultSetMappings = {
-                        "CatnameMapping"
-                },
-                hints = { @QueryHint(name = "callable", value = "true") },
-                procedureName = "cat_tree",
-                //resultClasses = Category.class,
-                parameters = {
-                        @StoredProcedureParameter(name = "cat", type = void.class, mode = ParameterMode.REF_CURSOR),
-                        @StoredProcedureParameter(name = "catid", type = Integer.class, mode = ParameterMode.IN)
-
-                }
-        )})
-
-@SqlResultSetMapping(
-        name = "CatnameMapping",
-        entities = @EntityResult(
-                entityClass = Category.class,
-                fields = {
-                        @FieldResult(name = "id", column = "id"),
-                        @FieldResult(name = "parent_Id", column = "parent_id"),
-                        @FieldResult(name = "catname", column = "catname")}))
+//@NamedQuery(name = Category.NamedQuery_findCatnameById,
+//        query = "SELECT category.id, category.parent_id, catname FROM (SELECT CONNECT_BY_ROOT id AS parent_id, id FROM category WHERE CONNECT_BY_ISLEAF = 1 AND id = 1121 CONNECT BY PRIOR id = parent_id) t1  JOIN category ON t1.parent_id = category.id ORDER BY parent_id")
 public class Category implements Serializable {
-    public static final String NamedQuery_findCatnameById = "findCatnameById";
+//    public static final String NamedQuery_findCatnameById = "findCatnameById";
     private int id;
 
     @Column(name = "parent_id")
