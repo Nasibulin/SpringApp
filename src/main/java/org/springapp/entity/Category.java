@@ -7,6 +7,9 @@ import java.util.Set;
 @NamedStoredProcedureQueries({
         @NamedStoredProcedureQuery(
                 name = Category.NamedQuery_findCatnameById,
+                resultSetMappings = {
+                        "findCatnameById"
+                },
                 procedureName = "cat_tree",
                 resultClasses = Category.class,
                 parameters = {
