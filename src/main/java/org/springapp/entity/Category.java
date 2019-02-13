@@ -5,11 +5,18 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+
+
+
+
+@Entity
+@Table(name = "category", schema = "springapp", catalog = "")
+
 @NamedStoredProcedureQueries({
         @NamedStoredProcedureQuery(
                 name = Category.NamedQuery_findCatnameById,
                 resultSetMappings = {
-                        "findCatnameById"
+                        "CatnameMapping"
                 },
                 procedureName = "cat_tree",
                 //resultClasses = Category.class,
@@ -20,16 +27,13 @@ import java.util.Set;
         )})
 
 @SqlResultSetMapping(
-        name = "findCatnameById",
+        name = "CatnameMapping",
         entities = @EntityResult(
                 entityClass = Category.class,
                 fields = {
                         @FieldResult(name = "id", column = "id"),
                         @FieldResult(name = "parent_Id", column = "parent_id"),
                         @FieldResult(name = "catname", column = "catname")}))
-
-@Entity
-@Table(name = "category", schema = "springapp", catalog = "")
 public class Category implements Serializable {
     public static final String NamedQuery_findCatnameById = "findCatnameById";
     private int id;
@@ -89,6 +93,15 @@ public class Category implements Serializable {
 
     public void setCatname(String catname) {
         this.catname = catname;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", parentId=" + parentId +
+                ", catname='" + catname + '\'' +
+                '}';
     }
 
 }
