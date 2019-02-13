@@ -4,8 +4,6 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 @NamedStoredProcedureQueries({
         @NamedStoredProcedureQuery(
                 name = Category.NamedQuery_GetCatTreeById,
@@ -53,7 +51,8 @@ public class Category {
         this.catname=catname;
     }
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_seq")
+    @SequenceGenerator(sequenceName = "category_seq", allocationSize = 1, name = "category_seq")
     @Column(name = "id")
     public int getId() {
         return id;
