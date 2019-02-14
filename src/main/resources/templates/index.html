@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head"></head>
-<style>
-    table{width:100%;}
-    table td, table th { border: 1px solid grey;}
-    table th { background: #eee;}
-    .pagination-div{user-select: none;}
-    .pagination-div span{border-radius:3px;border:1px solid #999;
-    padding:5px;margin:10px 0px 0px 10px;display:inline-block}
-    span.selected{background:#ccf;}
-</style>
+<head th:replace="fragments/head :: head">
+</head>
 <body>
 <div class="container">
     <div th:replace="fragments/header :: header"></div>
@@ -19,19 +11,17 @@
     </div>
     <div th:replace="fragments/footer :: footer"></div>
 </div>
-<div class="pagination-div">
-    <span th:if="${page.hasPrevious()}">
-        <a th:href="@{/(page=${page.number-1},size=${page.size})}">Previous</a>
-    </span>
-    <th:block th:each="i: ${#numbers.sequence(0, page.totalPages - 1)}">
-        <span th:if="${page.number == i}" class="selected">[[${i}+1]]</span>
-        <span th:unless="${page.number == i}">
+<nav class="text-center">
+    <ul class="pagination">
+<!-- 	  <li> <a th:href="@{/(page=${page.number-1},size=${page.size})}" aria-label="Previous"><span th:if="${page.hasPrevious()}" aria-hidden="true" > &laquo;</span></a> </li>  -->
+    <th:block th:each="i: ${#numbers.sequence(0, page.totalPages - 1)}">      
+	  <li class="active"><span th:if="${page.number == i}" class="active">[[${i}+1]]</span></li>
+      <li><span th:unless="${page.number == i}">
              <a th:href="@{/(page=${i},size=${page.size})}">[[${i}+1]]</a>
-        </span>
+        </span></li>
     </th:block>
-    <span th:if="${page.hasNext()}">
-        <a th:href="@{/(page=${page.number+1},size=${page.size})}">Next</a>
-    </span>
-</div>
+<!--       <li> <a th:href="@{/(page=${page.number+1},size=${page.size})}" aria-label="Next"> <span th:if="${page.hasNext()}" aria-hidden="true">&raquo;</span> </a> </li> -->
+	</ul>
+</nav>
 </body>
 </html>
