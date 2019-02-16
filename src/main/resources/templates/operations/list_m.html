@@ -1,20 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>OneTech</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="OneTech shop project">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-<link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<!--suppress ALL -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
-</head>
+<!-- <div th:fragment="category">
+    <table class="table table-bordered table-hover horizontal-align">
+        <thead>
+        <tr>
+            <th style="width: 5%">#</th>
+            <th style="width: 60%">Category</th>
+            <th style="width: 5%">Qty</th>
+            <th style="width: 5%">Add to cart</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category : ${page.content}">
+            <td th:text="${category.id}" style="text-align: center">#</td>
+            <td th:text="${category.catname}">Category</td>
+            <div class="form-group">
+			<td style="text-align: center">
+                <input type="number" class="form-control form-control-sm" id="amount" th:name="amount" th:value="1" min="0" maxlength="20"/>
+            </td>
+            <td style="text-align: center"><button type="submit" class="btn btn-primary btn-sm">Add to cart</button></td>
+			</div>
+        </tr>
+        </tbody>
+    </table>
+</div> -->
 
-<body>
 
+<div th:fragment="catalog">
 <div class="super_container">
 	
 	<!-- Header -->
@@ -333,9 +348,5 @@
 			</div>
 		</div>
 	</div>
-
-
-
-</body>
-
+</div>
 </html>

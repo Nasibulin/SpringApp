@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head">
+<head th:replace="fragments/head_m :: head">
 </head>
 <body>
 <div class="container">
-    <div th:replace="fragments/header :: header"></div>
-    <div th:if="${not #lists.isEmpty(categories)}">
-        <div th:replace="operations/list :: category"></div>
-    </div>
-    <div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/header_m :: header"></div>
+<!--     <div th:if="${not #lists.isEmpty(categories)}">
+        <div th:replace="operations/list_m :: category"></div>
+    </div> -->
+	
+    <div th:replace="operations/list_m :: catalog"></div>
+    <div th:replace="fragments/footer_m :: footer"></div>
 </div>
 </body>
 </html>
