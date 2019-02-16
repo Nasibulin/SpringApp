@@ -176,7 +176,10 @@
 							<!-- Main Nav Menu -->
 
 							<div class="main_nav_menu ml-auto">
-								<ul class="standard_dropdown main_nav_dropdown">
+							                <ul th:each="cat : ${catname}">
+                    <li><a href="#" th:href="@{'/catalog/{id}'(id=${cat.parentId})}" th:text="${cat.catname}"></a></li>
+                </ul>
+<!-- 								<ul class="standard_dropdown main_nav_dropdown">
 									<li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
 									<li class="hassubs">
 										<a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
@@ -224,7 +227,7 @@
 									</li>
 									<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
-								</ul>
+								</ul> -->
 							</div>
 
 							<!-- Menu Trigger -->
