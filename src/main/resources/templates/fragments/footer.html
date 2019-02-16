@@ -3,7 +3,16 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <div th:fragment="footer">
-
+<nav class="text-center">
+    <ul class="pagination">
+    <th:block th:each="i: ${#numbers.sequence(0, page.totalPages - 1)}">      
+	  <li class="active"><span th:if="${page.number == i}" class="active">[[${i}+1]]</span></li>
+      <li><span th:unless="${page.number == i}">
+             <a th:href="@{/(page=${i},size=${page.size})}">[[${i}+1]]</a>
+        </span></li>
+    </th:block>
+	</ul>
+</nav>
     <script src="../static/js/jquery-2.1.4_min.js" th:src="@{/js/jquery-2.1.4_min.js}"></script>
     <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
 </div>

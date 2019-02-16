@@ -22,6 +22,7 @@ public class CategoryController {
     private CategoryService service;
     private ProductService productService;
     private String sortDateMethod = "ASC";
+    private static final int pageableDefault = 20;
 
     @Autowired
     private CategoryRepository repository;
@@ -37,9 +38,9 @@ public class CategoryController {
     }
 
     @GetMapping("/")
-    public String list(@PageableDefault(size = 8) Pageable pageable, Model model, HttpSession session) throws SQLException {
+    public String list(@PageableDefault(size = pageableDefault) Pageable pageable, Model model, HttpSession session) throws SQLException {
         List<Category> category = filterAndSort();
-        Page<Category> page = repository.findByParentIdEquals(8,pageable);
+        Page<Category> page = repository.findByParentIdEquals(pageableDefault,pageable);
         List<Category> catname = service.findCatnameById(1121);
 
         model.addAttribute("catname", catname);

@@ -7,21 +7,9 @@
 <div class="container">
     <div th:replace="fragments/header :: header"></div>
     <div th:if="${not #lists.isEmpty(categories)}">
-        <div th:replace="operations/list :: notebook"></div>
+        <div th:replace="operations/list :: category"></div>
     </div>
     <div th:replace="fragments/footer :: footer"></div>
 </div>
-<nav class="text-center">
-    <ul class="pagination">
-<!-- 	  <li> <a th:href="@{/(page=${page.number-1},size=${page.size})}" aria-label="Previous"><span th:if="${page.hasPrevious()}" aria-hidden="true" > &laquo;</span></a> </li>  -->
-    <th:block th:each="i: ${#numbers.sequence(0, page.totalPages - 1)}">      
-	  <li class="active"><span th:if="${page.number == i}" class="active">[[${i}+1]]</span></li>
-      <li><span th:unless="${page.number == i}">
-             <a th:href="@{/(page=${i},size=${page.size})}">[[${i}+1]]</a>
-        </span></li>
-    </th:block>
-<!--       <li> <a th:href="@{/(page=${page.number+1},size=${page.size})}" aria-label="Next"> <span th:if="${page.hasNext()}" aria-hidden="true">&raquo;</span> </a> </li> -->
-	</ul>
-</nav>
 </body>
 </html>
