@@ -58,4 +58,10 @@ public class CategoryServiceImpl implements CategoryService{
     public List<Category> findCatnameById(Integer id) {
         return repository.findCatnameById(id);
     }
+
+    @Override
+    public List<Category> findCatnameByLevel(Integer level) {
+        return repository.findCatnameByLevel(level);
+    }
+
 }

@@ -81,12 +81,13 @@
 												<span class="custom_dropdown_placeholder clc">All Categories</span>
 												<i class="fas fa-chevron-down"></i>
 												<ul class="custom_list clc">
-													<li><a class="clc" href="#">All Categories</a></li>
+													<li><a class="clc" href="#" th:each="menu : ${topmenu}"><a href="#" th:href="@{'/catalog/{id}'(id=${menu.parentId})}" th:text="${menu.catname}"></a></li>
+<!-- 													<li><a class="clc" href="#">All Categories</a></li>
 													<li><a class="clc" href="#">Computers</a></li>
 													<li><a class="clc" href="#">Laptops</a></li>
 													<li><a class="clc" href="#">Cameras</a></li>
 													<li><a class="clc" href="#">Hardware</a></li>
-													<li><a class="clc" href="#">Smartphones</a></li>
+													<li><a class="clc" href="#">Smartphones</a></li> -->
 												</ul>
 											</div>
 										</div>
@@ -145,8 +146,11 @@
 								</div>
 
 								<ul class="cat_menu">
-									<li><a href="#">Computers & Laptops <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
+									<li th:each="menu : ${topmenu}"><a href="#" th:href="@{'/catalog/{id}'(id=${menu.parentId})}" th:text="${menu.catname}"><i class="fas fa-chevron-right ml-auto"></i></a></li>
+								</ul>
+<!-- 								<ul class="cat_menu" th:each="menu : ${topmenu}">
+									<li><a href="#" th:href="@{'/catalog/{id}'(id=${menu.parentId})}" th:text="${menu.catname}"><i class="fas fa-chevron-right ml-auto"></i></a></li>
+ 									<li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
 									<li class="hassubs">
 										<a href="#">Hardware<i class="fas fa-chevron-right"></i></a>
 										<ul>
@@ -169,14 +173,14 @@
 									<li><a href="#">Gadgets<i class="fas fa-chevron-right"></i></a></li>
 									<li><a href="#">Car Electronics<i class="fas fa-chevron-right"></i></a></li>
 									<li><a href="#">Video Games & Consoles<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li>
-								</ul>
+									<li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li> -->
+								</ul> -->
 							</div>
 
 							<!-- Main Nav Menu -->
 
 							<div class="main_nav_menu ml-auto">
-							                <ul th:each="cat : ${catname}">
+							                <ul class="nav navbar-nav" th:each="cat : ${catname}">
                     <li><a href="#" th:href="@{'/catalog/{id}'(id=${cat.parentId})}" th:text="${cat.catname}"></a></li>
                 </ul>
 <!-- 								<ul class="standard_dropdown main_nav_dropdown">

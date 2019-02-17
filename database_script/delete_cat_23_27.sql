@@ -1,0 +1,1 @@
+delete from category where length(catname) < 27 and length(catname) > 23

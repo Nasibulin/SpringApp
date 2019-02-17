@@ -20,4 +20,7 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
     Page<Category> findByParentIdEquals(Integer i, Pageable pageable);
     @Query(value = "SELECT category.id, category.parent_id, catname FROM (SELECT CONNECT_BY_ROOT id AS parent_id, id FROM category WHERE CONNECT_BY_ISLEAF = 1 AND id = :catid CONNECT BY PRIOR id = parent_id) t1  JOIN category ON t1.parent_id = category.id ORDER BY parent_id", nativeQuery = true)
     List<Category> findCatnameById(@Param("catid") Integer catId);
+    @Query(value = "SELECT id, parent_id, catname FROM category WHERE LEVEL = :level CONNECT BY PRIOR id = parent_id START WITH   id = -1", nativeQuery = true)
+    List<Category> findCatnameByLevel(@Param("level") Integer level);
+
 }

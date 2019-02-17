@@ -41,9 +41,11 @@ public class CategoryController {
     public String list(@PageableDefault(size = pageableDefault) Pageable pageable, Model model, HttpSession session) throws SQLException {
         List<Category> category = filterAndSort();
         Page<Category> page = repository.findByParentIdEquals(pageableDefault,pageable);
-        List<Category> catname = service.findCatnameById(1121);
+        //List<Category> catname = service.findCatnameById(1121);
+        List<Category> topmenu = service.findCatnameByLevel(2);
 
-        model.addAttribute("catname", catname);
+        model.addAttribute("topmenu", topmenu);
+        //model.addAttribute("catname", catname);
         model.addAttribute("page", page);
         model.addAttribute("categories", category);
         model.addAttribute("sort", sortDateMethod);
