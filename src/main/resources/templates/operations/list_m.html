@@ -81,7 +81,7 @@
 												<span class="custom_dropdown_placeholder clc">All Categories</span>
 												<i class="fas fa-chevron-down"></i>
 												<ul class="custom_list clc">
-													<li><a class="clc" href="#" th:each="menu : ${topmenu}"><a href="#" th:href="@{'/catalog/{id}'(id=${menu.parentId})}" th:text="${menu.catname}"></a></li>
+													<li><a class="clc" href="#" th:each="menu : ${topmenu}"><a href="#" th:href="@{'/catalog/{id}'(id=${menu.id})}" th:text="${menu.catname}"></a></li>
 <!-- 													<li><a class="clc" href="#">All Categories</a></li>
 													<li><a class="clc" href="#">Computers</a></li>
 													<li><a class="clc" href="#">Laptops</a></li>
@@ -146,11 +146,19 @@
 								</div>
 
 								<ul class="cat_menu">
-									<li th:each="menu : ${topmenu}"><a href="#" th:href="@{'/catalog/{id}'(id=${menu.parentId})}" th:text="${menu.catname}"><i class="fas fa-chevron-right ml-auto"></i></a></li>
+									
+									<li class="hassubs" th:each="menu : ${topmenu}" >
+										<a href="#" th:text="${menu.catname}"><i class="fas fa-chevron-right">...</i></a>
+										<ul>
+											<li th:each="submenu : ${submenu}" th:if="${menu.id} == ${submenu.parentId}"><a href="#" th:href="@{'/catalog/{id}'(id=${submenu.id})}" th:text="${submenu.catname}"><i class="fas fa-chevron-right"></i></a></li>
+										</ul>
+									</li>
+					
+
 								</ul>
-<!-- 								<ul class="cat_menu" th:each="menu : ${topmenu}">
-									<li><a href="#" th:href="@{'/catalog/{id}'(id=${menu.parentId})}" th:text="${menu.catname}"><i class="fas fa-chevron-right ml-auto"></i></a></li>
- 									<li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
+<!--								<ul class="cat_menu">
+									<li><a href="#">Computers & Laptops <i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
 									<li class="hassubs">
 										<a href="#">Hardware<i class="fas fa-chevron-right"></i></a>
 										<ul>
@@ -174,7 +182,7 @@
 									<li><a href="#">Car Electronics<i class="fas fa-chevron-right"></i></a></li>
 									<li><a href="#">Video Games & Consoles<i class="fas fa-chevron-right"></i></a></li>
 									<li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li> -->
-								</ul> -->
+								</ul>
 							</div>
 
 							<!-- Main Nav Menu -->

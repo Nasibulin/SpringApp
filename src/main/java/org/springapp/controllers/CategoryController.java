@@ -43,8 +43,10 @@ public class CategoryController {
         Page<Category> page = repository.findByParentIdEquals(pageableDefault,pageable);
         //List<Category> catname = service.findCatnameById(1121);
         List<Category> topmenu = service.findCatnameByLevel(2);
+        List<Category> submenu = service.findCatnameByLevel(3);
 
         model.addAttribute("topmenu", topmenu);
+        model.addAttribute("submenu", submenu);
         //model.addAttribute("catname", catname);
         model.addAttribute("page", page);
         model.addAttribute("categories", category);
