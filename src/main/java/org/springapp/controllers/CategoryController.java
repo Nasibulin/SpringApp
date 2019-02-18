@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 import java.util.List;
 
 @Controller
@@ -38,16 +37,16 @@ public class CategoryController {
     }
 
     @GetMapping("/")
-    public String list(@PageableDefault(size = pageableDefault) Pageable pageable, Model model, HttpSession session) throws SQLException {
+    public String list(@PageableDefault(size = pageableDefault) Pageable pageable, Model model, HttpSession session) {
         List<Category> category = filterAndSort();
         Page<Category> page = repository.findByParentIdEquals(pageableDefault,pageable);
-        //List<Category> catname = service.findCatnameById(1121);
+        List<Category> catname = service.findCatnameById(733);
         List<Category> topmenu = service.findCatnameByLevel(2);
         List<Category> submenu = service.findCatnameByLevel(3);
 
         model.addAttribute("topmenu", topmenu);
         model.addAttribute("submenu", submenu);
-        //model.addAttribute("catname", catname);
+        model.addAttribute("catname", catname);
         model.addAttribute("page", page);
         model.addAttribute("categories", category);
         model.addAttribute("sort", sortDateMethod);
@@ -113,7 +112,7 @@ public class CategoryController {
 //        category = service.findByIdEquals(
 //                productService.getProductById(1024).getCategory().getId());
 
-        category = service.findByParentIdEquals(8);
+        category = service.findByParentIdEquals(290);
         return category;
     }
 

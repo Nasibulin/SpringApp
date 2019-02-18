@@ -156,41 +156,20 @@
 					
 
 								</ul>
-<!--								<ul class="cat_menu">
-									<li><a href="#">Computers & Laptops <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
-									<li class="hassubs">
-										<a href="#">Hardware<i class="fas fa-chevron-right"></i></a>
-										<ul>
-											<li class="hassubs">
-												<a href="#">Menu Item<i class="fas fa-chevron-right"></i></a>
-												<ul>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-												</ul>
-											</li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-										</ul>
-									</li>
-									<li><a href="#">Smartphones & Tablets<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">TV & Audio<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Gadgets<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Car Electronics<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Video Games & Consoles<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li> -->
-								</ul>
 							</div>
 
 							<!-- Main Nav Menu -->
 
-							<div class="main_nav_menu ml-auto">
-							                <ul class="nav navbar-nav" th:each="cat : ${catname}">
-                    <li><a href="#" th:href="@{'/catalog/{id}'(id=${cat.parentId})}" th:text="${cat.catname}"></a></li>
-                </ul>
+							<div class="nav d-flex flex-row align-items-center justify-content-right">
+
+
+								<li class="nav" th:each="cat : ${catname}">
+								<a href="#">
+								<span th:href="@{'/catalog/{id}'(id=${cat.id})}" th:text="${cat.catname}"></span>
+								<i class="fas fa-chevron-right"></i>
+								</a>
+								</li>
+
 <!-- 								<ul class="standard_dropdown main_nav_dropdown">
 									<li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
 									<li class="hassubs">
@@ -445,27 +424,4 @@
 	</div>
 </div>
 </div>
-	<div class="copyright">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					
-					<div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
-						<div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</div>
-						<div class="logos ml-sm-auto">
-							<ul class="logos_list">
-								<li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
-								<li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
-								<li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
-								<li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </html>
