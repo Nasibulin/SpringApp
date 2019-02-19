@@ -7,7 +7,7 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "CATEGORIES", schema = "SPRINGAPP", catalog = "")
+@Table(name = "categories", schema = "springapp", catalog = "")
 //@NamedQuery(name = Category.NamedQuery_findCatnameById,
 //        query = "SELECT category.id, category.parent_id, catname FROM (SELECT CONNECT_BY_ROOT id AS parent_id, id FROM category WHERE CONNECT_BY_ISLEAF = 1 AND id = 1121 CONNECT BY PRIOR id = parent_id) t1  JOIN category ON t1.parent_id = category.id ORDER BY parent_id")
 public class Category implements Serializable {
@@ -21,12 +21,12 @@ public class Category implements Serializable {
     private String catname;
 
 
-    private Set<Product> productSet = new HashSet<Product>();
+    private Set<Product> productSet;
 
     public Category() {
     }
 
-    @OneToMany(mappedBy = "CATEGORIES", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "category", cascade=CascadeType.ALL, orphanRemoval=true)
     public Set<Product> getProductSet() {
         return productSet;
     }
@@ -44,8 +44,8 @@ public class Category implements Serializable {
         this.catname=catname;
     }
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CATEGORIES_ID_SEQ")
-    @SequenceGenerator(sequenceName = "CATEGORIES_ID_SEQ", allocationSize = 1, name = "CATEGORIES_ID_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "categories_id_seq")
+    @SequenceGenerator(sequenceName = "categories_id_seq", allocationSize = 1, name = "categories_id_seq")
     @Column(name = "id")
     public int getId() {
         return id;
