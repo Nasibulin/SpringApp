@@ -86,7 +86,7 @@
 <ownDataTypeParameters>,19,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="CATEGORY_ID" id="69763F18-0E6A-1825-8441-8E54C29E3B47">
+<Column name="CATEGORIES_ID" id="69763F18-0E6A-1825-8441-8E54C29E3B47">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>PRODUCTS</sourceObjSchema>
 <sourceObjName>CATEGORY_ID</sourceObjName>
@@ -132,7 +132,7 @@
 <colUsage columnID="40151B5B-FDBE-D680-F7ED-4FE980C41037"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="A4B8E3FD-1ACA-D309-8E0A-B859E79EA3BE" name="PRODUCTS_CATEGORY_FK">
+<ind_PK_UK id="A4B8E3FD-1ACA-D309-8E0A-B859E79EA3BE" name="PRODUCTS_CATEGORIES_FK">
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-19 10:08:06 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>

@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="74C7A082-24CC-3BB2-BB53-6AA01A60DB9F" containerWithKeyObject="A6E8C545-2D16-7932-A1C4-5B50C9261B64" localFKIndex="C80C706F-D068-1855-C422-975E4121897B" name="CATEGORY_CATEGORY_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="74C7A082-24CC-3BB2-BB53-6AA01A60DB9F" containerWithKeyObject="A6E8C545-2D16-7932-A1C4-5B50C9261B64" localFKIndex="C80C706F-D068-1855-C422-975E4121897B" name="CATEGORIES_CATEGORIES_FK">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>SPRINGAPP</sourceObjSchema>
 <sourceObjName>CATEGORY_CATEGORY_FK</sourceObjName>

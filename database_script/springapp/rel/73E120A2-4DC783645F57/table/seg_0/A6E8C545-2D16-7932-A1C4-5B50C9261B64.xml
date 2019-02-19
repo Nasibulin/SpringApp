@@ -61,7 +61,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="C2E245EC-6A3B-D8C4-18FF-0F5E107167A6" name="CATEGORY_PK">
+<ind_PK_UK id="C2E245EC-6A3B-D8C4-18FF-0F5E107167A6" name="CATEGORIES_PK">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>springapp</sourceObjSchema>
 <sourceObjName>CATEGORY_PK</sourceObjName>
@@ -75,7 +75,7 @@
 <colUsage columnID="2D74F966-1AB3-9F59-944B-D67DBFDCD639"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="ADBA8386-BA11-BFE7-A325-FA1AF688DCD0" name="CATEGORY__IDX">
+<ind_PK_UK id="ADBA8386-BA11-BFE7-A325-FA1AF688DCD0" name="CATEGORIES__IDXv1">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>springapp</sourceObjSchema>
 <sourceObjName>CATEGORY__IDX</sourceObjName>
@@ -100,7 +100,7 @@
 <colUsage columnID="CFC616CF-584D-7D98-BF90-E13A5C77078C"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C80C706F-D068-1855-C422-975E4121897B" name="CATEGORY_CATEGORY_FK">
+<ind_PK_UK id="C80C706F-D068-1855-C422-975E4121897B" name="CATEGORIES_CATEGORIES_FK">
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-19 10:06:21 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>

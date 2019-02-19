@@ -1,0 +1,21 @@
+
+Connected to: Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+
+Export file created by EXPORT:V11.02.00 via conventional path
+import done in CL8MSWIN1251 character set and AL16UTF16 NCHAR character set
+import server uses AL32UTF8 character set (possible charset conversion)
+. importing SYS's objects into SYS
+. importing SPRINGAPP's objects into SPRINGAPP
+. . importing table                     "CATEGORY"
+                                                          102 rows imported
+. . importing table                      "PRODUCT"
+.
+                                                         1150 rows imported
+. . importing table               "SPRING_SESSION"
+                                                            1 rows imported
+. . importing table    "SPRING_SESSION_ATTRIBUTES"
+                                                            0 rows imported
+. . importing table                         "TEST"
+                                                           47 rows imported
+About to enable constraints...
+Import terminated successfully without warnings.
