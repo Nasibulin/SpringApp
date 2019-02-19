@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "product", schema = "springapp", catalog = "")
+@Table(name = "products", schema = "springapp", catalog = "")
 public class Product implements Serializable {
 
     private int id;
@@ -51,8 +51,8 @@ public class Product implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
-    @SequenceGenerator(sequenceName = "product_seq", allocationSize = 1, name = "product_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "products_id_seq")
+    @SequenceGenerator(sequenceName = "products_id_seq", allocationSize = 1, name = "products_id_seq")
     @Column(name = "id")
     public int getId() {
         return id;
