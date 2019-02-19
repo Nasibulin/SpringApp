@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="SPRING_SESSION" directorySegmentName="seg_0" id="0F29A07D-4EF1-857A-D599-C4456A582B14">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>65DA4CD4-3D1E-9B86-26E6-757E1A1E02B0</segment>
+<tableSpace>46AF7C38-9B24-BF04-7FB6-92DF7EB13B5A</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="SESSION_ID" id="3BF1066A-525B-9BE5-C940-8C68EB97CB93">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EXPIRY_TIME" id="545A37E9-F227-C360-F957-A3BFC3A41580">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAX_INACTIVE_INTERVAL" id="5BB19E4C-45D9-8289-D099-86288DCFCB3C">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRINCIPAL_NAME" id="71501A4E-6E85-781F-BF3E-F99339CF5C6F">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATION_TIME" id="82C19786-1E0A-1755-0112-439F9CC08B2B">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LAST_ACCESS_TIME" id="C414B887-F623-AEDD-3465-E15638F3067F">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRIMARY_ID" id="E66BDA50-19D0-7200-38DB-7466C8D005D3">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPRING_SESSION_IX3" id="1DE4B171-C34E-BBA2-EC94-F1EB333AF994">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>5CF08C36-D3EC-6743-3BFF-2FE8784505B4</segment>
+<tableSpace>46AF7C38-9B24-BF04-7FB6-92DF7EB13B5A</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPRING_SESSION_IX2" id="4A5AD882-F9FE-0D36-1B5E-025DFC831951">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>5CF08C36-D3EC-6743-3BFF-2FE8784505B4</segment>
+<tableSpace>46AF7C38-9B24-BF04-7FB6-92DF7EB13B5A</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPRING_SESSION_IX1" id="6CEB9010-00DB-9E9A-0206-E92623DC0566">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>5CF08C36-D3EC-6743-3BFF-2FE8784505B4</segment>
+<tableSpace>46AF7C38-9B24-BF04-7FB6-92DF7EB13B5A</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPRING_SESSION_PK" id="9DA51790-5DD1-48C7-CA27-DBF4783F82A7">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>5CF08C36-D3EC-6743-3BFF-2FE8784505B4</segment>
+<tableSpace>46AF7C38-9B24-BF04-7FB6-92DF7EB13B5A</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="SPRING_SESSION_PK" id="B7EDBB6D-4129-4D9D-07C6-B4EC99486F23">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<segment>5CF08C36-D3EC-6743-3BFF-2FE8784505B4</segment>
+<tableSpace>46AF7C38-9B24-BF04-7FB6-92DF7EB13B5A</tableSpace>
+<existingIndex>9DA51790-5DD1-48C7-CA27-DBF4783F82A7</existingIndex>
+<indexSegment>5CF08C36-D3EC-6743-3BFF-2FE8784505B4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

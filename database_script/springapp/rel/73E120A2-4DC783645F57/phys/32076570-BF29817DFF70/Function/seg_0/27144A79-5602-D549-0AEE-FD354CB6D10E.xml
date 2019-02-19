@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="CAT_TREE2" directorySegmentName="seg_0" id="27144A79-5602-D549-0AEE-FD354CB6D10E">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>CAT_TREE2</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<source>CREATE OR REPLACE FUNCTION           CAT_TREE2 (catid IN NUMBER)&lt;br/&gt;   RETURN SYS_REFCURSOR&lt;br/&gt;IS&lt;br/&gt;   cattree   SYS_REFCURSOR;&lt;br/&gt;BEGIN&lt;br/&gt;   OPEN cattree FOR&lt;br/&gt;        SELECT   category.id as &quot;id&quot;, category.parent_id as &quot;parent_id&quot;, catname as &quot;catname&quot;&lt;br/&gt;          FROM      category&lt;br/&gt;                 JOIN&lt;br/&gt;                    (    SELECT   CONNECT_BY_ROOT id AS parent_id, id&lt;br/&gt;                           FROM   category&lt;br/&gt;                          WHERE   CONNECT_BY_ISLEAF = 1 AND id = catid&lt;br/&gt;                     CONNECT BY   PRIOR id = parent_id) t1&lt;br/&gt;                 ON t1.parent_id = category.id&lt;br/&gt;      ORDER BY   category.parent_id;&lt;br/&gt;&lt;br/&gt;   RETURN cattree;&lt;br/&gt;END;</source>
+</FunctionOracle>

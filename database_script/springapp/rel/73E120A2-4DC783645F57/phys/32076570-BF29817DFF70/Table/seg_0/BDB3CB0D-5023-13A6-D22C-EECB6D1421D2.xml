@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="PRODUCTS" directorySegmentName="seg_0" id="BDB3CB0D-5023-13A6-D22C-EECB6D1421D2">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>65DA4CD4-3D1E-9B86-26E6-757E1A1E02B0</segment>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ID" id="40151B5B-FDBE-D680-F7ED-4FE980C41037">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DESCRIPTION" id="5F554188-C89E-9AA1-E9B4-088EF3E4C649">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CATEGORY_ID" id="69763F18-0E6A-1825-8441-8E54C29E3B47">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:08:06 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRICE" id="98346C81-36FB-A047-1458-31375A02F378">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PART_NUMBER" id="A55C52AC-2212-D4D2-11E2-F4703BE5778A">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SERVICE" id="C666F1D4-4B67-EE80-7123-F75501B84635">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PRODUCTS__IDX" id="ED2CDD4A-A9C5-183D-5EF2-556F96F25582">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:52:32 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<tableSpace>B55B7EE8-FDF1-5731-E593-004D52924F57</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="PRODUCTS_CATEGORY_FK" id="A4B8E3FD-1ACA-D309-8E0A-B859E79EA3BE">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:08:06 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PRODUCTS_PK" id="5AC67F48-A09E-B7E3-9EC3-A2E31AB54C7F">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:52:16 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

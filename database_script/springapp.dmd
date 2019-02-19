@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="springapp" id="A3330C53-5AA9-B56B-7DD4-B97F7AFAF101" version="3.5">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:15:24 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>A3330C53-5AA9-B56B-7DD4-B97F7AFAF101</designId>
+</OSDM_Design>
