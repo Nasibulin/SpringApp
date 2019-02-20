@@ -160,41 +160,44 @@
 		</nav>
 		
 		<!-- Menu -->
+		<div class="container">
+			<table class="table table-bordered table-hover horizontal-align">
+				<thead>
+				<tr>
+					<th style="width: 15%">#PartNumber</th>
+					<th style="width: 45%">Product</th>
+					<th style="width: 15%">Price</th>
+					<th style="width: 10%">Qty</th>
+					<th style="width: 5%">Add to cart</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="product : ${products}">
+					<td th:text="${product.partNumber}">#</td>
+					<td th:text="${product.description}">Product</td>
+					<td th:text="${product.price}">Price</td>
+					<div class="form-group">
+					<td style="text-align: center">
+						<input type="number" class="form-control form-control-sm" id="amount" th:name="amount" th:value="1" min="0" maxlength="20"/>
+					</td>
+					<td style="text-align: center"><button type="submit" class="btn btn-primary btn-sm">Add to cart</button></td>
+					</div>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+
 
 	</header>
 	
 	<!-- Banner -->
 
 	<!-- Characteristics -->
-<div class="container">
-    <table class="table table-bordered table-hover horizontal-align">
-        <thead>
-        <tr>
-            <th style="width: 15%">#PartNumber</th>
-            <th style="width: 45%">Product</th>
-            <th style="width: 15%">Price</th>
-            <th style="width: 10%">Qty</th>
-            <th style="width: 5%">Add to cart</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="product : ${products}">
-            <td th:text="${product.partNumber}">#</td>
-            <td th:text="${product.description}">Product</td>
-            <td th:text="${product.price}">Price</td>
-            <div class="form-group">
-			<td style="text-align: center">
-                <input type="number" class="form-control form-control-sm" id="amount" th:name="amount" th:value="1" min="0" maxlength="20"/>
-            </td>
-            <td style="text-align: center"><button type="submit" class="btn btn-primary btn-sm">Add to cart</button></td>
-			</div>
-        </tr>
-        </tbody>
-</div>
-</div>
-
 
 </div>
 </div>
+
 </body>
 </html>
