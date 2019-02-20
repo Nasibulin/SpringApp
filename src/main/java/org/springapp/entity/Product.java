@@ -26,15 +26,16 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(String partNumber, String description, String service, double price) {
+    public Product(String partNumber, String description, String service, double price, Category category) {
         this.partNumber = partNumber;
         this.description = description;
         this.service = service;
         this.price = price;
+        this.category = category;
     }
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "categories_id")
     public Category getCategory() {
         return category;
     }
@@ -88,4 +89,14 @@ public class Product implements Serializable {
         this.service = service;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", partNumber='" + partNumber + '\'' +
+                ", description='" + description + '\'' +
+                ", service='" + service + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

@@ -1,5 +1,6 @@
 package org.springapp.service;
 
+import org.springapp.entity.Category;
 import org.springapp.entity.Product;
 import org.springapp.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,9 @@ public class ProductServiceImpl implements ProductService {
         return repository.findAll();
     }
 
+    @Override
+    public List<Product> findByCategory(Category category) {
+        return repository.findByCategory(category);
+    }
 
 }

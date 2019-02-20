@@ -45,7 +45,7 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public List<Category> findByIdEquals(Integer id) {
+    public Category findByIdEquals(Integer id) {
         return repository.findByIdEquals(id);
     }
 

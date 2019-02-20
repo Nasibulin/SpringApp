@@ -1,6 +1,7 @@
 package org.springapp.controllers;
 
 import org.springapp.entity.Category;
+import org.springapp.entity.Product;
 import org.springapp.repository.CategoryRepository;
 import org.springapp.service.CategoryService;
 import org.springapp.service.ProductService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -42,6 +44,23 @@ public class CategoryController {
         model.addAttribute("topmenu", topmenu);
         model.addAttribute("submenu", submenu);
         model.addAttribute("catname", catname);
+
+        return "index";
+    }
+
+    @GetMapping("/catalog/{id}")
+    public String list(@PathVariable Integer id, Model model) {
+
+        List<Category> catname = service.findCatPathById(id);
+        List<Category> topmenu = service.findCatnameByLevel(2);
+        List<Category> submenu = service.findCatnameByLevel(3);
+        Category category = repository.findByIdEquals(id);
+        List<Product> products = productService.findByCategory(category);
+
+        model.addAttribute("topmenu", topmenu);
+        model.addAttribute("submenu", submenu);
+        model.addAttribute("catname", catname);
+        model.addAttribute("products", products);
 
         return "index";
     }
