@@ -5,14 +5,10 @@ import org.springapp.repository.CategoryRepository;
 import org.springapp.service.CategoryService;
 import org.springapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -37,28 +33,17 @@ public class CategoryController {
     }
 
     @GetMapping("/")
-    public String list(@PageableDefault(size = pageableDefault) Pageable pageable, Model model, HttpSession session) {
-        List<Category> category = filterAndSort();
-        Page<Category> page = repository.findByParentIdEquals(pageableDefault,pageable);
-        List<Category> catname = service.findCatPathById(733);
+    public String list(Model model) {
+
+        List<Category> catname = service.findCatPathById(-1);
         List<Category> topmenu = service.findCatnameByLevel(2);
         List<Category> submenu = service.findCatnameByLevel(3);
 
         model.addAttribute("topmenu", topmenu);
         model.addAttribute("submenu", submenu);
         model.addAttribute("catname", catname);
-        model.addAttribute("page", page);
-        model.addAttribute("categories", category);
-        model.addAttribute("sort", sortDateMethod);
 
-//        @SuppressWarnings("unchecked")
-//        List<String> msgs = (List<String>) session.getAttribute("MY_MESSAGES");
-//
-//        if (msgs == null) {
-//            msgs = new ArrayList<>();
-//        }
-//        model.addAttribute("messages", msgs);
-          return "index";
+        return "index";
     }
 
 //    @GetMapping("/sort/{sortDate}")
