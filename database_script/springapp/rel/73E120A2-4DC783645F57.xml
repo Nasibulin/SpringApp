@@ -11,7 +11,6 @@
 <connType>1</connType>
 <syncSelected>-1</syncSelected>
 </redirectConnectionStamp>
-<useConnectionUser>true</useConnectionUser>
 <importConnectionStamps>
 <importConnectionStamp class="oracle.dbtools.crest.imports.DBConnectionStamp">
 <connName>xe</connName>

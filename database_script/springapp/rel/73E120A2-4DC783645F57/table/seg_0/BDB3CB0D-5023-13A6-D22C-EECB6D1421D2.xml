@@ -28,6 +28,23 @@
 <autoIncrementDisableCache>false</autoIncrementDisableCache>
 <autoIncrementCache>20</autoIncrementCache>
 </Column>
+<Column name="CATEGORIES_ID" id="69763F18-0E6A-1825-8441-8E54C29E3B47">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>PRODUCTS</sourceObjSchema>
+<sourceObjName>CATEGORY_ID</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:08:06 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="20D554D4-8AEB-0F63-EDF5-64A382AD5645" referredColumn="2D74F966-1AB3-9F59-944B-D67DBFDCD639"/>
+</associations>
+</Column>
 <Column name="PART_NUMBER" id="A55C52AC-2212-D4D2-11E2-F4703BE5778A">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>PRODUCT</sourceObjSchema>
@@ -35,6 +52,7 @@
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-19 09:17:42 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -49,6 +67,7 @@
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-19 09:17:42 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -78,30 +97,13 @@
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-19 09:17:42 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>19</dataTypePrecision>
-<dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,19,2</ownDataTypeParameters>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="CATEGORIES_ID" id="69763F18-0E6A-1825-8441-8E54C29E3B47">
-<sourceConnName>xe</sourceConnName>
-<sourceObjSchema>PRODUCTS</sourceObjSchema>
-<sourceObjName>CATEGORY_ID</sourceObjName>
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 10:08:06 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="20D554D4-8AEB-0F63-EDF5-64A382AD5645" referredColumn="2D74F966-1AB3-9F59-944B-D67DBFDCD639"/>
-</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

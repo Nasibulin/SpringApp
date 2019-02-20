@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="SPRING_SESSION_ATTRIBUTES_FK" directorySegmentName="seg_0" id="75916845-AE93-C4B8-5A20-A4CD0A87A6F0">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-20 04:42:13 UTC</createdTime>
+<generatorID>36ADB31B-B266-3DDD-4CA0-E452CA29FA68</generatorID>
+<ownerDesignName>springapp</ownerDesignName>
+<engineerTo>
+<item key="73E120A2-AE4E-A2C9-3260-4DC783645F57" value="true"/>
+</engineerTo>
+<sourcePk>1D10B5B4-445A-3F64-BB6F-6BFA93A61E60</sourcePk>
+<identifying>true</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>8B7C9BD7-4B2F-17E0-6024-F93A0A01CBF4</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>214B566E-AF64-7A25-8E70-4F7DC3B2EDFF</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

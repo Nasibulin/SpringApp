@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="db" directorySegmentName="seg_0" id="FE118FAD-52C5-A01C-FB27-C96BC12C174A">
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 11:45:22 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<identifier>050113D8E8CB141414F523D5DD1D23D5A5</identifier>
-<privileges>CONNECT, RESOURCE</privileges>
-</UserOraclev10g>

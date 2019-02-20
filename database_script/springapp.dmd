@@ -5,4 +5,9 @@
 <ownerDesignName>springapp</ownerDesignName>
 <capitalNames>false</capitalNames>
 <designId>A3330C53-5AA9-B56B-7DD4-B97F7AFAF101</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="95D88217-18B4-AF36-B7DF-CFECD2401930">
+<designStoragePath>C:\Users\Nasibulin\IdeaProjects\SpringApp\database_script</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
 </OSDM_Design>

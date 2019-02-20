@@ -28,20 +28,6 @@
 <autoIncrementDisableCache>false</autoIncrementDisableCache>
 <autoIncrementCache>20</autoIncrementCache>
 </Column>
-<Column name="CATNAME" id="02288615-9BEC-27C7-92FF-F4D461F35AB8">
-<sourceConnName>xe</sourceConnName>
-<sourceObjSchema>CATEGORY</sourceObjSchema>
-<sourceObjName>CATNAME</sourceObjName>
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 09:17:42 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>255 BYTE</dataTypeSize>
-<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="PARENT_ID" id="CFC616CF-584D-7D98-BF90-E13A5C77078C">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>CATEGORIES</sourceObjSchema>
@@ -52,12 +38,29 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="74C7A082-24CC-3BB2-BB53-6AA01A60DB9F" referredColumn="2D74F966-1AB3-9F59-944B-D67DBFDCD639"/>
 </associations>
+</Column>
+<Column name="CATNAME" id="02288615-9BEC-27C7-92FF-F4D461F35AB8">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>CATEGORY</sourceObjSchema>
+<sourceObjName>CATNAME</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
