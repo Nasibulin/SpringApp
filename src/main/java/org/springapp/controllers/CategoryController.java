@@ -16,11 +16,10 @@ import java.util.List;
 @Controller
 public class CategoryController {
 
+    private static final int pageableDefault = 20;
     private CategoryService service;
     private ProductService productService;
     private String sortDateMethod = "ASC";
-    private static final int pageableDefault = 20;
-
     @Autowired
     private CategoryRepository repository;
 
@@ -64,6 +63,7 @@ public class CategoryController {
 
         return "index";
     }
+
 
 //    @GetMapping("/sort/{sortDate}")
 //    public String sortChoose(@PathVariable String sortDate) {
