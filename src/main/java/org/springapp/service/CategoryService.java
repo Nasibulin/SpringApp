@@ -14,7 +14,7 @@ public interface CategoryService {
     List<Category> findByIdEquals(Integer id);
     List<Category> findByParentIdEqualsAndIdLessThan(Integer i, Integer j);
     Page<Category> findByParentIdEquals(Integer i, Pageable pageable);
-    List<Category> findCatnameById(Integer id);
+    List<Category> findCatPathById(Integer id);
     List<Category> findCatnameByLevel (Integer level);
 
 }

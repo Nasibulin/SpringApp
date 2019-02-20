@@ -2,7 +2,6 @@ package org.springapp.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 
@@ -21,23 +20,23 @@ public class Category implements Serializable {
     private String catname;
 
 
-    private Set<Product> productSet;
+    private Set<Product> products;
 
     public Category() {
     }
 
     @OneToMany(mappedBy = "category", cascade=CascadeType.ALL, orphanRemoval=true)
-    public Set<Product> getProductSet() {
-        return productSet;
+    public Set<Product> getProducts() {
+        return products;
     }
 
-    public void setProductSet(Set<Product> productSet) {
-        this.productSet = productSet;
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
-    public void addProductSet (Product product){
+    public void addProduct (Product product){
     product.setCategory(this);
-    getProductSet().add(product);
+    getProducts().add(product);
     }
 
     public Category(String catname) {

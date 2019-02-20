@@ -40,7 +40,7 @@ public class CategoryController {
     public String list(@PageableDefault(size = pageableDefault) Pageable pageable, Model model, HttpSession session) {
         List<Category> category = filterAndSort();
         Page<Category> page = repository.findByParentIdEquals(pageableDefault,pageable);
-        List<Category> catname = service.findCatnameById(733);
+        List<Category> catname = service.findCatPathById(733);
         List<Category> topmenu = service.findCatnameByLevel(2);
         List<Category> submenu = service.findCatnameByLevel(3);
 
@@ -117,7 +117,7 @@ public class CategoryController {
     }
 
     private List<Category> findCatnameById(Integer id) {
-        List<Category> categoryList = repository.findCatnameById(id);
+        List<Category> categoryList = repository.findCatPathById(id);
         return categoryList;
     }
 

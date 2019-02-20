@@ -32,6 +32,7 @@ public class Product implements Serializable {
         this.service = service;
         this.price = price;
     }
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     public Category getCategory() {

@@ -55,8 +55,8 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public List<Category> findCatnameById(Integer id) {
-        return repository.findCatnameById(id);
+    public List<Category> findCatPathById(Integer id) {
+        return repository.findCatPathById(id);
     }
 
     @Override
