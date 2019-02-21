@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -34,7 +35,7 @@ public class CategoryController {
     }
 
     @GetMapping("/")
-    public String list(Model model) {
+    public String list(Model model, HttpServletRequest request) {
 
         List<Category> catname = service.findCatPathById(-1);
         List<Category> topmenu = service.findCatnameByLevel(2);
@@ -43,7 +44,7 @@ public class CategoryController {
         model.addAttribute("topmenu", topmenu);
         model.addAttribute("submenu", submenu);
         model.addAttribute("catname", catname);
-
+        System.out.println(request.getSession().getId());
         return "index";
     }
 
@@ -60,7 +61,7 @@ public class CategoryController {
         model.addAttribute("submenu", submenu);
         model.addAttribute("catname", catname);
         model.addAttribute("products", products);
-
+        //System.out.println(request.getSession().getId());
         return "index";
     }
 
