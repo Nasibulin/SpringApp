@@ -38,7 +38,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT025</logicalDatatype>
 <dataTypeSize>36 BYTE</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -121,6 +121,20 @@
 <ownDataTypeParameters>,19,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="USERS_USER_ID" id="302F2E71-0740-FE26-90DF-E6069465DFCC">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-22 08:10:29 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0E87E07C-DD8C-3185-FDD9-BBF430DA22BC" referredColumn="BE5F1AD1-32C7-BDF3-D113-C44FA6A688BD"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="532D7A91-358F-441B-2694-D9369D6C9F00" name="ORDERS_PK">
@@ -171,6 +185,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="8B288484-852D-44CF-DAC1-C6F86E950065"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="997821DD-065E-E669-1906-70DD93494979" name="ORDERS_USERS_FK">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-22 08:10:29 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="302F2E71-0740-FE26-90DF-E6069465DFCC"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4BE6D0DB-D34D-C856-1F05-BE64A5DE7394" name="USERS">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-22 07:59:54 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USER_ID" id="BE5F1AD1-32C7-BDF3-D113-C44FA6A688BD">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-22 08:00:25 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="4FE64465-3A29-5742-E45B-9D99D15DCCB1">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-22 08:02:21 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FIRST_NAME" id="C42F252B-2D46-6D84-ADC3-91C4C0444A69">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-22 08:04:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LAST_NAME" id="4157651A-7B47-B9A6-79F8-F5273498EDA9">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-22 08:05:33 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD_HASH" id="8892F953-1B60-24B7-C6E2-0F44F822801A">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-22 08:06:24 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="5022EB3D-B5C0-0795-2CD0-DAFD4738306E">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-22 08:08:07 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="08062DA4-AA05-E080-99E5-58DCEA62E381" name="USERS_PK">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-22 08:00:49 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE5F1AD1-32C7-BDF3-D113-C44FA6A688BD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
