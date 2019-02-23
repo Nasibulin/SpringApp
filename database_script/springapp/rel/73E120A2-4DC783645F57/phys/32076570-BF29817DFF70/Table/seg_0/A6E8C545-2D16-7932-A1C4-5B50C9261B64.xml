@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="CATEGORIES" directorySegmentName="seg_0" id="A6E8C545-2D16-7932-A1C4-5B50C9261B64">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CATNAME" id="02288615-9BEC-27C7-92FF-F4D461F35AB8">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID" id="2D74F966-1AB3-9F59-944B-D67DBFDCD639">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PARENT_ID" id="CFC616CF-584D-7D98-BF90-E13A5C77078C">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="CATEGORIES__IDX" id="6A968AAE-B599-D57B-0D6F-92BCB9C3D69C">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="CATEGORIES__IDXv1" id="ADBA8386-BA11-BFE7-A325-FA1AF688DCD0">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="CATEGORIES_CATEGORIES_FK" id="C80C706F-D068-1855-C422-975E4121897B">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="CATEGORIES_PK" id="C2E245EC-6A3B-D8C4-18FF-0F5E107167A6">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

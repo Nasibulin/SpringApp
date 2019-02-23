@@ -1,13 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FB9CDA83-2020-72EE-3796-9D440FF374B4" containerWithKeyObject="7DD7554A-9901-9EA3-B576-749567C857A7" localFKIndex="41281B96-A644-5DB4-8282-D64400A0144A" name="ORDERS_SPRING_SESSION_FK">
-<sourceConnName>xe</sourceConnName>
-<sourceObjSchema>springapp</sourceObjSchema>
-<sourceObjName>ORDERS_SPRING_SESSION_FK</sourceObjName>
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 09:30:15 UTC</createdTime>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DB3C3C40-A297-36FF-B74A-8975B10AE145" containerWithKeyObject="7DD7554A-9901-9EA3-B576-749567C857A7" localFKIndex="92C5C9BD-70D7-5996-215A-8F04809A98FE" name="ORDERS_SPRING_SESSION_FK">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:09:14 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <referredTableLongName>SPRING_SESSION</referredTableLongName>
-<deleteRule>CASCADE</deleteRule>
+<deleteRule>NO ACTION</deleteRule>
 <referredTableID>0F29A07D-4EF1-857A-D599-C4456A582B14</referredTableID>
 <keyObject>B7EDBB6D-4129-4D9D-07C6-B4EC99486F23</keyObject>
 <referredKeyID>B7EDBB6D-4129-4D9D-07C6-B4EC99486F23</referredKeyID>

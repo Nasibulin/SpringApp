@@ -28,7 +28,7 @@
 <autoIncrementDisableCache>false</autoIncrementDisableCache>
 <autoIncrementCache>20</autoIncrementCache>
 </Column>
-<Column name="CATEGORIES_ID" id="69763F18-0E6A-1825-8441-8E54C29E3B47">
+<Column name="CATEGORY_ID" id="69763F18-0E6A-1825-8441-8E54C29E3B47">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>PRODUCTS</sourceObjSchema>
 <sourceObjName>CATEGORY_ID</sourceObjName>
@@ -67,7 +67,6 @@
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-19 09:17:42 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -97,7 +96,6 @@
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-19 09:17:42 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>

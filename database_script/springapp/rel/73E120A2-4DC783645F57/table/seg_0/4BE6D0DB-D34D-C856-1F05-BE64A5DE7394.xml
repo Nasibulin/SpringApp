@@ -61,7 +61,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="STATUS" id="5022EB3D-B5C0-0795-2CD0-DAFD4738306E">
@@ -86,6 +87,26 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="BE5F1AD1-32C7-BDF3-D113-C44FA6A688BD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="77F9B651-D7E4-5BAA-22B2-5B7A854BF6D2" name="USERS__IDX">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:38:23 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE5F1AD1-32C7-BDF3-D113-C44FA6A688BD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F1CA4722-2209-51D8-0A4E-B6E1F89DCF52" name="USERS__IDXv1">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:38:28 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4FE64465-3A29-5742-E45B-9D99D15DCCB1"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

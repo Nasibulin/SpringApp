@@ -53,7 +53,6 @@
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-19 09:17:42 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>

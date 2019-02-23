@@ -21,11 +21,8 @@
 <use>1</use>
 <logicalDatatype>LOGDT025</logicalDatatype>
 <dataTypeSize>36 BYTE</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="36ADB31B-B266-3DDD-4CA0-E452CA29FA68" referredColumn="E66BDA50-19D0-7200-38DB-7466C8D005D3"/>
-</associations>
 </Column>
 <Column name="ATTRIBUTE_NAME" id="F027C2CA-8580-BE99-7716-E2A2F6864847">
 <sourceConnName>xe</sourceConnName>
@@ -54,6 +51,21 @@
 <dataTypeSize>4000</dataTypeSize>
 <ownDataTypeParameters>4000,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SPRING_SESSION_PRIMARY_ID" id="BA408AD4-39D2-3B1B-45B0-98021031A057">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:05:01 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="36ADB31B-B266-3DDD-4CA0-E452CA29FA68" referredColumn="E66BDA50-19D0-7200-38DB-7466C8D005D3"/>
+</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -93,7 +105,7 @@
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="38C88F42-9BEB-F305-9303-472101CBB353"/>
+<colUsage columnID="BA408AD4-39D2-3B1B-45B0-98021031A057"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

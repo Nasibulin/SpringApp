@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ORDERS" directorySegmentName="seg_0" id="7DD7554A-9901-9EA3-B576-749567C857A7">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="IS_ACTIVE" id="19A5FE5B-EF35-989E-08F5-98503E06F27C">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USERS_USER_ID" id="302F2E71-0740-FE26-90DF-E6069465DFCC">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SPRING_SESSION_PRIMARY_ID" id="35E87971-A1F6-D1EC-E1A6-4E41755A5E51">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ITEMS_COUNT" id="6B2B21C2-21B0-B3E6-B8F6-35AB24BE6BB0">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATUS" id="74DE30F3-8A31-DDD2-D366-1770BCDFF348">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ITEMS_QUANTITY" id="916EAE38-66D3-7720-EA3A-5035910AAE7B">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID" id="A34C2ECB-599A-1781-6D3B-A6E13ABE3CE8">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATED_AT" id="A63DB9B5-6727-C6A4-1732-6F2E58C222E0">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ORDER_TOTAL" id="CD683BAF-BAAA-64E4-EA35-EC030AB100DA">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ORDERS__IDX" id="02BB2348-A682-B366-60CF-F9B0576C83C1">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ORDERS__IDXv1" id="868F21A1-C948-FD1F-F842-709914EAE9B0">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="ORDERS_SPRING_SESSION_FK" id="92C5C9BD-70D7-5996-215A-8F04809A98FE">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="ORDERS_USERS_FK" id="997821DD-065E-E669-1906-70DD93494979">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ORDERS_PK" id="532D7A91-358F-441B-2694-D9369D6C9F00">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:17:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>
