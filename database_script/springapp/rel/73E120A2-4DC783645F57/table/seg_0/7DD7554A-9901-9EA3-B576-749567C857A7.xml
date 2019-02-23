@@ -27,6 +27,21 @@
 <autoIncrementDisableCache>false</autoIncrementDisableCache>
 <autoIncrementCache>20</autoIncrementCache>
 </Column>
+<Column name="SPRING_SESSION_PRIMARY_ID" id="35E87971-A1F6-D1EC-E1A6-4E41755A5E51">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:09:14 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DB3C3C40-A297-36FF-B74A-8975B10AE145" referredColumn="E66BDA50-19D0-7200-38DB-7466C8D005D3"/>
+</associations>
+</Column>
 <Column name="STATUS" id="74DE30F3-8A31-DDD2-D366-1770BCDFF348">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>ORDERS</sourceObjSchema>
@@ -66,6 +81,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT015</logicalDatatype>
+<defaultValue>SYSTIMESTAMP</defaultValue>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
@@ -116,21 +132,6 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="0E87E07C-DD8C-3185-FDD9-BBF430DA22BC" referredColumn="BE5F1AD1-32C7-BDF3-D113-C44FA6A688BD"/>
-</associations>
-</Column>
-<Column name="SPRING_SESSION_PRIMARY_ID" id="35E87971-A1F6-D1EC-E1A6-4E41755A5E51">
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-02-23 10:09:14 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>36 BYTE</dataTypeSize>
-<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="DB3C3C40-A297-36FF-B74A-8975B10AE145" referredColumn="E66BDA50-19D0-7200-38DB-7466C8D005D3"/>
 </associations>
 </Column>
 </columns>

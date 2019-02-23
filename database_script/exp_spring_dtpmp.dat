@@ -1,0 +1,5 @@
+DUMPFILE="spring_dtpmp.dmp"
+LOGFILE="exp_spring_dtpmp.log"
+DIRECTORY=DATA_PUMP_DIR
+SCHEMAS=('SPRINGAPP')
+CONTENT=ALL

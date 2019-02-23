@@ -58,6 +58,7 @@
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-22 08:06:24 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -73,6 +74,18 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_AT" id="6F47DF69-7C41-D447-F699-043880FA874B">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 11:36:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<defaultValue>SYSTIMESTAMP</defaultValue>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
