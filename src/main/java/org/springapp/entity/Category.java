@@ -7,10 +7,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "categories", schema = "springapp", catalog = "")
-//@NamedQuery(name = Category.NamedQuery_findCatnameById,
-//        query = "SELECT category.id, category.parent_id, catname FROM (SELECT CONNECT_BY_ROOT id AS parent_id, id FROM category WHERE CONNECT_BY_ISLEAF = 1 AND id = 1121 CONNECT BY PRIOR id = parent_id) t1  JOIN category ON t1.parent_id = category.id ORDER BY parent_id")
 public class Category implements Serializable {
-//    public static final String NamedQuery_findCatnameById = "findCatnameById";
+
     private int id;
 
     @Column(name = "parent_id")

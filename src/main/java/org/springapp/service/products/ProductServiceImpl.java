@@ -1,8 +1,9 @@
-package org.springapp.service;
+package org.springapp.service.products;
 
 import org.springapp.entity.Category;
 import org.springapp.entity.Product;
 import org.springapp.repository.ProductRepository;
+import org.springapp.service.products.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,8 @@
-package org.springapp.service;
+package org.springapp.service.categories;
 
 import org.springapp.entity.Category;
 import org.springapp.repository.CategoryRepository;
+import org.springapp.service.categories.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,32 +13,26 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Service
-public class CategoryServiceImpl implements CategoryService{
+public class CategoryServiceImpl implements CategoryService {
 
     private CategoryRepository repository;
-    @PersistenceContext
-    private EntityManager em;
+
     @Autowired
     public void setProductRepository(CategoryRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public Category getCategoryById(Integer id) {
-        return repository.getOne(id);
-    }
-
-    @Override
     public List<Category> findByParentIdEquals(Integer id) {
         return repository.findByParentIdEquals(id);
     }
+
     @Override
-    public Page<Category> findByParentIdEquals(Integer i, Pageable pageable){
+    public Page<Category> findByParentIdEquals(Integer i, Pageable pageable) {
 
         return repository.findByParentIdEquals(i, pageable);
 
     }
-
 
     @Override
     public List<Category> findAll() {
@@ -47,11 +42,6 @@ public class CategoryServiceImpl implements CategoryService{
     @Override
     public Category findByIdEquals(Integer id) {
         return repository.findByIdEquals(id);
-    }
-
-    @Override
-    public List<Category> findByParentIdEqualsAndIdLessThan(Integer i, Integer j) {
-      return repository.findByParentIdEqualsAndIdLessThan(i, j);
     }
 
     @Override

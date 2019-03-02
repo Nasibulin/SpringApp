@@ -3,8 +3,8 @@ package org.springapp.controllers;
 import org.springapp.entity.Category;
 import org.springapp.entity.Product;
 import org.springapp.repository.CategoryRepository;
-import org.springapp.service.CategoryService;
-import org.springapp.service.ProductService;
+import org.springapp.service.categories.CategoryService;
+import org.springapp.service.products.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -111,15 +111,6 @@ public class CategoryController {
 //        //service.deleteNote(id);
 //        return "redirect:/";
 //    }
-
-    private List<Category> filterAndSort() {
-        List<Category> category = null;
-//        category = service.findByIdEquals(
-//                productService.getProductById(1024).getCategory().getId());
-
-        category = service.findByParentIdEquals(290);
-        return category;
-    }
 
     private List<Category> findCatnameById(Integer id) {
         List<Category> categoryList = repository.findCatPathById(id);
