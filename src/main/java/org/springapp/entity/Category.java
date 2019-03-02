@@ -8,6 +8,7 @@ import java.util.Set;
 @Entity
 @Table(name = "categories", schema = "springapp", catalog = "")
 public class Category implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private int id;
 
