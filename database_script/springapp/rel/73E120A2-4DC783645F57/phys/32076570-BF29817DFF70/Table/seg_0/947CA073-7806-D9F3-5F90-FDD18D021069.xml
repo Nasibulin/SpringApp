@@ -16,6 +16,7 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-03-02 07:57:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<defaultValue>systimestamp</defaultValue>
 </ColumnProxy>
 <ColumnProxy name="USERS_USER_ID" id="5CC919F3-22CC-6BED-273B-C7567FAE9F88">
 <createdBy>Konstantin</createdBy>

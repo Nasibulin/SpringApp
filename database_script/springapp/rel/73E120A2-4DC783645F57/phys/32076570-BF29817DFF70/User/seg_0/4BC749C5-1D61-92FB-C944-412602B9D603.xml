@@ -9,7 +9,7 @@
 <defTableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</defTableSpace>
 <privileges>UNLIMITED TABLESPACE</privileges>
 <quotaItems>
-<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem1" id="60BF5B81-9710-9338-7F83-7EF375E772BD">
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem1" id="1953C26B-E467-9DF2-30BB-D0CD869F1148">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-03-02 07:20:27 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
