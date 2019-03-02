@@ -3,6 +3,7 @@ package org.springapp.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="users", schema = "springapp", catalog = "")
@@ -35,6 +36,9 @@ public class User implements Serializable {
     @Column(name = "salt")
     private String salt;
 
+
+    private Set<Order> orders;
+
     public User() {
     }
 
@@ -60,6 +64,15 @@ public class User implements Serializable {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 
     public String getEmail() {
