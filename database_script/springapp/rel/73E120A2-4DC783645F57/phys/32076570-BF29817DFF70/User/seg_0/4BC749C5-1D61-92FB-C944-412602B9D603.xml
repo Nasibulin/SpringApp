@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="SPRINGAPP" directorySegmentName="seg_0" id="4BC749C5-1D61-92FB-C944-412602B9D603">
+<sourceConnName>xe</sourceConnName>
+<sourceObjName>SPRINGAPP</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:02:09 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<defTableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</defTableSpace>
+<privileges>UNLIMITED TABLESPACE</privileges>
+<quotaItems>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem1" id="60BF5B81-9710-9338-7F83-7EF375E772BD">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:20:27 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+</QuotaItem>
+</quotaItems>
+</UserOraclev10g>

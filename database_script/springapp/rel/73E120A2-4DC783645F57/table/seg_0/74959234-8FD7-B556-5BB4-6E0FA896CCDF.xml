@@ -10,6 +10,22 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SPRING_SESSION_PRIMARY_ID" id="BA408AD4-39D2-3B1B-45B0-98021031A057">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-02-23 10:05:01 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="36ADB31B-B266-3DDD-4CA0-E452CA29FA68" referredColumn="E66BDA50-19D0-7200-38DB-7466C8D005D3"/>
+</associations>
+</Column>
 <Column name="SESSION_PRIMARY_ID" id="38C88F42-9BEB-F305-9303-472101CBB353">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>SPRING_SESSION_ATTRIBUTES</sourceObjSchema>
@@ -51,21 +67,6 @@
 <dataTypeSize>4000</dataTypeSize>
 <ownDataTypeParameters>4000,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="SPRING_SESSION_PRIMARY_ID" id="BA408AD4-39D2-3B1B-45B0-98021031A057">
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-02-23 10:05:01 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>36 BYTE</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="36ADB31B-B266-3DDD-4CA0-E452CA29FA68" referredColumn="E66BDA50-19D0-7200-38DB-7466C8D005D3"/>
-</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

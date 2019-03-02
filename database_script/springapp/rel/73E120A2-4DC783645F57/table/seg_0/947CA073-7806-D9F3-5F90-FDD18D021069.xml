@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="947CA073-7806-D9F3-5F90-FDD18D021069" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="USER_TOKENS">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>USER_TOKENS</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:57:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>03292D84-458F-74CD-B648-80A09E0ABE52</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TOKEN" id="79271596-9BD4-4741-9D74-138CB9E927C0">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>USER_TOKENS</sourceObjSchema>
+<sourceObjName>TOKEN</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:57:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>A7BDFC5F-0D9A-D846-C54A-3372E7B015E5</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EXPIRATION_DATE" id="F76C7070-A0A1-5EB1-6417-08DE75C5173F">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>USER_TOKENS</sourceObjSchema>
+<sourceObjName>EXPIRATION_DATE</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:57:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>5C9EF972-16B3-52DD-20D0-5ED82E493A15</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOGIN_DATE" id="01349C03-8157-C924-CA00-FF14163B4EED">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>USER_TOKENS</sourceObjSchema>
+<sourceObjName>LOGIN_DATE</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:57:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>EA2475F6-C752-FBB5-BE89-564D69D29E04</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_ID" id="772ED090-9AC0-3862-1460-C723085BF679">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>USER_TOKENS</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 08:02:35 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>9EFF5122-A516-6EFC-D608-64E112068DDE</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USERS_USER_ID" id="5CC919F3-22CC-6BED-273B-C7567FAE9F88">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 08:00:24 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F9A73C77-81F8-9FAC-AAE9-BCF2FA03A713" referredColumn="BE5F1AD1-32C7-BDF3-D113-C44FA6A688BD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="275FF6C5-078B-7AE5-7F08-D913EA1F0D2D" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="USER_TOKENS_PK">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>SYS_C007758</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:57:40 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>5F73A245-DF96-6837-6BDE-ED36F8BABCEA</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="79271596-9BD4-4741-9D74-138CB9E927C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DC2B3C70-DE53-6EAD-E9C0-5F0A1F993C99" name="USER_TOKENS__IDX">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 08:04:37 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="79271596-9BD4-4741-9D74-138CB9E927C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="56E9D965-DCF7-0CAA-A614-4A3E9671B0BC" name="USER_TOKENS_USERS_FK">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 08:00:24 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5CC919F3-22CC-6BED-273B-C7567FAE9F88"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -20,13 +20,17 @@
 <ownerDesignName>springapp</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
 <autoIncrementStartWith>1200</autoIncrementStartWith>
 <autoIncrementCycle>false</autoIncrementCycle>
 <autoIncrementDisableCache>false</autoIncrementDisableCache>
 <autoIncrementCache>20</autoIncrementCache>
+<autoIncrementSequenceName>categories_id_seq</autoIncrementSequenceName>
+<autoIncrementTriggerName>CATEGORIES_ID_TRG</autoIncrementTriggerName>
 </Column>
 <Column name="PARENT_ID" id="CFC616CF-584D-7D98-BF90-E13A5C77078C">
 <sourceConnName>xe</sourceConnName>
@@ -37,9 +41,10 @@
 <ownerDesignName>springapp</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>*</dataTypePrecision>
-<ownDataTypeParameters>,*,</ownDataTypeParameters>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -58,6 +63,23 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>255 BYTE</dataTypeSize>
 <ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IS_ROOT" id="1D767BB3-73B3-96B1-736A-BB8658C5A46E">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>CATEGORIES</sourceObjSchema>
+<sourceObjName>IS_ROOT</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:31:53 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>6098CC39-C039-DF11-9B8B-823BDCB9207D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>

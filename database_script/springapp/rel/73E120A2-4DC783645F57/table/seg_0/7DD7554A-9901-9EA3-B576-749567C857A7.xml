@@ -20,12 +20,16 @@
 <ownerDesignName>springapp</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <autoIncrementDisableCache>false</autoIncrementDisableCache>
 <autoIncrementCache>20</autoIncrementCache>
+<autoIncrementSequenceName>orders_id_seq</autoIncrementSequenceName>
+<autoIncrementTriggerName>ORDERS_ID_TRG</autoIncrementTriggerName>
 </Column>
 <Column name="SPRING_SESSION_PRIMARY_ID" id="35E87971-A1F6-D1EC-E1A6-4E41755A5E51">
 <createdBy>Konstantin</createdBy>
@@ -35,7 +39,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT025</logicalDatatype>
 <dataTypeSize>36 BYTE</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -52,8 +56,10 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="IS_ACTIVE" id="19A5FE5B-EF35-989E-08F5-98503E06F27C">
@@ -66,8 +72,10 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="CREATED_AT" id="A63DB9B5-6727-C6A4-1732-6F2E58C222E0">
@@ -81,30 +89,40 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT015</logicalDatatype>
-<defaultValue>SYSTIMESTAMP</defaultValue>
+<defaultValue>systimestamp</defaultValue>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ITEMS_COUNT" id="6B2B21C2-21B0-B3E6-B8F6-35AB24BE6BB0">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ORDERS</sourceObjSchema>
+<sourceObjName>ITEMS_COUNT</sourceObjName>
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-21 05:41:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ITEMS_QUANTITY" id="916EAE38-66D3-7720-EA3A-5035910AAE7B">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ORDERS</sourceObjSchema>
+<sourceObjName>ITEMS_QUANTITY</sourceObjName>
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-21 05:42:13 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ORDER_TOTAL" id="CD683BAF-BAAA-64E4-EA35-EC030AB100DA">
@@ -121,18 +139,40 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="USERS_USER_ID" id="302F2E71-0740-FE26-90DF-E6069465DFCC">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ORDERS</sourceObjSchema>
+<sourceObjName>USERS_USER_ID</sourceObjName>
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-22 08:10:29 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="0E87E07C-DD8C-3185-FDD9-BBF430DA22BC" referredColumn="BE5F1AD1-32C7-BDF3-D113-C44FA6A688BD"/>
 </associations>
+</Column>
+<Column name="CUSTOMER_IS_GUEST" id="A2EBE243-C34A-A3EB-09B2-EB7CFCAA16DA">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ORDERS</sourceObjSchema>
+<sourceObjName>CUSTOMER_IS_GUEST</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 08:12:07 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>F08B2120-64D9-612F-3A09-B814C1E09F7F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

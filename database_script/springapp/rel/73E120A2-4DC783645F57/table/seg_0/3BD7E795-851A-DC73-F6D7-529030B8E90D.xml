@@ -20,12 +20,16 @@
 <ownerDesignName>springapp</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <autoIncrementDisableCache>false</autoIncrementDisableCache>
 <autoIncrementCache>20</autoIncrementCache>
+<autoIncrementSequenceName>order_details_id_seq</autoIncrementSequenceName>
+<autoIncrementTriggerName>ORDER_DETAILS_ID_TRG</autoIncrementTriggerName>
 </Column>
 <Column name="ORDERS_ID" id="0B35F227-A447-8F81-C79A-00345D1F4350">
 <sourceConnName>xe</sourceConnName>
@@ -36,8 +40,10 @@
 <ownerDesignName>springapp</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -53,8 +59,10 @@
 <ownerDesignName>springapp</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -75,21 +83,26 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ITEM_QUANTITY" id="B8118510-AC63-F94A-ED4A-1D96184F5D1C">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ORDER_DETAILS</sourceObjSchema>
+<sourceObjName>ITEM_QUANTITY</sourceObjName>
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-21 05:43:19 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ITEM_TOTAL" id="53B36342-571F-5BA6-3F9B-F0F6A9D5E6D5">
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-21 05:43:59 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<formulaDesc>ITEM_PRICE*ITEM_QUANTITY</formulaDesc>
+<formulaDesc>&quot;ITEM_PRICE&quot;*&quot;ITEM_QUANTITY&quot;</formulaDesc>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -138,6 +151,20 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="F54C6AF8-594C-A595-0D55-F2F8577C7A20"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AF48236E-BFC0-EF32-71AE-9F0D21705ABF" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="ORDER_ITEMS_PK">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>ORDER_ITEMS_PK</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:03:21 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>10F81484-FBAE-8688-12DB-8D03BB5940D8</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB265407-BA57-0064-1F1D-991D8ECC35C1"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="A06CC879-F9D9-1944-2AC5-20DE2E25E6F5" name="ORDER_ITEMS_ORDERS_FK">

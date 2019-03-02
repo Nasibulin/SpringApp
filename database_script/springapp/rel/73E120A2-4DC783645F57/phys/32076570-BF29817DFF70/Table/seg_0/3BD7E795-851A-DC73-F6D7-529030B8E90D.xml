@@ -5,6 +5,8 @@
 <ownerDesignName>springapp</ownerDesignName>
 <logging>YES</logging>
 <partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>5A830A9C-14CE-560B-B93B-1065417396E6</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 <temporaryChanged>false</temporaryChanged>
 <accessDriverType>oracle_loader</accessDriverType>
 <rejectLimit></rejectLimit>
@@ -18,7 +20,7 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<columnExpression>ITEM_PRICE*ITEM_QUANTITY</columnExpression>
+<columnExpression>&quot;ITEM_PRICE&quot;*&quot;ITEM_QUANTITY&quot;</columnExpression>
 </ColumnProxy>
 <ColumnProxy name="ITEM_PRICE" id="89F367D9-5B22-A606-E76F-1550D95A573E">
 <createdBy>Konstantin</createdBy>
@@ -34,6 +36,7 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<autoIncrementDDL>TRIGGER</autoIncrementDDL>
 </ColumnProxy>
 <ColumnProxy name="PRODUCTS_ID" id="F54C6AF8-594C-A595-0D55-F2F8577C7A20">
 <createdBy>Konstantin</createdBy>
@@ -46,11 +49,24 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<segment>AC93CF0A-3BEE-679E-456F-B2CDBA64978A</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
-<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ORDER_DETAILS__IDXv1" id="4763D030-D3E7-AFD5-E2D4-9A60178282BF">
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ORDER_DETAILS__IDXV1" id="4763D030-D3E7-AFD5-E2D4-9A60178282BF">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<nameChanged>true</nameChanged>
+<segment>AC93CF0A-3BEE-679E-456F-B2CDBA64978A</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ORDER_ITEMS_PK" id="AF48236E-BFC0-EF32-71AE-9F0D21705ABF">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:03:21 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
 </indexProxies>
 <foreignKeys>
@@ -70,7 +86,12 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<segment>AC93CF0A-3BEE-679E-456F-B2CDBA64978A</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<existingIndex>AF48236E-BFC0-EF32-71AE-9F0D21705ABF</existingIndex>
+<indexSegment>AC93CF0A-3BEE-679E-456F-B2CDBA64978A</indexSegment>
 <indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
 </PrimaryKey>
 </primaryKeys>
 </TableProxyOraclev11g>

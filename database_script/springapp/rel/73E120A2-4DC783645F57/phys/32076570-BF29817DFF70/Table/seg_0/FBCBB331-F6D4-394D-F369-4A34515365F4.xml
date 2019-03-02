@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="USER_ADDRESSES" directorySegmentName="seg_0" id="FBCBB331-F6D4-394D-F369-4A34515365F4">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:46:12 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>A832B5A4-D337-110D-6606-7439096BD427</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CITY" id="01201C99-B590-995A-8B12-C8D991979F32">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:46:12 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USERS_USER_ID" id="39041169-BF47-4547-039C-3FA61CAE3783">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:48:27 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_ID" id="3C29C46A-5ED4-9188-5DFC-BC87904B7520">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:50:30 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FAX" id="3D131D98-0C9B-C90B-5EBB-9650ABFF263A">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:46:12 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS_ID" id="ACE027F1-7953-C452-C697-75D593581F03">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:46:12 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<autoIncrementDDL>TRIGGER</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="PHONE" id="B4DAEDFC-72B8-2862-59BC-63B27C3EC959">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:46:12 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS" id="E66B9FE4-78B3-8069-34CB-E2F4F5B92576">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:46:12 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COUNTRY" id="E90DA36D-690E-CDC9-79EF-F62E41714C3C">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:46:12 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SYS_C007750" id="75E8632A-8AD2-71BE-5C68-3A8F7FBED92B">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:50:30 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="USER_ADDRESSES_USERS_FK" id="1C67ABBB-5A54-F711-BD62-CBA33E0A2DAB">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:48:27 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="USER_ADDRESSES_PK" id="6E08C427-70A8-0A2F-3A07-F7A1DD5326B7">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:46:12 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<existingIndex>75E8632A-8AD2-71BE-5C68-3A8F7FBED92B</existingIndex>
+<indexSegment>006C6905-6126-7584-FB39-F7BF95FD72B3</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

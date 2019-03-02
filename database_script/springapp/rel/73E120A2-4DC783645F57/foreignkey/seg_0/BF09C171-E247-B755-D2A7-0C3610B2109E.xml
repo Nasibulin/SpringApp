@@ -7,7 +7,7 @@
 <createdTime>2019-02-19 10:17:54 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <referredTableLongName>PRODUCTS</referredTableLongName>
-<deleteRule>CASCADE</deleteRule>
+<deleteRule>NO ACTION</deleteRule>
 <referredTableID>BDB3CB0D-5023-13A6-D22C-EECB6D1421D2</referredTableID>
 <keyObject>5AC67F48-A09E-B7E3-9EC3-A2E31AB54C7F</keyObject>
 <referredKeyID>5AC67F48-A09E-B7E3-9EC3-A2E31AB54C7F</referredKeyID>

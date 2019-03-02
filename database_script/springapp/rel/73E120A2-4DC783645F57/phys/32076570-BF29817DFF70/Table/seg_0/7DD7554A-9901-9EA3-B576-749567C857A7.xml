@@ -5,6 +5,8 @@
 <ownerDesignName>springapp</ownerDesignName>
 <logging>YES</logging>
 <partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>A832B5A4-D337-110D-6606-7439096BD427</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 <temporaryChanged>false</temporaryChanged>
 <accessDriverType>oracle_loader</accessDriverType>
 <rejectLimit></rejectLimit>
@@ -39,15 +41,22 @@
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 </ColumnProxy>
+<ColumnProxy name="CUSTOMER_IS_GUEST" id="A2EBE243-C34A-A3EB-09B2-EB7CFCAA16DA">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 08:12:07 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
 <ColumnProxy name="ID" id="A34C2ECB-599A-1781-6D3B-A6E13ABE3CE8">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<autoIncrementDDL>TRIGGER</autoIncrementDDL>
 </ColumnProxy>
 <ColumnProxy name="CREATED_AT" id="A63DB9B5-6727-C6A4-1732-6F2E58C222E0">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<defaultValue>systimestamp</defaultValue>
 </ColumnProxy>
 <ColumnProxy name="ORDER_TOTAL" id="CD683BAF-BAAA-64E4-EA35-EC030AB100DA">
 <createdBy>Konstantin</createdBy>
@@ -60,11 +69,16 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
-<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ORDERS__IDXv1" id="868F21A1-C948-FD1F-F842-709914EAE9B0">
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ORDERS__IDXV1" id="868F21A1-C948-FD1F-F842-709914EAE9B0">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<nameChanged>true</nameChanged>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
 </indexProxies>
 <foreignKeys>
@@ -84,7 +98,12 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<existingIndex>02BB2348-A682-B366-60CF-F9B0576C83C1</existingIndex>
+<indexSegment>006C6905-6126-7584-FB39-F7BF95FD72B3</indexSegment>
 <indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
 </PrimaryKey>
 </primaryKeys>
 </TableProxyOraclev11g>

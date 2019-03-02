@@ -5,6 +5,8 @@
 <ownerDesignName>springapp</ownerDesignName>
 <logging>YES</logging>
 <partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>5A830A9C-14CE-560B-B93B-1065417396E6</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 <temporaryChanged>false</temporaryChanged>
 <accessDriverType>oracle_loader</accessDriverType>
 <rejectLimit></rejectLimit>
@@ -51,24 +53,32 @@
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>AC93CF0A-3BEE-679E-456F-B2CDBA64978A</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
 <IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPRING_SESSION_IX2" id="4A5AD882-F9FE-0D36-1B5E-025DFC831951">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>AC93CF0A-3BEE-679E-456F-B2CDBA64978A</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
 <IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPRING_SESSION_IX1" id="6CEB9010-00DB-9E9A-0206-E92623DC0566">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>AC93CF0A-3BEE-679E-456F-B2CDBA64978A</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
 <IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPRING_SESSION_PK" id="9DA51790-5DD1-48C7-CA27-DBF4783F82A7">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>AC93CF0A-3BEE-679E-456F-B2CDBA64978A</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
 </indexProxies>
 <primaryKeys>
@@ -76,7 +86,12 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<segment>AC93CF0A-3BEE-679E-456F-B2CDBA64978A</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<existingIndex>9DA51790-5DD1-48C7-CA27-DBF4783F82A7</existingIndex>
+<indexSegment>AC93CF0A-3BEE-679E-456F-B2CDBA64978A</indexSegment>
 <indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
 </PrimaryKey>
 </primaryKeys>
 </TableProxyOraclev11g>
