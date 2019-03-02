@@ -30,8 +30,7 @@ public class User implements Serializable {
     @Column(name = "created_at")
     private Date createDate;
 
-    @Column(name = "roles_role_id")
-    private Integer roleId;
+    private Role role;
 
     @Column(name = "salt")
     private String salt;
@@ -50,7 +49,6 @@ public class User implements Serializable {
         this.passwordHash = passwordHash;
         this.status = status;
         this.createDate = createDate;
-        this.roleId = roleId;
         this.salt = salt;
     }
 
@@ -73,6 +71,14 @@ public class User implements Serializable {
 
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public String getEmail() {
@@ -123,13 +129,6 @@ public class User implements Serializable {
         this.createDate = createDate;
     }
 
-    public Integer getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
-    }
 
     public String getSalt() {
         return salt;
