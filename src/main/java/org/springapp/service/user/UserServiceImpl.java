@@ -4,6 +4,7 @@ import org.springapp.entity.Role;
 import org.springapp.entity.User;
 import org.springapp.repository.RoleRepository;
 import org.springapp.repository.UserRepository;
+import static org.springapp.util.Constant.USER_ROLE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,25 +28,25 @@ public class UserServiceImpl implements UserService {
         this.roleRepository = repository;
     }
 
-    @PostConstruct
-    public void init() {
-
-        if (repository.findByFirstName("user") == null) {
-            User user = new User();
-            user.setPasswordHash(new BCryptPasswordEncoder().encode("password"));
-            user.setRole(roleRepository.findRoleByRoleId(3));
-            user.setFirstName("user");
-            repository.save(user);
-        }
-        if (repository.findByFirstName("admin") == null) {
-            User user = new User();
-            user.setPasswordHash(new BCryptPasswordEncoder().encode("admin"));
-            user.setRole(roleRepository.findRoleByRoleId(1));
-            user.setFirstName("admin");
-            repository.save(user);
-        }
-
-    }
+//    @PostConstruct
+//    public void init() {
+//
+//        if (repository.findByFirstName("user") == null) {
+//            User user = new User();
+//            user.setPasswordHash(new BCryptPasswordEncoder().encode("password"));
+//            user.setRole(roleRepository.findRoleByName(USER_ROLE.NORMAL_USER.name()));
+//            user.setFirstName("user");
+//            repository.save(user);
+//        }
+//        if (repository.findByFirstName("admin") == null) {
+//            User user = new User();
+//            user.setPasswordHash(new BCryptPasswordEncoder().encode("admin"));
+//            user.setRole(roleRepository.findRoleByName(USER_ROLE.SYS_ADMIN.name()));
+//            user.setFirstName("admin");
+//            repository.save(user);
+//        }
+//
+//    }
 
     @Override
     public User findByUserIdEquals(Integer id) {
