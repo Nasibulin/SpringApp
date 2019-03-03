@@ -1,10 +1,3 @@
-/*
- * Copyright (c) NIT-Software. All Rights Reserved.
- * This software is the confidential and proprietary information of NIT-Software,
- * ("Confidential Information").
- * You shall not disclose such Confidential Information and shall use it only in accordance
- * with the terms of the license agreement you entered into with NIT-Software.
- */
 package org.springapp.auth;
 
 import java.util.Collection;
@@ -17,9 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-/**
- * Created by Johnny 2/27/2017.
- */
 public class AuthUser implements UserDetails {
 
     private final int id;
@@ -45,7 +35,6 @@ public class AuthUser implements UserDetails {
         this.enabled = enabled;
     }
     
-    @JsonIgnore
     public int getId() {
         return id;
     }
@@ -55,25 +44,21 @@ public class AuthUser implements UserDetails {
         return username;
     }
 
-    @JsonIgnore
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
-    @JsonIgnore
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
 
-    @JsonIgnore
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
-    @JsonIgnore
     @Override
     public String getPassword() {
         return password;

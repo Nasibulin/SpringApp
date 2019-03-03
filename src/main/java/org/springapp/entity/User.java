@@ -3,6 +3,7 @@ package org.springapp.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,7 +35,6 @@ public class User implements Serializable {
 
     @Column(name = "salt")
     private String salt;
-
 
     private Set<Order> orders;
 

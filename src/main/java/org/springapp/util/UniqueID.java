@@ -18,7 +18,8 @@ public class UniqueID
      */
     public static synchronized String getUUID() {
 	String uuid = UUID.randomUUID().toString();
-	return StringUtil.findAndReplace(uuid, "-", "");
+	return uuid.replace("-","");
+        //StringUtil.findAndReplace(uuid, "-", "");
     }
 
  
