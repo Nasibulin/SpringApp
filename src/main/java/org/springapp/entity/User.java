@@ -28,7 +28,6 @@ public class User implements Serializable {
     @Column(name = "status")
     private Integer status;
 
-    @Column(name = "created_at")
     private Date createDate;
 
     private Role role;

@@ -27,25 +27,25 @@ public class UserServiceImpl implements UserService {
         this.roleRepository = repository;
     }
 
-//    @PostConstruct
-//    public void init() {
-//
-//        if (repository.findByFirstName("user") == null) {
-//            User user = new User();
-//            user.setPasswordHash(new BCryptPasswordEncoder().encode("password"));
-//            user.setRole(roleRepository.findRoleByRoleId(3));
-//            user.setFirstName("user");
-//            repository.save(user);
-//        }
-//        if (repository.findByFirstName("admin") == null) {
-//            User user = new User();
-//            user.setPasswordHash(new BCryptPasswordEncoder().encode("admin"));
-//            user.setRole(roleRepository.findRoleByRoleId(1));
-//            user.setFirstName("admin");
-//            repository.save(user);
-//        }
-//
-//    }
+    @PostConstruct
+    public void init() {
+
+        if (repository.findByFirstName("user") == null) {
+            User user = new User();
+            user.setPasswordHash(new BCryptPasswordEncoder().encode("password"));
+            user.setRole(roleRepository.findRoleByRoleId(3));
+            user.setFirstName("user");
+            repository.save(user);
+        }
+        if (repository.findByFirstName("admin") == null) {
+            User user = new User();
+            user.setPasswordHash(new BCryptPasswordEncoder().encode("admin"));
+            user.setRole(roleRepository.findRoleByRoleId(1));
+            user.setFirstName("admin");
+            repository.save(user);
+        }
+
+    }
 
     @Override
     public User findByUserIdEquals(Integer id) {
