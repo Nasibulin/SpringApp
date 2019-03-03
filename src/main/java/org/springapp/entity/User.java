@@ -72,7 +72,8 @@ public class User implements Serializable {
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
-
+    @ManyToOne
+    @JoinColumn(name = "roles_role_id")
     public Role getRole() {
         return role;
     }
@@ -121,6 +122,7 @@ public class User implements Serializable {
         this.status = status;
     }
 
+    @Column(name = "created_at")
     public Date getCreateDate() {
         return createDate;
     }

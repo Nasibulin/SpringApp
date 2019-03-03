@@ -1,6 +1,5 @@
 package org.springapp.controllers;
 
-import org.springapp.auth.AuthUser;
 import org.springapp.entity.*;
 import org.springapp.repository.CategoryRepository;
 import org.springapp.service.categories.CategoryService;
@@ -47,13 +46,6 @@ public class CategoryController {
         model.addAttribute("submenu", submenu);
         model.addAttribute("catname", catname);
         System.out.println(request.getSession().getId());
-
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        AuthUser user = (AuthUser) authentication.getPrincipal();
-
-        model.addAttribute("username", user.getUsername());
-        //model.addAttribute("roles", user.getAuthorities());
 
         return "index";
     }
