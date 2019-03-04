@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-public class CategoryController {
+public class MainController {
 
     private static final int pageableDefault = 20;
     private CategoryService service;
@@ -45,7 +45,7 @@ public class CategoryController {
         model.addAttribute("topmenu", topmenu);
         model.addAttribute("submenu", submenu);
         model.addAttribute("catname", catname);
-        System.out.println(request.getSession().getId());
+        //System.out.println(request.getSession().getId());
 
         return "index";
     }
