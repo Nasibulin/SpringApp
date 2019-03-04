@@ -17,6 +17,18 @@ public class AuthUser implements UserDetails{
     private boolean credentialsNonExpired;
     private boolean enabled;
 
+    public AuthUser() {
+    }
+
+    public AuthUser(String username, List<RoleEnum> authorities, String password, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
+        this.username = username;
+        this.authorities = authorities;
+        this.password = password;
+        this.accountNonExpired = accountNonExpired;
+        this.accountNonLocked = accountNonLocked;
+        this.credentialsNonExpired = credentialsNonExpired;
+        this.enabled = enabled;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
