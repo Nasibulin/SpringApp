@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A6E8C545-2D16-7932-A1C4-5B50C9261B64" name="CATEGORIES">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>CATEGORY</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<ordsAlias>category</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="2D74F966-1AB3-9F59-944B-D67DBFDCD639">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>CATEGORY</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementStartWith>1200</autoIncrementStartWith>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementSequenceName>categories_id_seq</autoIncrementSequenceName>
+<autoIncrementTriggerName>CATEGORIES_ID_TRG</autoIncrementTriggerName>
+</Column>
+<Column name="PARENT_ID" id="CFC616CF-584D-7D98-BF90-E13A5C77078C">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>CATEGORIES</sourceObjSchema>
+<sourceObjName>PARENT_ID</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:06:21 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="74C7A082-24CC-3BB2-BB53-6AA01A60DB9F" referredColumn="2D74F966-1AB3-9F59-944B-D67DBFDCD639"/>
+</associations>
+</Column>
+<Column name="CATNAME" id="02288615-9BEC-27C7-92FF-F4D461F35AB8">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>CATEGORY</sourceObjSchema>
+<sourceObjName>CATNAME</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IS_ROOT" id="1D767BB3-73B3-96B1-736A-BB8658C5A46E">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>CATEGORIES</sourceObjSchema>
+<sourceObjName>IS_ROOT</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:31:53 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>6098CC39-C039-DF11-9B8B-823BDCB9207D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C2E245EC-6A3B-D8C4-18FF-0F5E107167A6" name="CATEGORIES_PK">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>springapp</sourceObjSchema>
+<sourceObjName>CATEGORY_PK</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:05:51 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2D74F966-1AB3-9F59-944B-D67DBFDCD639"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ADBA8386-BA11-BFE7-A325-FA1AF688DCD0" name="CATEGORIES__IDXv1">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>springapp</sourceObjSchema>
+<sourceObjName>CATEGORY__IDX</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:06:04 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2D74F966-1AB3-9F59-944B-D67DBFDCD639"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6A968AAE-B599-D57B-0D6F-92BCB9C3D69C" name="CATEGORIES__IDX">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>springapp</sourceObjSchema>
+<sourceObjName>CATEGORIES__IDX</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:12:22 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CFC616CF-584D-7D98-BF90-E13A5C77078C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C80C706F-D068-1855-C422-975E4121897B" name="CATEGORIES_CATEGORIES_FK">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:06:21 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CFC616CF-584D-7D98-BF90-E13A5C77078C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6F29A0E4-E5B7-E106-3FC0-B71BBD3B8B44" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="ROLES">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>ROLES</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:20:27 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>2FA2897D-4602-2BCE-ECD5-E376C00F0EAD</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ROLE_ID" id="BDCF92A4-B269-EACB-5805-61FDDAA0F9A0">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ROLES</sourceObjSchema>
+<sourceObjName>ROLE_ID</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:20:27 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>945E2E30-5572-A64D-49EA-17D5A510B074</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementSequenceName>roles_seq</autoIncrementSequenceName>
+<autoIncrementTriggerName>ROLES_SEQ_TR</autoIncrementTriggerName>
+</Column>
+<Column name="DESCRIPTION" id="FA238459-80B1-F815-60AA-9A5959DF7A63">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ROLES</sourceObjSchema>
+<sourceObjName>DESCRIPTION</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:20:27 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>D776C599-FD1B-9CBF-6451-D6D9824CFBED</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<defaultValue>NULL</defaultValue>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="2A4383EE-106F-842C-7CEA-4A22D8DFFCAD">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ROLES</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:20:27 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>E687516A-1E54-BC59-144B-EB3B07229175</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A42A5BFB-8547-20D5-C3E5-36FF29ABE318" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="ROLES_PK">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>SYS_C007739</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:20:27 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>3CECDD14-8FC0-CCA0-ABEB-3498F1BE01B2</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BDCF92A4-B269-EACB-5805-61FDDAA0F9A0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4ED759A1-0BE4-587C-5AFA-363D3EDBB690" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="SYS_C007739">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>SYS_C007739</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:42:04 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>3CB02609-4831-7A89-7E16-B0378815A7F3</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BDCF92A4-B269-EACB-5805-61FDDAA0F9A0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

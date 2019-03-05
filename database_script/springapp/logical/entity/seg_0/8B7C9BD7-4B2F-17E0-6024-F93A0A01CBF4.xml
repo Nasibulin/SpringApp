@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8B7C9BD7-4B2F-17E0-6024-F93A0A01CBF4" name="SPRING SESSION">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-20 04:42:13 UTC</createdTime>
+<generatorID>0F29A07D-4EF1-857A-D599-C4456A582B14</generatorID>
+<ownerDesignName>springapp</ownerDesignName>
+<engineerTo>
+<item key="73E120A2-AE4E-A2C9-3260-4DC783645F57" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="PRIMARY ID" id="6A96295B-29A9-D293-680E-5A661CC828B1">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-20 04:42:13 UTC</createdTime>
+<generatorID>E66BDA50-19D0-7200-38DB-7466C8D005D3</generatorID>
+<ownerDesignName>springapp</ownerDesignName>
+<engineerTo>
+<item key="73E120A2-AE4E-A2C9-3260-4DC783645F57" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SESSION ID" id="3043B083-E12A-1C76-D4EA-5F38DEE05068">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-20 04:42:13 UTC</createdTime>
+<generatorID>3BF1066A-525B-9BE5-C940-8C68EB97CB93</generatorID>
+<ownerDesignName>springapp</ownerDesignName>
+<engineerTo>
+<item key="73E120A2-AE4E-A2C9-3260-4DC783645F57" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CREATION TIME" id="254CF129-8752-39A4-AE52-64C6C0330CA8">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-20 04:42:13 UTC</createdTime>
+<generatorID>82C19786-1E0A-1755-0112-439F9CC08B2B</generatorID>
+<ownerDesignName>springapp</ownerDesignName>
+<engineerTo>
+<item key="73E120A2-AE4E-A2C9-3260-4DC783645F57" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="LAST ACCESS TIME" id="CD5FB6B4-32D8-7EFB-7BCE-ED5620CC0125">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-20 04:42:13 UTC</createdTime>
+<generatorID>C414B887-F623-AEDD-3465-E15638F3067F</generatorID>
+<ownerDesignName>springapp</ownerDesignName>
+<engineerTo>
+<item key="73E120A2-AE4E-A2C9-3260-4DC783645F57" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="MAX INACTIVE INTERVAL" id="AA1A352B-7022-E1F8-0667-B1F80CAD72EC">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-20 04:42:13 UTC</createdTime>
+<generatorID>5BB19E4C-45D9-8289-D099-86288DCFCB3C</generatorID>
+<ownerDesignName>springapp</ownerDesignName>
+<engineerTo>
+<item key="73E120A2-AE4E-A2C9-3260-4DC783645F57" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="EXPIRY TIME" id="F491D91A-C8BD-5D9B-7173-830C54FC2313">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-20 04:42:13 UTC</createdTime>
+<generatorID>545A37E9-F227-C360-F957-A3BFC3A41580</generatorID>
+<ownerDesignName>springapp</ownerDesignName>
+<engineerTo>
+<item key="73E120A2-AE4E-A2C9-3260-4DC783645F57" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PRINCIPAL NAME" id="04329791-15BE-1550-7A0A-D52DC79A2288">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-20 04:42:13 UTC</createdTime>
+<generatorID>71501A4E-6E85-781F-BF3E-F99339CF5C6F</generatorID>
+<ownerDesignName>springapp</ownerDesignName>
+<engineerTo>
+<item key="73E120A2-AE4E-A2C9-3260-4DC783645F57" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1D10B5B4-445A-3F64-BB6F-6BFA93A61E60" name="SPRING SESSION PK">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-20 04:42:13 UTC</createdTime>
+<generatorID>B7EDBB6D-4129-4D9D-07C6-B4EC99486F23</generatorID>
+<ownerDesignName>springapp</ownerDesignName>
+<engineerTo>
+<item key="73E120A2-AE4E-A2C9-3260-4DC783645F57" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6A96295B-29A9-D293-680E-5A661CC828B1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

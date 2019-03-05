@@ -1,14 +1,17 @@
 package org.springapp.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
 import org.springapp.entity.Note;
 import org.springapp.service.NoteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -22,12 +25,19 @@ public class NoteController {
         this.service = service;
     }
 
-    @GetMapping("/")
-    public String list(Model model) {
+    @GetMapping("/..")
+    public String list(Model model, HttpSession session) {
         List<Note> notebook = filterAndSort();
         model.addAttribute("notes", notebook);
         model.addAttribute("sort", sortDateMethod);
-        return "index";
+//        @SuppressWarnings("unchecked")
+//        List<String> msgs = (List<String>) session.getAttribute("MY_MESSAGES");
+//
+//        if (msgs == null) {
+//            msgs = new ArrayList<>();
+//        }
+//        model.addAttribute("messages", msgs);
+          return "index";
     }
 
     @GetMapping("/sort/{sortDate}")
@@ -37,9 +47,18 @@ public class NoteController {
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    public String edit(@PathVariable Integer id, Model model, HttpServletRequest request) {
         Note note = service.getNoteById(id);
         model.addAttribute("note", note);
+//        @SuppressWarnings("unchecked")
+//        List<String> msgs = (List<String>) request.getSession().getAttribute("MY_MESSAGES");
+//        if (msgs == null) {
+//            msgs = new ArrayList<>();
+//            request.getSession().setAttribute("MY_MESSAGES", msgs);
+//        }
+//        msgs.add(String.valueOf(id));
+//        request.getSession().setAttribute("MY_MESSAGES", msgs);
+        System.out.println(request.getSession().getId());
         return "operations/edit";
     }
 

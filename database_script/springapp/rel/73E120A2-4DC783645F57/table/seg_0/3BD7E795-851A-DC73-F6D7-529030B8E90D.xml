@@ -1,0 +1,191 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3BD7E795-851A-DC73-F6D7-529030B8E90D" name="ORDER_DETAILS">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>springapp</sourceObjSchema>
+<sourceObjName>ORDER_DETAILS</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:13:49 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="CB265407-BA57-0064-1F1D-991D8ECC35C1">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ORDER_DETAILS</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:14:34 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementSequenceName>order_details_id_seq</autoIncrementSequenceName>
+<autoIncrementTriggerName>ORDER_DETAILS_ID_TRG</autoIncrementTriggerName>
+</Column>
+<Column name="ORDERS_ID" id="0B35F227-A447-8F81-C79A-00345D1F4350">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ORDER_DETAILS</sourceObjSchema>
+<sourceObjName>ORDERS_ID</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:17:11 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DFE20ACD-9033-31D8-5E83-984190B7AED4" referredColumn="A34C2ECB-599A-1781-6D3B-A6E13ABE3CE8"/>
+</associations>
+</Column>
+<Column name="PRODUCTS_ID" id="F54C6AF8-594C-A595-0D55-F2F8577C7A20">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ORDER_DETAILS</sourceObjSchema>
+<sourceObjName>PRODUCTS_ID</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:17:54 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BF09C171-E247-B755-D2A7-0C3610B2109E" referredColumn="40151B5B-FDBE-D680-F7ED-4FE980C41037"/>
+</associations>
+</Column>
+<Column name="ITEM_PRICE" id="89F367D9-5B22-A606-E76F-1550D95A573E">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-21 06:21:56 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,19,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ITEM_QUANTITY" id="B8118510-AC63-F94A-ED4A-1D96184F5D1C">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>ORDER_DETAILS</sourceObjSchema>
+<sourceObjName>ITEM_QUANTITY</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-21 05:43:19 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ITEM_TOTAL" id="53B36342-571F-5BA6-3F9B-F0F6A9D5E6D5">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-21 05:43:59 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<formulaDesc>&quot;ITEM_PRICE&quot;*&quot;ITEM_QUANTITY&quot;</formulaDesc>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,19,2</ownDataTypeParameters>
+<computed>true</computed>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="52CEC7FB-4CE8-37B4-96B0-6E87D8BCD165" name="ORDER_ITEMS_PK">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>springapp</sourceObjSchema>
+<sourceObjName>ORDER_ITEMS_PK</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:14:54 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB265407-BA57-0064-1F1D-991D8ECC35C1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0796859E-9E87-ACF4-CE11-D281CD9ED06D" name="ORDER_DETAILS__IDX">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>springapp</sourceObjSchema>
+<sourceObjName>ORDER_DETAILS__IDX</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:57:27 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0B35F227-A447-8F81-C79A-00345D1F4350"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4763D030-D3E7-AFD5-E2D4-9A60178282BF" name="ORDER_DETAILS__IDXv1">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>springapp</sourceObjSchema>
+<sourceObjName>ORDER_DETAILS__IDXv1</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:57:27 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F54C6AF8-594C-A595-0D55-F2F8577C7A20"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AF48236E-BFC0-EF32-71AE-9F0D21705ABF" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="ORDER_ITEMS_PK">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>ORDER_ITEMS_PK</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-02 07:03:21 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>10F81484-FBAE-8688-12DB-8D03BB5940D8</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB265407-BA57-0064-1F1D-991D8ECC35C1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A06CC879-F9D9-1944-2AC5-20DE2E25E6F5" name="ORDER_ITEMS_ORDERS_FK">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:17:11 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0B35F227-A447-8F81-C79A-00345D1F4350"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="093D00AA-AD94-22E1-0922-38E8867AA63A" name="ORDER_ITEMS_PRODUCTS_FK">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:17:54 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F54C6AF8-594C-A595-0D55-F2F8577C7A20"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

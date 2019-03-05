@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="SpringApp" id="73E120A2-AE4E-A2C9-3260-4DC783645F57" mainViewID="8CE93D77-152E-778E-CEFF-C83220F8CC2D">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:16:03 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<shouldBeOpen>true</shouldBeOpen>
+<selectedRDBMSSite>32076570-2523-435C-2E92-BF29817DFF70</selectedRDBMSSite>
+<redirectConnectionStamp class="oracle.dbtools.crest.imports.DBConnectionStamp">
+<connName>xe</connName>
+<connUser>springapp</connUser>
+<connType>1</connType>
+<syncSelected>-1</syncSelected>
+</redirectConnectionStamp>
+<useConnectionUser>true</useConnectionUser>
+<importConnectionStamps>
+<importConnectionStamp class="oracle.dbtools.crest.imports.DBConnectionStamp">
+<connName>xe</connName>
+<connUser>springapp</connUser>
+<connType>1</connType>
+<syncSelected>1</syncSelected>
+</importConnectionStamp>
+</importConnectionStamps>
+</relationalModel>

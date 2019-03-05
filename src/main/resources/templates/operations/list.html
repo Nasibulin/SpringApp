@@ -2,32 +2,27 @@
 <!--suppress ALL -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<div th:fragment="notebook">
+
+<div th:fragment="category">
     <table class="table table-bordered table-hover horizontal-align">
         <thead>
         <tr>
             <th style="width: 5%">#</th>
-            <th style="width: 60%">Message</th>
-            <th class="dropdown" style="width: 20%">Date
-                <a th:href="@{'/sort/{sortDate}' (sortDate = 'ASC')}"><i class="fa fa-chevron-circle-up"></i></a>
-                <a th:href="@{'/sort/{sortDate}' (sortDate = 'DESC')}"><i class="fa fa-chevron-circle-down"></i></a>
-            </th>
-            <th style="width: 5%">Done</th>
-            <th style="width: 5%">Edit</th>
-            <th style="width: 5%">Delete</th>
+            <th style="width: 60%">Category</th>
+            <th style="width: 5%">Qty</th>
+            <th style="width: 5%">Add to cart</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="note : ${notes}">
-            <td th:text="${note.id}" style="text-align: center">#</td>
-            <td th:text="${note.message}">Message</td>
-            <td th:text="${#dates.format(note.date, 'EEE, d MMM yyyy HH:mm')}" style="text-align: center">Date</td>
-            <td style="text-align: center">
-                <i th:if="${note.done} == true" class="fa fa-plus-square-o" style="font-size:20px;color:#337ab7"></i>
-                <i th:if="${note.done} == false" class="fa fa-minus-square-o" style="font-size:20px;color:#337ab7"></i>
+        <tr th:each="category : ${page.content}">
+            <td th:text="${category.id}" style="text-align: center">#</td>
+            <td th:text="${category.catname}">Category</td>
+            <div class="form-group">
+			<td style="text-align: center">
+                <input type="number" class="form-control form-control-sm" id="amount" th:name="amount" th:value="1" min="0" maxlength="20"/>
             </td>
-            <td style="text-align: center"><a th:href="@{'/edit/{id}'(id=${note.id})}"><i class="fa fa-edit" style="font-size:20px"></i></a></td>
-            <td style="text-align: center"><a th:href="@{'/delete/{id}'(id=${note.id})}"><i class="fa fa-trash" style="font-size:20px"></i></a></td>
+            <td style="text-align: center"><button type="submit" class="btn btn-primary btn-sm">Add to cart</button></td>
+			</div>
         </tr>
         </tbody>
     </table>

@@ -1,0 +1,153 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BDB3CB0D-5023-13A6-D22C-EECB6D1421D2" name="PRODUCTS">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>PRODUCT</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<ordsAlias>product</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="40151B5B-FDBE-D680-F7ED-4FE980C41037">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>PRODUCT</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementStartWith>19000</autoIncrementStartWith>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementSequenceName>products_id_seq</autoIncrementSequenceName>
+<autoIncrementTriggerName>PRODUCTS_ID_TRG</autoIncrementTriggerName>
+</Column>
+<Column name="CATEGORY_ID" id="69763F18-0E6A-1825-8441-8E54C29E3B47">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>PRODUCTS</sourceObjSchema>
+<sourceObjName>CATEGORY_ID</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:08:06 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="20D554D4-8AEB-0F63-EDF5-64A382AD5645" referredColumn="2D74F966-1AB3-9F59-944B-D67DBFDCD639"/>
+</associations>
+</Column>
+<Column name="PART_NUMBER" id="A55C52AC-2212-D4D2-11E2-F4703BE5778A">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>PRODUCT</sourceObjSchema>
+<sourceObjName>PART_NUMBER</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIPTION" id="5F554188-C89E-9AA1-E9B4-088EF3E4C649">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>PRODUCT</sourceObjSchema>
+<sourceObjName>DESCRIPTION</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SERVICE" id="C666F1D4-4B67-EE80-7123-F75501B84635">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>PRODUCT</sourceObjSchema>
+<sourceObjName>SERVICE</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE" id="98346C81-36FB-A047-1458-31375A02F378">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>PRODUCT</sourceObjSchema>
+<sourceObjName>PRICE</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,19,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5AC67F48-A09E-B7E3-9EC3-A2E31AB54C7F" name="PRODUCTS_PK">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>springapp</sourceObjSchema>
+<sourceObjName>PRODUCTS_PK</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:52:16 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="40151B5B-FDBE-D680-F7ED-4FE980C41037"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ED2CDD4A-A9C5-183D-5EF2-556F96F25582" name="PRODUCTS__IDX">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>springapp</sourceObjSchema>
+<sourceObjName>PRODUCTS__IDX</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:52:32 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="40151B5B-FDBE-D680-F7ED-4FE980C41037"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A4B8E3FD-1ACA-D309-8E0A-B859E79EA3BE" name="PRODUCTS_CATEGORIES_FK">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 10:08:06 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="69763F18-0E6A-1825-8441-8E54C29E3B47"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

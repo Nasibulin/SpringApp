@@ -1,0 +1,183 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0F29A07D-4EF1-857A-D599-C4456A582B14" name="SPRING_SESSION">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>SPRING_SESSION</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PRIMARY_ID" id="E66BDA50-19D0-7200-38DB-7466C8D005D3">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRING_SESSION</sourceObjSchema>
+<sourceObjName>PRIMARY_ID</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SESSION_ID" id="3BF1066A-525B-9BE5-C940-8C68EB97CB93">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRING_SESSION</sourceObjSchema>
+<sourceObjName>SESSION_ID</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>36 BYTE</dataTypeSize>
+<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATION_TIME" id="82C19786-1E0A-1755-0112-439F9CC08B2B">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRING_SESSION</sourceObjSchema>
+<sourceObjName>CREATION_TIME</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LAST_ACCESS_TIME" id="C414B887-F623-AEDD-3465-E15638F3067F">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRING_SESSION</sourceObjSchema>
+<sourceObjName>LAST_ACCESS_TIME</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MAX_INACTIVE_INTERVAL" id="5BB19E4C-45D9-8289-D099-86288DCFCB3C">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRING_SESSION</sourceObjSchema>
+<sourceObjName>MAX_INACTIVE_INTERVAL</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EXPIRY_TIME" id="545A37E9-F227-C360-F957-A3BFC3A41580">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRING_SESSION</sourceObjSchema>
+<sourceObjName>EXPIRY_TIME</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRINCIPAL_NAME" id="71501A4E-6E85-781F-BF3E-F99339CF5C6F">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRING_SESSION</sourceObjSchema>
+<sourceObjName>PRINCIPAL_NAME</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B7EDBB6D-4129-4D9D-07C6-B4EC99486F23" name="SPRING_SESSION_PK">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>SPRING_SESSION_PK</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E66BDA50-19D0-7200-38DB-7466C8D005D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6CEB9010-00DB-9E9A-0206-E92623DC0566" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="SPRING_SESSION_IX1">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>SPRING_SESSION_IX1</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3BF1066A-525B-9BE5-C940-8C68EB97CB93"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4A5AD882-F9FE-0D36-1B5E-025DFC831951" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="SPRING_SESSION_IX2">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>SPRING_SESSION_IX2</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="545A37E9-F227-C360-F957-A3BFC3A41580"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1DE4B171-C34E-BBA2-EC94-F1EB333AF994" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="SPRING_SESSION_IX3">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>SPRING_SESSION_IX3</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="71501A4E-6E85-781F-BF3E-F99339CF5C6F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9DA51790-5DD1-48C7-CA27-DBF4783F82A7" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="SPRING_SESSION_PK">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>SPRING_SESSION_PK</sourceObjName>
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E66BDA50-19D0-7200-38DB-7466C8D005D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

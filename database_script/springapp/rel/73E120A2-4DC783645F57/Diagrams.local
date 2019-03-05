@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="main_view" objectID="8CE93D77-152E-778E-CEFF-C83220F8CC2D" name="SpringApp" visible="true"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

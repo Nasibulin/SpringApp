@@ -5,13 +5,13 @@
 <div th:fragment="header">
     <nav class="navbar-default navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" th:href="@{/}">Notebook</a>
-                <ul class="nav navbar-nav">
-                    <li><a href="#" th:href="@{/new}">New Note</a></li>
+			<div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/}">CISCO</a>
+                <ul class="nav navbar-nav" th:each="cat : ${catname}">
+                    <li><a href="#" th:href="@{'/catalog/{id}'(id=${cat.parentId})}" th:text="${cat.catname}"></a></li>
                 </ul>
-            </div>
-        </div>
-    </nav>
+			</div>
+		</div>
+	</nav>
 </div>
 </html>

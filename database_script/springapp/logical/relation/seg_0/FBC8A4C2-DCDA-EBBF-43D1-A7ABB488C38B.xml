@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ORDER_ITEMS_ORDERS_FK" directorySegmentName="seg_0" id="FBC8A4C2-DCDA-EBBF-43D1-A7ABB488C38B">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-02-20 04:42:13 UTC</createdTime>
+<generatorID>DFE20ACD-9033-31D8-5E83-984190B7AED4</generatorID>
+<ownerDesignName>springapp</ownerDesignName>
+<engineerTo>
+<item key="73E120A2-AE4E-A2C9-3260-4DC783645F57" value="true"/>
+</engineerTo>
+<sourcePk>42771013-7827-AB80-6127-C30C02034938</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>217169BA-D26A-2E7B-CDDB-37FCF201A227</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3EE469E0-B1CF-01C9-7D27-AA2C27282833</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

@@ -1,0 +1,4 @@
+FILE="C:\Users\Konstantin\IdeaProjects\SpringApp\database_script\springapp.DMP"
+LOG="C:\Users\Konstantin\IdeaProjects\SpringApp\database_script\exp_springapp.log"
+OWNER=('SPRINGAPP')
+FEEDBACK=1000

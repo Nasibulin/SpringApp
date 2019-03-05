@@ -1,0 +1,27 @@
+;;; 
+Export: Release 11.2.0.2.0 - Production on Чт Фев 21 13:20:14 2019
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+Connected to: Oracle Database 11g Express Edition Release 11.2.0.2.0 - Production
+Starting "SYS"."SYS_EXPORT_TABLE_01":  "SYS/********@XE AS SYSDBA" PARFILE='exp_spring_data.dat' 
+Estimate in progress using BLOCKS method...
+Processing object type TABLE_EXPORT/TABLE/TABLE_DATA
+Total estimation using BLOCKS method: 384 KB
+Processing object type TABLE_EXPORT/TABLE/TABLE
+Processing object type TABLE_EXPORT/TABLE/INDEX/INDEX
+Processing object type TABLE_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processing object type TABLE_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processing object type TABLE_EXPORT/TABLE/CONSTRAINT/REF_CONSTRAINT
+Processing object type TABLE_EXPORT/TABLE/TRIGGER
+. . exported "SPRINGAPP"."PRODUCTS"                      91.85 KB    1150 rows
+. . exported "SPRINGAPP"."CATEGORIES"                    10.57 KB     102 rows
+. . exported "SPRINGAPP"."ORDER_DETAILS"                 7.273 KB       5 rows
+. . exported "SPRINGAPP"."ORDERS"                        8.007 KB       1 rows
+. . exported "SPRINGAPP"."SPRING_SESSION"                7.757 KB       1 rows
+. . exported "SPRINGAPP"."SPRING_SESSION_ATTRIBUTES"         0 KB       0 rows
+Master table "SYS"."SYS_EXPORT_TABLE_01" successfully loaded/unloaded
+******************************************************************************
+Dump file set for SYS.SYS_EXPORT_TABLE_01 is:
+  C:\ORACLEXE\APP\ORACLE\ADMIN\XE\DPDUMP\SPRING_DATA.DMP
+Job "SYS"."SYS_EXPORT_TABLE_01" successfully completed at 13:20:55

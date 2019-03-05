@@ -1,0 +1,6 @@
+FILE="C:\Users\Nasibulin\IdeaProjects\SpringApp\database_script\db.DMP"
+LOG="C:\Users\Nasibulin\IdeaProjects\SpringApp\database_script\imp_db.log"
+FROMUSER=db
+TOUSER=springapp
+IGNORE=Y
+FEEDBACK=1000

@@ -1,0 +1,4 @@
+FILE="C:\Users\Nasibulin\IdeaProjects\SpringApp\database_script\springapp20190220.DMP"
+LOG="C:\Users\Nasibulin\IdeaProjects\SpringApp\database_script\exp_springapp20190220.log"
+OWNER=('SPRINGAPP')
+FEEDBACK=1000
