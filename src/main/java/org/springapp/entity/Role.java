@@ -8,14 +8,13 @@ import java.util.Set;
 
 @Entity
 @Table(name = "roles")
-public class Role implements Serializable {
+public class Role implements Serializable, GrantedAuthority {
 
     private static final long serialVersionUID = 1L;
 
     private Integer roleId;
-    
-    @Column(name = "name")
-    private String name;
+
+    private String authority;
     
     @Column(name = "description")
     private String description;
@@ -43,14 +42,13 @@ public class Role implements Serializable {
         this.roleId = roleId;
     }
 
-
-
-    public String getName() {
-        return name;
+    @Column(name = "name")
+    public String getAuthority() {
+        return authority;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 
     public String getDescription() {
@@ -60,4 +58,6 @@ public class Role implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

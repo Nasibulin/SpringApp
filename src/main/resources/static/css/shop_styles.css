@@ -1245,7 +1245,7 @@ select option
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
 	line-height: 1.166;
-	color: #7599b2;
+	color: #ffffff;
 	text-transform: uppercase;
 	letter-spacing: 0.038em;
 }
@@ -1281,7 +1281,7 @@ select option
 {
 	font-size: 18px;
 	font-weight: 400;
-	color: #000000;
+	color: #ffffff;
 	margin-top: 8px;
 }
 .banner_button

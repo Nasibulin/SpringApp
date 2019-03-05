@@ -12,6 +12,7 @@
 	3.2 Header Main
 	3.3 Main Navigation
 	3.4 Page Menu
+3.1. Banner
 4. Home
 5. Shop
 	5.1 Shop Products
@@ -140,7 +141,7 @@ h6::selection
 }
 .form-control
 {
-	color: #db5246;
+	color: #0e8ce4;
 }
 section
 {
@@ -533,7 +534,7 @@ section
 }
 .logo_container
 {
-	height: 175px;
+	height: 125px;
 }
 .logo
 {
@@ -552,7 +553,7 @@ section
 }
 .header_search
 {
-	height: 175px;
+	height: 125px;
 }
 .header_search_content
 {
@@ -711,7 +712,7 @@ section
 	display: block;
 	color: #a3a3a3;
 	line-height: 35px;
-	border-bottom: solid 1px #ededed;
+	/* border-bottom: solid 1px #ededed; */
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -764,11 +765,11 @@ select option
 }
 .wishlist_cart
 {
-	height: 175px;
+	height: 125px;
 }
 .wishlist
 {
-	margin-right: 50px;
+	margin-right: 25px;
 }
 .wishlist_icon img
 {
@@ -1217,6 +1218,90 @@ select option
 }
 
 /*********************************
+3.1. Banner
+*********************************/
+
+.banner
+{
+	width: 100%;
+	padding-top: 68px;
+	padding-bottom: 83px;
+	overflow: hidden;
+}
+.banner_background
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+/*	background-size: cover;
+	background-position: center center;*/
+}
+.banner_content
+{
+	z-index: 1;
+}
+.banner_text
+{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	line-height: 1.166;
+	color: #ffffff;
+	text-transform: uppercase;
+	letter-spacing: 0.038em;
+}
+.banner_price
+{
+
+}
+.banner_price
+{
+	font-size: 30px;
+	color: #df3b3b;
+	margin-top: 87px;
+}
+.banner_price span
+{
+	display: inline-block;
+	position: relative;
+	color: #7e8285;
+	margin-right: 14px;
+}
+.banner_price span::after
+{
+	display: block;
+	position: absolute;
+	top: 21px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: #8d8d8d;
+	content: '';
+}
+.banner_product_name
+{
+	font-size: 18px;
+	font-weight: 400;
+	color: #ffffff;
+	margin-top: 8px;
+}
+.banner_button
+{
+	margin-top: 42px;
+}
+.banner_product_image
+{
+	position: absolute;
+	top: -5px;
+	right: -52px;
+	z-index: 0;
+}
+
+
+
+/*********************************
 4. Home
 *********************************/
 
@@ -1234,8 +1319,8 @@ select option
 	width: 100%;
 	height: 100%;
 	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
+/*	background-size: cover;
+	background-position: center center;*/
 }
 .home_overlay
 {

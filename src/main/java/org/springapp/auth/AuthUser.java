@@ -1,16 +1,15 @@
 package org.springapp.auth;
 
-import org.springapp.entity.RoleEnum;
+import org.springapp.entity.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class AuthUser implements UserDetails{
 
     private String username;
-    private List<RoleEnum> authorities;
+    private Role authorities;
     private String password;
     private boolean accountNonExpired;
     private boolean accountNonLocked;
@@ -20,7 +19,7 @@ public class AuthUser implements UserDetails{
     public AuthUser() {
     }
 
-    public AuthUser(String username, List<RoleEnum> authorities, String password, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
+    public AuthUser(String username, Role authorities, String password, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
         this.username = username;
         this.authorities = authorities;
         this.password = password;
@@ -32,7 +31,11 @@ public class AuthUser implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.authorities;
+        return Collections.unmodifiableList(Arrays.asList(this.authorities));
+    }
+
+    public void setAuthorities() {
+        this.authorities = authorities;
     }
 
     @Override
@@ -69,7 +72,7 @@ public class AuthUser implements UserDetails{
         this.username = username;
     }
 
-    public void setAuthorities(List<RoleEnum> authorities) {
+    public void setAuthorities(Role authorities) {
         this.authorities = authorities;
     }
 
