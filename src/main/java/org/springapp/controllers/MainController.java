@@ -12,10 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +22,7 @@ import java.util.List;
 public class MainController {
 
     private static final int pageableDefault = 20;
+    private final static String loginmsg = "loginmsg";
     private CategoryService categoryService;
     private ProductService productService;
     private AuthUser guest;
@@ -48,8 +46,14 @@ public class MainController {
         guest = (AuthUser) authUserDetailsService.loadUserByUsername("guest@gmail.com");
     }
 
-    @GetMapping("/")
-    public String getMain(Model model) {
+    @ModelAttribute
+    public void globalAttributes(Model model) {
+        List<Category> topmenu = categoryService.findCatnameByLevel(2);
+        List<Category> submenu = categoryService.findCatnameByLevel(3);
+        List<Category> catname = categoryService.findCatPathById(-1);
+        model.addAttribute("catname", catname);
+        model.addAttribute("topmenu", topmenu);
+        model.addAttribute("submenu", submenu);
         AuthUser user = null;
         try {
             user = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -57,6 +61,11 @@ public class MainController {
             SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
         }
         model.addAttribute("principal", user);
+    }
+
+
+    @GetMapping("/")
+    public String getMain(Model model) {
         return "index";
     }
 
@@ -64,11 +73,12 @@ public class MainController {
     public String getLogin(@RequestParam(value = "error", required = false) String error,
                            @RequestParam(value = "logout", required = false) String logout,
                            Model model) {
-        model.addAttribute("login", "login");
         model.addAttribute("error", error != null);
         model.addAttribute("logout", logout != null);
+        model.addAttribute("loginmsg", loginmsg);
         return "login";
     }
+
 
     @GetMapping("/catalog/{id}")
     public String list(@PathVariable Integer id, Model model) {
