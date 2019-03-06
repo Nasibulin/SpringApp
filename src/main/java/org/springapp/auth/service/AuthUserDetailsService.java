@@ -16,8 +16,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 @Service
-public class AuthUserDetailsService implements UserDetailsService{
+public class AuthUserDetailsService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
@@ -27,9 +28,10 @@ public class AuthUserDetailsService implements UserDetailsService{
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-
+        if (userRepository.findByEmail(email) == null) {
+            throw new UsernameNotFoundException("User not found");
+        }
         return authUserFactory.createAuthUser(userRepository.findByEmail(email));
-
     }
 
     @Bean
