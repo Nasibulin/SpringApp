@@ -31,21 +31,25 @@ public class UserServiceImpl implements UserService {
 
 //    @PostConstruct
 //    public void init() {
-//        repository.findByFirstName("user").ifPresent((user -> {
-//            user.setPasswordHash(new BCryptPasswordEncoder().encode("user"));
-//            repository.save(user);}));
 //
-//        if (repository.findByFirstName("user") == null) {
+//        if (repository.findByFirstName("guest") == null) {
 //            User user = new User();
-//            user.setPasswordHash(new BCryptPasswordEncoder().encode("password"));
-//            user.setRole(roleRepository.findRoleByName(USER_ROLE.NORMAL_USER.name()));
-//            user.setFirstName("user");
+//            user.setPasswordHash(new BCryptPasswordEncoder().encode("guest"));
+//            user.setRole(roleRepository.findRoleByAuthority(USER_ROLE.GUEST.name()));
+//            user.setFirstName("guest");
+//            repository.save(user);
+//        }
+//        if (repository.findByFirstName("customer") == null) {
+//            User user = new User();
+//            user.setPasswordHash(new BCryptPasswordEncoder().encode("customer"));
+//            user.setRole(roleRepository.findRoleByAuthority(USER_ROLE.NORMAL_USER.name()));
+//            user.setFirstName("customer");
 //            repository.save(user);
 //        }
 //        if (repository.findByFirstName("admin") == null) {
 //            User user = new User();
 //            user.setPasswordHash(new BCryptPasswordEncoder().encode("admin"));
-//            user.setRole(roleRepository.findRoleByName(USER_ROLE.SYS_ADMIN.name()));
+//            user.setRole(roleRepository.findRoleByAuthority(USER_ROLE.SYS_ADMIN.name()));
 //            user.setFirstName("admin");
 //            repository.save(user);
 //        }
@@ -58,8 +62,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findByFirstName(String firstname) {
+    public User findByFirstName(String firstname) {
         return repository.findByFirstName(firstname);
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return repository.findByEmail(email);
     }
 
     @Override
@@ -70,5 +79,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUser(User user) {
         repository.save(user);
+    }
+
+    @Override
+    public void deleteUser(Integer id) {
+        repository.deleteById(id);
     }
 }

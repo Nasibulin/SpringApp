@@ -22,9 +22,10 @@
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><i class="far fa-envelope"></i></div><a href="mailto:k.nasibulin@yandex.ru">sales@cisco.com</a></div>
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_user">
+								<div th:if="${not #lists.isEmpty(principal)}"><a href="#" th:text="${principal.username}"></a></div>
 								<div class="user_icon"><i class="far fa-user" style="font-size:16px"></i></div>
-								<div><a href="#">Register</a></div>
-								<div><a href="/login">Sign in</a></div>
+								<div th:if="${#lists.isEmpty(principal)}"><a href="#">Register</a></div>
+								<div th:if="${#lists.isEmpty(principal)}"><a href="/login">Sign in</a></div>
 							</div>
 						</div>
 					</div>
@@ -178,7 +179,7 @@
 					<td th:text="${product.price}">Price</td>
 					<div class="form-group">
 					<td style="text-align: center">
-						<input type="number" class="form-control form-control-sm" id="amount" th:name="amount" th:value="1" min="0" maxlength="20"/>
+						<input type="number" class="form-control form-control-sm" id="amount" th:name="amount" th:value="1" min="1" maxlength="20"/>
 					</td>
 					<td style="text-align: center"><button type="submit" class="btn btn-primary btn-sm">Add to cart</button></td>
 					</div>

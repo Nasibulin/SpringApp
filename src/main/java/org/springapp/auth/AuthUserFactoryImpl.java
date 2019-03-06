@@ -9,7 +9,7 @@ public class AuthUserFactoryImpl implements AuthUserFactory{
     @Override
     public AuthUser createAuthUser(User user) {
         AuthUser authUser = new AuthUser();
-        authUser.setUsername(user.getFirstName());
+        authUser.setUsername(user.getEmail());
         authUser.setPassword(user.getPasswordHash());
         authUser.setEnabled(true);
         authUser.setCredentialsNonExpired(true);

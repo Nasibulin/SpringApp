@@ -8,7 +8,14 @@ import java.util.Optional;
 
 public interface UserService {
     User findByUserIdEquals(Integer id);
-    Optional<User> findByFirstName(String firstname);
-    List<User> findByRole (Role role);
+
+    User findByFirstName(String firstname);
+
+    User findByEmail(String email);
+
+    List<User> findByRole(Role role);
+
     void saveUser(User user);
+
+    void deleteUser(Integer id);
 }

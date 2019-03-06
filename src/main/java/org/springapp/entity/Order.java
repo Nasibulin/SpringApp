@@ -14,7 +14,7 @@ public class Order implements Serializable {
     private Integer id;
     @Column(name = "status")
     private Integer status;
-    @Column(name = "is_active")
+
     private Integer isActive;
     @Column(name = "created_at")
     private Date createdAt;
@@ -59,6 +59,7 @@ public class Order implements Serializable {
         this.status = status;
     }
 
+    @Column(name = "is_active")
     public Integer getActive() {
         return isActive;
     }

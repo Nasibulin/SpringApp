@@ -26,9 +26,9 @@ public class AuthUserDetailsService implements UserDetailsService{
 
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        return authUserFactory.createAuthUser(userRepository.findByFirstName(username).orElseThrow(()->new UsernameNotFoundException("User not found!")));
+        return authUserFactory.createAuthUser(userRepository.findByEmail(email));
 
     }
 
