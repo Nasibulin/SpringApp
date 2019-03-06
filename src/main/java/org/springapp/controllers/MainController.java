@@ -1,6 +1,8 @@
 package org.springapp.controllers;
 
 import org.springapp.auth.AuthUser;
+import org.springapp.auth.UserAuthentication;
+import org.springapp.auth.service.AuthUserDetailsService;
 import org.springapp.entity.*;
 import org.springapp.repository.CategoryRepository;
 import org.springapp.service.categories.CategoryService;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -22,15 +25,17 @@ import java.util.List;
 public class MainController {
 
     private static final int pageableDefault = 20;
-    private CategoryService service;
+    private CategoryService categoryService;
     private ProductService productService;
-    private String sortDateMethod = "ASC";
+    private AuthUser guest;
+
     @Autowired
-    private CategoryRepository repository;
+    private AuthUserDetailsService authUserDetailsService;
+
 
     @Autowired
     public void setCategoryService(CategoryService service) {
-        this.service = service;
+        this.categoryService = service;
     }
 
     @Autowired
@@ -38,20 +43,20 @@ public class MainController {
         this.productService = service;
     }
 
+    @PostConstruct
+    public void init() {
+        guest = (AuthUser) authUserDetailsService.loadUserByUsername("guest@gmail.com");
+    }
+
     @GetMapping("/")
     public String getMain(Model model) {
-
-        List<Category> catname = service.findCatPathById(-1);
-        List<Category> topmenu = service.findCatnameByLevel(2);
-        List<Category> submenu = service.findCatnameByLevel(3);
-
-        model.addAttribute("topmenu", topmenu);
-        model.addAttribute("submenu", submenu);
-        model.addAttribute("catname", catname);
-
-        AuthUser user = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        AuthUser user = null;
+        try {
+            user = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        } catch (ClassCastException ex) {
+            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
+        }
         model.addAttribute("principal", user);
-
         return "index";
     }
 
@@ -59,13 +64,6 @@ public class MainController {
     public String getLogin(@RequestParam(value = "error", required = false) String error,
                            @RequestParam(value = "logout", required = false) String logout,
                            Model model) {
-        List<Category> catname = service.findCatPathById(-1);
-        List<Category> topmenu = service.findCatnameByLevel(2);
-        List<Category> submenu = service.findCatnameByLevel(3);
-
-        model.addAttribute("topmenu", topmenu);
-        model.addAttribute("submenu", submenu);
-        model.addAttribute("catname", catname);
         model.addAttribute("login", "login");
         model.addAttribute("error", error != null);
         model.addAttribute("logout", logout != null);
@@ -74,18 +72,11 @@ public class MainController {
 
     @GetMapping("/catalog/{id}")
     public String list(@PathVariable Integer id, Model model) {
-
-        List<Category> catname = service.findCatPathById(id);
-        List<Category> topmenu = service.findCatnameByLevel(2);
-        List<Category> submenu = service.findCatnameByLevel(3);
-        Category category = repository.findByIdEquals(id);
+        List<Category> catname = categoryService.findCatPathById(id);
+        Category category = categoryService.findByIdEquals(id);
         List<Product> products = productService.findByCategory(category);
-
-        model.addAttribute("topmenu", topmenu);
-        model.addAttribute("submenu", submenu);
         model.addAttribute("catname", catname);
         model.addAttribute("products", products);
-        //System.out.println(request.getSession().getId());
         return "index";
     }
 
@@ -135,10 +126,5 @@ public class MainController {
 //        //service.deleteNote(id);
 //        return "redirect:/";
 //    }
-
-    private List<Category> findCatnameById(Integer id) {
-        List<Category> categoryList = repository.findCatPathById(id);
-        return categoryList;
-    }
 
 }

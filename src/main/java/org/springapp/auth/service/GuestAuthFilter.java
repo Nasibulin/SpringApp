@@ -16,20 +16,20 @@ import javax.servlet.ServletResponse;
 import java.io.IOException;
 
 //@Component
-public class GuestAuthFilter extends GenericFilterBean {
-    @Autowired
-    private AuthUserDetailsService  authUserDetailsService;
-
-    private AuthUser guest;
-
-    @PostConstruct
-    public void init() {
-        guest = (AuthUser) authUserDetailsService.loadUserByUsername("guest@gmail.com");
-    }
-
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
-        filterChain.doFilter(servletRequest, servletResponse);
-    }
-}
+//public class GuestAuthFilter extends GenericFilterBean {
+//    @Autowired
+//    private AuthUserDetailsService  authUserDetailsService;
+//
+//    private AuthUser guest;
+//
+//    @PostConstruct
+//    public void init() {
+//        guest = (AuthUser) authUserDetailsService.loadUserByUsername("guest@gmail.com");
+//    }
+//
+//    @Override
+//    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+//        SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
+//        filterChain.doFilter(servletRequest, servletResponse);
+//    }
+//}

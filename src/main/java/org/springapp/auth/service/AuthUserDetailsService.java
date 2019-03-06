@@ -2,6 +2,7 @@ package org.springapp.auth.service;
 
 import org.springapp.auth.AuthUser;
 import org.springapp.auth.AuthUserFactoryImpl;
+import org.springapp.entity.User;
 import org.springapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -21,22 +22,18 @@ import java.util.List;
 public class AuthUserDetailsService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
-
     @Autowired
     AuthUserFactoryImpl authUserFactory;
 
-
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        if (userRepository.findByEmail(email) == null) {
-            throw new UsernameNotFoundException("User not found");
+        User user = null;
+        try {
+            user = userRepository.findByEmail(email);
+            return authUserFactory.createAuthUser(user);
+        } catch (NullPointerException ex) {
+            throw new UsernameNotFoundException("User not found!");
         }
-        return authUserFactory.createAuthUser(userRepository.findByEmail(email));
-    }
-
-    @Bean
-    public PasswordEncoder bcryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 
 }
