@@ -18,6 +18,9 @@ public class CartItem implements Serializable {
     private int quantity;
     private BigDecimal subTotal;
 
+    public CartItem() {
+    }
+
     public CartItem(Integer id) {
         super();
         this.id = id;

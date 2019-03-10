@@ -27,6 +27,9 @@ public class MainController {
     private ProductService productService;
     private AuthUser guest;
 
+    private Cart cart;
+    private CartItem cartItem;
+
     @Autowired
     private AuthUserDetailsService authUserDetailsService;
 
@@ -51,6 +54,13 @@ public class MainController {
         List<Category> topmenu = categoryService.findCatnameByLevel(2);
         List<Category> submenu = categoryService.findCatnameByLevel(3);
         List<Category> catname = categoryService.findCatPathById(-1);
+
+        cartItem = new CartItem();
+        cartItem.setProduct(productService.getProductById(5696));
+        cartItem.setQuantity(3);
+        cart = new Cart();
+        cart.addCartItems(cartItem);
+        model.addAttribute("cart",cart);
         model.addAttribute("catname", catname);
         model.addAttribute("topmenu", topmenu);
         model.addAttribute("submenu", submenu);
