@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private int id;
+    private Integer id;
 
     @Column(name = "part_number")
     private String partNumber;
@@ -58,7 +58,7 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "products_id_seq")
     @SequenceGenerator(sequenceName = "products_id_seq", allocationSize = 1, name = "products_id_seq")
     @Column(name = "id")
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
