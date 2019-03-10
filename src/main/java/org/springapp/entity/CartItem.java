@@ -53,7 +53,7 @@ public class CartItem implements Serializable {
     }
 
     public void updateSubTotal() {
-        subTotal = this.product.getPrice().multiply(new BigDecimal(this.quantity));
+        this.subTotal = this.product.getPrice().multiply(new BigDecimal(this.quantity));
     }
 
     @Override
