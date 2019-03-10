@@ -13,19 +13,19 @@ public class Order implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Column(name = "status")
-    private Integer status;
+    private int status;
 
-    private Integer isActive;
+    private int isActive;
     @Column(name = "created_at")
     private Date createdAt;
     @Column(name = "items_count")
-    private Integer itemsCount;
+    private int itemsCount;
     @Column(name = "items_quantity")
-    private Integer itemsQuantity;
+    private int itemsQuantity;
     @Column(name = "order_total")
     private BigDecimal orderTotal;
     @Column(name = "customer_is_guest")
-    private Integer customerIsGuest;
+    private int customerIsGuest;
 
     private User user;
 
@@ -51,20 +51,20 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
     @Column(name = "is_active")
-    public Integer getActive() {
+    public int getActive() {
         return isActive;
     }
 
-    public void setActive(Integer active) {
+    public void setActive(int active) {
         isActive = active;
     }
 
@@ -76,19 +76,19 @@ public class Order implements Serializable {
         this.createdAt = createdAt;
     }
 
-    public Integer getItemsCount() {
+    public int getItemsCount() {
         return itemsCount;
     }
 
-    public void setItemsCount(Integer itemsCount) {
+    public void setItemsCount(int itemsCount) {
         this.itemsCount = itemsCount;
     }
 
-    public Integer getItemsQuantity() {
+    public int getItemsQuantity() {
         return itemsQuantity;
     }
 
-    public void setItemsQuantity(Integer itemsQuantity) {
+    public void setItemsQuantity(int itemsQuantity) {
         this.itemsQuantity = itemsQuantity;
     }
 
@@ -101,11 +101,11 @@ public class Order implements Serializable {
     }
 
 
-    public Integer getCustomerIsGuest() {
+    public int getCustomerIsGuest() {
         return customerIsGuest;
     }
 
-    public void setCustomerIsGuest(Integer customerIsGuest) {
+    public void setCustomerIsGuest(int customerIsGuest) {
         this.customerIsGuest = customerIsGuest;
     }
 
