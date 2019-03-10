@@ -8,21 +8,15 @@ import java.math.BigDecimal;
 @Table(name = "products", schema = "springapp", catalog = "")
 public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
-
     private Integer id;
-
     @Column(name = "part_number")
     private String partNumber;
-
     @Column(name = "description")
     private String description;
-
     @Column(name = "service")
     private String service;
-
     @Column(name = "price")
     private BigDecimal price;
-
     private Category category;
 
     public Product() {
@@ -65,7 +59,6 @@ public class Product implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getPartNumber() {
         return partNumber;

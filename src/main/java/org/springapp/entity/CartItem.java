@@ -1,12 +1,18 @@
 package org.springapp.entity;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+@Component
+@Scope(value= WebApplicationContext.SCOPE_SESSION, proxyMode= ScopedProxyMode.TARGET_CLASS)
 public class CartItem implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private Integer id;
     private Product product;
     private int quantity;

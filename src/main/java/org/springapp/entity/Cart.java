@@ -7,8 +7,7 @@ import java.util.function.Function;
 
 public class Cart implements Serializable {
 
-    private static final long serialVersionUID = 6554623865768217431L;
-
+    private static final long serialVersionUID = 1L;
     private Integer id;
     private Set<CartItem> cartItems;
     private BigDecimal grandTotal;
@@ -56,28 +55,20 @@ public class Cart implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cart)) return false;
+
+        Cart cart = (Cart) o;
+
+        if (id != null ? !id.equals(cart.id) : cart.id != null) return false;
+
+        return true;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Cart other = (Cart) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        return true;
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }
 
