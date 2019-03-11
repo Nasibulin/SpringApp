@@ -1,15 +1,15 @@
 package org.springapp.controllers;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 import org.springapp.auth.AuthUser;
 import org.springapp.auth.UserAuthentication;
 import org.springapp.auth.service.AuthUserDetailsService;
-import org.springapp.entity.*;
-import org.springapp.repository.CategoryRepository;
+import org.springapp.entity.Cart;
+import org.springapp.entity.CartItem;
+import org.springapp.entity.Category;
+import org.springapp.entity.Product;
 import org.springapp.service.categories.CategoryService;
 import org.springapp.service.products.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
 
 @Controller
 @SessionAttributes("cart")
