@@ -101,7 +101,7 @@ public class MainController {
     }
 
     @PostMapping("/cart/add")
-    public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute("cart") Cart cart, Model model, HttpServletRequest request) {
+    public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute Cart cart, Model model, HttpServletRequest request) {
         if (cart != null) {
             CartItem cartItem = new CartItem();
             cartItem.setProduct(productService.getProductById(id));
