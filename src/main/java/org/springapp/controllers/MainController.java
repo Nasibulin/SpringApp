@@ -1,5 +1,6 @@
 package org.springapp.controllers;
 
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 import org.springapp.auth.AuthUser;
 import org.springapp.auth.UserAuthentication;
 import org.springapp.auth.service.AuthUserDetailsService;
@@ -17,8 +18,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 @Controller
+@SessionAttributes("cart")
 public class MainController {
 
     private static final int pageableDefault = 20;
@@ -27,8 +31,11 @@ public class MainController {
     private ProductService productService;
     private AuthUser guest;
 
-    private Cart cart;
-    private CartItem cartItem;
+
+    @ModelAttribute("cart")
+         public Cart cart() {
+        return new Cart();
+    }
 
     @Autowired
     private AuthUserDetailsService authUserDetailsService;
@@ -54,13 +61,6 @@ public class MainController {
         List<Category> topmenu = categoryService.findCatnameByLevel(2);
         List<Category> submenu = categoryService.findCatnameByLevel(3);
         List<Category> catname = categoryService.findCatPathById(-1);
-
-        cartItem = new CartItem();
-        cartItem.setProduct(productService.getProductById(5696));
-        cartItem.setQuantity(3);
-        cart = new Cart();
-        cart.addCartItems(cartItem);
-        model.addAttribute("cart",cart);
         model.addAttribute("catname", catname);
         model.addAttribute("topmenu", topmenu);
         model.addAttribute("submenu", submenu);
@@ -100,6 +100,35 @@ public class MainController {
         return "index";
     }
 
+    @PostMapping("/cart/add")
+    public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute("cart") Cart cart, Model model, HttpServletRequest request) {
+        if (cart != null) {
+            CartItem cartItem = new CartItem();
+            cartItem.setProduct(productService.getProductById(id));
+            cartItem.setQuantity(amount);
+            cartItem.setId(id);
+            cartItem.updateSubTotal();
+            cart.addCartItems(cartItem);
+            cart.updateGrandTotal();
+            cart.updateQuantity();
+            model.addAttribute("cart", cart);
+            System.out.println(cart);
+        } else {
+            //Cart newcart = new Cart();
+            CartItem cartItem = new CartItem();
+            cartItem.setProduct(productService.getProductById(id));
+            cartItem.setId(id);
+            cartItem.setQuantity(amount);
+            cartItem.updateSubTotal();
+            cart.addCartItems(cartItem);
+            cart.updateGrandTotal();
+            cart.updateQuantity();
+            model.addAttribute("cart", cart);
+            System.out.println(cart);
+        }
+        String referer = request.getHeader("Referer");
+        return "redirect:"+ referer;
+    }
 
 //    @GetMapping("/sort/{sortDate}")
 //    public String sortChoose(@PathVariable String sortDate) {

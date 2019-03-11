@@ -21,8 +21,7 @@ public class CartItem implements Serializable {
     public CartItem() {
     }
 
-    public CartItem(Integer id) {
-        super();
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -71,6 +70,16 @@ public class CartItem implements Serializable {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "id=" + id +
+                ", product=" + product +
+                ", quantity=" + quantity +
+                ", subTotal=" + subTotal +
+                '}';
     }
 }
 

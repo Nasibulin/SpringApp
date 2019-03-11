@@ -22,8 +22,8 @@
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><i class="far fa-envelope"></i></div><a href="mailto:k.nasibulin@yandex.ru">sales@cisco.com</a></div>
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_user">
-								<div th:if="${not #lists.isEmpty(principal)}"><a href="#" th:text="${principal.username}"></a></div>
 								<div class="user_icon"><i class="far fa-user" style="font-size:16px"></i></div>
+								<div th:if="${not #lists.isEmpty(principal)}"><a href="#" th:text="${principal.username}"></a></div>
 								<div th:if="${#lists.isEmpty(principal)}"><a href="#">Register</a></div>
 								<div th:if="${#lists.isEmpty(principal)}"><a href="/login">Sign in</a></div>
 								<div th:if="${not #lists.isEmpty(principal)}"><a href="/logout">Sign out</a></div>
@@ -87,11 +87,13 @@
 							<div class="cart">
 								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon"><i class="fas fa-shopping-cart" style="font-size:30px"></i>
-										<div class="cart_count" th:text="${cart.quantity}"><span>10</span></div>
+										<div th:if="${#lists.isEmpty(cart)}" class="cart_count">0</div>
+										<div th:if="${not #lists.isEmpty(cart)}" class="cart_count" th:text="${cart.quantity}"></div>
 									</div>
 									<div class="cart_content">
 										<div class="cart_text"><a href="#">Cart</a></div>
-										<div class="cart_price" th:text="${cart.grandTotal}">$85</div>
+										<div th:if="${#lists.isEmpty(cart)}" class="cart_price">0</div>
+										<div th:if="${not #lists.isEmpty(cart)}" class="cart_price" th:text="${cart.grandTotal}"></div>
 									</div>
 								</div>
 							</div>
@@ -134,11 +136,9 @@
 							<!-- Main Nav Menu -->
 
 							<div class="nav d-flex flex-row align-items-center justify-content-right">
-
-
 								<li class="nav" th:each="cat : ${catname}">
-								<a href="#">
-								<span th:href="@{'/catalog/{id}'(id=${cat.id})}" th:text="'&nbsp;'+${cat.catname}"></span>
+								<a th:href="@{'/catalog/{id}'(id=${cat.id})}">
+								<span th:text="'&nbsp;'+${cat.catname}"></span>
 								<i class="fas fa-caret-right"></i>
 								</a>
 								</li>
@@ -178,12 +178,14 @@
 					<td th:text="${product.partNumber}">#</td>
 					<td th:text="${product.description}">Product</td>
 					<td th:text="${product.price}">Price</td>
-					<div class="form-group">
+					<form class="form-horizontal" th:object="${product}" th:action="@{/cart/add}" name="cart_add" id="cart_add"
+              method="post" role="form">					
 					<td style="text-align: center">
+						<input type="hidden" id="id" th:name="id" th:value="*{id}"/>
 						<input type="number" class="form-control form-control-sm" id="amount" th:name="amount" th:value="1" min="1" maxlength="20"/>
 					</td>
-					<td style="text-align: center"><button type="submit" class="btn btn-primary btn-sm">Add to cart</button></td>
-					</div>
+					<td style="text-align: center"><button type="submit" style="cursor: pointer" class="btn btn-primary btn-sm">Add to cart</button></td>
+					</form>
 				</tr>
 				</tbody>
 			</table>
