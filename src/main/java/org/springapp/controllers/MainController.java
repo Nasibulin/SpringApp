@@ -28,16 +28,13 @@ public class MainController {
     private CategoryService categoryService;
     private ProductService productService;
     private AuthUser guest;
-
-
-    @ModelAttribute("cart")
-         public Cart cart() {
-        return new Cart();
-    }
-
     @Autowired
     private AuthUserDetailsService authUserDetailsService;
 
+    @ModelAttribute("cart")
+    public Cart cart() {
+        return new Cart();
+    }
 
     @Autowired
     public void setCategoryService(CategoryService service) {
@@ -71,7 +68,6 @@ public class MainController {
         model.addAttribute("principal", user);
     }
 
-
     @GetMapping("/")
     public String getMain(Model model) {
         return "index";
@@ -87,7 +83,6 @@ public class MainController {
         return "login";
     }
 
-
     @GetMapping("/catalog/{id}")
     public String list(@PathVariable Integer id, Model model) {
         List<Category> catname = categoryService.findCatPathById(id);
@@ -99,33 +94,24 @@ public class MainController {
     }
 
     @PostMapping("/cart/add")
-    public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute Cart cart, Model model, HttpServletRequest request) {
-        if (cart != null) {
-            CartItem cartItem = new CartItem();
-            cartItem.setProduct(productService.getProductById(id));
-            cartItem.setQuantity(amount);
-            cartItem.setId(id);
-            cartItem.updateSubTotal();
-            cart.addCartItems(cartItem);
-            cart.updateGrandTotal();
-            cart.updateQuantity();
-            model.addAttribute("cart", cart);
-            System.out.println(cart);
-        } else {
-            //Cart newcart = new Cart();
-            CartItem cartItem = new CartItem();
-            cartItem.setProduct(productService.getProductById(id));
-            cartItem.setId(id);
-            cartItem.setQuantity(amount);
-            cartItem.updateSubTotal();
-            cart.addCartItems(cartItem);
-            cart.updateGrandTotal();
-            cart.updateQuantity();
-            model.addAttribute("cart", cart);
-            System.out.println(cart);
-        }
+    public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute("cart") Cart cart, Model model, HttpServletRequest request) {
+//        if (cart != null) {
+        CartItem cartItem = new CartItem();
+        cartItem.setId(id);
+        cartItem.setProduct(productService.getProductById(id));
+        cartItem.setQuantity(amount);
+        cart.addCartItems(cartItem);
+        model.addAttribute("cart", cart);
+//        } else {
+//            CartItem cartItem = new CartItem();
+//            cartItem.setId(id);
+//            cartItem.setProduct(productService.getProductById(id));
+//            cartItem.setQuantity(amount);
+//            cart.addCartItems(cartItem);
+//            model.addAttribute("cart", cart);
+//        }
         String referer = request.getHeader("Referer");
-        return "redirect:"+ referer;
+        return "redirect:" + referer;
     }
 
 //    @GetMapping("/sort/{sortDate}")
