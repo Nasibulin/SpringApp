@@ -6,9 +6,11 @@
 <body>
 <div class="super_container">
     <div th:replace="fragments/header_m :: header"></div>
-     <!-- <div th:if="${not #lists.isEmpty(catalog)}"> -->
-        <div th:replace="operations/list_m :: catalog"></div>
+	<div th:replace="fragments/navigator :: navigator"></div>
+    <!-- <div th:if="${not #lists.isEmpty(catalog)}"> -->
+    <div th:replace="operations/catalog :: catalog"></div>
     <!-- </div> -->
+	<div th:replace="operations/cart :: cart"></div>
 	<div th:replace="fragments/footer_m :: footer"></div>
 </div>
 </body>

@@ -20,7 +20,7 @@ public class Cart implements Serializable {
     private Integer id;
     private Set<CartItem> cartItems;
     private int quantity;
-    private BigDecimal grandTotal;
+    private BigDecimal grandTotal = BigDecimal.ZERO;
 
     public Cart() {
         cartItems = new CopyOnWriteArraySet<CartItem>();

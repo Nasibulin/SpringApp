@@ -16,7 +16,7 @@ public class CartItem implements Serializable {
     private Integer id;
     private Product product;
     private int quantity;
-    private BigDecimal subTotal;
+    private BigDecimal subTotal = BigDecimal.ZERO;
 
     public CartItem() {
     }
