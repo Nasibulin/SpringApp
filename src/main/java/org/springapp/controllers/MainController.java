@@ -73,6 +73,11 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/cart")
+    public String getCart(Model model) {
+        return "cart";
+    }
+
     @RequestMapping("/login")
     public String getLogin(@RequestParam(value = "error", required = false) String error,
                            @RequestParam(value = "logout", required = false) String logout,
@@ -93,7 +98,7 @@ public class MainController {
         return "index";
     }
 
-    @PostMapping("/cart/add")
+    @PostMapping("/cart")
     public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute("cart") Cart cart, Model model, HttpServletRequest request) {
 //        if (cart != null) {
         CartItem cartItem = new CartItem();
