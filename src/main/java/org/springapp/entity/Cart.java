@@ -92,6 +92,10 @@ public class Cart implements Serializable {
         this.setGrandTotal(grandTotal);
     }
 
+    public void clearCart(){
+        this.cartItems.clear();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
