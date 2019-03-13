@@ -10,7 +10,7 @@ public class AuthUserFactoryImpl implements AuthUserFactory{
     public AuthUser createAuthUser(User user) {
         AuthUser authUser = new AuthUser();
         authUser.setUsername(user.getEmail());
-        authUser.setPassword(user.getPasswordHash());
+        authUser.setPassword(user.getPassword());
         authUser.setEnabled(true);
         authUser.setCredentialsNonExpired(true);
         authUser.setAccountNonExpired(true);

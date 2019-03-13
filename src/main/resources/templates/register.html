@@ -7,10 +7,10 @@
 <div class="super_container">
     <div th:replace="fragments/header :: header"></div>
     <div th:replace="fragments/navigator :: navigator"></div>
-    <!-- <div th:if="${not #lists.isEmpty(catalog)}"> -->
+	<!-- <div th:if="${not #lists.isEmpty(catalog)}"> -->
     <div th:replace="operations/catalog :: catalog"></div>
     <!-- </div> -->
-	<div th:replace="fragments/banner :: banner"></div>
+	<div th:replace="operations/register :: register"></div>
 	<div th:replace="fragments/footer :: footer"></div>
 </div>
 </body>

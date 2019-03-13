@@ -21,7 +21,7 @@
 							<div class="top_bar_user">
 								<div class="user_icon"><i class="far fa-user" style="font-size:16px"></i></div>
 								<div th:if="${not #lists.isEmpty(principal)}"><a href="#" th:text="${principal.username}"></a></div>
-								<div th:if="${#lists.isEmpty(principal)}"><a href="#">Register</a></div>
+								<div th:if="${#lists.isEmpty(principal)}"><a href="/register">Register</a></div>
 								<div th:if="${#lists.isEmpty(principal)}"><a href="/login">Sign in</a></div>
 								<div th:if="${not #lists.isEmpty(principal)}"><a href="/logout">Sign out</a></div>
 							</div>

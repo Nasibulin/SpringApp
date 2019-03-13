@@ -1,10 +1,6 @@
 
 package org.springapp.util;
 
-/**
- *
- * @author VS9 X64Bit
- */
 public class ValueConverter {
 
     public static int convertStringToInt(String strVal, int defaultVal) {

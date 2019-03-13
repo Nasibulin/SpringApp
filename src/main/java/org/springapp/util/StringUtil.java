@@ -1,12 +1,9 @@
-/*
- */
-
 package org.springapp.util;
 
-import javax.security.auth.x500.X500Principal;
-import java.io.*;
-import java.net.URLEncoder;
-import java.util.*;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.Iterator;
+import java.util.Map;
 
 
 /**

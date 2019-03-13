@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -34,21 +33,21 @@ public class UserServiceImpl implements UserService {
 //
 //        if (repository.findByFirstName("guest") == null) {
 //            User user = new User();
-//            user.setPasswordHash(new BCryptPasswordEncoder().encode("guest"));
+//            user.setPassword(new BCryptPasswordEncoder().encode("guest"));
 //            user.setRole(roleRepository.findRoleByAuthority(USER_ROLE.GUEST.name()));
 //            user.setFirstName("guest");
 //            repository.save(user);
 //        }
 //        if (repository.findByFirstName("customer") == null) {
 //            User user = new User();
-//            user.setPasswordHash(new BCryptPasswordEncoder().encode("customer"));
+//            user.setPassword(new BCryptPasswordEncoder().encode("customer"));
 //            user.setRole(roleRepository.findRoleByAuthority(USER_ROLE.NORMAL_USER.name()));
 //            user.setFirstName("customer");
 //            repository.save(user);
 //        }
 //        if (repository.findByFirstName("admin") == null) {
 //            User user = new User();
-//            user.setPasswordHash(new BCryptPasswordEncoder().encode("admin"));
+//            user.setPassword(new BCryptPasswordEncoder().encode("admin"));
 //            user.setRole(roleRepository.findRoleByAuthority(USER_ROLE.SYS_ADMIN.name()));
 //            user.setFirstName("admin");
 //            repository.save(user);

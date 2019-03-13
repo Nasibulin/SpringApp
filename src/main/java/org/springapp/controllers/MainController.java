@@ -3,20 +3,25 @@ package org.springapp.controllers;
 import org.springapp.auth.AuthUser;
 import org.springapp.auth.UserAuthentication;
 import org.springapp.auth.service.AuthUserDetailsService;
-import org.springapp.entity.Cart;
-import org.springapp.entity.CartItem;
-import org.springapp.entity.Category;
-import org.springapp.entity.Product;
+import org.springapp.entity.*;
 import org.springapp.service.categories.CategoryService;
 import org.springapp.service.products.ProductService;
+import org.springapp.service.role.RoleService;
+import org.springapp.service.user.UserService;
+import org.springapp.util.Constant;
+import org.springapp.util.EmailUtil;
+import org.springapp.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -24,26 +29,22 @@ import java.util.List;
 public class MainController {
 
     private static final int pageableDefault = 20;
-    private final static String loginmsg = "loginmsg";
+    private static final String loginmsg = "loginmsg";
+    @Autowired
     private CategoryService categoryService;
+    @Autowired
     private ProductService productService;
-    private AuthUser guest;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private RoleService roleService;
     @Autowired
     private AuthUserDetailsService authUserDetailsService;
+    private AuthUser guest;
 
     @ModelAttribute("cart")
     public Cart cart() {
         return new Cart();
-    }
-
-    @Autowired
-    public void setCategoryService(CategoryService service) {
-        this.categoryService = service;
-    }
-
-    @Autowired
-    public void setProductService(ProductService service) {
-        this.productService = service;
     }
 
     @PostConstruct
@@ -76,6 +77,55 @@ public class MainController {
     @GetMapping("/cart")
     public String getCart(Model model) {
         return "cart";
+    }
+
+    @GetMapping("/register")
+    public String getRegister(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "register";
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String createNewUser(@Valid User user, @RequestParam String repassword, Model model, BindingResult bindingResult) {
+
+        if (userService.findByEmail(user.getEmail()) != null) {
+            bindingResult
+                    .rejectValue("email", "error.user",
+                            "There is already a user registered with the email provided");
+        }
+        if (!EmailUtil.isEmailFormat(user.getEmail())) {
+            bindingResult
+                    .rejectValue("email", "error.user",
+                            "Invalid email address format provided");
+        }
+
+        if (!user.getPassword().equals(repassword)) {
+            bindingResult
+                    .rejectValue("password", "error.user",
+                            "Password does not match...");
+        }
+
+        if (bindingResult.hasErrors()) {
+            return "/register";
+        } else {
+
+            User newUser = new User();
+            newUser.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+            newUser.setRole(roleService.findRoleByAuthority(Constant.USER_ROLE.NORMAL_USER.name()));
+            newUser.setFirstName(user.getFirstName());
+            newUser.setLastName(user.getLastName());
+            newUser.setEmail(user.getEmail());
+            newUser.setStatus(Constant.STATUS.ACTIVE_STATUS.getValue());
+            newUser.setPhone(StringUtil.deleteCharacters(user.getPhone(), "+()- "));
+
+            userService.saveUser(newUser);
+
+            model.addAttribute("successMessage", "User has been registered successfully");
+            model.addAttribute("user", new User());
+            return "/register";
+        }
+//        return "/register";
     }
 
     @RequestMapping("/login")

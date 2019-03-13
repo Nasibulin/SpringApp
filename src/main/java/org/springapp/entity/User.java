@@ -3,7 +3,6 @@ package org.springapp.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,13 +22,15 @@ public class User implements Serializable {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "password_hash")
-    private String passwordHash;
+    private String password;
 
     @Column(name = "status")
     private Integer status;
 
     private Date createDate;
+
+    @Column(name = "phone")
+    private String phone;
 
     private Role role;
 
@@ -39,17 +40,7 @@ public class User implements Serializable {
     private Set<Order> orders;
 
     public User() {
-    }
-
-    public User(Integer userId, String email, String firstName, String lastName, String passwordHash, Integer status, Date createDate, Integer roleId, String salt) {
-        this.userId = userId;
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.passwordHash = passwordHash;
-        this.status = status;
-        this.createDate = createDate;
-        this.salt = salt;
+        createDate = null;
     }
 
     @Id
@@ -106,12 +97,21 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    @Column(name = "password_hash")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Integer getStatus() {
@@ -122,14 +122,14 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    @Column(name = "created_at")
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
+//    @Column(name = "created_at")
+//    public Date getCreateDate() {
+//        return createDate;
+//    }
+//
+//    public void setCreateDate(Date createDate) {
+//        this.createDate = createDate;
+//    }
 
 
     public String getSalt() {
@@ -147,7 +147,7 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", passwordHash='" + passwordHash + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
