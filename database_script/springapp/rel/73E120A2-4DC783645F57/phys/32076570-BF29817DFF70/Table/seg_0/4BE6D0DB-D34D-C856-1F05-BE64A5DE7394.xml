@@ -40,7 +40,12 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-03-02 06:59:57 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<defaultValue>systimestamp</defaultValue>
+<defaultValue>systimestamp(6)</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="PHONE" id="81299D8A-0886-B29B-B875-1B0FA06AD5F8">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:32:44 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
 </ColumnProxy>
 <ColumnProxy name="PASSWORD_HASH" id="8892F953-1B60-24B7-C6E2-0F44F822801A">
 <createdBy>Konstantin</createdBy>

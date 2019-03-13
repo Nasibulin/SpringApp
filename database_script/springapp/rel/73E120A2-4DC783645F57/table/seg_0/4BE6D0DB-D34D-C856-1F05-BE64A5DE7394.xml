@@ -35,6 +35,7 @@
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-22 08:02:21 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -113,7 +114,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT015</logicalDatatype>
-<defaultValue>systimestamp</defaultValue>
+<defaultValue>systimestamp(6)</defaultValue>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
@@ -126,7 +127,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
 <dataTypeScale>0</dataTypeScale>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -141,11 +142,24 @@
 <createdTime>2019-03-02 07:42:04 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <importedID>6618FB82-9555-8D19-BD1F-35FF5FB9E792</importedID>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>255 BYTE</dataTypeSize>
 <ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE" id="81299D8A-0886-B29B-B875-1B0FA06AD5F8">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:32:44 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>14 BYTE</dataTypeSize>
+<ownDataTypeParameters>14 BYTE,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>

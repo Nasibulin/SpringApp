@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C3E4D872-1532-D4A0-D624-64F019B16870" containerWithKeyObject="534828F5-B198-F677-0ECA-4DF706075C82" localFKIndex="36493429-22BA-37AC-39E0-ACDD51ACEC34" name="SPRING_SESSION_ATTRIBUTES_FK">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>SPRING_SESSION_ATTRIBUTES_FK</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>E43A7018-2972-0504-6421-92DF5F135CFD</importedID>
+<referredTableLongName>springapp.SPRING_SESSION</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>FDD32310-0A6E-83F4-F1E5-079EFC5DD7A6</referredTableID>
+<keyObject>ADC898D1-AF4F-AB80-8B42-7FCA891492AC</keyObject>
+<referredKeyID>ADC898D1-AF4F-AB80-8B42-7FCA891492AC</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>PRIMARY_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

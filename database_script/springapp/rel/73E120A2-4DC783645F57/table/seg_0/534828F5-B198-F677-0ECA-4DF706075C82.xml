@@ -1,52 +1,42 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="74959234-8FD7-B556-5BB4-6E0FA896CCDF" name="SPRING_SESSION_ATTRIBUTES">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="534828F5-B198-F677-0ECA-4DF706075C82" name="SPRING_SESSION_ATTRIBUTES">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>SPRINGAPP</sourceObjSchema>
 <sourceObjName>SPRING_SESSION_ATTRIBUTES</sourceObjName>
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 09:17:42 UTC</createdTime>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<importedID>1E95C0CF-B11B-B46B-E12D-A3DBB7040561</importedID>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="SPRING_SESSION_PRIMARY_ID" id="BA408AD4-39D2-3B1B-45B0-98021031A057">
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-02-23 10:05:01 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>36 BYTE</dataTypeSize>
-<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="36ADB31B-B266-3DDD-4CA0-E452CA29FA68" referredColumn="E66BDA50-19D0-7200-38DB-7466C8D005D3"/>
-</associations>
-</Column>
-<Column name="SESSION_PRIMARY_ID" id="38C88F42-9BEB-F305-9303-472101CBB353">
+<Column name="SESSION_PRIMARY_ID" id="3B00CC1B-08DF-64EA-D267-CD5BA0E1646B">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>SPRING_SESSION_ATTRIBUTES</sourceObjSchema>
 <sourceObjName>SESSION_PRIMARY_ID</sourceObjName>
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<importedID>D85E9E5E-2AD9-5D29-0F58-BE27E82779BE</importedID>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT025</logicalDatatype>
 <dataTypeSize>36 BYTE</dataTypeSize>
-<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C3E4D872-1532-D4A0-D624-64F019B16870" referredColumn="3B24B865-2796-E186-5578-3C0C41E05606"/>
+</associations>
 </Column>
-<Column name="ATTRIBUTE_NAME" id="F027C2CA-8580-BE99-7716-E2A2F6864847">
+<Column name="ATTRIBUTE_NAME" id="CBD63A9A-461E-B7DF-2978-D73BBEE0CDD6">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>SPRING_SESSION_ATTRIBUTES</sourceObjSchema>
 <sourceObjName>ATTRIBUTE_NAME</sourceObjName>
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<importedID>36C0BBC1-9E01-9CBB-E34E-1375A5BC7245</importedID>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -54,13 +44,14 @@
 <ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="ATTRIBUTE_BYTES" id="44FBA289-99B9-79FB-179E-9F504B08B727">
+<Column name="ATTRIBUTE_BYTES" id="89361535-24E9-EC16-2991-06F4EF3A98E5">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>SPRING_SESSION_ATTRIBUTES</sourceObjSchema>
 <sourceObjName>ATTRIBUTE_BYTES</sourceObjName>
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<importedID>BDF0772D-B4AB-E2C6-E543-CA375958D2ED</importedID>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT029</logicalDatatype>
@@ -70,43 +61,45 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="D35B7686-E3D5-60A0-47E1-9398B5552D62" name="SPRING_SESSION_ATTRIBUTES_PK">
+<ind_PK_UK id="CD5E9361-9113-C6A7-55C6-4F5ECD932E35" name="SPRING_SESSION_ATTRIBUTES_PK">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>SPRINGAPP</sourceObjSchema>
 <sourceObjName>SPRING_SESSION_ATTRIBUTES_PK</sourceObjName>
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<importedID>23C58B0D-0CEC-A0E2-F205-C8AC9D6CDA88</importedID>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="38C88F42-9BEB-F305-9303-472101CBB353"/>
-<colUsage columnID="F027C2CA-8580-BE99-7716-E2A2F6864847"/>
+<colUsage columnID="3B00CC1B-08DF-64EA-D267-CD5BA0E1646B"/>
+<colUsage columnID="CBD63A9A-461E-B7DF-2978-D73BBEE0CDD6"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="5D75337E-42D2-1AA9-BE3A-4AAF368EE655" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="SPRING_SESSION_ATTRIBUTES_PK">
+<ind_PK_UK id="95B77511-E842-8C96-A881-7623AA0A09C5" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="SPRING_SESSION_ATTRIBUTES_PK">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>SPRINGAPP</sourceObjSchema>
 <sourceObjName>SPRING_SESSION_ATTRIBUTES_PK</sourceObjName>
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 09:17:43 UTC</createdTime>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
+<importedID>A35A1F48-15A5-29CF-BA8D-7B80B1EA02EC</importedID>
 <indexState>Unique Plain Index</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="38C88F42-9BEB-F305-9303-472101CBB353"/>
-<colUsage columnID="F027C2CA-8580-BE99-7716-E2A2F6864847"/>
+<colUsage columnID="3B00CC1B-08DF-64EA-D267-CD5BA0E1646B"/>
+<colUsage columnID="CBD63A9A-461E-B7DF-2978-D73BBEE0CDD6"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="D28793BF-B2E7-E547-A898-CEC1E027A7B4" name="SPRING_SESSION_ATTRIBUTES_FK">
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 09:17:44 UTC</createdTime>
+<ind_PK_UK id="36493429-22BA-37AC-39E0-ACDD51ACEC34" name="SPRING_SESSION_ATTRIBUTES_FK">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="BA408AD4-39D2-3B1B-45B0-98021031A057"/>
+<colUsage columnID="3B00CC1B-08DF-64EA-D267-CD5BA0E1646B"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

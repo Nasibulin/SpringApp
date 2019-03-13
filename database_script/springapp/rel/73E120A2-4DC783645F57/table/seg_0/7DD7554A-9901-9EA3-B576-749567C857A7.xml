@@ -22,29 +22,13 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>*</dataTypePrecision>
-<dataTypeScale>0</dataTypeScale>
-<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<ownDataTypeParameters>,*,</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <autoIncrementDisableCache>false</autoIncrementDisableCache>
 <autoIncrementCache>20</autoIncrementCache>
 <autoIncrementSequenceName>orders_id_seq</autoIncrementSequenceName>
 <autoIncrementTriggerName>ORDERS_ID_TRG</autoIncrementTriggerName>
-</Column>
-<Column name="SPRING_SESSION_PRIMARY_ID" id="35E87971-A1F6-D1EC-E1A6-4E41755A5E51">
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-02-23 10:09:14 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>36 BYTE</dataTypeSize>
-<ownDataTypeParameters>36 BYTE,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="DB3C3C40-A297-36FF-B74A-8975B10AE145" referredColumn="E66BDA50-19D0-7200-38DB-7466C8D005D3"/>
-</associations>
 </Column>
 <Column name="STATUS" id="74DE30F3-8A31-DDD2-D366-1770BCDFF348">
 <sourceConnName>xe</sourceConnName>
@@ -150,7 +134,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>*</dataTypePrecision>
 <dataTypeScale>0</dataTypeScale>
-<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<ownDataTypeParameters>,,0</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -203,19 +187,6 @@
 <colUsage columnID="A34C2ECB-599A-1781-6D3B-A6E13ABE3CE8"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="868F21A1-C948-FD1F-F842-709914EAE9B0" name="ORDERS__IDXv1">
-<sourceConnName>xe</sourceConnName>
-<sourceObjSchema>springapp</sourceObjSchema>
-<sourceObjName>ORDERS__IDXv1</sourceObjName>
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-02-19 10:20:21 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<indexState>Unique Plain Index</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="35E87971-A1F6-D1EC-E1A6-4E41755A5E51"/>
-</indexColumnUsage>
-</ind_PK_UK>
 <ind_PK_UK id="997821DD-065E-E669-1906-70DD93494979" name="ORDERS_USERS_FK">
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-22 08:10:29 UTC</createdTime>
@@ -224,16 +195,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="302F2E71-0740-FE26-90DF-E6069465DFCC"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="92C5C9BD-70D7-5996-215A-8F04809A98FE" name="ORDERS_SPRING_SESSION_FK">
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-02-23 10:09:14 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="35E87971-A1F6-D1EC-E1A6-4E41755A5E51"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

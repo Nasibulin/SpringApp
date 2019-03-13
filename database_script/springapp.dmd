@@ -42,5 +42,23 @@
 <designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="19882C64-0B72-E79C-B6C0-90393932990A">
 <designStoragePath>C:\Users\Konstantin\IdeaProjects\SpringApp\database_script</designStoragePath>
 </designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="6C266E18-7523-77C6-F9D6-5D49C35AFD39">
+<designStoragePath>C:\Users\Konstantin\IdeaProjects\SpringApp\database_script</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="6EA0E963-9D19-EBF3-6DA3-AB5E14F78C99">
+<designStoragePath>C:\Users\Konstantin\IdeaProjects\SpringApp\database_script</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="583A9F51-E528-91F1-26EA-A4B96A74AE93">
+<designStoragePath>C:\Users\Konstantin\IdeaProjects\SpringApp\database_script</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="3510BBD3-5142-2469-FB1C-1F865EEF278A">
+<designStoragePath>C:\Users\Konstantin\IdeaProjects\SpringApp\database_script</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="AA3D7886-1AEA-116C-84ED-1C9D7EC8C7F6">
+<designStoragePath>C:\Users\Konstantin\IdeaProjects\SpringApp\database_script</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="883DD736-913B-4F26-0A90-C3B62AC1D900">
+<designStoragePath>C:\Users\Konstantin\IdeaProjects\SpringApp\database_script</designStoragePath>
+</designDescr>
 </usedDesignStorageDescriptors>
 </OSDM_Design>

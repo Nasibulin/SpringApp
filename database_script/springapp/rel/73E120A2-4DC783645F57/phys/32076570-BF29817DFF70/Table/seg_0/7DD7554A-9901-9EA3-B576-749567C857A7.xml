@@ -21,11 +21,6 @@
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 </ColumnProxy>
-<ColumnProxy name="SPRING_SESSION_PRIMARY_ID" id="35E87971-A1F6-D1EC-E1A6-4E41755A5E51">
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-02-23 10:17:40 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-</ColumnProxy>
 <ColumnProxy name="ITEMS_COUNT" id="6B2B21C2-21B0-B3E6-B8F6-35AB24BE6BB0">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
@@ -72,21 +67,8 @@
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
 <tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
-<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ORDERS__IDXV1" id="868F21A1-C948-FD1F-F842-709914EAE9B0">
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-02-23 10:17:40 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<nameChanged>true</nameChanged>
-<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
-</IndexProxy>
 </indexProxies>
 <foreignKeys>
-<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="ORDERS_SPRING_SESSION_FK" id="92C5C9BD-70D7-5996-215A-8F04809A98FE">
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-02-23 10:17:40 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-</ForeignKey>
 <ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="ORDERS_USERS_FK" id="997821DD-065E-E669-1906-70DD93494979">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>

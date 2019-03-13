@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="SPRING_SESSION" directorySegmentName="seg_0" id="FDD32310-0A6E-83F4-F1E5-079EFC5DD7A6">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>A832B5A4-D337-110D-6606-7439096BD427</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CREATION_TIME" id="0C83EEBB-5D28-7304-DB15-C7DAC05DF876">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LAST_ACCESS_TIME" id="3873D167-07E4-7D3E-91ED-0849B57DB737">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRIMARY_ID" id="3B24B865-2796-E186-5578-3C0C41E05606">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAX_INACTIVE_INTERVAL" id="49EDE448-B088-8CAF-EB83-D9EECBEE51AD">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRINCIPAL_NAME" id="57A9D9FE-C849-09B4-2911-3A56FE942876">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EXPIRY_TIME" id="BD38388F-51DB-D42F-F3F6-480412A9FFF2">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SESSION_ID" id="C3360946-D75A-0224-D43C-A8D177AFA4E7">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPRING_SESSION_IX2" id="2C984263-1C21-0AC5-DA9F-14832AF2C686">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPRING_SESSION_PK" id="76D10654-E69D-078C-B269-1D6BA997F08B">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPRING_SESSION_IX3" id="BCC806E3-4E42-D442-3165-4B9B4B07047A">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SPRING_SESSION_IX1" id="FB02E741-B586-89A7-B488-25FA9D4E470A">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="SPRING_SESSION_PK" id="ADC898D1-AF4F-AB80-8B42-7FCA891492AC">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-13 09:43:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<existingIndex>76D10654-E69D-078C-B269-1D6BA997F08B</existingIndex>
+<indexSegment>006C6905-6126-7584-FB39-F7BF95FD72B3</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>
