@@ -97,7 +97,7 @@ public class MainController {
         if (!EmailUtil.isEmailFormat(user.getEmail())) {
             bindingResult
                     .rejectValue("email", "error.user",
-                            "Invalid email address format provided");
+                            "E-mail address you entered is incorrect or invalid");
         }
 
         if (!user.getPassword().equals(repassword)) {
