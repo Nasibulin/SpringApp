@@ -29,7 +29,7 @@ import java.util.List;
 public class MainController {
 
     private static final int pageableDefault = 20;
-    private static final String loginmsg = "loginmsg";
+    //private static final String loginmsg = "loginmsg";
     @Autowired
     private CategoryService categoryService;
     @Autowired
@@ -134,7 +134,7 @@ public class MainController {
                            Model model) {
         model.addAttribute("error", error != null);
         model.addAttribute("logout", logout != null);
-        model.addAttribute("loginmsg", loginmsg);
+        //model.addAttribute("loginmsg", loginmsg);
         return "login";
     }
 
@@ -167,6 +167,12 @@ public class MainController {
 //        }
         String referer = request.getHeader("Referer");
         return "redirect:" + referer;
+    }
+
+    @PostMapping("/cart/clear")
+    public String clearCart(@ModelAttribute("cart") Cart cart, Model model) {
+        cart.clearCart();
+        return "cart";
     }
 
 //    @GetMapping("/sort/{sortDate}")

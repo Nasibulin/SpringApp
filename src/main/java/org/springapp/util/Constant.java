@@ -2,13 +2,6 @@ package org.springapp.util;
 
 public class Constant {
 
-    // API FORMAT DATE
-    public static final String API_FORMAT_DATE = "yyyy/MM/dd HH:mm:ss";
-
-    // LANG
-    public static final String LANG_DEFAULT = "en"; // Lang default
-    public static final String LANG_AUTO = "auto";
-
     public static enum STATUS {
         ACTIVE_STATUS(0, "Active"),
         DELETED_STATUS(1, "Deleted"),
@@ -96,8 +89,7 @@ public class Constant {
 
         MISSING_USERNAME_AND_EMAIL("accountName", "Missing both user name and email address"),
         USER_NAME("userName", "Invalid user name"),
-        EMAIL_ADDRESS("email", "error.user",
-                "There is already a user registered with the email provided"),
+        EMAIL_ADDRESS("email", "Invalid email address"),
         PASSWORD("passwordHash", "Invalid password hash"),
         PHONE_NUMBER("phone", "Invalid phone number"),
         FIRST_NAME("firstName", "Invalid first name"),

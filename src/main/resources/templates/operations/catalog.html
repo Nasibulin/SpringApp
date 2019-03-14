@@ -9,10 +9,10 @@
 				<thead>
 				<tr>
 					<th style="width: 15%">#PartNumber</th>
-					<th style="width: 45%">Product</th>
+					<th style="width: 55%">Product</th>
 					<th style="width: 15%">Price</th>
-					<th style="width: 10%">Qty</th>
-					<th style="width: 5%">Add to cart</th>
+					<th style="width: 5%">Quantity</th>
+					<th style="width: 5%">Add/Remove</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -24,9 +24,12 @@
               method="post" role="form">					
 					<td style="text-align: center">
 						<input type="hidden" id="id" th:name="id" th:value="*{id}"/>
-						<input type="number" class="form-control form-control-sm" id="amount" th:name="amount" th:value="1" min="1" maxlength="20"/>
+						<input type="number" class="form-control form-control-sm btn-block" id="amount" th:disabled="${cart.getItemByProductId(product.id)!=null}" th:name="amount" th:value="1" min="1"/>
 					</td>
-					<td style="text-align: center"><button type="submit" style="cursor: pointer" class="btn btn-primary btn-sm">Add to cart</button></td>
+					<div th:switch="${cart.getItemByProductId(product.id)==null}">
+					<td th:case="${false}" style="text-align: center"><button type="submit" style="cursor: pointer" class="btn btn-primary btn-sm"><i class="fas fa-cart-plus" style="font-size:18px"></i></button></td>
+					<td th:case="${true}" style="text-align: center"><button type="submit" style="cursor: pointer" class="btn btn-secondary btn-sm"><i class="fas fa-cart-plus" style="font-size:18px"></i></button></td>
+					</div>
 					</form>
 				</tr>
 				</tbody>
