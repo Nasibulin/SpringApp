@@ -1,6 +1,0 @@
-DUMPFILE="spring_data23tbl.dmp"
-LOGFILE="imp_spring_data23tbl.log"
-DIRECTORY=DATA_PUMP_DIR
-TABLES='springapp.products'
-CONTENT=DATA_ONLY
-TABLE_EXISTS_ACTION=APPEND

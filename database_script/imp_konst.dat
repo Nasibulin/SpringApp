@@ -1,6 +1,0 @@
-FILE="C:\Users\Konstantin\IdeaProjects\SpringApp\database_script\konst.DMP"
-LOG="C:\Users\Konstantin\IdeaProjects\SpringApp\database_script\imp_konst.log"
-FROMUSER=konst
-TOUSER=SPRINGAPP
-IGNORE=Y
-FEEDBACK=1000

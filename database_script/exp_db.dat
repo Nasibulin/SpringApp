@@ -1,4 +1,0 @@
-FILE="C:\Users\Nasibulin\IdeaProjects\SpringApp\database_script\db.DMP"
-LOG="C:\Users\Nasibulin\IdeaProjects\SpringApp\database_script\exp_db.log"
-TABLES=('DB.CATEGORY', 'DB.PRODUCT', 'DB.SPRING_SESSION', 'DB.SPRING_SESSION_ATTRIBUTES', 'DB.TEST')
-FEEDBACK=1000
