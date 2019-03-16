@@ -11,6 +11,7 @@ import org.springapp.service.user.UserService;
 import org.springapp.util.Constant;
 import org.springapp.util.EmailUtil;
 import org.springapp.util.StringUtil;
+import org.springapp.util.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -88,23 +89,7 @@ public class MainController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String createNewUser(@Valid User user, @RequestParam String repassword, Model model, BindingResult bindingResult) {
-
-        if (userService.findByEmail(user.getEmail()) != null) {
-            bindingResult
-                    .rejectValue("email", "error.user",
-                            "There is already a user registered with the email provided");
-        }
-        if (!EmailUtil.isEmailFormat(user.getEmail())) {
-            bindingResult
-                    .rejectValue("email", "error.user",
-                            "E-mail address you entered is incorrect or invalid");
-        }
-
-        if (!user.getPassword().equals(repassword)) {
-            bindingResult
-                    .rejectValue("password", "error.user",
-                            "Password does not match...");
-        }
+        new UserValidator().validate(user, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "/register";
