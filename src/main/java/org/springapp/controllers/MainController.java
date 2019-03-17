@@ -9,7 +9,6 @@ import org.springapp.service.products.ProductService;
 import org.springapp.service.role.RoleService;
 import org.springapp.service.user.UserService;
 import org.springapp.util.Constant;
-import org.springapp.util.EmailUtil;
 import org.springapp.util.StringUtil;
 import org.springapp.util.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,8 @@ import java.util.List;
 public class MainController {
 
     private static final int pageableDefault = 20;
-    //private static final String loginmsg = "loginmsg";
+    @Autowired
+    private UserValidator userValidator;
     @Autowired
     private CategoryService categoryService;
     @Autowired
@@ -41,33 +41,35 @@ public class MainController {
     private RoleService roleService;
     @Autowired
     private AuthUserDetailsService authUserDetailsService;
-    private AuthUser guest;
+    //private AuthUser guest;
 
     @ModelAttribute("cart")
     public Cart cart() {
         return new Cart();
     }
 
-    @PostConstruct
-    public void init() {
-        guest = (AuthUser) authUserDetailsService.loadUserByUsername("guest@gmail.com");
-    }
+//    @PostConstruct
+//    public void init() {
+//        guest = (AuthUser) authUserDetailsService.loadUserByUsername("guest@gmail.com");
+//    }
 
     @ModelAttribute
-    public void globalAttributes(Model model) {
+    public void globalAttributes(@ModelAttribute("cart") Cart cart, Model model) {
         List<Category> topmenu = categoryService.findCatnameByLevel(2);
         List<Category> submenu = categoryService.findCatnameByLevel(3);
         List<Category> catname = categoryService.findCatPathById(-1);
         model.addAttribute("catname", catname);
         model.addAttribute("topmenu", topmenu);
         model.addAttribute("submenu", submenu);
-        AuthUser user = null;
+        model.addAttribute("cart", cart);
+        //AuthUser user = null;
         try {
-            user = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            model.addAttribute("principal", authUser);
         } catch (ClassCastException ex) {
-            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
+//            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
         }
-        model.addAttribute("principal", user);
+
     }
 
     @GetMapping("/")
@@ -80,6 +82,11 @@ public class MainController {
         return "cart";
     }
 
+    @GetMapping("/checkout")
+    public String getCheck(Model model) {
+        return "checkout";
+    }
+
     @GetMapping("/register")
     public String getRegister(Model model) {
         User user = new User();
@@ -88,8 +95,9 @@ public class MainController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String createNewUser(@Valid User user, @RequestParam String repassword, Model model, BindingResult bindingResult) {
-        new UserValidator().validate(user, bindingResult);
+    public String createNewUser(@Valid User user, Model model, BindingResult bindingResult) {
+
+        userValidator.validate(user, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "/register";
@@ -110,7 +118,6 @@ public class MainController {
             model.addAttribute("user", new User());
             return "/register";
         }
-//        return "/register";
     }
 
     @RequestMapping("/login")
@@ -120,6 +127,13 @@ public class MainController {
         model.addAttribute("error", error != null);
         model.addAttribute("logout", logout != null);
         //model.addAttribute("loginmsg", loginmsg);
+//        AuthUser user = null;
+//        try {
+//            user = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        } catch (ClassCastException ex) {
+////            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
+//        }
+//        model.addAttribute("principal", user);
         return "login";
     }
 

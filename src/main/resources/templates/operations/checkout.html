@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="eng"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="checkout">
+		<!-- Checkout -->
+		<div class="cart_section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1">
+						<div class="cart_container">
+							<div class="cart_title">Checkout</div>
+							<div class="cart_items">
+								<ul class="cart_list">
+									<li class="cart_item clearfix">								
+												<div>
+												<div id="header">
+													<input type="text" id="suggest" class="form-control input-sm" placeholder="Delivery address:">
+													<input type="text" placeholder="Apartment/Office" required 
+                           class="form-control input-sm"/>
+												</div>
+												</div>
+									</li>
+								</ul>
+							</div>
+							
+							<!-- Order Total -->
+							<div class="order_total">
+								<div class="order_total_content text-md-right">
+									<div class="order_total_title">Order Total:</div>
+									<div class="order_total_amount" th:text="${cart.grandTotal}">$2000</div>
+								</div>
+							</div>
+
+							<div class="cart_buttons d-flex justify-content-end">
+								<span><form th:action="@{/cart/clear}" name="clear_cart" id="clear_cart" method="post">
+								<button type="submit" class="button cart_button_clear">Clear Cart</button></form></span>
+								<span><form th:action="@{/checkout}" name="checkout" id="checkout" method="post">								
+								<button type="submit" class="button cart_button_checkout">Checkout</button></form></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+</html>

@@ -23,6 +23,8 @@ public class User implements Serializable {
     private String lastName;
 
     private String password;
+
+    @Transient
     private String repassword;
 
     @Column(name = "status")
@@ -115,6 +117,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    @Transient
     public String getRepassword() {
         return repassword;
     }
