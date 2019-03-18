@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
@@ -28,6 +29,17 @@ public class Order implements Serializable {
     private int customerIsGuest;
 
     private User user;
+    private Set<OrderDetails> orderDetailsSet;
+
+
+    @OneToMany(mappedBy = "order", cascade=CascadeType.ALL, orphanRemoval=true)
+    public Set<OrderDetails> getOrderDetailsSet() {
+        return orderDetailsSet;
+    }
+
+    public void setOrderDetailsSet(Set<OrderDetails> orderDetailsSet) {
+        this.orderDetailsSet = orderDetailsSet;
+    }
 
     @ManyToOne
     @JoinColumn(name = "users_user_id")
