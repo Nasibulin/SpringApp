@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name="order_details")
+@Table(name="order_details", schema = "springapp", catalog = "")
 public class OrderDetails {
 
     private static final long serialVersionUID = 1L;

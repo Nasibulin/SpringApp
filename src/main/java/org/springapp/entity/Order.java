@@ -29,16 +29,18 @@ public class Order implements Serializable {
     private int customerIsGuest;
 
     private User user;
-    private Set<OrderDetails> orderDetailsSet;
+    private Set<CartItem> cartItemSet;
 
-
-    @OneToMany(mappedBy = "order", cascade=CascadeType.ALL, orphanRemoval=true)
-    public Set<OrderDetails> getOrderDetailsSet() {
-        return orderDetailsSet;
+    @ManyToMany
+    @JoinTable(name = "order_details",
+            joinColumns = @JoinColumn(name = "orders_id"),
+            inverseJoinColumns = @JoinColumn(name = "products_id"))
+    public Set<CartItem> getCartItemSet() {
+        return cartItemSet;
     }
 
-    public void setOrderDetailsSet(Set<OrderDetails> orderDetailsSet) {
-        this.orderDetailsSet = orderDetailsSet;
+    public void setCartItemSet(Set<CartItem> cartItemSet) {
+        this.cartItemSet = cartItemSet;
     }
 
     @ManyToOne
