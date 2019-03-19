@@ -1,1 +1,0 @@
-delete from category where parent_id=-1 and length(catname) >= 26 or length(catname) <= 18 and id>0
