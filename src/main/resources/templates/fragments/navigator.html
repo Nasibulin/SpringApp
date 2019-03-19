@@ -53,11 +53,11 @@
 										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
 										<div class="custom_dropdown">
 											<div class="custom_dropdown_list">
-												<span class="custom_dropdown_placeholder clc">All Categories</span>
+												<span class="custom_dropdown_placeholder clc">All Categories...</span>
 												<i class="fas fa-chevron-down"></i>
 												<ul class="custom_list clc">
-													<li><a class="clc" href="#">All Categories</a></li>
-													<li th:each="menu : ${topmenu}"><a class="clc" href="#"><a href="#" th:href="@{'/catalog/{id}'(id=${menu.id})}" th:text="${menu.catname}"></a></li>
+													<li th:selected="true"><a href="#" th:value="-1">All Categories</a></li>
+													<li th:each="menu : ${topmenu}"><a href="#" th:value="${menu.id}" th:text="${menu.catname}"></a></li>
 												</ul>
 											</div>
 										</div>
