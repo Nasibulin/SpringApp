@@ -4,7 +4,6 @@ import org.springapp.auth.AuthUser;
 import org.springapp.auth.service.AuthUserDetailsService;
 import org.springapp.entity.*;
 import org.springapp.service.categories.CategoryService;
-import org.springapp.service.orders.OrderDetailService;
 import org.springapp.service.orders.OrderService;
 import org.springapp.service.products.ProductService;
 import org.springapp.service.roles.RoleService;
@@ -39,8 +38,6 @@ public class MainController {
     private UserService userService;
     @Autowired
     private OrderService orderService;
-    @Autowired
-    private OrderDetailService orderDetailService;
     @Autowired
     private RoleService roleService;
     @Autowired
