@@ -80,6 +80,7 @@ public class MainController {
 
     @GetMapping("/cart")
     public String getCart(Model model) {
+
         return "cart";
     }
 
