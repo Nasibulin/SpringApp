@@ -6,7 +6,7 @@
 <logging>YES</logging>
 <partitionedRowMovement>DISABLE</partitionedRowMovement>
 <segment>A832B5A4-D337-110D-6606-7439096BD427</segment>
-<tableSpace>USERS</tableSpace>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 <temporaryChanged>false</temporaryChanged>
 <accessDriverType>oracle_loader</accessDriverType>
 <rejectLimit></rejectLimit>
@@ -57,6 +57,7 @@
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <autoIncrementDDL>TRIGGER</autoIncrementDDL>
+<autoIncrementUser>32A5B35C-60AC-858B-2755-D1BC57046916</autoIncrementUser>
 </ColumnProxy>
 <ColumnProxy name="FIRST_NAME" id="C42F252B-2D46-6D84-ADC3-91C4C0444A69">
 <createdBy>Konstantin</createdBy>
@@ -70,7 +71,7 @@
 <createdTime>2019-02-23 10:38:23 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>USERS</tableSpace>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
 <IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="USERS__IDXV1" id="F1CA4722-2209-51D8-0A4E-B6E1F89DCF52">
 <createdBy>Konstantin</createdBy>
@@ -78,7 +79,7 @@
 <ownerDesignName>springapp</ownerDesignName>
 <nameChanged>true</nameChanged>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>USERS</tableSpace>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
 </indexProxies>
 <foreignKeys>
@@ -94,7 +95,7 @@
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>USERS</tableSpace>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 <existingIndex>77F9B651-D7E4-5BAA-22B2-5B7A854BF6D2</existingIndex>
 <indexSegment>006C6905-6126-7584-FB39-F7BF95FD72B3</indexSegment>
 <indexSort>SORTED</indexSort>

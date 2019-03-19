@@ -6,7 +6,7 @@
 <logging>YES</logging>
 <partitionedRowMovement>DISABLE</partitionedRowMovement>
 <segment>A832B5A4-D337-110D-6606-7439096BD427</segment>
-<tableSpace>USERS</tableSpace>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 <temporaryChanged>false</temporaryChanged>
 <accessDriverType>oracle_loader</accessDriverType>
 <rejectLimit></rejectLimit>
@@ -50,7 +50,7 @@
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>USERS</tableSpace>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
 <IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ORDER_DETAILS__IDXV1" id="4763D030-D3E7-AFD5-E2D4-9A60178282BF">
 <createdBy>Konstantin</createdBy>
@@ -58,7 +58,7 @@
 <ownerDesignName>springapp</ownerDesignName>
 <nameChanged>true</nameChanged>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>USERS</tableSpace>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
 <IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ORDER_ITEMS_PK" id="AF48236E-BFC0-EF32-71AE-9F0D21705ABF">
 <createdBy>Konstantin</createdBy>
@@ -66,7 +66,7 @@
 <ownerDesignName>springapp</ownerDesignName>
 <schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>USERS</tableSpace>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </IndexProxy>
 </indexProxies>
 <foreignKeys>
@@ -87,7 +87,7 @@
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>USERS</tableSpace>
+<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 <existingIndex>AF48236E-BFC0-EF32-71AE-9F0D21705ABF</existingIndex>
 <indexSegment>006C6905-6126-7584-FB39-F7BF95FD72B3</indexSegment>
 <indexSort>SORTED</indexSort>

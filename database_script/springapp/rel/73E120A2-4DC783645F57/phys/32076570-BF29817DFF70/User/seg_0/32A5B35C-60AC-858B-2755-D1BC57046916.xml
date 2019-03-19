@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="SPRING" directorySegmentName="seg_0" id="32A5B35C-60AC-858B-2755-D1BC57046916">
+<sourceConnName>xe</sourceConnName>
+<sourceObjName>SPRING</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-03-19 18:21:42 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</UserOraclev10g>
