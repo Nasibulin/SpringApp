@@ -1,4 +1,4 @@
-package org.springapp.service.order;
+package org.springapp.service.orders;
 
 
 import org.springapp.entity.Order;

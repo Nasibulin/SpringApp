@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 @Entity
 @Table(name = "orders")
@@ -29,14 +30,19 @@ public class Order implements Serializable {
     private int customerIsGuest;
 
     private User user;
-    private Set<org.springapp.entity.OrderDetail> orderDetailsSet;
+    private Set<OrderDetail> orderDetailsSet;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    public Set<org.springapp.entity.OrderDetail> getOrderDetailsSet() {
+    public Order() {
+        orderDetailsSet = new CopyOnWriteArraySet<OrderDetail>();
+    }
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch=FetchType.LAZY,
+               orphanRemoval=true)
+    public Set<OrderDetail> getOrderDetailsSet() {
         return orderDetailsSet;
     }
 
-    public void setOrderDetailsSet(Set<org.springapp.entity.OrderDetail> orderDetailsSet) {
+    public void setOrderDetailsSet(Set<OrderDetail> orderDetailsSet) {
         this.orderDetailsSet = orderDetailsSet;
     }
 

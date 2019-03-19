@@ -1,7 +1,7 @@
 package org.springapp.util;
 
 import org.springapp.entity.User;
-import org.springapp.service.user.UserService;
+import org.springapp.service.users.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

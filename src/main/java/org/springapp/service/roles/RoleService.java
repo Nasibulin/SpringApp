@@ -1,10 +1,6 @@
-package org.springapp.service.role;
+package org.springapp.service.roles;
 
-import org.springapp.entity.Category;
-import org.springapp.entity.Product;
 import org.springapp.entity.Role;
-
-import java.util.List;
 
 public interface RoleService {
     Role findRoleByRoleId(Integer id);

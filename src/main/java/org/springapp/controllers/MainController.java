@@ -1,13 +1,14 @@
 package org.springapp.controllers;
 
 import org.springapp.auth.AuthUser;
-import org.springapp.auth.UserAuthentication;
 import org.springapp.auth.service.AuthUserDetailsService;
 import org.springapp.entity.*;
 import org.springapp.service.categories.CategoryService;
+import org.springapp.service.orders.OrderDetailService;
+import org.springapp.service.orders.OrderService;
 import org.springapp.service.products.ProductService;
-import org.springapp.service.role.RoleService;
-import org.springapp.service.user.UserService;
+import org.springapp.service.roles.RoleService;
+import org.springapp.service.users.UserService;
 import org.springapp.util.Constant;
 import org.springapp.util.StringUtil;
 import org.springapp.util.UserValidator;
@@ -19,7 +20,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
@@ -37,6 +37,10 @@ public class MainController {
     private ProductService productService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private OrderService orderService;
+    @Autowired
+    private OrderDetailService orderDetailService;
     @Autowired
     private RoleService roleService;
     @Autowired
@@ -127,7 +131,7 @@ public class MainController {
         model.addAttribute("error", error != null);
         model.addAttribute("logout", logout != null);
         //model.addAttribute("loginmsg", loginmsg);
-//        AuthUser user = null;
+//        AuthUser users = null;
 //        try {
 //            user = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        } catch (ClassCastException ex) {
@@ -150,21 +154,27 @@ public class MainController {
     @PostMapping("/cart")
     public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute("cart") Cart cart,
                             Model model, HttpServletRequest request) {
-//        if (cart != null) {
+
         CartItem cartItem = new CartItem();
         cartItem.setId(id);
         cartItem.setProduct(productService.getProductById(id));
         cartItem.setQuantity(amount);
         cart.addCartItems(cartItem);
         model.addAttribute("cart", cart);
-//        } else {
-//            CartItem cartItem = new CartItem();
-//            cartItem.setId(id);
-//            cartItem.setProduct(productService.getProductById(id));
-//            cartItem.setQuantity(amount);
-//            cart.addCartItems(cartItem);
-//            model.addAttribute("cart", cart);
-//        }
+
+        Order order = new Order();
+        order.setUser(userService.findByEmail("customer@gmail.com"));
+        OrderDetail orderDetail = new OrderDetail();
+
+
+        orderDetail.setOrder(order);
+        orderDetail.setProduct(cartItem.getProduct());
+        orderDetail.setQuantity(cartItem.getQuantity());
+        order.getOrderDetailsSet().add(orderDetail);
+        orderService.saveOrder(order);
+
+        //orderDetailService.saveOrderDetail(orderDetail);
+
         String referer = request.getHeader("Referer");
         return "redirect:" + referer;
     }

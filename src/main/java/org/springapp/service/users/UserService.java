@@ -1,10 +1,9 @@
-package org.springapp.service.user;
+package org.springapp.service.users;
 
 import org.springapp.entity.Role;
 import org.springapp.entity.User;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
     User findByUserIdEquals(Integer id);

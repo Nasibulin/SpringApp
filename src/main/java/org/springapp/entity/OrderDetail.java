@@ -2,10 +2,11 @@ package org.springapp.entity;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "order_details", schema = "springapp", catalog = "")
-public class OrderDetail {
+public class OrderDetail implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -31,8 +32,7 @@ public class OrderDetail {
     }
 
     @ManyToOne
-    @JoinColumn(name = "orders_id", nullable = false,
-                foreignKey = @ForeignKey(name = "order_items_orders_fk"))
+    @JoinColumn(name = "orders_id")
     public Order getOrder() {
         return order;
     }
@@ -42,8 +42,7 @@ public class OrderDetail {
     }
 
     @ManyToOne
-    @JoinColumn(name = "products_id", nullable = false,
-                foreignKey = @ForeignKey(name = "order_items_products_fk"))
+    @JoinColumn(name = "products_id")
     public Product getProduct() {
         return product;
     }
@@ -51,7 +50,7 @@ public class OrderDetail {
     public void setProduct(Product product) {
         this.product = product;
     }
-
+    @Column(name = "item_quantity")
     public int getQuantity() {
         return quantity;
     }

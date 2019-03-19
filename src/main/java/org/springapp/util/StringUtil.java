@@ -276,7 +276,7 @@ public class StringUtil {
      * <p> If any chars > 255 are encountered in the String, they
      * will be converted to `3F' (a question mark).
      * <p/>
-     * <p> In order to ensure that the result of this is valid when
+     * <p> In orders to ensure that the result of this is valid when
      * placed into an INSERT or UPDATE statement, this returns an string
      * consisting of just two single quotes if the input string is empty.
      */

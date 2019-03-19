@@ -1,13 +1,15 @@
-package org.springapp.service.order;
+package org.springapp.service.orders;
 
 import org.springapp.entity.Order;
 import org.springapp.entity.OrderDetail;
 import org.springapp.entity.User;
 import org.springapp.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
