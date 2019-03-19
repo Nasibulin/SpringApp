@@ -79,7 +79,30 @@ public class MainController {
     }
 
     @GetMapping("/cart")
-    public String getCart(Model model) {
+    public String getCart(@ModelAttribute("cart") Cart cart, Model model) {
+
+        Order order = new Order();
+        order.setUser(userService.findByEmail("customer@gmail.com"));
+        order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
+        OrderDetail orderDetail = new OrderDetail();
+
+
+        orderDetail.setOrder(order);
+
+        //order.getOrderDetailsSet().add(orderDetail);
+        //orderService.saveOrder(order);
+
+
+        cart.getCartItems().forEach(i -> {
+            orderDetail.setProduct(i.getProduct());
+            orderDetail.setQuantity(i.getQuantity());
+            order.getOrderDetailsSet().add(orderDetail);
+            System.out.println(orderDetail.hashCode());
+        });
+
+        order.getOrderDetailsSet().stream().map(i->i.getProduct().getDescription()).forEach(System.out::println);
+        //order.getOrderDetailsSet().forEach(i->i.getProduct().getDescription());
+        orderService.saveOrder(order);
 
         return "cart";
     }
@@ -160,19 +183,17 @@ public class MainController {
         cart.addCartItems(cartItem);
         model.addAttribute("cart", cart);
 
-        Order order = new Order();
-        order.setUser(userService.findByEmail("customer@gmail.com"));
-        order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
-        OrderDetail orderDetail = new OrderDetail();
-
-
-        orderDetail.setOrder(order);
-        orderDetail.setProduct(cartItem.getProduct());
-        orderDetail.setQuantity(cartItem.getQuantity());
-        order.getOrderDetailsSet().add(orderDetail);
-        orderService.saveOrder(order);
-
-        //orderDetailService.saveOrderDetail(orderDetail);
+//        Order order = new Order();
+//        order.setUser(userService.findByEmail("customer@gmail.com"));
+//        order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
+//        OrderDetail orderDetail = new OrderDetail();
+//
+//
+//        orderDetail.setOrder(order);
+//        orderDetail.setProduct(cartItem.getProduct());
+//        orderDetail.setQuantity(cartItem.getQuantity());
+//        order.getOrderDetailsSet().add(orderDetail);
+//        orderService.saveOrder(order);
 
         String referer = request.getHeader("Referer");
         return "redirect:" + referer;

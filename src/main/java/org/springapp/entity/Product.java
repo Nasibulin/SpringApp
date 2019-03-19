@@ -88,10 +88,31 @@ public class Product implements Serializable {
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", partNumber='" + partNumber + '\'' +
                 ", description='" + description + '\'' +
-                ", service='" + service + '\'' +
+                ", partNumber='" + partNumber + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        if (description != null ? !description.equals(product.description) : product.description != null) return false;
+        if (id != null ? !id.equals(product.id) : product.id != null) return false;
+        if (partNumber != null ? !partNumber.equals(product.partNumber) : product.partNumber != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (partNumber != null ? partNumber.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        return result;
     }
 }
