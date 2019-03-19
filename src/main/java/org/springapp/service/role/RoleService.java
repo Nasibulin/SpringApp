@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface RoleService {
     Role findRoleByRoleId(Integer id);
+
     Role findRoleByAuthority(String authority);
 }

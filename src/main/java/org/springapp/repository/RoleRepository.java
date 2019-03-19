@@ -8,5 +8,6 @@ import javax.transaction.Transactional;
 
 public interface RoleRepository extends JpaRepository<Role, Integer> {
     Role findRoleByRoleId(Integer id);
+
     Role findRoleByAuthority(String authority);
 }

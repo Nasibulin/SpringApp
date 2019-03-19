@@ -70,7 +70,7 @@ public class Cart implements Serializable {
 
         Integer quantity = cartItems.stream()
                 .map(totalMapper)
-                .mapToInt(i->i).sum();
+                .mapToInt(i -> i).sum();
 
         this.setQuantity(quantity);
     }
@@ -86,7 +86,7 @@ public class Cart implements Serializable {
         this.setGrandTotal(grandTotal);
     }
 
-    public void clearCart(){
+    public void clearCart() {
         this.cartItems.clear();
     }
 

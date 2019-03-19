@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name="users", schema = "springapp", catalog = "")
+@Table(name = "users", schema = "springapp", catalog = "")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -58,7 +58,7 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
-    @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<Order> getOrders() {
         return orders;
     }
@@ -66,6 +66,7 @@ public class User implements Serializable {
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
+
     @ManyToOne
     @JoinColumn(name = "roles_role_id")
     public Role getRole() {

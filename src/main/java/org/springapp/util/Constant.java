@@ -34,7 +34,7 @@ public class Constant {
         STORE_MANAGER(3, "Store Manager"),
         NORMAL_USER(4, "Normal User"),
         GUEST(5, "Guest");
-        
+
 
         private final int roleId;
         private final String roleName;
@@ -52,34 +52,34 @@ public class Constant {
             return roleName;
         }
     }
-    
+
     public static enum USER_STATUS {
         INACTIVE(-1),
         PENDING(0),
         ACTIVE(1);
-        
+
         private final int status;
-        
+
         private USER_STATUS(int status) {
             this.status = status;
         }
-        
+
         public int getStatus() {
             return status;
         }
     }
-    
+
     public static enum ORDER_STATUS {
         PENDING(0),
         SHIPPING(1),
         COMPLETED(2);
-        
+
         private final int status;
-        
+
         private ORDER_STATUS(int status) {
             this.status = status;
         }
-        
+
         public int getStatus() {
             return status;
         }
@@ -87,7 +87,7 @@ public class Constant {
 
     public enum ParamError {
 
-        USER_EMAIL_ALREADY_EXIST ("email", "There is already a user registered with the email provided"),
+        USER_EMAIL_ALREADY_EXIST("email", "There is already a user registered with the email provided"),
         EMAIL_ADDRESS("email", "E-mail address you entered is incorrect or invalid"),
         PASSWORD_NOT_MATCH("password", "Password does not match...");
 

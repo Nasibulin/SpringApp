@@ -24,7 +24,7 @@ public class Category implements Serializable {
     public Category() {
     }
 
-    @OneToMany(mappedBy = "category", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<Product> getProducts() {
         return products;
     }
@@ -33,14 +33,15 @@ public class Category implements Serializable {
         this.products = products;
     }
 
-    public void addProduct (Product product){
-    product.setCategory(this);
-    getProducts().add(product);
+    public void addProduct(Product product) {
+        product.setCategory(this);
+        getProducts().add(product);
     }
 
     public Category(String catname) {
-        this.catname=catname;
+        this.catname = catname;
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "categories_id_seq")
     @SequenceGenerator(sequenceName = "categories_id_seq", allocationSize = 1, name = "categories_id_seq")

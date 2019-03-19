@@ -4,7 +4,9 @@ import org.springapp.entity.Role;
 import org.springapp.entity.User;
 import org.springapp.repository.RoleRepository;
 import org.springapp.repository.UserRepository;
+
 import static org.springapp.util.Constant.USER_ROLE;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

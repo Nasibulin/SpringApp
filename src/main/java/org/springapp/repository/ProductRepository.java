@@ -10,7 +10,10 @@ import java.util.Optional;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findByIdEquals(int i);
+
     List<Product> findAll();
+
     List<Product> findByCategory(Category category);
+
     Product getProductById(Integer id);
 }

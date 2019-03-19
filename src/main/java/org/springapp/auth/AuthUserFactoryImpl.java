@@ -4,7 +4,7 @@ import org.springapp.entity.User;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AuthUserFactoryImpl implements AuthUserFactory{
+public class AuthUserFactoryImpl implements AuthUserFactory {
 
     @Override
     public AuthUser createAuthUser(User user) {

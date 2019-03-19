@@ -20,11 +20,11 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
     Page<Category> findByParentIdEquals(Integer i, Pageable pageable);
 
     @Query(value = "SELECT categories.id, categories.parent_id, catname FROM (SELECT CONNECT_BY_ROOT id AS parent_id, id FROM categories WHERE id = :catid CONNECT BY NOCYCLE PRIOR id = parent_id) t1 JOIN categories ON t1.parent_id = categories.id WHERE categories.is_root=0 ORDER BY parent_id",
-            nativeQuery = true)
+           nativeQuery = true)
     List<Category> findCatPathById(@Param("catid") Integer catId);
 
     @Query(value = "SELECT id, parent_id, catname FROM categories WHERE LEVEL = :level CONNECT BY PRIOR id = parent_id START WITH id = -1",
-            nativeQuery = true)
+           nativeQuery = true)
     List<Category> findCatnameByLevel(@Param("level") Integer level);
 
 }

@@ -4,7 +4,7 @@ package org.springapp.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="order_details", schema = "springapp", catalog = "")
+@Table(name = "order_details", schema = "springapp", catalog = "")
 public class OrderDetail {
 
     private static final long serialVersionUID = 1L;

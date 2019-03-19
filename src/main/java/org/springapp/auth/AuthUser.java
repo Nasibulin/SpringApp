@@ -19,7 +19,8 @@ public class AuthUser implements UserDetails {
     public AuthUser() {
     }
 
-    public AuthUser(String username, Role authorities, String password, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
+    public AuthUser(String username, Role authorities, String password, boolean accountNonExpired,
+                    boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
         this.username = username;
         this.authorities = authorities;
         this.password = password;

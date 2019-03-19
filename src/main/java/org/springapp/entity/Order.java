@@ -31,7 +31,7 @@ public class Order implements Serializable {
     private User user;
     private Set<org.springapp.entity.OrderDetail> orderDetailsSet;
 
-    @OneToMany(mappedBy = "order", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<org.springapp.entity.OrderDetail> getOrderDetailsSet() {
         return orderDetailsSet;
     }

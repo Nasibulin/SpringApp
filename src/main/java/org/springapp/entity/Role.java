@@ -15,13 +15,13 @@ public class Role implements Serializable, GrantedAuthority {
     private Integer roleId;
 
     private String authority;
-    
+
     @Column(name = "description")
     private String description;
 
     private Set<User> users;
 
-    @OneToMany(mappedBy = "role", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<User> getUsers() {
         return users;
     }

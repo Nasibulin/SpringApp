@@ -2,6 +2,7 @@ package org.springapp.entity;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -70,5 +71,4 @@ public class UserToken implements Serializable {
     }
 
 
-    
 }
