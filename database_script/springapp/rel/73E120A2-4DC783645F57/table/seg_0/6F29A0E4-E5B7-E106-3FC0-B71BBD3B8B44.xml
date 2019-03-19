@@ -79,7 +79,7 @@
 <colUsage columnID="BDCF92A4-B269-EACB-5805-61FDDAA0F9A0"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="4ED759A1-0BE4-587C-5AFA-363D3EDBB690" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="SYS_C007739">
+<ind_PK_UK id="4ED759A1-0BE4-587C-5AFA-363D3EDBB690" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="ROLES_PK">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>SPRINGAPP</sourceObjSchema>
 <sourceObjName>SYS_C007739</sourceObjName>

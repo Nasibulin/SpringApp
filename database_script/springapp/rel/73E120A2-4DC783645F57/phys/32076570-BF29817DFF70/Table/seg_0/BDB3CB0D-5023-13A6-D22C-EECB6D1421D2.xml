@@ -6,7 +6,7 @@
 <logging>YES</logging>
 <partitionedRowMovement>DISABLE</partitionedRowMovement>
 <segment>A832B5A4-D337-110D-6606-7439096BD427</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 <temporaryChanged>false</temporaryChanged>
 <accessDriverType>oracle_loader</accessDriverType>
 <rejectLimit></rejectLimit>
@@ -49,7 +49,7 @@
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 </IndexProxy>
 </indexProxies>
 <foreignKeys>
@@ -65,7 +65,7 @@
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 <existingIndex>ED2CDD4A-A9C5-183D-5EF2-556F96F25582</existingIndex>
 <indexSegment>006C6905-6126-7584-FB39-F7BF95FD72B3</indexSegment>
 <indexSort>SORTED</indexSort>

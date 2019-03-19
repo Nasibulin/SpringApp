@@ -59,22 +59,6 @@
 <ownDataTypeParameters>,6,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="USER_ID" id="772ED090-9AC0-3862-1460-C723085BF679">
-<sourceConnName>xe</sourceConnName>
-<sourceObjSchema>USER_TOKENS</sourceObjSchema>
-<sourceObjName>USER_ID</sourceObjName>
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-03-02 08:02:35 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<importedID>9EFF5122-A516-6EFC-D608-64E112068DDE</importedID>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>255 BYTE</dataTypeSize>
-<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="USERS_USER_ID" id="5CC919F3-22CC-6BED-273B-C7567FAE9F88">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-03-02 08:00:24 UTC</createdTime>

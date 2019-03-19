@@ -6,7 +6,7 @@
 <logging>YES</logging>
 <partitionedRowMovement>DISABLE</partitionedRowMovement>
 <segment>A832B5A4-D337-110D-6606-7439096BD427</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 <temporaryChanged>false</temporaryChanged>
 <accessDriverType>oracle_loader</accessDriverType>
 <rejectLimit></rejectLimit>
@@ -51,7 +51,7 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<defaultValue>systimestamp</defaultValue>
+<defaultValue>systimestamp(6)</defaultValue>
 </ColumnProxy>
 <ColumnProxy name="ORDER_TOTAL" id="CD683BAF-BAAA-64E4-EA35-EC030AB100DA">
 <createdBy>Konstantin</createdBy>
@@ -65,7 +65,7 @@
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 </IndexProxy>
 </indexProxies>
 <foreignKeys>
@@ -81,7 +81,7 @@
 <createdTime>2019-02-23 10:17:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 <existingIndex>02BB2348-A682-B366-60CF-F9B0576C83C1</existingIndex>
 <indexSegment>006C6905-6126-7584-FB39-F7BF95FD72B3</indexSegment>
 <indexSort>SORTED</indexSort>

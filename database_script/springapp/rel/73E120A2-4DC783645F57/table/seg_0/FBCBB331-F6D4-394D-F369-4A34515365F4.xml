@@ -104,21 +104,6 @@
 <ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="USER_ID" id="3C29C46A-5ED4-9188-5DFC-BC87904B7520">
-<sourceConnName>xe</sourceConnName>
-<sourceObjSchema>USER_ADDRESSES</sourceObjSchema>
-<sourceObjName>USER_ID</sourceObjName>
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-03-02 07:50:30 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<importedID>C0341EE3-3180-64E1-CB9C-6273CF355227</importedID>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>255 BYTE</dataTypeSize>
-<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="USERS_USER_ID" id="39041169-BF47-4547-039C-3FA61CAE3783">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-03-02 07:48:27 UTC</createdTime>
@@ -152,7 +137,7 @@
 <colUsage columnID="ACE027F1-7953-C452-C697-75D593581F03"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="75E8632A-8AD2-71BE-5C68-3A8F7FBED92B" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="SYS_C007750">
+<ind_PK_UK id="75E8632A-8AD2-71BE-5C68-3A8F7FBED92B" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="USER_ADDRESSES_PK">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>SPRINGAPP</sourceObjSchema>
 <sourceObjName>SYS_C007750</sourceObjName>

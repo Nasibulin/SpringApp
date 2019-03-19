@@ -8,12 +8,4 @@
 <schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
 <defTableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</defTableSpace>
 <privileges>UNLIMITED TABLESPACE</privileges>
-<quotaItems>
-<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem1" id="D2D3A1B2-C032-6FD5-361D-E46048092E18">
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-03-02 07:20:27 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
-</QuotaItem>
-</quotaItems>
 </UserOraclev10g>
