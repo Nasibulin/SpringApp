@@ -164,6 +164,7 @@ public class MainController {
 
         Order order = new Order();
         order.setUser(userService.findByEmail("customer@gmail.com"));
+        order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
         OrderDetail orderDetail = new OrderDetail();
 
 

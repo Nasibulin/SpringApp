@@ -18,7 +18,8 @@ public class Order implements Serializable {
     private int status;
 
     private int isActive;
-    @Column(name = "created_at")
+    //@Column(name = "created_at")
+    @Transient
     private Date createdAt;
     @Column(name = "items_count")
     private int itemsCount;
@@ -84,7 +85,7 @@ public class Order implements Serializable {
     public void setActive(int active) {
         isActive = active;
     }
-
+    @Transient
     public Date getCreatedAt() {
         return createdAt;
     }
