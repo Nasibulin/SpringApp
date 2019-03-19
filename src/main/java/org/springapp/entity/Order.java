@@ -29,18 +29,15 @@ public class Order implements Serializable {
     private int customerIsGuest;
 
     private User user;
-    private Set<CartItem> cartItemSet;
+    private Set<org.springapp.entity.OrderDetail> orderDetailsSet;
 
-    @ManyToMany
-    @JoinTable(name = "order_details",
-            joinColumns = @JoinColumn(name = "orders_id"),
-            inverseJoinColumns = @JoinColumn(name = "products_id"))
-    public Set<CartItem> getCartItemSet() {
-        return cartItemSet;
+    @OneToMany(mappedBy = "order", cascade=CascadeType.ALL, orphanRemoval=true)
+    public Set<org.springapp.entity.OrderDetail> getOrderDetailsSet() {
+        return orderDetailsSet;
     }
 
-    public void setCartItemSet(Set<CartItem> cartItemSet) {
-        this.cartItemSet = cartItemSet;
+    public void setOrderDetailsSet(Set<org.springapp.entity.OrderDetail> orderDetailsSet) {
+        this.orderDetailsSet = orderDetailsSet;
     }
 
     @ManyToOne
@@ -122,7 +119,5 @@ public class Order implements Serializable {
     public void setCustomerIsGuest(int customerIsGuest) {
         this.customerIsGuest = customerIsGuest;
     }
-
-
 
 }

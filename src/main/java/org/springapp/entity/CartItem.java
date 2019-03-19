@@ -1,14 +1,10 @@
 package org.springapp.entity;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Set;
 
 //@Component
 //@Scope(value= WebApplicationContext.SCOPE_SESSION, proxyMode= ScopedProxyMode.TARGET_CLASS)
-@Entity
-@Table(name = "products", schema = "springapp", catalog = "")
 public class CartItem implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,19 +12,7 @@ public class CartItem implements Serializable {
     private Product product;
     private int quantity;
     private BigDecimal subTotal = BigDecimal.ZERO;
-    private Set<Order> orderSet;
 
-    @ManyToMany
-    @JoinTable(name = "order_details",
-            joinColumns = @JoinColumn(name = "products_id"),
-            inverseJoinColumns = @JoinColumn(name = "orders_id"))
-    public Set<Order> getOrderSet() {
-        return orderSet;
-    }
-
-    public void setOrderSet(Set<Order> orderSet) {
-        this.orderSet = orderSet;
-    }
 
     public CartItem() {
     }

@@ -2,18 +2,21 @@ package org.springapp.entity;
 
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name="order_details", schema = "springapp", catalog = "")
-public class OrderDetails {
+public class OrderDetail {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "id")
     private Integer id;
-    private Set<CartItem> cartItemSet;
+
     private Order order;
+
+    private Product product;
+
+    private int quantity;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_details_id_seq")
@@ -27,21 +30,33 @@ public class OrderDetails {
         this.id = id;
     }
 
-    public Set<CartItem> getCartItemSet() {
-        return cartItemSet;
-    }
-
-    public void setCartItemSet(Set<CartItem> cartItemSet) {
-        this.cartItemSet = cartItemSet;
-    }
-
     @ManyToOne
-    @JoinColumn(name = "orders_id")
+    @JoinColumn(name = "orders_id", nullable = false,
+                foreignKey = @ForeignKey(name = "order_items_orders_fk"))
     public Order getOrder() {
         return order;
     }
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "products_id", nullable = false,
+                foreignKey = @ForeignKey(name = "order_items_products_fk"))
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
