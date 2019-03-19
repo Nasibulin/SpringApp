@@ -102,17 +102,12 @@ public class Product implements Serializable {
         Product product = (Product) o;
 
         if (description != null ? !description.equals(product.description) : product.description != null) return false;
-        if (id != null ? !id.equals(product.id) : product.id != null) return false;
-        if (partNumber != null ? !partNumber.equals(product.partNumber) : product.partNumber != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (partNumber != null ? partNumber.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
+        return description != null ? description.hashCode() : 0;
     }
 }

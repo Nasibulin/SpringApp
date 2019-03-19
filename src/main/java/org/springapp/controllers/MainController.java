@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 @Controller
 @SessionAttributes("cart")
@@ -84,24 +86,18 @@ public class MainController {
         Order order = new Order();
         order.setUser(userService.findByEmail("customer@gmail.com"));
         order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
-        OrderDetail orderDetail = new OrderDetail();
-
-
-        orderDetail.setOrder(order);
-
-        //order.getOrderDetailsSet().add(orderDetail);
-        //orderService.saveOrder(order);
-
 
         cart.getCartItems().forEach(i -> {
+            OrderDetail orderDetail = new OrderDetail();
+            orderDetail.setOrder(order);
             orderDetail.setProduct(i.getProduct());
             orderDetail.setQuantity(i.getQuantity());
             order.getOrderDetailsSet().add(orderDetail);
-            System.out.println(orderDetail.hashCode());
         });
 
+        System.out.println("-------------------------");
         order.getOrderDetailsSet().stream().map(i->i.getProduct().getDescription()).forEach(System.out::println);
-        //order.getOrderDetailsSet().forEach(i->i.getProduct().getDescription());
+
         orderService.saveOrder(order);
 
         return "cart";

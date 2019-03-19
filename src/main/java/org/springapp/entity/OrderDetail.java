@@ -58,12 +58,10 @@ public class OrderDetail implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof OrderDetail)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         OrderDetail that = (OrderDetail) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (order != null ? !order.equals(that.order) : that.order != null) return false;
         if (product != null ? !product.equals(that.product) : that.product != null) return false;
 
         return true;
@@ -71,9 +69,6 @@ public class OrderDetail implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (order != null ? order.hashCode() : 0);
-        result = 31 * result + (product != null ? product.hashCode() : 0);
-        return result;
+        return product != null ? product.hashCode() : 0;
     }
 }

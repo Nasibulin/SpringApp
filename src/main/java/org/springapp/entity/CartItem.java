@@ -54,18 +54,18 @@ public class CartItem implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof CartItem)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         CartItem cartItem = (CartItem) o;
 
-        if (id != null ? !id.equals(cartItem.id) : cartItem.id != null) return false;
+        if (product != null ? !product.equals(cartItem.product) : cartItem.product != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        return product != null ? product.hashCode() : 0;
     }
 
     @Override

@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
@@ -34,7 +35,7 @@ public class Order implements Serializable {
     private Set<OrderDetail> orderDetailsSet;
 
     public Order() {
-        orderDetailsSet = new CopyOnWriteArraySet<OrderDetail>();
+        this.orderDetailsSet = new CopyOnWriteArraySet<OrderDetail>();
     }
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch=FetchType.LAZY,
