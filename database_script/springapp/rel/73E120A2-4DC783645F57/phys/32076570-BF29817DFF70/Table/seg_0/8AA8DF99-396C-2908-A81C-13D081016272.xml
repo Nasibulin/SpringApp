@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ORDER_ADDRESSES" directorySegmentName="seg_0" id="8AA8DF99-396C-2908-A81C-13D081016272">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:13:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>A832B5A4-D337-110D-6606-7439096BD427</segment>
+<tableSpace>USERS</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="SUFFIX" id="14BCD915-20C0-DEE1-78BD-1BEFD4462DF3">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:13:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<defaultValue>NULL</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="ORDERS_ID" id="1BD9E282-15B6-7AA4-3B3A-231D3084F9EE">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:15:04 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATED_AT" id="4B88C12B-4D90-84FB-D39B-3E85FDC0A354">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:13:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<defaultValue>systimestamp(6)</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="UPDATED_AT" id="622372AF-53E6-09FF-C3EE-653A19DA3608">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:13:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<defaultValue>NULL</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="ID" id="8ECCFD66-3A9D-4F6E-6488-F4531DAE01EE">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:13:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<autoIncrementDDL>TRIGGER</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="PREFIX" id="990059A7-E471-53C5-4BE4-7803DBB02CA9">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:13:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<defaultValue>NULL</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="REGION" id="9F69478F-6B30-85CC-FA9A-4F5FA2853FD1">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:13:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<defaultValue>NULL</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="REGION_ID" id="A3837F28-F6A0-EB51-780C-A7ACA2FA4E21">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:13:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<defaultValue>NULL</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS_ID" id="BA206C07-9711-5D0E-AD08-6FBD9B8D80E2">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:13:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="POSTCODE" id="BF57E103-7F76-8EC9-1D65-E9D7B2DB8C03">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:13:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<defaultValue>NULL</defaultValue>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SYS_C007520" id="AF0CA9CC-534B-E0E6-1E45-95564C2E961D">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:21:25 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>USERS</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="ORDER_ADDRESSES_ORDERS_FK" id="53C3BB11-47FC-B307-4E48-B542C2A6341D">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:15:04 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ORDER_ADDRESSES_PK" id="66EFE010-5D74-405E-094B-C8B9871C535B">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:13:45 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
+<segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
+<tableSpace>USERS</tableSpace>
+<existingIndex>AF0CA9CC-534B-E0E6-1E45-95564C2E961D</existingIndex>
+<indexSegment>006C6905-6126-7584-FB39-F7BF95FD72B3</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

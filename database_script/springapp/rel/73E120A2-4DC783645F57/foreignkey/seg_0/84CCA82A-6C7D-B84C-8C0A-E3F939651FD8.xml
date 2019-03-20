@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="84CCA82A-6C7D-B84C-8C0A-E3F939651FD8" containerWithKeyObject="C0ADA276-E109-4B48-95FB-FF93555415D0" localFKIndex="F98EC8C7-2B30-FFCF-059A-573617F1ED70" name="ORDER_PAYMENTS_ORDERS_FK">
+<createdBy>Nasibulin</createdBy>
+<createdTime>2019-03-20 07:15:47 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<referredTableLongName>ORDERS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7DD7554A-9901-9EA3-B576-749567C857A7</referredTableID>
+<keyObject>532D7A91-358F-441B-2694-D9369D6C9F00</keyObject>
+<referredKeyID>532D7A91-358F-441B-2694-D9369D6C9F00</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

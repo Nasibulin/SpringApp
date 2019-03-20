@@ -6,7 +6,7 @@
 <logging>YES</logging>
 <partitionedRowMovement>DISABLE</partitionedRowMovement>
 <segment>A832B5A4-D337-110D-6606-7439096BD427</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 <temporaryChanged>false</temporaryChanged>
 <accessDriverType>oracle_loader</accessDriverType>
 <rejectLimit></rejectLimit>
@@ -15,16 +15,11 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-03-02 07:57:40 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<defaultValue>systimestamp</defaultValue>
+<defaultValue>systimestamp(6)</defaultValue>
 </ColumnProxy>
 <ColumnProxy name="USERS_USER_ID" id="5CC919F3-22CC-6BED-273B-C7567FAE9F88">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-03-02 08:00:24 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-</ColumnProxy>
-<ColumnProxy name="USER_ID" id="772ED090-9AC0-3862-1460-C723085BF679">
-<createdBy>Konstantin</createdBy>
-<createdTime>2019-03-18 17:59:03 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 </ColumnProxy>
 <ColumnProxy name="TOKEN" id="79271596-9BD4-4741-9D74-138CB9E927C0">
@@ -44,7 +39,7 @@
 <createdTime>2019-03-02 08:04:37 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 </IndexProxy>
 </indexProxies>
 <foreignKeys>
@@ -61,7 +56,7 @@
 <ownerDesignName>springapp</ownerDesignName>
 <schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 <existingIndex>DC2B3C70-DE53-6EAD-E9C0-5F0A1F993C99</existingIndex>
 <indexSegment>006C6905-6126-7584-FB39-F7BF95FD72B3</indexSegment>
 <indexSort>SORTED</indexSort>

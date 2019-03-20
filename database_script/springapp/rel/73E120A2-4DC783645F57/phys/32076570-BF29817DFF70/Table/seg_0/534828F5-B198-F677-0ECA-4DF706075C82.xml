@@ -6,7 +6,7 @@
 <logging>YES</logging>
 <partitionedRowMovement>DISABLE</partitionedRowMovement>
 <segment>A832B5A4-D337-110D-6606-7439096BD427</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 <temporaryChanged>false</temporaryChanged>
 <accessDriverType>oracle_loader</accessDriverType>
 <rejectLimit></rejectLimit>
@@ -34,7 +34,7 @@
 <ownerDesignName>springapp</ownerDesignName>
 <schemaObject>5EF3CCB5-5181-840C-7888-628351A06421</schemaObject>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 </IndexProxy>
 </indexProxies>
 <foreignKeys>
@@ -55,7 +55,7 @@
 <logging>YES</logging>
 <tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
 </LobStorage>
-<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="SYS_LOB0000021451C00003$$" id="921B61CD-943B-ECAC-D725-B14C372E7459">
+<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="SYS_LOB0000021451C00003$$" id="F9BE6B82-47CB-5370-A073-61C324275A76">
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-03-19 10:52:34 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
@@ -72,7 +72,7 @@
 <createdTime>2019-03-13 09:43:47 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <segment>006C6905-6126-7584-FB39-F7BF95FD72B3</segment>
-<tableSpace>1B7D4003-79BC-F0ED-7260-BAE5D24C6E9F</tableSpace>
+<tableSpace>USERS</tableSpace>
 <existingIndex>95B77511-E842-8C96-A881-7623AA0A09C5</existingIndex>
 <indexSegment>006C6905-6126-7584-FB39-F7BF95FD72B3</indexSegment>
 <indexSort>SORTED</indexSort>
