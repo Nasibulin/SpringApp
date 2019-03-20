@@ -22,8 +22,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
 
 @Controller
 @SessionAttributes("cart")
@@ -96,7 +94,7 @@ public class MainController {
         });
 
         System.out.println("-------------------------");
-        order.getOrderDetailsSet().stream().map(i->i.getProduct().getDescription()).forEach(System.out::println);
+        order.getOrderDetailsSet().stream().map(i -> i.getProduct().getDescription()).forEach(System.out::println);
 
         orderService.saveOrder(order);
 
@@ -178,18 +176,6 @@ public class MainController {
         cartItem.setQuantity(amount);
         cart.addCartItems(cartItem);
         model.addAttribute("cart", cart);
-
-//        Order order = new Order();
-//        order.setUser(userService.findByEmail("customer@gmail.com"));
-//        order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
-//        OrderDetail orderDetail = new OrderDetail();
-//
-//
-//        orderDetail.setOrder(order);
-//        orderDetail.setProduct(cartItem.getProduct());
-//        orderDetail.setQuantity(cartItem.getQuantity());
-//        order.getOrderDetailsSet().add(orderDetail);
-//        orderService.saveOrder(order);
 
         String referer = request.getHeader("Referer");
         return "redirect:" + referer;

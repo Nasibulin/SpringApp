@@ -54,7 +54,7 @@
 							<div class="cart_buttons d-flex justify-content-end">
 								<span><form th:action="@{/cart/clear}" name="clear_cart" id="clear_cart" method="post">
 								<button type="submit" class="button cart_button_clear">Clear Cart</button></form></span>
-								<span><form th:action="@{/checkout}" name="checkout" id="checkout" method="post">								
+								<span><form th:action="@{/checkout}" name="checkout" id="checkout" method="get">								
 								<button type="submit" class="button cart_button_checkout">Checkout</button></form></span>
 							</div>
 						</div>
