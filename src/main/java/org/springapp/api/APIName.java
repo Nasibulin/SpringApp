@@ -1,4 +1,4 @@
-package com.nitsoft.ecommerce.api;
+package org.springapp.api;
 
 public class APIName {
 
