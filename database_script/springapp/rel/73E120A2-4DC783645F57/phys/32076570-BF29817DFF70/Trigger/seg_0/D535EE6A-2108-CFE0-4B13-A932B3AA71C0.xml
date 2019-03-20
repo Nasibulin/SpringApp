@@ -7,7 +7,7 @@
 <createdTime>2019-03-02 07:02:09 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <actions>INSERT, UPDATE</actions>
-<body>DECLARE&lt;br/&gt;    item_price order_details.item_price%TYPE;&lt;br/&gt;BEGIN&lt;br/&gt;    SELECT&lt;br/&gt;        price&lt;br/&gt;    INTO item_price&lt;br/&gt;    FROM&lt;br/&gt;        products&lt;br/&gt;    WHERE&lt;br/&gt;        id = :new.products_id;&lt;br/&gt;&lt;br/&gt;    :new.item_price := item_price;&lt;br/&gt;EXCEPTION&lt;br/&gt;    WHEN OTHERS THEN&lt;br/&gt;      -- Consider logging the error and then re-raise&lt;br/&gt;        RAISE;&lt;br/&gt;END; &lt;br/&gt;</body>
+<body>DECLARE&lt;br/&gt;    item_price order_details.item_price%TYPE;&lt;br/&gt;BEGIN&lt;br/&gt;    SELECT&lt;br/&gt;        price&lt;br/&gt;    INTO item_price&lt;br/&gt;    FROM&lt;br/&gt;        products&lt;br/&gt;    WHERE&lt;br/&gt;        id = :new.products_id;&lt;br/&gt;&lt;br/&gt;    :new.item_price := item_price;&lt;br/&gt;EXCEPTION&lt;br/&gt;    WHEN OTHERS THEN&lt;br/&gt;      -- Consider logging the error and then re-raise&lt;br/&gt;        RAISE;&lt;br/&gt;END; &lt;br/&gt;&lt;br/&gt;</body>
 <triggerTime>BEFORE</triggerTime>
 <owner>4BC749C5-1D61-92FB-C944-412602B9D603</owner>
 <table>3BD7E795-851A-DC73-F6D7-529030B8E90D</table>

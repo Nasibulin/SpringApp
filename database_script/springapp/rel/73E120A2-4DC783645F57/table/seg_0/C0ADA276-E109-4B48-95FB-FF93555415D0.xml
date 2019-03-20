@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C0ADA276-E109-4B48-95FB-FF93555415D0" schemaObject="5EF3CCB5-5181-840C-7888-628351A06421" name="ORDER_PAYMENTS">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C0ADA276-E109-4B48-95FB-FF93555415D0" name="ORDER_PAYMENTS">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>SPRINGAPP</sourceObjSchema>
 <sourceObjName>ORDER_PAYMENTS</sourceObjName>

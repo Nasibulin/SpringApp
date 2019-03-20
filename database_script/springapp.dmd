@@ -69,5 +69,8 @@
 <designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="8F27D429-1DEE-B110-D7A6-BE496615323A">
 <designStoragePath>C:\Users\Nasibulin\IdeaProjects\SpringApp\database_script</designStoragePath>
 </designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="9F6327F2-76CB-34A4-AAE0-5A2387FDEC65">
+<designStoragePath>C:\Users\Konstantin\IdeaProjects\SpringApp\database_script</designStoragePath>
+</designDescr>
 </usedDesignStorageDescriptors>
 </OSDM_Design>
