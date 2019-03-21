@@ -22,14 +22,6 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(String partNumber, String description, String service, BigDecimal price, Category category) {
-        this.partNumber = partNumber;
-        this.description = description;
-        this.service = service;
-        this.price = price;
-        this.category = category;
-    }
-
     @ManyToOne
     @JoinColumn(name = "category_id")
     public Category getCategory() {

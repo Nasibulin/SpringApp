@@ -93,9 +93,6 @@ public class MainController {
             order.getOrderDetailsSet().add(orderDetail);
         });
 
-        System.out.println("-------------------------");
-        order.getOrderDetailsSet().stream().map(i -> i.getProduct().getDescription()).forEach(System.out::println);
-
         orderService.saveOrder(order);
 
         return "cart";

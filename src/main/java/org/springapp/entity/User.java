@@ -41,6 +41,7 @@ public class User implements Serializable {
     private String salt;
 
     private Set<Order> orders;
+    private Set<UserAddress> userAddresses;
 
     public User() {
         createDate = null;
@@ -56,6 +57,14 @@ public class User implements Serializable {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    public Set<UserAddress> getUserAddresses() {
+        return userAddresses;
+    }
+
+    public void setUserAddresses(Set<UserAddress> userAddresses) {
+        this.userAddresses = userAddresses;
     }
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
