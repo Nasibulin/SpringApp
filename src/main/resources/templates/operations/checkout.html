@@ -114,8 +114,7 @@
 							</div>
 
 							<div class="cart_buttons d-flex justify-content-end">
-								<span><form th:action="@{/cart}" name="clear_cart" id="clear_cart" method="get">
-								<button type="submit" class="button cart_button_clear">Return to Cart</button></form></span>
+								<span><a th:href="@{'/cart'}" href="#"><button type="submit" class="button cart_button_clear">Return to Cart</button></a></span>
 								<span><form th:action="@{/checkout}" name="checkout" id="checkout" method="get">								
 								<button type="submit" class="button cart_button_checkout">Continue to checkout</button></form></span>
 							</div>
