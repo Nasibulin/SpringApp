@@ -14,7 +14,7 @@ public class UserAddress implements Serializable {
     private User user;
 
     @Column(name = "address")
-    private String adress;
+    private String address;
     
     @Column(name = "phone")
     private String phone;
@@ -53,12 +53,12 @@ public class UserAddress implements Serializable {
         this.user = user;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPhone() {

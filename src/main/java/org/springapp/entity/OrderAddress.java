@@ -16,11 +16,13 @@ public class OrderAddress implements Serializable {
     @Column(name = "id")
     private Integer id;
     
-    @Column(name = "order_id")
+    private Order order;
+
+    @Column(name = "orders_id")
     private Integer orderId;
     
     @Column(name = "address_id")
-    private Integer adressId;
+    private Integer addressId;
     
     @Column(name = "created_at")
     private Date createdAt;

@@ -10,36 +10,24 @@ import java.util.Set;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private Integer userId;
-
     @Column(name = "email")
     private String email;
-
     @Column(name = "first_name")
     private String firstName;
-
     @Column(name = "last_name")
     private String lastName;
-
     private String password;
-
     @Transient
     private String repassword;
-
     @Column(name = "status")
     private Integer status;
-
     private Date createDate;
-
     @Column(name = "phone")
     private String phone;
-
     private Role role;
-
     @Column(name = "salt")
     private String salt;
-
     private Set<Order> orders;
     private Set<UserAddress> userAddresses;
 
@@ -58,6 +46,7 @@ public class User implements Serializable {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<UserAddress> getUserAddresses() {
         return userAddresses;
@@ -152,7 +141,6 @@ public class User implements Serializable {
 //    public void setCreateDate(Date createDate) {
 //        this.createDate = createDate;
 //    }
-
 
     public String getSalt() {
         return salt;
