@@ -4,14 +4,14 @@
       xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="catalog">
 		<!-- Catalog -->
-		<div th:if="${not #lists.isEmpty(products)}" class="container">
+		<div th:if="${not #lists.isEmpty(products)}" class="container mt-3">
 			<table class="table table-bordered table-hover horizontal-align">
 				<thead>
 				<tr>
-					<th style="width: 15%">#PartNumber</th>
-					<th style="width: 55%">Product</th>
-					<th style="width: 15%">Price</th>
-					<th style="width: 5%">Quantity</th>
+					<th style="width: 20%">#PartNumber</th>
+					<th style="width: 45%">Product</th>
+					<th style="width: 12%">Price</th>
+					<th style="width: 8%">Quantity</th>
 					<th style="width: 5%">Add/Remove</th>
 				</tr>
 				</thead>
@@ -24,11 +24,11 @@
               method="post" role="form">					
 					<td style="text-align: center">
 						<input type="hidden" id="id" th:name="id" th:value="*{id}"/>
-						<input type="number" class="form-control form-control-sm btn-block" id="amount" th:disabled="${cart.getItemByProductId(product.id)!=null}" th:name="amount" th:value="1" min="1"/>
+						<input type="number" class="form-control form-control-sm input-number btn-block" id="amount" th:disabled="${cart.getItemByProductId(product.id)!=null}" th:name="amount" th:value="1" min="1" max="10"/>
 					</td>
 					<div th:switch="${cart.getItemByProductId(product.id)==null}">
-					<td th:case="${false}" style="text-align: center"><button type="submit" style="cursor: pointer" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-up" style="font-size:18px"></i></button></td>
-					<td th:case="${true}" style="text-align: center"><button type="submit" style="cursor: pointer" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-circle-down" style="font-size:18px"></i></button></td>
+					<td th:case="${false}" style="text-align: center"><button type="submit" style="cursor: pointer" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-up" style="font-size:16px"></i></button></td>
+					<td th:case="${true}" style="text-align: center"><button type="submit" style="cursor: pointer" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-circle-down" style="font-size:16px"></i></button></td>
 					</div>
 					</form>
 				</tr>
