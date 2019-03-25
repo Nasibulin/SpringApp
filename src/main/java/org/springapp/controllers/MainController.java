@@ -3,6 +3,7 @@ package org.springapp.controllers;
 import org.springapp.auth.AuthUser;
 import org.springapp.auth.service.AuthUserDetailsService;
 import org.springapp.entity.*;
+import org.springapp.repository.UserRepository;
 import org.springapp.service.categories.CategoryService;
 import org.springapp.service.orders.OrderService;
 import org.springapp.service.products.ProductService;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @SessionAttributes("cart")
@@ -66,7 +68,9 @@ public class MainController {
         //AuthUser user = null;
         try {
             AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            User customer = userService.findByEmail(authUser.getUsername());
             model.addAttribute("principal", authUser);
+            model.addAttribute("customer", customer);
         } catch (ClassCastException ex) {
 //            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
         }
@@ -96,6 +100,13 @@ public class MainController {
         orderService.saveOrder(order);
 
         return "cart";
+    }
+
+    @GetMapping("/order")
+    public String getCart(@ModelAttribute("customer") User customer, Model model) {
+        Set<Order> orderSet = orderService.findAllByUser(customer);
+        model.addAttribute("orderset", orderSet);
+        return "order";
     }
 
     @GetMapping("/checkout")

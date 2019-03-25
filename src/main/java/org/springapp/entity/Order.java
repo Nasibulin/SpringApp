@@ -1,8 +1,11 @@
 package org.springapp.entity;
 
+import org.springapp.util.Constant;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -18,8 +21,6 @@ public class Order implements Serializable {
     private int status;
 
     private int isActive;
-    //@Column(name = "created_at")
-    @Transient
     private Date createdAt;
     @Column(name = "items_count")
     private int itemsCount;
@@ -71,6 +72,9 @@ public class Order implements Serializable {
     public int getStatus() {
         return status;
     }
+    public String getStatus(int i) {
+        return Constant.ORDER_STATUS.values()[i].name();
+    }
 
     public void setStatus(int status) {
         this.status = status;
@@ -84,7 +88,7 @@ public class Order implements Serializable {
     public void setActive(int active) {
         isActive = active;
     }
-    @Transient
+    @Column(name = "created_at")
     public Date getCreatedAt() {
         return createdAt;
     }
