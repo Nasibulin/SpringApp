@@ -38,7 +38,7 @@ public class Order implements Serializable {
         this.orderDetailsSet = new CopyOnWriteArraySet<OrderDetail>();
     }
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<OrderDetail> getOrderDetailsSet() {
         return orderDetailsSet;
     }
@@ -72,6 +72,7 @@ public class Order implements Serializable {
     public int getStatus() {
         return status;
     }
+
     public String getStatus(int i) {
         return Constant.ORDER_STATUS.values()[i].name();
     }
@@ -88,7 +89,9 @@ public class Order implements Serializable {
     public void setActive(int active) {
         isActive = active;
     }
+
     @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getCreatedAt() {
         return createdAt;
     }

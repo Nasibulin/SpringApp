@@ -1924,6 +1924,7 @@ select option
 {
 	/*font-size: 18px;*/
 	margin-top: 35px;
+	/*cursor: pointer;*/
 }
 .cart_item_text span
 {

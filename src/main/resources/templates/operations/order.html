@@ -28,10 +28,12 @@
 										<!-- </tr> -->
 										</thead>
 										<tbody>
-										<tr th:each="order : ${orderset}">
-											<td class="cart_item_text" th:text="${order.id}">#PartNumber</td>
-											<td class="cart_item_text" th:text="${order.getStatus(order.status)}">#PartNumber</td>
-											<td class="cart_item_text" th:text="${#calendars.format(order.createdAt,'dd.MM.yyyy')}">Product</td>
+										<tr th:each="order : ${orderset}" >
+											
+											
+											<td><a href="#" th:href="@{'/order/{id}'(id=${order.id})}"><span class="cart_item_text" th:text="${order.id}">#OrderID</span></a></td>
+											<td class="cart_item_text" th:text="${order.getStatus(order.status)}">#OrderStatus</td>
+											<td class="cart_item_text" th:text="${#calendars.format(order.createdAt,'dd.MM.yyyy')}">Date</td>
 											<td class="cart_item_text" th:text="${order.itemsCount}">Quantity</td>
 											<td class="cart_item_text" th:text="${order.itemsQuantity}">Price</td>
 											<td class="cart_item_text" th:text="${order.orderTotal}">Total</td>

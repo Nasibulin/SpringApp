@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -85,8 +86,29 @@ public class MainController {
     @GetMapping("/cart")
     public String getCart(@ModelAttribute("cart") Cart cart, Model model) {
 
+        return "cart";
+    }
+
+    @GetMapping("/order")
+    public String getOrders(@ModelAttribute("customer") User customer, Model model) {
+        Set<Order> orderSet = orderService.findAllByUser(customer);
+        model.addAttribute("orderset", orderSet);
+        return "order";
+    }
+
+    @GetMapping("/order/{id}")
+    public String getOrder(@PathVariable Integer id, @ModelAttribute("customer") User customer, Model model) {
+        Set<Order> orderSet = orderService.findAllByUser(customer);
+        model.addAttribute("orderset", orderSet);
+        return "order";
+    }
+
+    @GetMapping("/checkout")
+    public String getCheck(@ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, Model model) {
+        if (!cart.getCartItems().isEmpty()){
         Order order = new Order();
-        order.setUser(userService.findByEmail("customer@gmail.com"));
+        order.setUser(customer);
+        order.setCreatedAt(new Date());
         order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
 
         cart.getCartItems().forEach(i -> {
@@ -98,19 +120,8 @@ public class MainController {
         });
 
         orderService.saveOrder(order);
-
-        return "cart";
-    }
-
-    @GetMapping("/order")
-    public String getCart(@ModelAttribute("customer") User customer, Model model) {
-        Set<Order> orderSet = orderService.findAllByUser(customer);
-        model.addAttribute("orderset", orderSet);
-        return "order";
-    }
-
-    @GetMapping("/checkout")
-    public String getCheck(Model model) {
+        cart.clearCart();
+        }
         return "checkout";
     }
 
