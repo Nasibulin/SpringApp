@@ -2,14 +2,14 @@
 <html lang="eng"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<div th:fragment="order">
-		<!-- Cart -->
+<div th:fragment="vieworder">
+		<!-- Order -->
 		<div class="cart_section">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-10 offset-lg-1">
 						<div class="cart_container">
-							<div class="cart_title">Orders</div>
+							<div class="cart_title" th:text="'Order #'+${order.id}">Order</div>
 							<div class="cart_items">
 								<ul class="cart_list">
 									<li class="cart_item clearfix">
@@ -19,22 +19,20 @@
 										<table class="table table-borderless table-hover horizontal-align">
 										<thead>
 										<!-- <tr> -->
-											<th class="cart_item_title" style="width: 20%">#Order</th>
-											<th class="cart_item_title" style="width: 58%">Date</th>
-											<th class="cart_item_title" style="width: 58%">Status</th>
-											<th class="cart_item_title" style="width: 4%">Count</th>
+											<th class="cart_item_title" style="width: 20%">#PartNumber</th>
+											<th class="cart_item_title" style="width: 58%">Product</th>
 											<th class="cart_item_title" style="width: 4%">Quantity</th>
-											<th class="cart_item_title" style="width: 4%">OrderTotal</th>
+											<th class="cart_item_title" style="width: 4%">Price</th>
+											<th class="cart_item_title" style="width: 4%">Total</th>
 										<!-- </tr> -->
 										</thead>
 										<tbody>
-										<tr th:each="order : ${orderset}" >
-											<td><a href="#" th:href="@{'/order/{id}'(id=${order.id})}"><span class="cart_item_text" th:text="${order.id}">#OrderID</span></a></td>
-											<td class="cart_item_text" th:text="${#calendars.format(order.createdAt,'dd.MM.yyyy')}">Date</td>
-											<td class="cart_item_text" th:text="${order.getStatus(order.status)}">#OrderStatus</td>
-											<td class="cart_item_text" th:text="${order.itemsCount}">Quantity</td>
-											<td class="cart_item_text" th:text="${order.itemsQuantity}">Price</td>
-											<td class="cart_item_text" th:text="${order.orderTotal}">Total</td>
+										<tr th:each="item : ${order.orderDetailsSet}">
+											<td class="cart_item_text" th:text="${item.product.partNumber}">#PartNumber</td>
+											<td class="cart_item_text" th:text="${item.product.description}">Product</td>
+											<td class="cart_item_text" th:text="${item.quantity}">Quantity</td>
+											<td class="cart_item_text" th:text="${item.product.price}">Price</td>
+											<td class="cart_item_text" th:text="${item.subTotal}">Total</td>
 										</tr>
 										</tbody>
 										
@@ -49,7 +47,7 @@
 							<div class="order_total">
 								<div class="order_total_content text-md-right">
 									<div class="order_total_title">Order Total:</div>
-									<div class="order_total_amount" th:text="${cart.grandTotal}">$2000</div>
+									<div class="order_total_amount" th:text="${order.orderTotal}">$2000</div>
 								</div>
 							</div>
 

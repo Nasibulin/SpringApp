@@ -3,6 +3,7 @@ package org.springapp.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "order_details", schema = "springapp", catalog = "")
@@ -13,6 +14,8 @@ public class OrderDetail implements Serializable {
     private Order order;
     private Product product;
     private int quantity;
+    private BigDecimal subTotal = BigDecimal.ZERO;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_details_id_seq")
@@ -53,6 +56,15 @@ public class OrderDetail implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+    @Transient
+    public BigDecimal getSubTotal() {
+        this.updateSubTotal();
+        return subTotal;
+    }
+
+    public void updateSubTotal() {
+        this.subTotal = this.product.getPrice().multiply(new BigDecimal(this.quantity));
     }
 
     @Override

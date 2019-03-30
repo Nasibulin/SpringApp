@@ -98,29 +98,29 @@ public class MainController {
 
     @GetMapping("/order/{id}")
     public String getOrder(@PathVariable Integer id, @ModelAttribute("customer") User customer, Model model) {
-        Set<Order> orderSet = orderService.findAllByUser(customer);
-        model.addAttribute("orderset", orderSet);
-        return "order";
+        Order order = orderService.findAllByUser(customer).stream().filter(i -> i.getId().equals(id)).findAny().orElse(null);
+        model.addAttribute("order", order);
+        return "vieworder";
     }
 
     @GetMapping("/checkout")
     public String getCheck(@ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, Model model) {
-        if (!cart.getCartItems().isEmpty()){
-        Order order = new Order();
-        order.setUser(customer);
-        order.setCreatedAt(new Date());
-        order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
+        if (!cart.getCartItems().isEmpty()) {
+            Order order = new Order();
+            order.setUser(customer);
+            order.setCreatedAt(new Date());
+            order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
 
-        cart.getCartItems().forEach(i -> {
-            OrderDetail orderDetail = new OrderDetail();
-            orderDetail.setOrder(order);
-            orderDetail.setProduct(i.getProduct());
-            orderDetail.setQuantity(i.getQuantity());
-            order.getOrderDetailsSet().add(orderDetail);
-        });
+            cart.getCartItems().forEach(i -> {
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.setOrder(order);
+                orderDetail.setProduct(i.getProduct());
+                orderDetail.setQuantity(i.getQuantity());
+                order.getOrderDetailsSet().add(orderDetail);
+            });
 
-        orderService.saveOrder(order);
-        cart.clearCart();
+            orderService.saveOrder(order);
+            cart.clearCart();
         }
         return "checkout";
     }
