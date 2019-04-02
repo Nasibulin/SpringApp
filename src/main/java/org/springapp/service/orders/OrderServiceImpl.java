@@ -26,6 +26,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public Order getOrderByIdAndUser(Integer id, User user) {
+        return repository.getOrderByIdAndUser(id, user);
+    }
+
+    @Override
     public void saveOrder(Order order) {
         repository.save(order);
     }

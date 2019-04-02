@@ -15,6 +15,9 @@ public class UserAddress implements Serializable {
 
     @Column(name = "address")
     private String address;
+
+    @Column(name = "apartment")
+    private String apartment;
     
     @Column(name = "phone")
     private String phone;
@@ -28,8 +31,8 @@ public class UserAddress implements Serializable {
     @Column(name = "country")
     private String country;
     
-    @Column(name = "status")
-    private int status;
+//    @Column(name = "status")
+//    private int status;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_addresses_seq")
@@ -93,11 +96,19 @@ public class UserAddress implements Serializable {
         this.country = country;
     }
 
-    public int getStatus() {
-        return status;
+    public String getApartment() {
+        return apartment;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setApartment(String apartment) {
+        this.apartment = apartment;
     }
+
+    //    public int getStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(int status) {
+//        this.status = status;
+//    }
 }

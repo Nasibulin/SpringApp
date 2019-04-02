@@ -29,7 +29,7 @@ public class User implements Serializable {
     @Column(name = "salt")
     private String salt;
     private Set<Order> orders;
-    private Set<UserAddress> userAddresses;
+    private UserAddress userAddress;
 
     public User() {
         createDate = null;
@@ -47,13 +47,13 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    public Set<UserAddress> getUserAddresses() {
-        return userAddresses;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    public UserAddress getUserAddress() {
+        return userAddress;
     }
 
-    public void setUserAddresses(Set<UserAddress> userAddresses) {
-        this.userAddresses = userAddresses;
+    public void setUserAddress(UserAddress userAddress) {
+        this.userAddress = userAddress;
     }
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)

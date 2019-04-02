@@ -13,6 +13,8 @@ public interface OrderService {
 
     Order getByOrderId(Integer id);
 
+    Order getOrderByIdAndUser(Integer id, User user);
+
     void saveOrder(Order order);
 
     void updateOrder(Integer id, Set<OrderDetail> orderDetails);

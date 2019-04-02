@@ -89,22 +89,27 @@ public class MainController {
         return "cart";
     }
 
-    @GetMapping("/order")
+    @GetMapping("/orders")
     public String getOrders(@ModelAttribute("customer") User customer, Model model) {
         Set<Order> orderSet = orderService.findAllByUser(customer);
         model.addAttribute("orderset", orderSet);
-        return "order";
+        return "orders";
     }
 
     @GetMapping("/order/{id}")
     public String getOrder(@PathVariable Integer id, @ModelAttribute("customer") User customer, Model model) {
-        Order order = orderService.findAllByUser(customer).stream().filter(i -> i.getId().equals(id)).findAny().orElse(null);
+        Order order = orderService.getOrderByIdAndUser(id, customer);
         model.addAttribute("order", order);
-        return "vieworder";
+        return "order";
     }
 
     @GetMapping("/checkout")
-    public String getCheck(@ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, Model model) {
+    public String getCheck(@ModelAttribute("customer") User customer, Model model) {
+        model.addAttribute("customer", customer);
+        return "checkout";
+    }
+    @GetMapping("/create")
+    public String create(@ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, Model model) {
         if (!cart.getCartItems().isEmpty()) {
             Order order = new Order();
             order.setUser(customer);
@@ -122,7 +127,7 @@ public class MainController {
             orderService.saveOrder(order);
             cart.clearCart();
         }
-        return "checkout";
+        return "create";
     }
 
     @GetMapping("/register")
