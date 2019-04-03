@@ -15,6 +15,7 @@
 				<div class="row">
 					<div class="col-lg-10 offset-lg-1">
 						<div class="cart_container">
+						<form class="needs-validation" autocomplete="off" action="#" th:action="@{/create}" th:object="${userAddress}" method="post" role="form" novalidate>
 							<div class="cart_title">Checkout</div>
 							<div class="cart_items">
 
@@ -24,19 +25,19 @@
 
 										<div class="col-md-8 order-md-1">
 
-										  <form class="needs-validation" novalidate>
+
 										  <h4 class="mb-3 mt-3">Billing address</h4>
 											<div class="row">
 											  <div class="col-md-6 mb-3 ">
 												<label for="firstName">First name</label>
-												<input type="text" class="form-control" id="firstName" th:placeholder="${customer.firstName}" placeholder="" value="" required>
+												<input type="text" class="form-control" id="firstName" th:value="${customer.firstName}" th:placeholder="${customer.firstName}" placeholder="" required>
 												<div class="invalid-feedback">
 												  Valid first name is required.
 												</div>
 											  </div>
 											  <div class="col-md-6 mb-3">
 												<label for="lastName">Last name</label>
-												<input type="text" class="form-control" id="lastName" th:placeholder="${customer.lastName}" placeholder="" value="" required>
+												<input type="text" class="form-control" id="lastName" th:value="${customer.lastName}" th:placeholder="${customer.lastName}" placeholder="" required>
 												<div class="invalid-feedback">
 												  Valid last name is required.
 												</div>
@@ -46,7 +47,7 @@
 											<div class="mb-3">
 											  <label for="phone">Phone</label>
 											  <div class="input-group">
-												<input type="tel" class="form-control" th:placeholder="${customer.printPhone()}" id="phone" required>
+												<input type="tel" class="form-control" th:value="${customer.printPhone()}" id="phone" placeholder="" required>
 												<div class="invalid-feedback" style="width: 100%;">
 												  Your phone is required.
 												</div>
@@ -55,7 +56,7 @@
 
 											<div class="mb-3">
 											  <label for="email" >Email <span class="text-muted">(Optional)</span></label>
-											  <input type="email" class="form-control" id="email" th:placeholder="${customer.email}" placeholder="you@example.com">
+											  <input type="email" class="form-control" id="email" th:value="${customer.email}" placeholder="you@example.com">
 											  <div class="invalid-feedback">
 												Please enter a valid email address for shipping updates.
 											  </div>
@@ -63,7 +64,7 @@
 
 											<div class="mb-3">
 											  <label for="address">Address</label>
-											  <input type="text" class="form-control" id="suggest" th:placeholder="${customer.userAddress.address}" placeholder="1234 Main St" required>
+											  <input type="text" class="form-control" id="suggest" th:field="*{address}" th:placeholder="${customer.userAddress}!=null?${customer.userAddress.address}:'1234 Main St'" required>
 											  <div class="invalid-feedback">
 												Please enter your shipping address.
 											  </div>
@@ -71,7 +72,7 @@
 
 											<div class="mb-3">
 											  <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-											  <input type="text" class="form-control" id="address2" th:placeholder="${customer.userAddress.apartment}"  placeholder="Apartment or suite">
+											  <input type="text" class="form-control" id="address2" th:field="*{apartment}" th:placeholder="${customer.userAddress}!=null?${customer.userAddress.apartment}:'Apartment or suite'">
 											</div>
 
 											<hr class="mb-4">
@@ -84,7 +85,7 @@
 											  <label class="custom-control-label" for="save-info">Save this information for next time</label>
 											</div>
 											<hr class="mb-4">
-										  </form>
+
 										</div>
 									  </div>
 								
@@ -112,9 +113,9 @@
 
 							<div class="cart_buttons d-flex justify-content-end">
 								<span><a th:href="@{'/cart'}" href="#"><button type="submit" class="button cart_button_clear">Return to Cart</button></a></span>
-								<span><form th:action="@{/checkout}" name="checkout" id="checkout" method="get">								
-								<button type="submit" class="button cart_button_checkout">Complete Order</button></form></span>
+								<span><button type="submit" class="button cart_button_checkout">Complete Order</button></span>
 							</div>
+						</form>
 						</div>
 					</div>
 				</div>
