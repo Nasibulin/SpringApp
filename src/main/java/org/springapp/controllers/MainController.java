@@ -105,15 +105,19 @@ public class MainController {
     @GetMapping("/checkout")
     public String getCheck(@ModelAttribute("customer") User customer, Model model) {
         model.addAttribute("customer", customer);
+        model.addAttribute("userAddress", customer.getUserAddress());
         return "checkout";
     }
-    @GetMapping("/create")
-    public String create(@ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, Model model) {
+    @PostMapping("/create")
+    public String create(UserAddress userAddress, @ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, Model model) {
+
         if (!cart.getCartItems().isEmpty()) {
             Order order = new Order();
             order.setUser(customer);
             order.setCreatedAt(new Date());
             order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
+            order.getUser().getUserAddress().setAddress(userAddress.getAddress());
+            order.getUser().getUserAddress().setApartment(userAddress.getApartment());
 
             cart.getCartItems().forEach(i -> {
                 OrderDetail orderDetail = new OrderDetail();
@@ -126,7 +130,7 @@ public class MainController {
             orderService.saveOrder(order);
             cart.clearCart();
         }
-        return "create";
+        return "redirect:/orders";
     }
 
     @GetMapping("/register")
