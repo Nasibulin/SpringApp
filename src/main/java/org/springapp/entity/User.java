@@ -1,5 +1,7 @@
 package org.springapp.entity;
 
+import org.springapp.util.StringUtil;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -133,6 +135,9 @@ public class User implements Serializable {
         this.status = status;
     }
 
+    public String printPhone (){
+        return StringUtil.printPhone(phone);
+    }
 //    @Column(name = "created_at")
 //    public Date getCreateDate() {
 //        return createDate;

@@ -3,7 +3,6 @@ package org.springapp.controllers;
 import org.springapp.auth.AuthUser;
 import org.springapp.auth.service.AuthUserDetailsService;
 import org.springapp.entity.*;
-import org.springapp.repository.UserRepository;
 import org.springapp.service.categories.CategoryService;
 import org.springapp.service.orders.OrderService;
 import org.springapp.service.products.ProductService;
@@ -43,9 +42,9 @@ public class MainController {
     private OrderService orderService;
     @Autowired
     private RoleService roleService;
-    @Autowired
-    private AuthUserDetailsService authUserDetailsService;
-    //private AuthUser guest;
+//    @Autowired
+//    //private AuthUserDetailsService authUserDetailsService;
+//    //private AuthUser guest;
 
     @ModelAttribute("cart")
     public Cart cart() {

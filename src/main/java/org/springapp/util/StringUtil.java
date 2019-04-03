@@ -444,5 +444,29 @@ public class StringUtil {
         }
     }
 
+    public static String printPhone(String phoneNum) {
+        StringBuilder sb = new StringBuilder(15);
+        StringBuilder temp = new StringBuilder(phoneNum);
+
+        while (temp.length() < 10)
+            temp.insert(0, "0");
+
+        char[] chars = temp.toString().toCharArray();
+
+        sb.append("+");
+        sb.append(chars[0]);
+        sb.append(" (");
+        for (int i = 1; i < chars.length; i++) {
+            if (i == 4)
+                sb.append(") ");
+            else if (i == 7)
+                sb.append("-");
+            else if (i == 9)
+                sb.append("-");
+            sb.append(chars[i]);
+        }
+
+        return sb.toString();
+    }
 
 }
