@@ -1,10 +1,11 @@
 package org.springapp.repository;
 
+import org.springapp.entity.User;
 import org.springapp.entity.UserAddress;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserAddressRepository extends CrudRepository<UserAddress, String> {
-    UserAddress findByUserIdAndStatus(String userId, int status);
+    UserAddress findByUser(User user);
 
-    UserAddress findByAdressIdAndStatus(Long adressId, int status);
+    UserAddress findByAddressId(Integer addressId);
 }

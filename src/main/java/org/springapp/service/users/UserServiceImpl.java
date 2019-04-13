@@ -13,18 +13,11 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Autowired
     private UserRepository repository;
+    @Autowired
     private RoleRepository roleRepository;
 
-    @Autowired
-    public void setUserRepository(UserRepository repository) {
-        this.repository = repository;
-    }
-
-    @Autowired
-    public void setRoleRepository(RoleRepository repository) {
-        this.roleRepository = repository;
-    }
 
 //    @PostConstruct
 //    public void init() {

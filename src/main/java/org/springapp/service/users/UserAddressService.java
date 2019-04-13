@@ -1,7 +1,8 @@
-package com.nitsoft.ecommerce.service;
+package org.springapp.service.users;
 
-import com.nitsoft.ecommerce.database.model.UserAddress;
-import com.nitsoft.ecommerce.repository.UserAddressRepository;
+import org.springapp.entity.User;
+import org.springapp.entity.UserAddress;
+import org.springapp.repository.UserAddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,8 @@ public class UserAddressService {
         return userAddressRepository.save(userAddress);
     }
 
-    public UserAddress getAddressByUserIdAndStatus(String userId, int status) {
-        return userAddressRepository.findByUserIdAndStatus(userId, status);
+    public UserAddress getAddressByUser(User user) {
+        return userAddressRepository.findByUser(user);
     }
 
 }
