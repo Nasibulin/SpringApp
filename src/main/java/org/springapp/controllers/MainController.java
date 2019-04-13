@@ -104,7 +104,7 @@ public class MainController {
     @GetMapping("/checkout")
     public String getCheck(@ModelAttribute("customer") User customer, Model model) {
         model.addAttribute("customer", customer);
-        model.addAttribute("userAddress", customer.getUserAddress());
+        model.addAttribute("userAddress", customer.getUserAddress() != null ? customer.getUserAddress() : new UserAddress());
         return "checkout";
     }
 
@@ -116,8 +116,8 @@ public class MainController {
             order.setUser(customer);
             order.setCreatedAt(new Date());
             order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
-            order.getUser().getUserAddress().setAddress(userAddress.getAddress());
-            order.getUser().getUserAddress().setApartment(userAddress.getApartment());
+//            order.getUser().getUserAddress().setAddress(userAddress.getAddress());
+//            order.getUser().getUserAddress().setApartment(userAddress.getApartment());
             OrderAddress orderAddress = new OrderAddress();
             orderAddress.setRegion(userAddress.getAddress());
             orderAddress.setSuffix(userAddress.getApartment());
