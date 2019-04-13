@@ -118,6 +118,12 @@ public class MainController {
             order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
             order.getUser().getUserAddress().setAddress(userAddress.getAddress());
             order.getUser().getUserAddress().setApartment(userAddress.getApartment());
+            OrderAddress orderAddress = new OrderAddress();
+            orderAddress.setRegion(userAddress.getAddress());
+            orderAddress.setSuffix(userAddress.getApartment());
+            orderAddress.setOrder(order);
+            orderAddress.setCreatedAt(new Date());
+            order.setOrderAddress(orderAddress);
 
             cart.getCartItems().forEach(i -> {
                 OrderDetail orderDetail = new OrderDetail();

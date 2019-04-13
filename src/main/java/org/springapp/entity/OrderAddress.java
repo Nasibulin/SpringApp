@@ -11,24 +11,12 @@ public class OrderAddress implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_addresses_seq")
-    @SequenceGenerator(sequenceName = "order_addresses_seq", allocationSize = 1, name = "order_addresses_seq")
-    @Column(name = "id")
     private Integer id;
     
-    private Set<Order> orderSet;
+    private Order order;
 
-    @Column(name = "orders_id")
-    private Integer orderId;
-    
-    @Column(name = "address_id")
-    private Integer addressId;
-    
-    @Column(name = "created_at")
     private Date createdAt;
     
-    @Column(name = "updated_at")
     private Date updatedAt;
     
     @Column(name = "region_id")
@@ -46,6 +34,10 @@ public class OrderAddress implements Serializable {
     @Column(name = "suffix")
     private String suffix;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_addresses_seq")
+    @SequenceGenerator(sequenceName = "order_addresses_seq", allocationSize = 1, name = "order_addresses_seq")
+    @Column(name = "id")
     public Integer getId() {
         return id;
     }
@@ -54,31 +46,18 @@ public class OrderAddress implements Serializable {
         this.id = id;
     }
 
-    @OneToMany(mappedBy = "orderAddress", cascade = CascadeType.ALL, orphanRemoval = true)
-    public Set<Order> getOrderSet() {
-        return orderSet;
+    @OneToOne
+    @JoinColumn(name = "orders_id")
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderSet(Set<Order> orderSet) {
-        this.orderSet = orderSet;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
-    public Integer getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(Integer addressId) {
-        this.addressId = addressId;
-    }
-
+    @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -87,6 +66,8 @@ public class OrderAddress implements Serializable {
         this.createdAt = createdAt;
     }
 
+    @Column(name = "updated_at")
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getUpdatedAt() {
         return updatedAt;
     }

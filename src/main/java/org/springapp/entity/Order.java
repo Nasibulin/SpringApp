@@ -69,8 +69,8 @@ public class Order implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    @ManyToOne
-    @JoinColumn(name = "id")
+
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     public OrderAddress getOrderAddress() {
         return orderAddress;
     }
