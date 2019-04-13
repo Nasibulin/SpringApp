@@ -35,7 +35,6 @@
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-22 08:02:21 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -64,7 +63,6 @@
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-22 08:05:33 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -79,7 +77,6 @@
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-02-22 08:06:24 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -119,15 +116,18 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ROLES_ROLE_ID" id="5F37ADBA-81F5-0DDF-6278-CD4FF22AD076">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>ROLES_ROLE_ID</sourceObjName>
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-03-02 07:35:46 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>10</dataTypePrecision>
+<dataTypePrecision>*</dataTypePrecision>
 <dataTypeScale>0</dataTypeScale>
-<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -154,7 +154,6 @@
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-03-13 09:32:44 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>

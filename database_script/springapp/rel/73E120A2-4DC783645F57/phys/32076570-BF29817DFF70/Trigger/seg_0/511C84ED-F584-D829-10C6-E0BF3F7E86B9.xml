@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="ORDER_ADDRESSES_UPDT" directorySegmentName="seg_0" id="511C84ED-F584-D829-10C6-E0BF3F7E86B9">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>SPRINGAPP</sourceObjSchema>
+<sourceObjName>ORDER_ADDRESSES_UPDT</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-04-13 14:39:59 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<actions>UPDATE</actions>
+<body>DECLARE&lt;br/&gt;BEGIN&lt;br/&gt;&lt;br/&gt;:NEW.UPDATED_AT := systimestamp;&lt;br/&gt;&lt;br/&gt;END ; </body>
+<triggerTime>BEFORE</triggerTime>
+<condition>&lt;br/&gt;NEW.UPDATED_AT IS NULL&lt;br/&gt;      </condition>
+<owner>4BC749C5-1D61-92FB-C944-412602B9D603</owner>
+<table>8AA8DF99-396C-2908-A81C-13D081016272</table>
+</TriggerOraclev10g>

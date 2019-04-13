@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="SPRING" directorySegmentName="seg_0" id="850218E7-E58E-E1D0-8AA7-7D8FA6B131C8">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-04-13 11:29:56 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>9264F2FD-A5F2-0B8F-C325-3B496BCCE1B4</importedID>
+</SchemaObject>

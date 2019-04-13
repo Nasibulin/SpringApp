@@ -65,7 +65,7 @@
 <logging>YES</logging>
 <tableSpace>USERS</tableSpace>
 </LobStorage>
-<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="SYS_LOB0000021776C00003$$" id="0F274808-C995-EE29-8420-D690FCD3B93D">
+<LobStorage class="oracle.dbtools.crest.model.design.storage.oracle.v11g.LobStorageOraclev11g" name="SYS_LOB0000021776C00003$$" id="5EFA9E9C-27F2-E505-BE54-8028747E26AE">
 <createdBy>Konstantin</createdBy>
 <createdTime>2019-03-20 13:10:54 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>

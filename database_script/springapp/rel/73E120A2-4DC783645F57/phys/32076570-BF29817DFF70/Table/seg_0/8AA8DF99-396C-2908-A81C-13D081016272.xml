@@ -17,9 +17,9 @@
 <ownerDesignName>springapp</ownerDesignName>
 <defaultValue>NULL</defaultValue>
 </ColumnProxy>
-<ColumnProxy name="ORDERS_ID" id="1BD9E282-15B6-7AA4-3B3A-231D3084F9EE">
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-03-20 07:15:04 UTC</createdTime>
+<ColumnProxy name="ORDERS_ID" id="3D5E4E81-E1E6-9AF4-40CF-AF2F5B970448">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-04-13 12:21:48 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 </ColumnProxy>
 <ColumnProxy name="CREATED_AT" id="4B88C12B-4D90-84FB-D39B-3E85FDC0A354">
@@ -58,11 +58,6 @@
 <ownerDesignName>springapp</ownerDesignName>
 <defaultValue>NULL</defaultValue>
 </ColumnProxy>
-<ColumnProxy name="ADDRESS_ID" id="BA206C07-9711-5D0E-AD08-6FBD9B8D80E2">
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-03-20 07:13:45 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-</ColumnProxy>
 <ColumnProxy name="POSTCODE" id="BF57E103-7F76-8EC9-1D65-E9D7B2DB8C03">
 <createdBy>Nasibulin</createdBy>
 <createdTime>2019-03-20 07:13:45 UTC</createdTime>
@@ -81,9 +76,9 @@
 </IndexProxy>
 </indexProxies>
 <foreignKeys>
-<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="ORDER_ADDRESSES_ORDERS_FK" id="53C3BB11-47FC-B307-4E48-B542C2A6341D">
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-03-20 07:15:04 UTC</createdTime>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="ORDER_ADDRESSES_ORDERS_FK" id="6E4EC58A-1906-D19A-0C28-E02AA4B88C61">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-04-13 12:21:48 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 </ForeignKey>
 </foreignKeys>

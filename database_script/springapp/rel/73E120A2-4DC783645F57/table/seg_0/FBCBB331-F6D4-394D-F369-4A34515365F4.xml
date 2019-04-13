@@ -22,8 +22,9 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <autoIncrementSequenceName>user_addresses_seq</autoIncrementSequenceName>
@@ -52,6 +53,7 @@
 <createdTime>2019-03-02 07:46:12 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <importedID>89F55605-1F59-A76C-5DE5-79E838D0108B</importedID>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -67,6 +69,7 @@
 <createdTime>2019-03-02 07:46:12 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <importedID>C8489727-833E-28B3-C4D9-95DDA4D62A71</importedID>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -82,6 +85,7 @@
 <createdTime>2019-03-02 07:46:12 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <importedID>85C95025-6B57-2351-9D01-A4E9DA7EBE89</importedID>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -97,6 +101,7 @@
 <createdTime>2019-03-02 07:46:12 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <importedID>6B280E6C-80A6-13AA-7708-669A6255E8D4</importedID>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -119,6 +124,22 @@
 <associations>
 <colAssociation fkAssociation="39C91911-4E7B-112E-59F4-56F5D72C509C" referredColumn="BE5F1AD1-32C7-BDF3-D113-C44FA6A688BD"/>
 </associations>
+</Column>
+<Column name="APARTMENT" id="6EA07F48-5699-860A-3D46-4CB985472D8E">
+<sourceConnName>xe</sourceConnName>
+<sourceObjSchema>USER_ADDRESSES</sourceObjSchema>
+<sourceObjName>APARTMENT</sourceObjName>
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-04-13 11:29:56 UTC</createdTime>
+<ownerDesignName>springapp</ownerDesignName>
+<importedID>CABE0728-A4A2-5879-5FC1-0FFA5F88D6F5</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

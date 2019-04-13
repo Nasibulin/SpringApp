@@ -29,22 +29,6 @@
 <autoIncrementSequenceName>order_addresses_seq</autoIncrementSequenceName>
 <autoIncrementTriggerName>ORDER_ADDRESSES_SEQ_TR</autoIncrementTriggerName>
 </Column>
-<Column name="ADDRESS_ID" id="BA206C07-9711-5D0E-AD08-6FBD9B8D80E2">
-<sourceConnName>xe</sourceConnName>
-<sourceObjSchema>ORDER_ADDRESSES</sourceObjSchema>
-<sourceObjName>ADDRESS_ID</sourceObjName>
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-03-20 07:13:45 UTC</createdTime>
-<ownerDesignName>springapp</ownerDesignName>
-<importedID>04D6855C-2310-791A-6457-09D98EB5047A</importedID>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>*</dataTypePrecision>
-<dataTypeScale>0</dataTypeScale>
-<ownDataTypeParameters>,*,0</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="CREATED_AT" id="4B88C12B-4D90-84FB-D39B-3E85FDC0A354">
 <sourceConnName>xe</sourceConnName>
 <sourceObjSchema>ORDER_ADDRESSES</sourceObjSchema>
@@ -53,6 +37,7 @@
 <createdTime>2019-03-20 07:13:45 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <importedID>A53F7717-200D-B22E-E6B3-A5E9E50C213F</importedID>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT015</logicalDatatype>
@@ -164,9 +149,9 @@
 <ownDataTypeParameters>,6,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="ORDERS_ID" id="1BD9E282-15B6-7AA4-3B3A-231D3084F9EE">
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-03-20 07:15:04 UTC</createdTime>
+<Column name="ORDERS_ID" id="3D5E4E81-E1E6-9AF4-40CF-AF2F5B970448">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-04-13 12:21:48 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -176,7 +161,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="7D3228FC-6BD3-57C0-4612-03EA90BBD09E" referredColumn="A34C2ECB-599A-1781-6D3B-A6E13ABE3CE8"/>
+<colAssociation fkAssociation="96CF6C7A-6A9F-C81F-B44D-A17F7F0E90B9" referredColumn="A34C2ECB-599A-1781-6D3B-A6E13ABE3CE8"/>
 </associations>
 </Column>
 </columns>
@@ -210,14 +195,14 @@
 <colUsage columnID="8ECCFD66-3A9D-4F6E-6488-F4531DAE01EE"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="53C3BB11-47FC-B307-4E48-B542C2A6341D" name="ORDER_ADDRESSES_ORDERS_FK">
-<createdBy>Nasibulin</createdBy>
-<createdTime>2019-03-20 07:15:04 UTC</createdTime>
+<ind_PK_UK id="6E4EC58A-1906-D19A-0C28-E02AA4B88C61" name="ORDER_ADDRESSES_ORDERS_FK">
+<createdBy>Konstantin</createdBy>
+<createdTime>2019-04-13 12:21:48 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="1BD9E282-15B6-7AA4-3B3A-231D3084F9EE"/>
+<colUsage columnID="3D5E4E81-E1E6-9AF4-40CF-AF2F5B970448"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
