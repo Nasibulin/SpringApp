@@ -4,7 +4,7 @@
 <createdTime>2019-04-13 12:21:48 UTC</createdTime>
 <ownerDesignName>springapp</ownerDesignName>
 <referredTableLongName>ORDERS</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>7DD7554A-9901-9EA3-B576-749567C857A7</referredTableID>
 <keyObject>532D7A91-358F-441B-2694-D9369D6C9F00</keyObject>
 <referredKeyID>532D7A91-358F-441B-2694-D9369D6C9F00</referredKeyID>

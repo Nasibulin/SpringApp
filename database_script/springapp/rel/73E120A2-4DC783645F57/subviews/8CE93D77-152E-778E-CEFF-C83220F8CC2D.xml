@@ -37,7 +37,7 @@
 </OView>
 <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="8AA8DF99-396C-2908-A81C-13D081016272" otype="Table" vid="D76AA199-7FB0-DEFA-6583-D3F7EAF05D89">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="41" y="545" width="300" height="225"/>
+<bounds x="31" y="586" width="300" height="225"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="947CA073-7806-D9F3-5F90-FDD18D021069" otype="Table" vid="DDC809EF-5304-D86F-358E-966C52A3ADFC">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
@@ -53,7 +53,7 @@
 </OView>
 <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="C0ADA276-E109-4B48-95FB-FF93555415D0" otype="Table" vid="E5DDBB40-E839-E844-5D88-7F6A44409E14">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="134" y="803" width="351" height="139"/>
+<bounds x="145" y="860" width="351" height="139"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="FBCBB331-F6D4-394D-F369-4A34515365F4" otype="Table" vid="BC5DB45E-1D4C-DCCB-B440-8B6DE3EC6F5A">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
@@ -109,8 +109,8 @@
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <points>
-<point x="266" y="518"/>
-<point x="266" y="803"/>
+<point x="272" y="518"/>
+<point x="272" y="860"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="96CF6C7A-6A9F-C81F-B44D-A17F7F0E90B9" otype="FKIndexAssociation" vid_source="14586835-583F-7EF8-5F06-A0921396891C" vid_target="D76AA199-7FB0-DEFA-6583-D3F7EAF05D89">
@@ -118,8 +118,8 @@
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <points>
-<point x="176" y="518"/>
-<point x="176" y="545"/>
+<point x="185" y="518"/>
+<point x="185" y="586"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="A5D603A5-6FEE-2939-2D9E-992580840177" otype="FKIndexAssociation" vid_source="C6002EC6-245D-5939-81EE-AED5D955F978" vid_target="75B78368-DD42-3749-4C6C-B11B7C64C7B3">
