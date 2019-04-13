@@ -69,8 +69,15 @@ public class Order implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+    @ManyToOne
+    @JoinColumn(name = "id")
+    public OrderAddress getOrderAddress() {
+        return orderAddress;
+    }
 
-
+    public void setOrderAddress(OrderAddress orderAddress) {
+        this.orderAddress = orderAddress;
+    }
 
     public int getStatus() {
         return status;

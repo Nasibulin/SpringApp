@@ -1,7 +1,6 @@
 package org.springapp.controllers;
 
 import org.springapp.auth.AuthUser;
-import org.springapp.auth.service.AuthUserDetailsService;
 import org.springapp.entity.*;
 import org.springapp.service.categories.CategoryService;
 import org.springapp.service.orders.OrderService;
@@ -108,6 +107,7 @@ public class MainController {
         model.addAttribute("userAddress", customer.getUserAddress());
         return "checkout";
     }
+
     @PostMapping("/create")
     public String create(UserAddress userAddress, @ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, Model model) {
 
@@ -172,14 +172,6 @@ public class MainController {
                            Model model) {
         model.addAttribute("error", error != null);
         model.addAttribute("logout", logout != null);
-        //model.addAttribute("loginmsg", loginmsg);
-//        AuthUser users = null;
-//        try {
-//            user = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        } catch (ClassCastException ex) {
-////            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
-//        }
-//        model.addAttribute("principal", user);
         return "login";
     }
 

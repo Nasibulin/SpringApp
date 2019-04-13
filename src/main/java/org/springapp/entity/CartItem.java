@@ -3,8 +3,6 @@ package org.springapp.entity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-//@Component
-//@Scope(value= WebApplicationContext.SCOPE_SESSION, proxyMode= ScopedProxyMode.TARGET_CLASS)
 public class CartItem implements Serializable {
 
     private static final long serialVersionUID = 1L;
