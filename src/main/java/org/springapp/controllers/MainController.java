@@ -115,7 +115,7 @@ public class MainController {
     public String create(UserAddress userAddress, @ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, @RequestParam(value = "same-address", required = false) boolean sameAddress, @RequestParam(value = "save-info", required = false) boolean saveInfo, Model model) {
 
         UserAddress customerAddress = null;
-        if (customer.getUserAddress() == null || saveInfo) {
+        if (customer.getUserAddress() == null && saveInfo) {
             customerAddress = new UserAddress();
             customerAddress.setUser(customer);
             customerAddress.setAddress(userAddress.getAddress());
@@ -123,6 +123,9 @@ public class MainController {
             userAddressService.save(customerAddress);
         } else {
             customerAddress = userAddressService.getAddressByUser(customer);
+            customerAddress.setAddress(userAddress.getAddress());
+            customerAddress.setApartment(userAddress.getApartment());
+            userAddressService.save(customerAddress);
         }
 
         Order order = new Order();
