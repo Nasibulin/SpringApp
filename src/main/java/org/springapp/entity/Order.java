@@ -33,6 +33,7 @@ public class Order implements Serializable {
 
     private User user;
     private Set<OrderDetail> orderDetailsSet;
+    private OrderAddress orderAddress;
 
     public Order() {
         this.orderDetailsSet = new CopyOnWriteArraySet<OrderDetail>();
@@ -68,6 +69,8 @@ public class Order implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
+
 
     public int getStatus() {
         return status;
