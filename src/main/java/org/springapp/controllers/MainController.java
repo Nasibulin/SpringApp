@@ -6,6 +6,7 @@ import org.springapp.service.categories.CategoryService;
 import org.springapp.service.orders.OrderService;
 import org.springapp.service.products.ProductService;
 import org.springapp.service.roles.RoleService;
+import org.springapp.service.users.UserAddressService;
 import org.springapp.service.users.UserService;
 import org.springapp.util.Constant;
 import org.springapp.util.StringUtil;
@@ -41,6 +42,8 @@ public class MainController {
     private OrderService orderService;
     @Autowired
     private RoleService roleService;
+    @Autowired
+    private UserAddressService userAddressService;
 //    @Autowired
 //    //private AuthUserDetailsService authUserDetailsService;
 //    //private AuthUser guest;
@@ -109,33 +112,50 @@ public class MainController {
     }
 
     @PostMapping("/create")
-    public String create(UserAddress userAddress, @ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, Model model) {
+    public String create(UserAddress userAddress, @ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, @RequestParam(value = "same-address", required = false) boolean sameAddress, @RequestParam(value = "save-info", required = false) boolean saveInfo, Model model) {
 
-        if (!cart.getCartItems().isEmpty()) {
-            Order order = new Order();
-            order.setUser(customer);
-            order.setCreatedAt(new Date());
-            order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
-//            order.getUser().getUserAddress().setAddress(userAddress.getAddress());
-//            order.getUser().getUserAddress().setApartment(userAddress.getApartment());
-            OrderAddress orderAddress = new OrderAddress();
+        UserAddress customerAddress = null;
+        if (customer.getUserAddress() == null || saveInfo) {
+            customerAddress = new UserAddress();
+            customerAddress.setUser(customer);
+            customerAddress.setAddress(userAddress.getAddress());
+            customerAddress.setApartment(userAddress.getApartment());
+            userAddressService.save(customerAddress);
+        } else {
+            customerAddress = userAddressService.getAddressByUser(customer);
+        }
+
+        Order order = new Order();
+        order.setUser(customer);
+        order.setCreatedAt(new Date());
+        order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
+
+        OrderAddress orderAddress = new OrderAddress();
+        if (sameAddress) {
+            orderAddress.setRegion(customerAddress.getAddress());
+            orderAddress.setSuffix(customerAddress.getApartment());
+        } else {
             orderAddress.setRegion(userAddress.getAddress());
             orderAddress.setSuffix(userAddress.getApartment());
-            orderAddress.setOrder(order);
-            orderAddress.setCreatedAt(new Date());
-            order.setOrderAddress(orderAddress);
-
-            cart.getCartItems().forEach(i -> {
-                OrderDetail orderDetail = new OrderDetail();
-                orderDetail.setOrder(order);
-                orderDetail.setProduct(i.getProduct());
-                orderDetail.setQuantity(i.getQuantity());
-                order.getOrderDetailsSet().add(orderDetail);
-            });
-
-            orderService.saveOrder(order);
-            cart.clearCart();
         }
+        orderAddress.setOrder(order);
+        orderAddress.setCreatedAt(new Date());
+
+        order.setOrderAddress(orderAddress);
+
+        cart.getCartItems().forEach(i -> {
+            OrderDetail orderDetail = new OrderDetail();
+            orderDetail.setOrder(order);
+            orderDetail.setProduct(i.getProduct());
+            orderDetail.setQuantity(i.getQuantity());
+            order.getOrderDetailsSet().add(orderDetail);
+        });
+
+        orderService.saveOrder(order);
+        cart.clearCart();
+
+        System.out.println(sameAddress);
+        System.out.println(saveInfo);
         return "redirect:/orders";
     }
 

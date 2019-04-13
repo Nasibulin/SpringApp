@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-lg-10 offset-lg-1">
 						<div class="cart_container">
-						<form class="needs-validation" autocomplete="off" action="#" th:action="@{/create}" th:object="${userAddress}" method="post" role="form" novalidate>
+						<form autocomplete="off" action="#" th:action="@{/create}" th:object="${userAddress}" method="post" role="form" >
 							<div class="cart_title">Checkout</div>
 							<div class="cart_items">
 
@@ -25,22 +25,15 @@
 
 										<div class="col-md-8 order-md-1">
 
-
 										  <h4 class="mb-3 mt-3">Billing address</h4>
 											<div class="row">
 											  <div class="col-md-6 mb-3 ">
 												<label for="firstName">First name</label>
 												<input type="text" class="form-control" id="firstName" th:value="${customer.firstName}" th:placeholder="${customer.firstName}" placeholder="" required>
-												<div class="invalid-feedback">
-												  Valid first name is required.
-												</div>
 											  </div>
 											  <div class="col-md-6 mb-3">
 												<label for="lastName">Last name</label>
 												<input type="text" class="form-control" id="lastName" th:value="${customer.lastName}" th:placeholder="${customer.lastName}" placeholder="" required>
-												<div class="invalid-feedback">
-												  Valid last name is required.
-												</div>
 											  </div>
 											</div>
 
@@ -48,26 +41,17 @@
 											  <label for="phone">Phone</label>
 											  <div class="input-group">
 												<input type="tel" class="form-control" th:value="${customer.printPhone()}" id="phone" placeholder="" required>
-												<div class="invalid-feedback" style="width: 100%;">
-												  Your phone is required.
-												</div>
 											  </div>
 											</div>
 
 											<div class="mb-3">
 											  <label for="email" >Email <span class="text-muted">(Optional)</span></label>
 											  <input type="email" class="form-control" id="email" th:value="${customer.email}" placeholder="you@example.com">
-											  <div class="invalid-feedback">
-												Please enter a valid email address for shipping updates.
-											  </div>
 											</div>
 
 											<div class="mb-3">
 											  <label for="address">Address</label>
 											  <input type="text" class="form-control" id="suggest" th:field="*{address}" th:placeholder="${customer.userAddress}!=null?${customer.userAddress.address}:'1234 Main St'" required>
-											  <div class="invalid-feedback">
-												Please enter your shipping address.
-											  </div>
 											</div>
 
 											<div class="mb-3">
@@ -77,11 +61,11 @@
 
 											<hr class="mb-4">
 											<div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="same-address">
+											  <input type="checkbox" class="custom-control-input" id="same-address" th:name="same-address" th:checked="${true}">
 											  <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
 											</div>
 											<div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="save-info">
+											  <input type="checkbox" class="custom-control-input" id="save-info" th:name="save-info" th:checked="${true}">
 											  <label class="custom-control-label" for="save-info">Save this information for next time</label>
 											</div>
 											<hr class="mb-4">
