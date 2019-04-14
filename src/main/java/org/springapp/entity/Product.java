@@ -22,7 +22,7 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     public Category getCategory() {
         return category;

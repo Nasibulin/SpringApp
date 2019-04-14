@@ -20,8 +20,7 @@
 					<td th:text="${product.partNumber}">#</td>
 					<td th:text="${product.description}">Product</td>
 					<td th:text="${product.price}">Price</td>
-					<form class="form-horizontal" th:object="${product}" th:action="@{/cart}" name="cart_add" id="cart_add"
-              method="post" role="form">					
+					<form class="form-horizontal" th:object="${product}" th:action="${cart.getItemByProductId(product.id)==null}?@{/cart}:@{/cart/delete}" name="cart_add" id="cart_add" method="post" role="form">					
 					<td style="text-align: center">
 						<input type="hidden" id="id" th:name="id" th:value="*{id}"/>
 						<input type="number" class="form-control form-control-sm input-number btn-block" id="amount" th:disabled="${cart.getItemByProductId(product.id)!=null}" th:name="amount" th:value="1" min="1" max="10"/>

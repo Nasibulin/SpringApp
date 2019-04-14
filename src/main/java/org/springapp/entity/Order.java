@@ -48,7 +48,7 @@ public class Order implements Serializable {
         this.orderDetailsSet = orderDetailsSet;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "users_user_id")
     public User getUser() {
         return user;

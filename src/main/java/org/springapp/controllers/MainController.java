@@ -156,9 +156,6 @@ public class MainController {
 
         orderService.saveOrder(order);
         cart.clearCart();
-
-        System.out.println(sameAddress);
-        System.out.println(saveInfo);
         return "redirect:/orders";
     }
 
@@ -223,6 +220,21 @@ public class MainController {
         cartItem.setProduct(productService.getProductById(id));
         cartItem.setQuantity(amount);
         cart.addCartItems(cartItem);
+        model.addAttribute("cart", cart);
+
+        String referer = request.getHeader("Referer");
+        return "redirect:" + referer;
+    }
+
+    @PostMapping("/cart/delete")
+    public String deleteFromCart(@RequestParam Integer id, @ModelAttribute("cart") Cart cart,
+                                 Model model, HttpServletRequest request) {
+
+        CartItem cartItem = new CartItem();
+        cartItem.setId(id);
+        cartItem.setProduct(productService.getProductById(id));
+        cartItem.setQuantity(1);
+        cart.getCartItems().remove(cartItem);
         model.addAttribute("cart", cart);
 
         String referer = request.getHeader("Referer");

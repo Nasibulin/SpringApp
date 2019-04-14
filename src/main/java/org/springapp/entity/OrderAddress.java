@@ -46,7 +46,7 @@ public class OrderAddress implements Serializable {
         this.id = id;
     }
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "orders_id")
     public Order getOrder() {
         return order;

@@ -67,7 +67,7 @@ public class User implements Serializable {
         this.orders = orders;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "roles_role_id")
     public Role getRole() {
         return role;

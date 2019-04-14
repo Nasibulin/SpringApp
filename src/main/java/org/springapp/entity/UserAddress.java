@@ -46,7 +46,7 @@ public class UserAddress implements Serializable {
         this.addressId = addressId;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "users_user_id")
     public User getUser() {
         return user;
