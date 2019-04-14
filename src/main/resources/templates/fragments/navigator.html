@@ -24,6 +24,7 @@
 								<div th:if="${#lists.isEmpty(principal)}"><a href="/register">Register</a></div>
 								<div th:if="${#lists.isEmpty(principal)}"><a href="/login">Sign in</a></div>
 								<div th:if="${not #lists.isEmpty(principal)}"><a href="/logout">Sign out</a></div>
+								<div th:if="${not #lists.isEmpty(principal)}"><a href="/orders">Orders</a></div>
 								<!-- <div class="main_nav_menu ml-auto"> -->
 									<!-- <ul class="standard_dropdown main_nav_dropdown"> -->
 										<!-- <li class="hassubs"> -->
