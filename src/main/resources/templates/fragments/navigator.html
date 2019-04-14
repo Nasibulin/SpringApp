@@ -62,19 +62,20 @@
 						<div class="header_search">
 							<div class="header_search_content">
 								<div class="header_search_form_container">
-									<form action="#" class="header_search_form clearfix">
-										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+									<form th:action="@{/search}" method="post" role="form" class="header_search_form clearfix">
+										<input type="search" required="required" id="product" th:name="product" class="header_search_input" placeholder="Search for products...">
+										<input type="hidden" name="category" value="-1">
 										<div class="custom_dropdown">
 											<div class="custom_dropdown_list">
-												<span class="custom_dropdown_placeholder clc">All Categories...</span>
+												<span class="custom_dropdown_placeholder clc">All Categories</span>
 												<i class="fas fa-chevron-down"></i>
 												<ul class="custom_list clc">
-													<li th:selected="true"><a href="#" th:value="-1">All Categories</a></li>
+													<li><a href="#" th:value="-1">All Categories</a></li>
 													<li th:each="menu : ${topmenu}"><a href="#" th:value="${menu.id}" th:text="${menu.catname}"></a></li>
 												</ul>
 											</div>
 										</div>
-										<button type="submit" class="header_search_button trans_300"> <i class="fas fa-search" style="font-size:25px;color:#ffffff" value="Submit"><img src="images/search.png" alt=""></button>
+										<button type="submit" class="header_search_button trans_300"> <i class="fas fa-search" style="font-size:25px;color:#ffffff" value="Submit"></button>
 										</i>
 									</form>
 								</div>

@@ -6,6 +6,7 @@ public class APIName {
     public static final String REDIRECT = "redirect:";
     public static final String INDEX = "/index";
     public static final String ROOT = "/";
+    public static final String SEARCH = "/search";
 
 
     //category api links
