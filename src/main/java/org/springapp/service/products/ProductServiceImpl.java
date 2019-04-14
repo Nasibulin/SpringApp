@@ -40,4 +40,9 @@ public class ProductServiceImpl implements ProductService {
         return repository.findByCategory(category);
     }
 
+    @Override
+    public List<Product> findByCategoryInAndDescriptionContainingIgnoreCase(List<Category> list, String description) {
+        return repository.findByCategoryInAndDescriptionContainingIgnoreCase(list, description);
+    }
+
 }

@@ -78,9 +78,11 @@ public class MainController {
     }
     @PostMapping(APIName.SEARCH)
     public String search(@RequestParam String product, @RequestParam Integer category, Model model) {
-        System.out.println(product);
-        System.out.println(categoryService.findByIdEquals(category));
-        System.out.println("Test....................");
+        List<Category> catname = categoryService.findCatPathById(category);
+        List<Category> cat = categoryService.findByParentIdEquals(category);
+        List<Product> products = productService.findByCategoryInAndDescriptionContainingIgnoreCase(cat, product);
+        model.addAttribute("catname", catname);
+        model.addAttribute("products", products);
         return APIName.INDEX;
     }
 

@@ -13,4 +13,6 @@ public interface ProductService {
     List<Product> findAll();
 
     List<Product> findByCategory(Category category);
+
+    List<Product> findByCategoryInAndDescriptionContainingIgnoreCase(List<Category> list, String description);
 }
