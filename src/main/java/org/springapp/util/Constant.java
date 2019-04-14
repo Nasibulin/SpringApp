@@ -53,6 +53,22 @@ public class Constant {
         }
     }
 
+    public static enum CATALOG_LEVEL {
+        THIRD(3),
+        SECOND(2),
+        ROOT(-1);
+
+        private final int level;
+
+        private CATALOG_LEVEL(int level) {
+            this.level = level;
+        }
+
+        public int getLevel() {
+            return level;
+        }
+    }
+
     public static enum USER_STATUS {
         INACTIVE(-1),
         PENDING(0),

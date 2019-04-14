@@ -9,7 +9,7 @@ import java.util.Set;
 
 public interface OrderService {
 
-    Set<Order> findAllByUser(User user);
+    Set<Order> findAllByUserOrderByIdAsc(User user);
 
     Order getByOrderId(Integer id);
 

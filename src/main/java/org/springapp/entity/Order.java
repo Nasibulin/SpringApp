@@ -37,6 +37,7 @@ public class Order implements Serializable {
 
     public Order() {
         this.orderDetailsSet = new CopyOnWriteArraySet<OrderDetail>();
+        this.orderTotal = BigDecimal.ZERO;
     }
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)

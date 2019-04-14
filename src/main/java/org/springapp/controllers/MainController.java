@@ -1,5 +1,6 @@
 package org.springapp.controllers;
 
+import org.springapp.api.APIName;
 import org.springapp.auth.AuthUser;
 import org.springapp.entity.*;
 import org.springapp.service.categories.CategoryService;
@@ -45,25 +46,17 @@ public class MainController {
     private RoleService roleService;
     @Autowired
     private UserAddressService userAddressService;
-//    @Autowired
-//    //private AuthUserDetailsService authUserDetailsService;
-//    //private AuthUser guest;
 
     @ModelAttribute("cart")
     public Cart cart() {
         return new Cart();
     }
 
-//    @PostConstruct
-//    public void init() {
-//        guest = (AuthUser) authUserDetailsService.loadUserByUsername("guest@gmail.com");
-//    }
-
     @ModelAttribute
     public void globalAttributes(@ModelAttribute("cart") Cart cart, Model model) {
-        List<Category> topmenu = categoryService.findCatnameByLevel(2);
-        List<Category> submenu = categoryService.findCatnameByLevel(3);
-        List<Category> catname = categoryService.findCatPathById(-1);
+        List<Category> topmenu = categoryService.findCatnameByLevel(Constant.CATALOG_LEVEL.SECOND.getLevel());
+        List<Category> submenu = categoryService.findCatnameByLevel(Constant.CATALOG_LEVEL.THIRD.getLevel());
+        List<Category> catname = categoryService.findCatPathById(Constant.CATALOG_LEVEL.ROOT.getLevel());
         model.addAttribute("catname", catname);
         model.addAttribute("topmenu", topmenu);
         model.addAttribute("submenu", submenu);
@@ -80,42 +73,78 @@ public class MainController {
 
     }
 
-    @GetMapping("/")
+    @GetMapping(APIName.ROOT)
     public String getMain(Model model) {
-        return "index";
+        return APIName.INDEX;
     }
 
-    @GetMapping("/cart")
+    @GetMapping(APIName.CART)
     public String getCart(@ModelAttribute("cart") Cart cart, Model model) {
 
-        return "cart";
+        return APIName.CART;
     }
 
-    @GetMapping("/orders")
-    public String getOrders(@ModelAttribute("customer") User customer, Model model) {
-        Set<Order> orderSet = orderService.findAllByUser(customer);
-        model.addAttribute("orderset", orderSet);
-        model.addAttribute("orderstotal", orderSet.stream().map(i->i.getOrderTotal()).reduce(BigDecimal.ZERO, BigDecimal::add));
-        return "orders";
+    @PostMapping(APIName.CART)
+    public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute("cart") Cart cart,
+                            Model model, HttpServletRequest request) {
+
+        CartItem cartItem = new CartItem();
+        cartItem.setId(id);
+        cartItem.setProduct(productService.getProductById(id));
+        cartItem.setQuantity(amount);
+        cart.addCartItems(cartItem);
+        model.addAttribute("cart", cart);
+
+        String referer = request.getHeader("Referer");
+        return APIName.REDIRECT.concat(referer);
     }
 
-    @GetMapping("/order/{id}")
-    public String getOrder(@PathVariable Integer id, @ModelAttribute("customer") User customer, Model model) {
-        Order order = orderService.getOrderByIdAndUser(id, customer);
-        model.addAttribute("order", order);
-        return "order";
+    @PostMapping(APIName.CARTITEM_DELETE_BY_PRODUCT_ID)
+    public String deleteFromCart(@RequestParam Integer id, @ModelAttribute("cart") Cart cart,
+                                 Model model, HttpServletRequest request) {
+
+        CartItem cartItem = new CartItem();
+        cartItem.setId(id);
+        cartItem.setProduct(productService.getProductById(id));
+        cartItem.setQuantity(1);
+        cart.getCartItems().remove(cartItem);
+        model.addAttribute("cart", cart);
+
+        String referer = request.getHeader("Referer");
+        return APIName.REDIRECT.concat(referer);
     }
 
-    @GetMapping("/checkout")
+    @PostMapping(APIName.CART_CLEAR)
+    public String clearCart(@ModelAttribute("cart") Cart cart, Model model) {
+        cart.clearCart();
+        return APIName.CART;
+    }
+
+    @GetMapping(APIName.CART_CHECKOUT)
     public String getCheck(@ModelAttribute("customer") User customer, Model model) {
         model.addAttribute("customer", customer);
         model.addAttribute("userAddress", customer.getUserAddress() != null ? customer.getUserAddress() : new UserAddress());
-        return "checkout";
+        return APIName.CART_CHECKOUT;
     }
 
-    @PostMapping("/create")
-    public String create(UserAddress userAddress, @ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, @RequestParam(value = "same-address", required = false) boolean sameAddress, @RequestParam(value = "save-info", required = false) boolean saveInfo, Model model) {
+    @GetMapping(APIName.ORDERS)
+    public String getOrders(@ModelAttribute("customer") User customer, Model model) {
+        Set<Order> orderSet = orderService.findAllByUserOrderByIdAsc(customer);
+        model.addAttribute("orderset", orderSet);
+        model.addAttribute("orderstotal", orderSet.stream().map(i -> i.getOrderTotal()).reduce(BigDecimal.ZERO, BigDecimal::add));
+        return APIName.ORDERS;
+    }
 
+    @GetMapping(APIName.ORDERS_DETAIL_BY_ID)
+    public String getOrder(@PathVariable Integer id, @ModelAttribute("customer") User customer, Model model) {
+        Order order = orderService.getOrderByIdAndUser(id, customer);
+        model.addAttribute("order", order);
+        return APIName.ORDER;
+    }
+
+    @PostMapping(APIName.ORDER_CREATE)
+    public String create(UserAddress userAddress, @ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, @RequestParam(value = "same-address", required = false) boolean sameAddress, @RequestParam(value = "save-info", required = false) boolean saveInfo, Model model) {
+        if (cart.getCartItems().isEmpty()) return APIName.CART;
         UserAddress customerAddress = null;
         if (customer.getUserAddress() == null && saveInfo) {
             customerAddress = new UserAddress();
@@ -130,7 +159,7 @@ public class MainController {
             userAddressService.save(customerAddress);
         }
 
-        Order order = new Order();
+        final Order order = new Order();
         order.setUser(customer);
         order.setCreatedAt(new Date());
         order.setStatus(Constant.ORDER_STATUS.PENDING.getStatus());
@@ -158,23 +187,23 @@ public class MainController {
 
         orderService.saveOrder(order);
         cart.clearCart();
-        return "redirect:/orders";
+        return APIName.REDIRECT.concat(APIName.ORDERS);
     }
 
-    @GetMapping("/register")
+    @GetMapping(APIName.USER_REGISTER)
     public String getRegister(Model model) {
         User user = new User();
         model.addAttribute("user", user);
-        return "register";
+        return APIName.USER_REGISTER;
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @RequestMapping(value = APIName.USER_REGISTER, method = RequestMethod.POST)
     public String createNewUser(@Valid User user, Model model, BindingResult bindingResult) {
 
         userValidator.validate(user, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "/register";
+            return APIName.USER_REGISTER;
         } else {
 
             User newUser = new User();
@@ -190,109 +219,27 @@ public class MainController {
 
             model.addAttribute("successMessage", "User has been registered successfully");
             model.addAttribute("user", new User());
-            return "/register";
+            return APIName.USER_REGISTER;
         }
     }
 
-    @RequestMapping("/login")
+    @RequestMapping(APIName.USER_LOGIN)
     public String getLogin(@RequestParam(value = "error", required = false) String error,
                            @RequestParam(value = "logout", required = false) String logout,
                            Model model) {
         model.addAttribute("error", error != null);
         model.addAttribute("logout", logout != null);
-        return "login";
+        return APIName.USER_LOGIN;
     }
 
-    @GetMapping("/catalog/{id}")
+    @GetMapping(APIName.CATEGORIES_ID)
     public String list(@PathVariable Integer id, Model model) {
         List<Category> catname = categoryService.findCatPathById(id);
         Category category = categoryService.findByIdEquals(id);
         List<Product> products = productService.findByCategory(category);
         model.addAttribute("catname", catname);
         model.addAttribute("products", products);
-        return "index";
+        return APIName.INDEX;
     }
-
-    @PostMapping("/cart")
-    public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute("cart") Cart cart,
-                            Model model, HttpServletRequest request) {
-
-        CartItem cartItem = new CartItem();
-        cartItem.setId(id);
-        cartItem.setProduct(productService.getProductById(id));
-        cartItem.setQuantity(amount);
-        cart.addCartItems(cartItem);
-        model.addAttribute("cart", cart);
-
-        String referer = request.getHeader("Referer");
-        return "redirect:" + referer;
-    }
-
-    @PostMapping("/cart/delete")
-    public String deleteFromCart(@RequestParam Integer id, @ModelAttribute("cart") Cart cart,
-                                 Model model, HttpServletRequest request) {
-
-        CartItem cartItem = new CartItem();
-        cartItem.setId(id);
-        cartItem.setProduct(productService.getProductById(id));
-        cartItem.setQuantity(1);
-        cart.getCartItems().remove(cartItem);
-        model.addAttribute("cart", cart);
-
-        String referer = request.getHeader("Referer");
-        return "redirect:" + referer;
-    }
-
-    @PostMapping("/cart/clear")
-    public String clearCart(@ModelAttribute("cart") Cart cart, Model model) {
-        cart.clearCart();
-        return "cart";
-    }
-
-//    @GetMapping("/sort/{sortDate}")
-//    public String sortChoose(@PathVariable String sortDate) {
-//        sortDateMethod = sortDate;
-//        return "redirect:/";
-//    }
-//
-//    @GetMapping("/edit/{id}")
-//    public String edit(@PathVariable Integer id, Model model, HttpServletRequest request) {
-//        Category category = service.getCategoryById(id);
-//        model.addAttribute("category", category);
-////        @SuppressWarnings("unchecked")
-////        List<String> msgs = (List<String>) request.getSession().getAttribute("MY_MESSAGES");
-////        if (msgs == null) {
-////            msgs = new ArrayList<>();
-////            request.getSession().setAttribute("MY_MESSAGES", msgs);
-////        }
-////        msgs.add(String.valueOf(id));
-////        request.getSession().setAttribute("MY_MESSAGES", msgs);
-//        System.out.println(request.getSession().getId());
-//        return "operations/edit";
-//    }
-//
-//    @PostMapping("/update")
-//    public String saveNote(@RequestParam Integer id, @RequestParam String message,
-//                           @RequestParam(value = "done", required = false) boolean done) {
-//        //service.updateNote(id, message, done);
-//        return "redirect:/";
-//    }
-//
-//    @GetMapping("/new")
-//    public String newCategory() {
-//        return "operations/new";
-//    }
-//
-//    @PostMapping("/save")
-//    public String updateCategory(@RequestParam String message) {
-//        //service.saveNote(new Note(message));
-//        return "redirect:/";
-//    }
-//
-//    @GetMapping("/delete/{id}")
-//    public String delete(@PathVariable Integer id) {
-//        //service.deleteNote(id);
-//        return "redirect:/";
-//    }
 
 }

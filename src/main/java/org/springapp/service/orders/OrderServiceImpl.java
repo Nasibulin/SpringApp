@@ -16,8 +16,8 @@ public class OrderServiceImpl implements OrderService {
     private OrderRepository repository;
 
     @Override
-    public Set<Order> findAllByUser(User user) {
-        return repository.findAllByUser(user);
+    public Set<Order> findAllByUserOrderByIdAsc(User user) {
+        return repository.findAllByUserOrderByIdAsc(user);
     }
 
     @Override
