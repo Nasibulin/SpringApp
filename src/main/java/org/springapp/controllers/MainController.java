@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -94,6 +95,7 @@ public class MainController {
     public String getOrders(@ModelAttribute("customer") User customer, Model model) {
         Set<Order> orderSet = orderService.findAllByUser(customer);
         model.addAttribute("orderset", orderSet);
+        model.addAttribute("orderstotal", orderSet.stream().map(i->i.getOrderTotal()).reduce(BigDecimal.ZERO, BigDecimal::add));
         return "orders";
     }
 
