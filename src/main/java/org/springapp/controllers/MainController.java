@@ -31,7 +31,6 @@ import java.util.Set;
 @SessionAttributes("cart")
 public class MainController {
 
-    private static final int pageableDefault = 20;
     @Autowired
     private UserValidator userValidator;
     @Autowired
