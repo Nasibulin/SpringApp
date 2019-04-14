@@ -19,7 +19,7 @@
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><i class="far fa-envelope"></i></div><a href="mailto:sales@cisco.com">sales@cisco.com</a></div>
 						<div class="top_bar_content ml-auto">
 							<div class="top_bar_user">
-								<div class="user_icon"><i class="far fa-user" style="font-size:16px"></i></div>
+								<div class="user_icon"><i class="far fa-user"></i></div>
 								<div th:if="${not #lists.isEmpty(principal)}"><a href="#" th:text="${principal.username}"></a></div>
 								<div th:if="${#lists.isEmpty(principal)}"><a href="/register">Register</a></div>
 								<div th:if="${#lists.isEmpty(principal)}"><a href="/login">Sign in</a></div>

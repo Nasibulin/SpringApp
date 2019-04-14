@@ -10,6 +10,39 @@
 					<div class="col-lg-10 offset-lg-1">
 						<div class="cart_container">
 							<div class="cart_title" th:text="'Order #'+${order.id}">Order</div>
+
+
+								<div class="contact_info_container d-flex flex-lg-row flex-column justify-content-between align-items-between">							
+										<!-- Contact Item -->
+										<div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+											<div class="contact_info_image"><i class="fas fa-mobile-alt fa-2x"></i></div>
+											<div class="contact_info_content">
+												<div class="contact_info_title">Phone</div>
+												<div class="contact_info_text" th:text="${order.user.printPhone()}">+38 068 005 3570</div>
+											</div>
+										</div>
+
+										<!-- Contact Item -->
+										<div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+											<div class="contact_info_image"><i class="far fa-envelope fa-2x"></i></div>
+											<div class="contact_info_content">
+												<div class="contact_info_title">Email</div>
+												<div class="contact_info_text" th:text="${order.user.email}">sales@gmail.com</div>
+											</div>
+										</div>
+
+										<!-- Contact Item -->
+										<div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+											<div class="contact_info_image"><i class="fas fa-map-marker-alt fa-2x"></i></div>
+											<div class="contact_info_content">
+												<div class="contact_info_title">Address</div>
+												<div class="contact_info_text" th:text="${order.orderAddress.region}+' '+${order.orderAddress.suffix}">10 Suffolk at Soho, London, UK</div>
+											</div>
+										</div>
+								</div>
+		
+							
+							
 							<div class="cart_items">
 								<ul class="cart_list">
 									<li class="cart_item clearfix">
