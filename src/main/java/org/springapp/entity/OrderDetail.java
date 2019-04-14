@@ -29,7 +29,7 @@ public class OrderDetail implements Serializable {
         this.id = id;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "orders_id")
     public Order getOrder() {
         return order;
@@ -39,7 +39,7 @@ public class OrderDetail implements Serializable {
         this.order = order;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "products_id")
     public Product getProduct() {
         return product;

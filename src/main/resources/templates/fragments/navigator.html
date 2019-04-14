@@ -88,7 +88,7 @@
 								<div class="wishlist_icon"><i class="far fa-star" style="font-size:30px;color:#0e8ce4"></i></div>
 								<div class="wishlist_content">
 									<div class="wishlist_text"><a href="#">Wishlist</a></div>
-									<div class="wishlist_count">115</div>
+									<div class="wishlist_count">0</div>
 								</div>
 							</div>
 
@@ -146,7 +146,8 @@
 
 							<div class="nav d-flex flex-row align-items-center justify-content-right">
 								<li class="nav" th:each="cat : ${catname}">
-								<a th:href="@{'/catalog/{id}'(id=${cat.id})}">
+								<!-- <a th:href="@{'/catalog/{id}'(id=${cat.id})}"> -->
+								<a href="#">
 								<span th:text="'&nbsp;'+${cat.catname}"></span>
 								<i class="fas fa-caret-right"></i>
 								</a>
