@@ -76,6 +76,7 @@ public class MainController {
     public String getMain(Model model) {
         return APIName.INDEX;
     }
+
     @PostMapping(APIName.SEARCH)
     public String search(@RequestParam String product, @RequestParam Integer category, Model model) {
         List<Category> catname = categoryService.findCatPathById(category);
@@ -83,6 +84,7 @@ public class MainController {
         List<Product> products = productService.findByCategoryInAndDescriptionContainingIgnoreCase(cat, product);
         model.addAttribute("catname", catname);
         model.addAttribute("products", products);
+
         return APIName.INDEX;
     }
 
