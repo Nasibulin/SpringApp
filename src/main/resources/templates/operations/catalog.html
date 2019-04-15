@@ -25,10 +25,10 @@
 						<input type="hidden" id="id" th:name="id" th:value="*{id}"/>
 						<input type="number" class="form-control form-control-sm input-number btn-block" id="amount" th:disabled="${cart.getItemByProductId(product.id)!=null}" th:name="amount" th:value="1" min="1" max="10"/>
 					</td>
-					<div th:switch="${cart.getItemByProductId(product.id)==null}">
+					<th:block th:switch="${cart.getItemByProductId(product.id)==null}">
 					<td th:case="${false}" style="text-align: center"><button type="submit" style="cursor: pointer" class="btn btn-primary btn-sm"><i class="fas fa-arrow-circle-up" style="font-size:16px"></i></button></td>
 					<td th:case="${true}" style="text-align: center"><button type="submit" style="cursor: pointer" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-circle-down" style="font-size:16px"></i></button></td>
-					</div>
+					</th:block>
 					</form>
 				</tr>
 				</tbody>

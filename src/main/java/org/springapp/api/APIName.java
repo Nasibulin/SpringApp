@@ -4,6 +4,7 @@ public class APIName {
 
     //redirect
     public static final String REDIRECT = "redirect:";
+    public static final String FORWARD = "forward:";
     public static final String INDEX = "/index";
     public static final String ROOT = "/";
     public static final String SEARCH = "/search";

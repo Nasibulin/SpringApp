@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -104,9 +105,9 @@ public class MainController {
         cartItem.setQuantity(amount);
         cart.addCartItems(cartItem);
         model.addAttribute("cart", cart);
-
         String referer = request.getHeader("Referer");
-        return APIName.REDIRECT.concat(referer);
+        System.out.println(referer);
+        return APIName.FORWARD.concat(referer);
     }
 
     @PostMapping(APIName.CARTITEM_DELETE_BY_PRODUCT_ID)
