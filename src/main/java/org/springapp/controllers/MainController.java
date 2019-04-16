@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -79,13 +80,23 @@ public class MainController {
     }
 
     @PostMapping(APIName.SEARCH)
-    public String search(@RequestParam String product, @RequestParam Integer category, Model model) {
+    public String postSearch(@RequestParam String product, @RequestParam Integer category, Model model, RedirectAttributes attr) {
         List<Category> catname = categoryService.findCatPathById(category);
         List<Category> cat = categoryService.findByParentIdEquals(category);
         List<Product> products = productService.findByCategoryInAndDescriptionContainingIgnoreCase(cat, product);
         model.addAttribute("catname", catname);
         model.addAttribute("products", products);
+        attr.addFlashAttribute("catname", catname);
+        attr.addFlashAttribute("products", products);
+        return APIName.REDIRECT.concat(APIName.SEARCH);
+    }
 
+    @GetMapping(APIName.SEARCH)
+    public String getSearch(@ModelAttribute("catname") final ArrayList<Category> catname, @ModelAttribute("products") final ArrayList<Product> products, Model model, RedirectAttributes attr) {
+        model.addAttribute("catname", catname);
+        model.addAttribute("products", products);
+        attr.addFlashAttribute("catname", catname);
+        attr.addFlashAttribute("products", products);
         return APIName.INDEX;
     }
 
@@ -98,7 +109,6 @@ public class MainController {
     @PostMapping(APIName.CART)
     public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute("cart") Cart cart,
                             Model model, HttpServletRequest request) {
-
         CartItem cartItem = new CartItem();
         cartItem.setId(id);
         cartItem.setProduct(productService.getProductById(id));
@@ -106,8 +116,7 @@ public class MainController {
         cart.addCartItems(cartItem);
         model.addAttribute("cart", cart);
         String referer = request.getHeader("Referer");
-        System.out.println(referer);
-        return APIName.FORWARD.concat(referer);
+        return APIName.REDIRECT.concat(referer);
     }
 
     @PostMapping(APIName.CARTITEM_DELETE_BY_PRODUCT_ID)
