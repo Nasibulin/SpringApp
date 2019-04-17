@@ -4,7 +4,7 @@
 
 Технологии Oracle XE 11.2.0.2.0, Spring Framework, Hibernate, Thymeleaf, Bootstrap, Yandex API
 
-Каталоги
+Каталоги в database_script
 
 dmp - дамп схемы для DataPump Export/Import (используются virtual columns)
 
