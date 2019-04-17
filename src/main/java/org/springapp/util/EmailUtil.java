@@ -9,7 +9,7 @@ public class EmailUtil {
         // Regex
         String regexExpression = "([A-Za-z0-9\\.\\_\\-]+[\\.\\_\\-]*[A-Za-z0-9\\.\\_\\-]*)+@([A-Za-z0-9\\.\\_\\-]+[\\.]*[A-Za-z0-9\\.\\_\\-]+)+\\.[A-Za-z]+";
         Pattern regexPattern = Pattern.compile(regexExpression);
-        boolean valid = false;
+        boolean valid;
         if (valueToValidate != null) {
             if (valueToValidate.indexOf("@") <= 0) {
                 return false;

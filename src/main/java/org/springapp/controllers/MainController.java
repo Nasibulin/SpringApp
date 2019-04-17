@@ -19,7 +19,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -30,7 +29,7 @@ import java.util.List;
 import java.util.Set;
 
 @Controller
-@SessionAttributes("cart")
+@SessionAttributes({"cart", "search"})
 public class MainController {
 
     @Autowired
@@ -51,6 +50,11 @@ public class MainController {
     @ModelAttribute("cart")
     public Cart cart() {
         return new Cart();
+    }
+
+    @ModelAttribute("search")
+    public List<Product> search() {
+        return new ArrayList<Product>();
     }
 
     @ModelAttribute
@@ -80,24 +84,20 @@ public class MainController {
     }
 
     @PostMapping(APIName.SEARCH)
-    public String postSearch(@RequestParam String product, @RequestParam Integer category, Model model, RedirectAttributes attr) {
+    public String postSearch(@RequestParam String product, @RequestParam Integer category, Model model, @ModelAttribute("search") ArrayList<Product> search) {
         List<Category> catname = categoryService.findCatPathById(category);
         List<Category> cat = categoryService.findByParentIdEquals(category);
-        List<Product> products = productService.findByCategoryInAndDescriptionContainingIgnoreCase(cat, product);
+        search = (ArrayList<Product>) productService.findByCategoryInAndDescriptionContainingIgnoreCase(cat, product);
         model.addAttribute("catname", catname);
-        model.addAttribute("products", products);
-        attr.addFlashAttribute("catname", catname);
-        attr.addFlashAttribute("products", products);
+        model.addAttribute("search", search);
         return APIName.REDIRECT.concat(APIName.SEARCH);
     }
 
     @GetMapping(APIName.SEARCH)
-    public String getSearch(@ModelAttribute("catname") final ArrayList<Category> catname, @ModelAttribute("products") final ArrayList<Product> products, Model model, RedirectAttributes attr) {
+    public String getSearch(@ModelAttribute("catname") ArrayList<Category> catname, @ModelAttribute("search") ArrayList<Product> search, Model model) {
         model.addAttribute("catname", catname);
-        model.addAttribute("products", products);
-        attr.addFlashAttribute("catname", catname);
-        attr.addFlashAttribute("products", products);
-        return APIName.INDEX;
+        model.addAttribute("search", search);
+        return APIName.SEARCH;
     }
 
     @GetMapping(APIName.CART)
@@ -165,7 +165,7 @@ public class MainController {
     @PostMapping(APIName.ORDER_CREATE)
     public String create(UserAddress userAddress, @ModelAttribute("cart") Cart cart, @ModelAttribute("customer") User customer, @RequestParam(value = "same-address", required = false) boolean sameAddress, @RequestParam(value = "save-info", required = false) boolean saveInfo, Model model) {
         if (cart.getCartItems().isEmpty()) return APIName.CART;
-        UserAddress customerAddress = null;
+        UserAddress customerAddress;
         if (customer.getUserAddress() == null && saveInfo) {
             customerAddress = new UserAddress();
             customerAddress.setUser(customer);

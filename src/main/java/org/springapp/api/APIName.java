@@ -4,7 +4,6 @@ public class APIName {
 
     //redirect
     public static final String REDIRECT = "redirect:";
-    public static final String FORWARD = "forward:";
     public static final String INDEX = "/index";
     public static final String ROOT = "/";
     public static final String SEARCH = "/search";
@@ -24,7 +23,7 @@ public class APIName {
     public static final String CART_CLEAR = "/cart/clear";
     public static final String CART_CHECKOUT = "/checkout";
 
-    //Orders
+    //orders api link
     public static final String ORDERS = "/orders";
     public static final String ORDER = "/order";
     public static final String ORDER_CREATE = "/create";
