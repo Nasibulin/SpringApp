@@ -1,8 +1,8 @@
 # SpringApp
 Схема БД springapp/springapp
-Пользователь приложения denzel@gmail.com/denzel
+Пользователь приложения denzel@gmail.com / denzel
 
-Технологии Oracle XE 11.2.0.2.0, Spring Framework, Hibernate, Thymeleaf, Bootstrap, Yandex API
+Технологии Oracle XE 11.2.0.2.0, Spring Framework, Spring Security, Hibernate, Thymeleaf, Bootstrap, Yandex API
 
 Каталоги в database_script
 
