@@ -58,12 +58,8 @@ public class MainController {
 
     @ModelAttribute
     public void globalAttributes(@ModelAttribute("cart") Cart cart, Model model) {
-        List<Category> topmenu = categoryService.findCatnameByLevel(Constant.CATALOG_LEVEL.SECOND.getLevel());
-        List<Category> submenu = categoryService.findCatnameByLevel(Constant.CATALOG_LEVEL.THIRD.getLevel());
         List<Category> catname = categoryService.findCatPathById(Constant.CATALOG_LEVEL.ROOT.getLevel());
         model.addAttribute("catname", catname);
-        model.addAttribute("topmenu", topmenu);
-        model.addAttribute("submenu", submenu);
         model.addAttribute("cart", cart);
         //AuthUser user = null;
         try {

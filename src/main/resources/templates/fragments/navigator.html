@@ -6,7 +6,6 @@
 <div class="super_container">
 	
 	<!-- Header -->
-	
 	<header class="header">
 
 		<!-- Top Bar -->
@@ -121,10 +120,10 @@
 
 								<ul class="cat_menu">
 									
-									<li class="hassubs" th:each="menu : ${topmenu}" >
-										<a href="#"><span th:text="${menu.catname}"></span><i class="fas fa-chevron-right"></i></a>
+									<li class="hassubs" ng-repeat="top in topmenu">
+										<a href="#"><span>{{top.catname}}</span><i class="fas fa-chevron-right"></i></a>
 										<ul>
-											<li th:each="submenu : ${submenu}" th:if="${menu.id} == ${submenu.parentId}"><a href="#" th:href="@{'/catalog/{id}'(id=${submenu.id})}" th:text="${submenu.catname}"><i class="fas fa-chevron-right"></i></a></li>
+											<li ng-repeat="sub in submenu | filter: {parentId : top.id}"><a href="#">{{sub.catname}}<i class="fas fa-chevron-right"></i></a></li>
 										</ul>
 									</li>
 					
