@@ -77,10 +77,10 @@ public class MainController {
 
     }
 
-    @GetMapping(APIName.ROOT)
-    public String getMain(Model model) {
-        return APIName.INDEX;
-    }
+//    @GetMapping(APIName.ROOT)
+//    public String getMain(Model model) {
+//        return APIName.INDEX;
+//    }
 
     @RequestMapping(value = "/menu/{level}", //
             method = RequestMethod.GET, //
