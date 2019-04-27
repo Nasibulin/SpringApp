@@ -1,5 +1,7 @@
 package org.springapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -24,6 +26,7 @@ public class Category implements Serializable {
     public Category() {
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<Product> getProducts() {
         return products;

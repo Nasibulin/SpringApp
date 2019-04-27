@@ -82,14 +82,14 @@ public class MainController {
         return APIName.INDEX;
     }
 
-    @RequestMapping(value = "/topcat/{level}", //
+    @RequestMapping(value = "/menu/{level}", //
             method = RequestMethod.GET, //
             produces = { MediaType.APPLICATION_JSON_VALUE, //
                     MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
-    public List<Category> getTopMenu(@RequestParam) {
-        List<Category> topmenu = categoryService.findCatnameByLevel(Constant.CATALOG_LEVEL.SECOND.getLevel());
-        return topmenu;
+    public List<Category> getMenu(@PathVariable Integer level) {
+        List<Category> menu = categoryService.findCatnameByLevel(level);
+        return menu;
     }
 
     @PostMapping(APIName.SEARCH)
