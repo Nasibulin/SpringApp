@@ -1,4 +1,4 @@
-<div>
+<div ng-controller="navCtrl">
 <div class="super_container">
 	
 	<!-- Header -->
@@ -52,21 +52,8 @@
 											<div class="custom_dropdown_list">
 												<span class="custom_dropdown_placeholder clc">All Categories</span>
 												<i class="fas fa-chevron-down"></i>
-												<!--<ul class="custom_list clc">-->
-													<!--<li><a href="#" value="-1">All Categories</a></li>-->
-													<!--<li><a href="#" value="10">Cisco XR 12000 Series</a></li>-->
-													<!--<li><a href="#" value="12">Cisco 7600 Series Router</a></li>-->
-													<!--<li><a href="#" value="27">Catalyst 3500 XL Series</a></li>-->
-													<!--<li><a href="#" value="28">Catalyst 3550 Series</a></li>-->
-													<!--<li><a href="#" value="29">Catalyst 3750 Series</a></li>-->
-													<!--<li><a href="#" value="32">Catalyst 3560 Series</a></li>-->
-													<!--<li><a href="#" value="38">Catalyst 2970 Series</a></li>-->
-													<!--<li><a href="#" value="39">Catalyst 2940 Series</a></li>-->
-													<!--<li><a href="#" value="40">Catalyst 2960 Series</a></li>-->
-													<!--<li><a href="#" value="54">Transceiver Modules</a></li>-->
-												<!--</ul>-->
 												<ul class="custom_list clc">
-													<li><a href="#" value="-1">All Categories</a></li>
+													<li><a class="clc" href="#" value="-1">All Categories</a></li>
 													<li ng-repeat="top in topmenu"><a class="clc" href="#" value="{{top.id}}">{{top.catname}}</a></li>
 												</ul>
 											</div>
@@ -99,7 +86,7 @@
 									</div>
 									<div class="cart_content">
 										<div class="cart_text"><a th:href="@{'/cart'}" href="#">Cart</a></div>
-										<div th:if="${#lists.isEmpty(cart)}" class="cart_price">0</div>
+										<div th:if="${#lists.isEmpty(cart)}" class="cart_price"></div>
 										<div th:if="${not #lists.isEmpty(cart)}" class="cart_price" th:text="${cart.grandTotal}">0</div>
 									</div>
 								</div>

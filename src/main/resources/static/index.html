@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp" ng-controller="navCtrl">
+<html>
 <head>
     <title>Spring Application</title>
     <meta charset="utf-8">
@@ -14,14 +14,8 @@
     <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
 
-
-    <!--<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=b9fef526-ce00-4915-bd6d-b4aca80960d3" type="text/javascript"></script>-->
-    <!--<script src="js/input_validation.js"></script>-->
-
-
-
 </head>
-<body>
+<body ng-app="myApp">
 <div class="super_container">
     <ng-include src="'fragments/navigator.html'"></ng-include>
     <!--<div th:replace="fragments/header :: header"></div>-->
@@ -31,10 +25,13 @@
 	<!--<div th:replace="fragments/footer :: footer"></div>-->
     <ng-include src="'fragments/footer.html'"></ng-include>
 </div>
+</body>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap4/popper.min.js"></script>
 <script src="js/bootstrap4/bootstrap.min.js"></script>
 <script src="js/jquery.maskedinput.js"></script>
-<script defer src="js/custom.js"></script>
-</body>
+<script src="js/custom.js"></script>
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=b9fef526-ce00-4915-bd6d-b4aca80960d3" type="text/javascript"></script>
+<script src="js/input_validation.js"></script>
 </html>
