@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+<ng-include src="'fragments/head.html'"></ng-include>
+</head>
+<body>
+<div class="super_container">
+    <ng-include src="'fragments/navigator.html'"></ng-include>
+    <!--<div th:replace="fragments/header :: header"></div>-->
+    <!--<div th:replace="fragments/navigator :: navigator"></div>-->
+    <!--<div th:replace="operations/catalog :: catalog"></div>-->
+	<!--<div th:replace="fragments/banner :: banner"></div>-->
+	<!--<div th:replace="fragments/footer :: footer"></div>-->
+    <ng-include src="'fragments/footer.html'"></ng-include>
+</div>
+</body>
+</html>

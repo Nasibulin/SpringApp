@@ -6,7 +6,7 @@ app.config(['$compileProvider', function ($compileProvider)
 }]);
  
 // Controller Part
-app.controller("menuCtrl", function($scope, $http) {
+app.controller("navCtrl", function($scope, $http) {
  
  
     $scope.topmenu = [];

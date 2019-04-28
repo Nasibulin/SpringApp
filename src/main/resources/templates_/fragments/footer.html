@@ -1,0 +1,50 @@
+<div>
+	<!-- Copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					
+					<div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+						<div class="copyright_content">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+
+</div>
+						<!-- <div class="logos ml-sm-auto"> -->
+							<!-- <ul class="logos_list"> -->
+								<!-- <li><a href="#"><img src="images/logos_1.png" alt=""></a></li> -->
+								<!-- <li><a href="#"><img src="images/logos_2.png" alt=""></a></li> -->
+								<!-- <li><a href="#"><img src="images/logos_3.png" alt=""></a></li> -->
+								<!-- <li><a href="#"><img src="images/logos_4.png" alt=""></a></li> -->
+							<!-- </ul> -->
+						<!-- </div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap4/popper.min.js"></script>
+<script src="js/bootstrap4/bootstrap.min.js"></script>
+<script src="js/jquery.maskedinput.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=b9fef526-ce00-4915-bd6d-b4aca80960d3" type="text/javascript"></script>
+<script src="js/input_validation.js"></script>
+<script src="js/angular.min.js"></script>
+<!--<script src="../static/js/app.js" th:src="@{/js/app.js}"></script>-->
+
+<script>
+	$(document).ready(function() {
+    $("#phone").mask("+7 (999) 999-99-99");
+  });
+  $(function(){
+    //Listen for a click on any of the dropdown items
+    $(".custom_list li a").click(function(){
+        //Get the value
+        var value = $(this).attr("value");
+        //Put the retrieved value into the hidden input
+        $("input[name='category']").val(value);
+    });
+});
+</script>
+</div>

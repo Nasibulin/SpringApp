@@ -2,6 +2,8 @@ package org.springapp.controllers;
 
 import org.springapp.api.APIName;
 import org.springapp.auth.AuthUser;
+import org.springapp.auth.UserAuthentication;
+import org.springapp.auth.service.AuthUserDetailsService;
 import org.springapp.entity.*;
 import org.springapp.service.categories.CategoryService;
 import org.springapp.service.orders.OrderService;
@@ -21,6 +23,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.math.BigDecimal;
@@ -45,6 +48,9 @@ public class MainController {
     private RoleService roleService;
     @Autowired
     private UserAddressService userAddressService;
+    @Autowired
+    private AuthUserDetailsService authUserDetailsService;
+    private AuthUser guest;
 
     @ModelAttribute("cart")
     public Cart cart() {
@@ -55,6 +61,12 @@ public class MainController {
     public List<Product> search() {
         return new ArrayList<Product>();
     }
+
+    @PostConstruct
+    public void init() {
+        guest = (AuthUser) authUserDetailsService.loadUserByUsername("guest@gmail.com");
+    }
+
 
     @ModelAttribute
     public void globalAttributes(@ModelAttribute("cart") Cart cart, Model model) {
@@ -68,7 +80,7 @@ public class MainController {
             model.addAttribute("principal", authUser);
             model.addAttribute("customer", customer);
         } catch (ClassCastException ex) {
-//            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
+            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
         }
 
     }
@@ -257,14 +269,18 @@ public class MainController {
         return APIName.USER_LOGIN;
     }
 
-    @GetMapping(APIName.CATEGORIES_ID)
-    public String list(@PathVariable Integer id, Model model) {
+    @RequestMapping(value = APIName.CATEGORIES_ID, //
+            method = RequestMethod.GET, //
+            produces = { MediaType.APPLICATION_JSON_VALUE, //
+                    MediaType.APPLICATION_XML_VALUE })
+    @ResponseBody
+    public List<Product> list(@PathVariable Integer id, Model model) {
         List<Category> catname = categoryService.findCatPathById(id);
         Category category = categoryService.findByIdEquals(id);
         List<Product> products = productService.findByCategory(category);
         model.addAttribute("catname", catname);
         model.addAttribute("products", products);
-        return APIName.INDEX;
+        return products;
     }
 
 }
