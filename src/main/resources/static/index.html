@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="myApp" ng-controller="navCtrl">
 <head>
     <title>Spring Application</title>
     <meta charset="utf-8">
@@ -10,15 +10,16 @@
     <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="styles/shop_styles.css">
     <link rel="stylesheet" type="text/css" href="styles/shop_responsive.css">
+
     <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap4/popper.min.js"></script>
-    <script src="js/bootstrap4/bootstrap.min.js"></script>
-    <script src="js/jquery.maskedinput.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=b9fef526-ce00-4915-bd6d-b4aca80960d3" type="text/javascript"></script>
-    <script src="js/input_validation.js"></script>
+
+
+    <!--<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=b9fef526-ce00-4915-bd6d-b4aca80960d3" type="text/javascript"></script>-->
+    <!--<script src="js/input_validation.js"></script>-->
+
+
+
 </head>
 <body>
 <div class="super_container">
@@ -30,5 +31,10 @@
 	<!--<div th:replace="fragments/footer :: footer"></div>-->
     <ng-include src="'fragments/footer.html'"></ng-include>
 </div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap4/popper.min.js"></script>
+<script src="js/bootstrap4/bootstrap.min.js"></script>
+<script src="js/jquery.maskedinput.js"></script>
+<script defer src="js/custom.js"></script>
 </body>
 </html>

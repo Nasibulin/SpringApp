@@ -48,13 +48,26 @@
 									<form action="/search" method="post" role="form" class="header_search_form clearfix">
 										<input type="search" required="required" id="product" name="product" class="header_search_input" placeholder="Search for products...">
 										<input type="hidden" name="category" value="-1">
-										<div class="custom_dropdown" ng-controller="navCtrl">
+										<div class="custom_dropdown">
 											<div class="custom_dropdown_list">
 												<span class="custom_dropdown_placeholder clc">All Categories</span>
 												<i class="fas fa-chevron-down"></i>
+												<!--<ul class="custom_list clc">-->
+													<!--<li><a href="#" value="-1">All Categories</a></li>-->
+													<!--<li><a href="#" value="10">Cisco XR 12000 Series</a></li>-->
+													<!--<li><a href="#" value="12">Cisco 7600 Series Router</a></li>-->
+													<!--<li><a href="#" value="27">Catalyst 3500 XL Series</a></li>-->
+													<!--<li><a href="#" value="28">Catalyst 3550 Series</a></li>-->
+													<!--<li><a href="#" value="29">Catalyst 3750 Series</a></li>-->
+													<!--<li><a href="#" value="32">Catalyst 3560 Series</a></li>-->
+													<!--<li><a href="#" value="38">Catalyst 2970 Series</a></li>-->
+													<!--<li><a href="#" value="39">Catalyst 2940 Series</a></li>-->
+													<!--<li><a href="#" value="40">Catalyst 2960 Series</a></li>-->
+													<!--<li><a href="#" value="54">Transceiver Modules</a></li>-->
+												<!--</ul>-->
 												<ul class="custom_list clc">
 													<li><a href="#" value="-1">All Categories</a></li>
-													<li ng-repeat="top in topmenu"><a href="#" value="{{top.id}}">{{top.catname}}</a></li>
+													<li ng-repeat="top in topmenu"><a class="clc" href="#" value="{{top.id}}">{{top.catname}}</a></li>
 												</ul>
 											</div>
 										</div>
@@ -108,11 +121,12 @@
 
 							<!-- Categories Menu -->
 
-							<div class="cat_menu_container" ng-controller="navCtrl">
+							<div class="cat_menu_container">
 								<div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
 									<div class="cat_burger"><span></span><span></span><span></span></div>
 									<div class="cat_menu_text">categories</div>
 								</div>
+
 
 								<ul class="cat_menu">
 									
@@ -129,15 +143,15 @@
 
 							<!-- Main Nav Menu -->
 
-							<div class="nav d-flex flex-row align-items-center justify-content-right">
-								<li class="nav" th:each="cat : ${catname}">
-								<!-- <a th:href="@{'/catalog/{id}'(id=${cat.id})}"> -->
-								<a href="#">
-								<span th:text="'&nbsp;'+${cat.catname}"></span>
-								<i class="fas fa-caret-right"></i>
-								</a>
-								</li>
-							</div>
+							<!--<div class="nav d-flex flex-row align-items-center justify-content-right">-->
+								<!--<li class="nav" th:each="cat : ${catname}">-->
+								<!--&lt;!&ndash; <a th:href="@{'/catalog/{id}'(id=${cat.id})}"> &ndash;&gt;-->
+								<!--<a href="#">-->
+								<!--<span th:text="'&nbsp;'+${cat.catname}"></span>-->
+								<!--<i class="fas fa-caret-right"></i>-->
+								<!--</a>-->
+								<!--</li>-->
+							<!--</div>-->
 
 							<!-- Menu Trigger -->
 
