@@ -16,6 +16,64 @@ app.controller("navCtrl", function($scope, $http) {
     _refreshTopmenuData();
     _refreshSubmenuData();
 
+    (function () {
+
+        function loadScript(url, callback) {
+
+            var script = document.createElement("script")
+            script.type = "text/javascript";
+            script.async = false;
+            script.defer = true;
+
+            if (script.readyState) { //IE
+                script.onreadystatechange = function () {
+                    if (script.readyState == "loaded" || script.readyState == "complete") {
+                        script.onreadystatechange = null;
+                        callback();
+                    }
+                };
+            } else { //Others
+                script.onload = function () {
+                    callback();
+                };
+            }
+
+            script.src = url;
+            document.getElementsByTagName("head")[0].appendChild(script);
+        }
+
+        loadScript("js/jquery-3.3.1.min.js", function () {
+
+//jQuery loaded
+            console.log('jquery loaded');
+
+        });
+        loadScript("js/bootstrap4/bootstrap.min.js", function () {
+
+//Bootstrap loaded
+            console.log('bootstrap loaded');
+
+        });
+        loadScript("js/custom.js", function () {
+
+//Custom loaded
+            console.log('custom loaded');
+
+        });
+        loadScript("js/jquery.maskedinput.js", function () {
+
+//Custom loaded
+            console.log('maskedinput loaded');
+
+        });
+        loadScript("js/custom2.js", function () {
+
+//Custom loaded
+            console.log('custom2 loaded');
+
+        });
+    })();
+
  
 
     // Private Method  
@@ -48,5 +106,5 @@ app.controller("navCtrl", function($scope, $http) {
             }
         );
     }
- 
+
 });
