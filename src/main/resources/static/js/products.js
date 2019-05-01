@@ -2,7 +2,6 @@ angular.module("myapp.products", [])
     .controller("ProductCtrl", function ($scope, $http, $routeParams) {
 
         var productsUrl = "/categories/"+$routeParams.id+"/products";
-        console.log(productsUrl);
         $scope.products = [];
 
         loadProducts();
