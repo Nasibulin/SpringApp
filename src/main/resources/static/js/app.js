@@ -1,4 +1,4 @@
-angular.module("myapp", ["ngRoute", "myapp.products"])
+angular.module('myapp', ['ngRoute', 'myapp.products'])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider.when('/',
             {
@@ -6,8 +6,8 @@ angular.module("myapp", ["ngRoute", "myapp.products"])
             });
         $routeProvider.when('/catalog/:id',
             {
-                templateUrl: 'catalog.html',
-                controller: 'ProductCtrl'
+                templateUrl: '/views/products.html',
+                controller: 'productCtrl'
             });
         $routeProvider.otherwise({redirectTo: '/'});
         $locationProvider.html5Mode(true);
@@ -15,10 +15,10 @@ angular.module("myapp", ["ngRoute", "myapp.products"])
     .config(['$compileProvider', function ($compileProvider) {
         $compileProvider.debugInfoEnabled(false);
     }])
-    .constant("topmenuUrl", "/menu/2")
-    .constant("submenuUrl", "/menu/3")
+    .constant('topmenuUrl', '/menu/2')
+    .constant('submenuUrl', '/menu/3')
     // Controller Part
-    .controller("navCtrl", function ($scope, $http, topmenuUrl, submenuUrl) {
+    .controller('navCtrl', function ($scope, $http, topmenuUrl, submenuUrl) {
 
         $scope.topmenu = [];
         $scope.submenu = [];
