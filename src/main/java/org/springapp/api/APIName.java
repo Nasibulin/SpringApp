@@ -11,7 +11,7 @@ public class APIName {
 
     //category api links
     public static final String CATEGORIES = "/categories";
-    public static final String CATEGORIES_ID = "/catalog/{id}";
+    public static final String CATEGORIES_ID = "/categories/{id}/products";
 
     //user api link
     public static final String USER_REGISTER = "/register";

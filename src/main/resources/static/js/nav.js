@@ -1,17 +1,4 @@
-angular.module("myapp", ["ngRoute", "myapp.products"])
-    .config(function ($routeProvider, $locationProvider) {
-        $routeProvider.when('/',
-            {
-                templateUrl: 'fragments/banner.html',
-            });
-        $routeProvider.when('/catalog/:id',
-            {
-                templateUrl: 'catalog.html',
-                controller: 'ProductCtrl'
-            });
-        $routeProvider.otherwise({redirectTo: '/'});
-        $locationProvider.html5Mode(true);
-    })
+angular.module("navCtrl", [])
     .config(['$compileProvider', function ($compileProvider) {
         $compileProvider.debugInfoEnabled(false);
     }])
@@ -28,7 +15,7 @@ angular.module("myapp", ["ngRoute", "myapp.products"])
 
         (function () {
 
-            function loadScript(url, callback) {
+            function loadScript(url) {
 
                 var script = document.createElement("script")
                 script.type = "text/javascript";
