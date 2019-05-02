@@ -23,8 +23,8 @@
 											<td class="cart_item_text">{{item.partnumber}}</td>
 											<td class="cart_item_text">{{item.name}}</td>
 											<td class="cart_item_text">{{item.count}}</td>
-											<td class="cart_item_text">{{item.price}}</td>
-											<td class="cart_item_text">{{(item.count * item.price).toFixed(2)}}</td>
+											<td class="cart_item_price">{{(item.price)}}</td>
+											<td class="cart_item_price">{{(item.count * item.price)}}</td>
 										</tr>
 										</tbody>
 
@@ -45,7 +45,7 @@
 							<div class="cart_buttons d-flex justify-content-end">
 								<span><form th:action="@{/cart/clear}" name="clear_cart" id="clear_cart" method="post">
 								<button type="submit" class="button cart_button_clear">Clear Cart</button></form></span>
-								<span><button type="submit" class="button cart_button_checkout"><a th:href="@{'/checkout'}" href="#">Checkout</a></button></span>
+								<span><button ng-click="goCheckOut()" class="button cart_button_checkout"><a href="/checkout">Checkout</a></button></span>
 							</div>
 						</div>
 					</div>
