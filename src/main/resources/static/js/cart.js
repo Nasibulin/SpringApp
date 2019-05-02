@@ -1,6 +1,5 @@
-angular.module('myapp.cart', [])
-    .factory('cart', function () {
-
+angular.module('myapp.cart', ['ngCookies'])
+    .factory('cart', ['$cookies', function ($cookies) {
         var cartData = [];
 
         return {
@@ -11,6 +10,7 @@ angular.module('myapp.cart', [])
                     if (cartData[i].id == id) {
                         cartData[i].count++;
                         addedToExistingItem = true;
+                        $cookies.putObject('cartItems', cartData);
                         break;
                     }
                 }
@@ -18,6 +18,7 @@ angular.module('myapp.cart', [])
                     cartData.push({
                         count: 1, id: id, partnumber: partnumber, name: name, price: price
                     });
+                    $cookies.putObject('cartItems', cartData);
                 }
             },
 
@@ -25,20 +26,27 @@ angular.module('myapp.cart', [])
                 for (var i = 0; i < cartData.length; i++) {
                     if (cartData[i].id == id) {
                         cartData.splice(i, 1);
+                        $cookies.remove('cartItems');
+                        $cookies.putObject('cartItems', cartData);
                         break;
                     }
                 }
             },
 
             getProducts: function () {
+                var i = [];
+                i = $cookies.getObject('cartItems');
+                console.log(i[0].name);
                 return cartData;
             },
 
             clear: function () {
                 cartData = [];
+                $cookies.remove('cartItems');
+                $cookies.putObject('cartItems', cartData);
             }
         }
-    })
+    }])
     .directive('cartSummary', function (cart) {
         return {
             restrict: "E",
