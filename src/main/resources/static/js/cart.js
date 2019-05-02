@@ -80,7 +80,7 @@ angular.module('myapp.cart', ['ngCookies'])
     }])
     .directive('cartSummary', function (cart) {
         return {
-            restrict: "EA",
+            restrict: "E",
             templateUrl: "views/cartSummary.html",
             controller: function ($scope) {
 
