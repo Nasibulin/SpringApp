@@ -1,0 +1,55 @@
+<div ng-controller="cartCtrl">
+		<!-- Cart -->
+		<div class="cart_section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1">
+						<div class="cart_container">
+							<div class="cart_title">Shopping Cart</div>
+							<div class="cart_items">
+								<ul class="cart_list">
+									<li class="cart_item clearfix">
+															
+										<table class="table table-borderless table-hover horizontal-align">
+										<thead>
+											<th class="cart_item_title" style="width: 20%">#PartNumber</th>
+											<th class="cart_item_title" style="width: 58%">Product</th>
+											<th class="cart_item_title" style="width: 4%">Quantity</th>
+											<th class="cart_item_title" style="width: 4%">Price</th>
+											<th class="cart_item_title" style="width: 4%">Total</th>
+										</thead>
+										<tbody>
+										<tr ng-repeat="item in cartData">
+											<td class="cart_item_text">{{item.partnumber}}</td>
+											<td class="cart_item_text">{{item.name}}</td>
+											<td class="cart_item_text">{{item.count}}</td>
+											<td class="cart_item_text">{{item.price}}</td>
+											<td class="cart_item_text">{{(item.count * item.price).toFixed(2)}}</td>
+										</tr>
+										</tbody>
+
+										</table>
+
+									</li>
+								</ul>
+							</div>
+							
+							<!-- Cart Total -->
+							<div class="order_total">
+								<div class="order_total_content text-md-right">
+									<div class="order_total_title">Cart Total:</div>
+									<div class="order_total_amount">{{total()}}</div>
+								</div>
+							</div>
+
+							<div class="cart_buttons d-flex justify-content-end">
+								<span><form th:action="@{/cart/clear}" name="clear_cart" id="clear_cart" method="post">
+								<button type="submit" class="button cart_button_clear">Clear Cart</button></form></span>
+								<span><button type="submit" class="button cart_button_checkout"><a th:href="@{'/checkout'}" href="#">Checkout</a></button></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

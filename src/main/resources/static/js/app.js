@@ -1,4 +1,4 @@
-angular.module('myapp', ['ngRoute', 'myapp.products', 'myapp.cart'])
+angular.module('myapp', ['ngRoute', 'myapp.products', 'myapp.cart', 'myapp.cartview'])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider.when('/',
             {
@@ -8,6 +8,11 @@ angular.module('myapp', ['ngRoute', 'myapp.products', 'myapp.cart'])
             {
                 templateUrl: '/views/products.html',
                 controller: 'productCtrl'
+            });
+        $routeProvider.when('/cart',
+            {
+                templateUrl: '/views/cart.html',
+                controller: 'cartCtrl'
             });
         $routeProvider.otherwise({redirectTo: '/'});
         $locationProvider.html5Mode(true);
