@@ -43,7 +43,7 @@
 							</div>
 
 							<div class="cart_buttons d-flex justify-content-end">
-								<span><form th:action="@{/cart/clear}" name="clear_cart" id="clear_cart" method="post">
+								<span><form ng-click="clearCart()" name="clear_cart" id="clear_cart" method="post">
 								<button type="submit" class="button cart_button_clear">Clear Cart</button></form></span>
 								<span><button ng-click="goCheckOut()" class="button cart_button_checkout"><a href="/checkout">Checkout</a></button></span>
 							</div>
