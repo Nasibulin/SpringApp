@@ -16,6 +16,7 @@ angular.module('myapp.products', [])
         };
 
         $scope.addProductToCart = function (product) {
+            // cart.addProduct(product.id, product.partNumber, product.description, product.price);
             cart.addProduct(product.id, product.partNumber, product.description, product.price);
         }
         $scope.removeProductFromCart = function (product) {

@@ -1,12 +1,12 @@
 angular.module('myapp.cartview', [])
     .controller('cartCtrl', function ($scope, cart) {
 
-        $scope.cartData = cart.getProducts();
+        $scope.items = cart.getProducts();
         $scope.total = 0;
         $scope.total = function () {
             var total = 0;
-            for (var i = 0; i < $scope.cartData.length; i++) {
-                total += ($scope.cartData[i].price * $scope.cartData[i].count);
+            for (var i = 0; i < $scope.items.length; i++) {
+                total += ($scope.items[i].price * $scope.items[i].count);
             }
             return total;
         }
