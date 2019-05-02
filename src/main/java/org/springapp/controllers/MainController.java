@@ -70,10 +70,10 @@ public class MainController {
 
     @ModelAttribute
     public void globalAttributes(@ModelAttribute("cart") Cart cart, Model model) {
-        List<Category> catname = categoryService.findCatPathById(Constant.CATALOG_LEVEL.ROOT.getLevel());
-        model.addAttribute("catname", catname);
-        model.addAttribute("cart", cart);
-        //AuthUser user = null;
+//        List<Category> catname = categoryService.findCatPathById(Constant.CATALOG_LEVEL.ROOT.getLevel());
+//        model.addAttribute("catname", catname);
+//        model.addAttribute("cart", cart);
+        AuthUser user = null;
         try {
             AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             User customer = userService.findByEmail(authUser.getUsername());
