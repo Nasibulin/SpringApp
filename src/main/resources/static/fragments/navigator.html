@@ -68,8 +68,8 @@
 
 					<!-- Wishlist -->
 					<div class="col-lg-3 col-9 order-lg-3 order-2 text-lg-left text-right">
-						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
-							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
+						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-start">
+							<div class="wishlist d-flex flex-row align-items-center justify-content-start">
 								<div class="wishlist_icon"><i class="far fa-star" style="font-size:30px;color:#0e8ce4"></i></div>
 								<div class="wishlist_content">
 									<div class="wishlist_text"><a href="#">Wishlist</a></div>
@@ -78,19 +78,20 @@
 							</div>
 
 							<!-- Cart -->
-							<div class="cart">
-								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
-									<div class="cart_icon"><i class="fas fa-shopping-cart" style="font-size:30px"></i>
-										<div th:if="${#lists.isEmpty(cart)}" class="cart_count">0</div>
-										<div th:if="${not #lists.isEmpty(cart)}" class="cart_count" th:text="${cart.quantity}">0</div>
-									</div>
-									<div class="cart_content">
-										<div class="cart_text"><a th:href="@{'/cart'}" href="#">Cart</a></div>
-										<div th:if="${#lists.isEmpty(cart)}" class="cart_price"></div>
-										<div th:if="${not #lists.isEmpty(cart)}" class="cart_price" th:text="${cart.grandTotal}">0</div>
-									</div>
-								</div>
-							</div>
+							<cart-summary></cart-summary>
+							<!--<div class="cart">-->
+								<!--<div class="cart_container d-flex flex-row align-items-center justify-content-end">-->
+									<!--<div class="cart_icon"><i class="fas fa-shopping-cart" style="font-size:30px"></i>-->
+										<!--<div th:if="${#lists.isEmpty(cart)}" class="cart_count">0</div>-->
+										<!--<div th:if="${not #lists.isEmpty(cart)}" class="cart_count" th:text="${cart.quantity}">0</div>-->
+									<!--</div>-->
+									<!--<div class="cart_content">-->
+										<!--<div class="cart_text"><a th:href="@{'/cart'}" href="#">Cart</a></div>-->
+										<!--<div th:if="${#lists.isEmpty(cart)}" class="cart_price"></div>-->
+										<!--<div th:if="${not #lists.isEmpty(cart)}" class="cart_price" th:text="${cart.grandTotal}">0</div>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</div>-->
 						</div>
 					</div>
 				</div>
