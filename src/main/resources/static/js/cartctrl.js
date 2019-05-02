@@ -1,4 +1,4 @@
-angular.module('myapp.cartview',[])
+angular.module('myapp.cartview', [])
     .controller('cartCtrl', function ($scope, cart) {
 
         $scope.cartData = cart.getProducts();
@@ -17,6 +17,7 @@ angular.module('myapp.cartview',[])
 
         $scope.clearCart = function () {
             cart.getProducts().length = 0;
+            cart.clear();
         };
 
     });

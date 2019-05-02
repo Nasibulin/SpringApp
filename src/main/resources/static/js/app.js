@@ -1,4 +1,4 @@
-angular.module('myapp', ['ngRoute', 'myapp.products', 'myapp.cart', 'myapp.cartview'])
+angular.module('myapp', ['ngRoute', 'ngCookies', 'myapp.products', 'myapp.cart', 'myapp.cartview'])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider.when('/',
             {
