@@ -32,6 +32,10 @@ angular.module('myapp.cart', [])
 
             getProducts: function () {
                 return cartData;
+            },
+
+            clear: function () {
+                cartData = [];
             }
         }
     })
