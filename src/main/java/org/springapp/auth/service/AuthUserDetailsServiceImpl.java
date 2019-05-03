@@ -26,16 +26,16 @@ public class AuthUserDetailsServiceImpl implements CustomUserAuthService {
     
     @Override
     public AuthUser loadUserByAccessToken(String token) {
-        UserToken session = userTokenRepository.findOne(token);
+        UserToken session = userTokenRepository.findById(token).orElse(null);
         if (session != null){
             if (session.getSessionData() != null && !"".equals(session.getSessionData())){
                 AuthUser authUser = gson.fromJson(session.getSessionData(), AuthUser.class);
                 return authUser;
             }else{
-                throw new ApplicationException(APIStatus.ERR_SESSION_DATA_INVALID);
+                throw new RuntimeException("ERR_SESSION_DATA_INVALID");
             }
         }else{
-            throw new ApplicationException(APIStatus.ERR_SESSION_NOT_FOUND);
+            throw new RuntimeException("ERR_SESSION_NOT_FOUND");
         }
     }
 }

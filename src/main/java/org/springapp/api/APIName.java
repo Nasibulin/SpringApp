@@ -14,8 +14,9 @@ public class APIName {
     public static final String CATEGORIES_ID = "/categories/{id}/products";
 
     //user api link
+    public static final String USERS = "/users";
     public static final String USER_REGISTER = "/register";
-    public static final String USER_LOGIN = "/login";
+    public static final String USERS_LOGIN = "/login";
 
     //cart api link
     public static final String CART = "/cart";

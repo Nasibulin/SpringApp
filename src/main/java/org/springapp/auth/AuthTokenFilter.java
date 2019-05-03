@@ -47,7 +47,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
-            } catch (ApplicationException ex) {
+            } catch (RuntimeException ex) {
                 // token not found or expired
                 LOGGER.debug("doFilterInternal", ex);
             }

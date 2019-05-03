@@ -1,46 +1,27 @@
-package com.nitsoft.ecommerce.api.user;
+package org.springapp.api.user;
 
-import com.nitsoft.ecommerce.api.APIName;
-import com.nitsoft.ecommerce.api.controller.AbstractBaseController;
-import com.nitsoft.ecommerce.api.request.model.AuthRequestModel;
-import com.nitsoft.ecommerce.api.request.model.UserChangePasswordModel;
-import com.nitsoft.ecommerce.api.request.model.UserListRequestModel;
-import com.nitsoft.ecommerce.api.request.model.UserRequestModel;
-import com.nitsoft.ecommerce.api.response.model.APIResponse;
-import com.nitsoft.ecommerce.api.response.model.PagingResponseModel;
-import com.nitsoft.ecommerce.api.response.model.UserDetailResponseModel;
-import com.nitsoft.ecommerce.api.response.util.APIStatus;
-import com.nitsoft.ecommerce.database.model.User;
-import com.nitsoft.ecommerce.database.model.UserAddress;
-import com.nitsoft.ecommerce.database.model.UserToken;
-import com.nitsoft.ecommerce.exception.ApplicationException;
-import com.nitsoft.ecommerce.service.UserAddressService;
-import com.nitsoft.ecommerce.service.UserService;
-import com.nitsoft.ecommerce.service.UserTokenService;
-import com.nitsoft.ecommerce.service.auth.AuthService;
-import com.nitsoft.util.Constant;
-import com.nitsoft.util.DateUtil;
-import com.nitsoft.util.MD5Hash;
-import com.nitsoft.util.UniqueID;
+import org.springapp.api.APIName;
+import org.springapp.api.controller.AbstractBaseController;
+import org.springapp.entity.User;
+import org.springapp.entity.UserToken;
+import org.springapp.service.users.UserAddressService;
+import org.springapp.service.users.UserService;
+import org.springapp.util.Constant;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.lang.RandomStringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(APIName.USERS)
@@ -63,7 +44,7 @@ public class UserAPI extends AbstractBaseController {
 
         if ("".equals(authRequestModel.getUsername()) || "".equals(authRequestModel.getPassword())) {
             // invalid paramaters
-            throw new ApplicationException(APIStatus.INVALID_PARAMETER);
+            throw new RuntimeException("INVALID_PARAMETER");
         } else {
             User userLogin = userService.getUserByEmail(authRequestModel.getUsername(), company_id, Constant.USER_STATUS.ACTIVE.getStatus());
 

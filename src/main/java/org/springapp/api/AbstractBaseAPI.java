@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
-
 import org.springapp.auth.AuthUser;
 import org.springapp.auth.service.CustomUserAuthService;
 import org.springapp.util.Constant;
@@ -37,14 +36,6 @@ public abstract class AbstractBaseAPI {
                 .setDateFormat(new SimpleDateFormat(Constant.API_FORMAT_DATE));
     }
 
-    @Autowired
-    AppConfig appConfig;
-
-    //
-    // Create logger
-    //
-    public final static EventLogManager logger = EventLogManager.getInstance();
-
     //
     // Write object as string using mapper
     //
@@ -55,11 +46,11 @@ public abstract class AbstractBaseAPI {
 
         } catch (JsonProcessingException ex) {
             // Throw our exception
-            throw new ApplicationException(ex.getCause());
+            throw new RuntimeException(ex.getCause());
         }
     }
 
-    protected String writeObjectToJsonRemoveNullProperty(Object obj) throws ApplicationException
+    protected String writeObjectToJsonRemoveNullProperty(Object obj) throws RuntimeException
     {    
          try {
              // Set setting remove NULL property
@@ -72,15 +63,10 @@ public abstract class AbstractBaseAPI {
 
         } catch (JsonProcessingException ex) {
             // Throw our exception
-            throw new ApplicationException(ex.getCause());
+            throw new RuntimeException(ex.getCause());
         }        
     }
     
-    //
-    // Reponse status
-    //
-    public StatusResponse statusResponse = null;
-
     // get current user authenticated
 //    public User getcurrentUser() {
 ////        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
