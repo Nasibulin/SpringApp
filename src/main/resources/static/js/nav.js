@@ -1,10 +1,6 @@
-angular.module('navCtrl', [])
-    .config(['$compileProvider', function ($compileProvider) {
-        $compileProvider.debugInfoEnabled(false);
-    }])
+angular.module('myapp.nav', [])
     .constant('topmenuUrl', '/menu/2')
     .constant('submenuUrl', '/menu/3')
-    // Controller Part
     .controller('navCtrl', function ($scope, $http, topmenuUrl, submenuUrl) {
 
         $scope.topmenu = [];
@@ -24,7 +20,7 @@ angular.module('navCtrl', [])
 
         (function () {
 
-            function loadScript(url) {
+            function loadScript(url, callback) {
 
                 var script = document.createElement('script')
                 script.type = 'text/javascript';

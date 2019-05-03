@@ -1,80 +1,65 @@
-angular.module('myapp', ['ngRoute', 'ngCookies', 'myapp.products', 'myapp.cart', 'myapp.cartview'])
-    .config(function ($routeProvider, $locationProvider) {
-        $routeProvider.when('/',
-            {
+'use strict';
+
+angular.module('myapp', [
+    'ui.router',
+    'ngCookies',
+    'myapp.products',
+    'myapp.cart',
+    'myapp.cartview',
+    'myapp.nav'
+])// Define all route of our app
+    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise("/index");
+        // For authentication, but for now just Mock demo.
+        // Will be implement in near function
+        $stateProvider
+            .state('master', {
+                templateUrl: 'fragments/master.html',
+                abstract: true,
+                // controller: ['$scope', 'Session', '$state', function ($scope, Session, $state) {
+                //     Session.init().then(function () {
+                //         // binding session user
+                //         $scope.user = Session.getUser();
+                //         $scope.isLogin = Session.isLogin();
+                //         $scope.username = $scope.user.firstName + ' ' + $scope.user.lastName;
+                //
+                //         $scope.logout = function () {
+                //             Session.logout();
+                //             $state.reload();
+                //         };
+                //     }, function () {
+                //         // error handle, show message if necessary
+                //     });
+                // }]
+            })
+            .state('index', {
+                url: '/',
+                // params: {
+                //     search: {
+                //         value: '',
+                //         squash: true
+                //     }
+                // },
+                parent: 'master',
                 templateUrl: 'fragments/banner.html',
-            });
-        $routeProvider.when('/catalog/:id',
-            {
-                templateUrl: '/views/products.html',
+                // controller: 'HomeCtrl'
+            })
+            .state('category-products', {
+                url: '/catalog/:id',
+                parent: 'master',
+                templateUrl: 'views/products.html',
                 controller: 'productCtrl'
-            });
-        $routeProvider.when('/cart',
-            {
-                templateUrl: '/views/cart.html',
+            })
+            .state('cart', {
+                url: '/cart',
+                parent: 'master',
+                templateUrl: 'views/cart.html',
                 controller: 'cartCtrl'
-            });
-        $routeProvider.otherwise({redirectTo: '/'});
+            })
+    }])
+    .config(function ($locationProvider) {
         $locationProvider.html5Mode(true);
     })
     .config(['$compileProvider', function ($compileProvider) {
         $compileProvider.debugInfoEnabled(false);
     }])
-    .constant('topmenuUrl', '/menu/2')
-    .constant('submenuUrl', '/menu/3')
-    // Controller Part
-    .controller('navCtrl', function ($scope, $http, topmenuUrl, submenuUrl) {
-
-        $scope.topmenu = [];
-        $scope.submenu = [];
-
-        loadMenu(topmenuUrl, 'topmenu');
-        loadMenu(submenuUrl, 'submenu');
-
-        (function () {
-
-            function loadScript(url, callback) {
-
-                var script = document.createElement("script")
-                script.type = "text/javascript";
-                script.async = false;
-                script.defer = true;
-
-                if (script.readyState) { //IE
-                    script.onreadystatechange = function () {
-                        if (script.readyState == "loaded" || script.readyState == "complete") {
-                            script.onreadystatechange = null;
-                        }
-                    };
-                } else { //Others
-                    script.onload = function () {
-                        callback();
-                    };
-                }
-
-                script.src = url;
-                document.getElementsByTagName("head")[0].appendChild(script);
-            }
-
-            loadScript("js/jquery-3.3.1.min.js", function () {
-            });
-            loadScript("js/bootstrap4/bootstrap.min.js", function () {
-            });
-            loadScript("js/custom.js", function () {
-            });
-            loadScript("js/jquery.maskedinput.js", function () {
-            });
-            loadScript("js/custom2.js", function () {
-            });
-        })();
-
-
-        function loadMenu(menuurl, param) {
-            $http({
-                method: 'GET',
-                url: menuurl
-            }).then(function (response) {
-                $scope[param] = response.data;
-            })
-        };
-    });
