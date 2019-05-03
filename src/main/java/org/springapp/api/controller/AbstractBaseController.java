@@ -1,6 +1,8 @@
 package org.springapp.api.controller;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.springapp.api.response.util.ResponseUtil;
 import org.springapp.auth.AuthUser;
 import org.springapp.auth.service.CustomUserAuthService;
 import org.springapp.util.Constant;
@@ -11,9 +13,6 @@ public abstract class AbstractBaseController {
     @Autowired
     private CustomUserAuthService userDetailsService;
 
-    @Autowired
-    AppConfig appConfig;
-    
     @Autowired
     protected ResponseUtil responseUtil;
     

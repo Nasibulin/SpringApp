@@ -2,7 +2,12 @@ package org.springapp.api.user;
 
 import org.springapp.api.APIName;
 import org.springapp.api.controller.AbstractBaseController;
+import org.springapp.api.request.model.AuthRequestModel;
+import org.springapp.api.request.model.UserRequestModel;
+import org.springapp.api.response.model.APIResponse;
+import org.springapp.api.response.util.APIStatus;
 import org.springapp.entity.User;
+import org.springapp.entity.UserAddress;
 import org.springapp.entity.UserToken;
 import org.springapp.service.auth.AuthService;
 import org.springapp.service.users.UserAddressService;
@@ -10,12 +15,15 @@ import org.springapp.service.users.UserService;
 import org.springapp.service.users.UserTokenService;
 import org.springapp.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +46,11 @@ public class UserAPI extends AbstractBaseController {
     @Autowired
     private AuthService authService;
 
+    @Bean
+    public PasswordEncoder bcryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @RequestMapping(value = APIName.USERS_LOGIN, method = RequestMethod.POST, produces = APIName.CHARSET)
     public ResponseEntity<APIResponse> login(
             @PathVariable Long company_id,
@@ -48,35 +61,31 @@ public class UserAPI extends AbstractBaseController {
             // invalid paramaters
             throw new RuntimeException("INVALID_PARAMETER");
         } else {
-            User userLogin = userService.getUserByEmail(authRequestModel.getUsername(), company_id, Constant.USER_STATUS.ACTIVE.getStatus());
+            User userLogin = userService.findByEmail(authRequestModel.getUsername());
 
             if (userLogin != null) {
                 String passwordHash = null;
-                try {
-                    passwordHash = MD5Hash.MD5Encrypt(authRequestModel.getPassword() + userLogin.getSalt());
-                } catch (NoSuchAlgorithmException ex) {
-                    throw new RuntimeException("User login encrypt password error", ex);
-                }
+                passwordHash = bcryptPasswordEncoder().encode(authRequestModel.getPassword());
 
-                if (passwordHash.equals(userLogin.getPasswordHash())) {
+                if (passwordHash.equals(userLogin.getRepassword())) {
                     UserToken userToken = authService.createUserToken(userLogin, authRequestModel.isKeepMeLogin());
                     // Create Auth User -> Set to filter config
                     // Perform the security
                     Authentication authentication = new UsernamePasswordAuthenticationToken(
                             userLogin.getEmail(),
-                            userLogin.getPasswordHash()
+                            userLogin.getPassword()
                     );
                     //final Authentication authentication = authenticationManager.authenticate();
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                     return responseUtil.successResponse(userToken.getToken());
                 } else {
                     // wrong password
-                    throw new ApplicationException(APIStatus.ERR_USER_NOT_VALID);
+                    throw new RuntimeException("ERR_USER_NOT_VALID");
                 }
 
             } else {
                 // can't find user by email address in database
-                throw new ApplicationException(APIStatus.ERR_USER_NOT_EXIST);
+                throw new RuntimeException("ERR_USER_NOT_EXIST");
             }
         }
     }
@@ -92,7 +101,7 @@ public class UserAPI extends AbstractBaseController {
             userTokenService.invalidateToken(userToken);
             return responseUtil.successResponse(APIStatus.OK);
         } else {
-            throw new ApplicationException(APIStatus.ERR_UNAUTHORIZED);
+            throw new RuntimeException("ERR_UNAUTHORIZED");
         }
 
     }
@@ -103,7 +112,7 @@ public class UserAPI extends AbstractBaseController {
             @RequestBody UserRequestModel user
     ) {
         // check user already exists
-        User existedUser = userService.getUserByEmail(user.getEmail(), company_id, Constant.STATUS.ACTIVE_STATUS.getValue());
+        User existedUser = userService.findByEmail(user.getEmail());
         if (existedUser == null) {
             // email is valid to create user
             String email = user.getEmail();
@@ -114,195 +123,43 @@ public class UserAPI extends AbstractBaseController {
                 Matcher matcher = pattern.matcher(email);
 
                 if (!matcher.matches()) {
-                    throw new ApplicationException(APIStatus.ERR_INVALID_DATA);
+                    throw new RuntimeException("ERR_INVALID_DATA");
                 }
 
                 User userSignUp = new User();
-                userSignUp.setUserId(UniqueID.getUUID());
-                userSignUp.setCompanyId(company_id);
-                userSignUp.setCreateDate(new Date());
                 userSignUp.setEmail(email);
                 userSignUp.setFirstName(user.getFirstName());
                 userSignUp.setLastName(user.getLastName());
-                userSignUp.setMiddleName(user.getMiddleName());
-                userSignUp.setSalt(UniqueID.getUUID());
-                userSignUp.setRoleId(Constant.USER_ROLE.NORMAL_USER.getRoleId());
-                try {
-//                    String generatedString = RandomStringUtils.randomAlphabetic(6);
-                    String generatedString = "123456";
-                    String password = MD5Hash.MD5Encrypt(generatedString);
-                    userSignUp.setPasswordHash(MD5Hash.MD5Encrypt(password + userSignUp.getSalt()));
-                } catch (NoSuchAlgorithmException ex) {
-                    throw new RuntimeException("Encrypt user password error", ex);
-                }
+//                userSignUp.setRoleId(Constant.USER_ROLE.NORMAL_USER.getRoleId());
+                //                    String generatedString = RandomStringUtils.randomAlphabetic(6);
+                String generatedString = "123456";
+                String password = bcryptPasswordEncoder().encode(generatedString);
+                userSignUp.setPassword(bcryptPasswordEncoder().encode(password));
 
-                userSignUp.setRoleId(Constant.USER_ROLE.NORMAL_USER.getRoleId());
+//                userSignUp.setRoleId(Constant.USER_ROLE.NORMAL_USER.getRoleId());
                 userSignUp.setStatus(Constant.USER_STATUS.ACTIVE.getStatus());
 
-                userService.save(userSignUp);
+                userService.saveUser(userSignUp);
 
                 UserAddress userAddress = new UserAddress();
-                userAddress.setUserId(userSignUp.getUserId());
-                userAddress.setAdress(user.getAddress());
+                userAddress.setUser(userSignUp);
+                userAddress.setAddress(user.getAddress());
                 userAddress.setCity(user.getCity());
                 userAddress.setCountry(user.getCountry());
                 userAddress.setFax(user.getFax());
                 userAddress.setPhone(user.getPhone());
-                userAddress.setStatus(Constant.STATUS.ACTIVE_STATUS.getValue());
+//                userAddress.setStatus(Constant.STATUS.ACTIVE_STATUS.getValue());
                 userAddressService.save(userAddress);
                 // do send mail notify...
                 return responseUtil.successResponse(userSignUp);
             } else {
-                throw new ApplicationException(APIStatus.ERR_INVALID_DATA);
+                throw new RuntimeException("ERR_INVALID_DATA");
             }
 
         } else {
             // notify user already exists
-            throw new ApplicationException(APIStatus.USER_ALREADY_EXIST);
+            throw new RuntimeException("USER_ALREADY_EXIST");
         }
 
-    }
-
-    @RequestMapping(value = APIName.USER_LIST, method = RequestMethod.POST, produces = APIName.CHARSET)
-    public ResponseEntity<APIResponse> getUserList(
-            HttpServletRequest httpRequest,
-            @PathVariable Long company_id,
-            @RequestBody UserListRequestModel request) {
-
-        try {
-            String userId = getAuthUserFromSession(httpRequest).getId();
-            Page<User> users = userService.doFilterSearchSortPagingUser(userId, company_id, request.getSearchKey(), request.getSortCase(), request.getAscSort(), request.getPageSize(), request.getPageNumber());
-            PagingResponseModel finalRes = new PagingResponseModel(users.getContent(), users.getTotalElements(), users.getTotalPages(), users.getNumber());
-            return responseUtil.successResponse(finalRes);
-        } catch (Exception ex) {
-            throw new ApplicationException(APIStatus.ERR_GET_LIST_USERS);
-        }
-
-    }
-
-    @RequestMapping(path = APIName.USER_DETAILS, method = RequestMethod.GET, produces = APIName.CHARSET)
-    public ResponseEntity<APIResponse> getUserDetails(
-            @PathVariable Long company_id,
-            @PathVariable String userId
-    ) {
-
-        // check user already exists
-        User existedUser = userService.getUserByUserIdAndComIdAndStatus(userId, company_id, Constant.USER_STATUS.ACTIVE.getStatus());
-        if (existedUser != null) {
-            UserAddress userAddress = userAddressService.getAddressByUserIdAndStatus(userId, Constant.STATUS.ACTIVE_STATUS.getValue());
-            if (userAddress != null) {
-                UserDetailResponseModel response = new UserDetailResponseModel();
-                response.setUserId(userId);
-                response.setCompanyId(existedUser.getCompanyId());
-                response.setRoleId(existedUser.getRoleId());
-                response.setFirstName(existedUser.getFirstName());
-                response.setLastName(existedUser.getLastName());
-                response.setMiddleName(existedUser.getMiddleName());
-                response.setEmail(existedUser.getEmail());
-                response.setCreateDate(existedUser.getCreateDate());
-                response.setSalt(existedUser.getSalt());
-                response.setPhone(userAddress.getPhone());
-                response.setFax(userAddress.getFax());
-                response.setAddress(userAddress.getAdress());
-                response.setCity(userAddress.getCity());
-                response.setCountry(userAddress.getCountry());
-                return responseUtil.successResponse(response);
-            } else {
-                // notify user already exists
-                throw new ApplicationException(APIStatus.ERR_USER_NOT_FOUND);
-            }
-
-        } else {
-            // notify user already exists
-            throw new ApplicationException(APIStatus.ERR_USER_NOT_FOUND);
-        }
-    }
-
-    @RequestMapping(path = APIName.UPDATE_USER, method = RequestMethod.POST, produces = APIName.CHARSET)
-    public ResponseEntity<APIResponse> updateUser(
-            @PathVariable Long company_id,
-            @RequestBody UserRequestModel user
-    ) {
-
-        // check user already exists
-        User existedUser = userService.getUserByUserIdAndComIdAndStatus(user.getUserId(), company_id, Constant.USER_STATUS.ACTIVE.getStatus());
-        if (existedUser != null) {
-            existedUser.setFirstName(user.getFirstName());
-            existedUser.setLastName(user.getLastName());
-            if (user.getMiddleName() != null && !user.getMiddleName().isEmpty()) {
-                existedUser.setMiddleName(user.getMiddleName());
-            }
-            userService.save(existedUser);
-            UserAddress userAddress = userAddressService.getAddressByUserIdAndStatus(user.getUserId(), Constant.STATUS.ACTIVE_STATUS.getValue());
-            if (userAddress != null) {
-                userAddress.setAdress(user.getAddress());
-                userAddress.setCity(user.getCity());
-                userAddress.setCountry(user.getCountry());
-                userAddress.setFax(user.getFax());
-                userAddress.setPhone(user.getPhone());
-                userAddressService.save(userAddress);
-            } else {
-                throw new ApplicationException(APIStatus.ERR_USER_ADDRESS_NOT_FOUND);
-            }
-            return responseUtil.successResponse(existedUser);
-        } else {
-            // notify user already exists
-            throw new ApplicationException(APIStatus.ERR_USER_NOT_FOUND);
-        }
-    }
-
-    @RequestMapping(path = APIName.DELETE_USER, method = RequestMethod.POST, produces = APIName.CHARSET)
-    public ResponseEntity<APIResponse> deleteUsers(
-            @PathVariable Long company_id,
-            @RequestBody List<String> userIds
-    ) {
-        if (userIds != null && userIds.size() > 0) {
-
-            for (String userId : userIds) {
-                User user = userService.getUserByUserIdAndComIdAndStatus(userId, company_id, Constant.USER_STATUS.ACTIVE.getStatus());
-                if (user != null) {
-                    user.setStatus(Constant.USER_STATUS.INACTIVE.getStatus());
-                    userService.save(user);
-
-                    UserAddress userAddress = userAddressService.getAddressByUserIdAndStatus(userId, Constant.STATUS.ACTIVE_STATUS.getValue());
-                    if (userAddress != null) {
-                        userAddress.setStatus(Constant.STATUS.DELETED_STATUS.getValue());
-                        userAddressService.save(userAddress);
-                    }
-                }
-            }
-            return responseUtil.successResponse("Delete User Successfully");
-        } else {
-            throw new ApplicationException(APIStatus.ERR_BAD_REQUEST);
-        }
-
-    }
-
-    @RequestMapping(path = APIName.CHANGE_PASSWORD_USER, method = RequestMethod.POST, produces = APIName.CHARSET)
-    public ResponseEntity<APIResponse> changePasswordUser(
-            @PathVariable Long company_id,
-            @RequestBody UserChangePasswordModel user
-    ) throws NoSuchAlgorithmException {
-
-        // check user already exists
-        User existedUser = userService.getUserByUserIdAndComIdAndStatus(user.getUserId(), company_id, Constant.USER_STATUS.ACTIVE.getStatus());
-        if (existedUser != null) {
-            String oldHashPassword = MD5Hash.MD5Encrypt(user.getOldPassword() + existedUser.getSalt());
-            if (oldHashPassword.equals(existedUser.getPasswordHash())) {
-                if (user.getNewPassword() != null || !user.getNewPassword().isEmpty()) {
-                    existedUser.setPasswordHash(MD5Hash.MD5Encrypt(user.getNewPassword() + existedUser.getSalt()));
-                    userService.save(existedUser);
-                    return responseUtil.successResponse(existedUser);
-                } else {
-                    throw new ApplicationException(APIStatus.ERR_MISSING_PASSWORD);
-                }
-            } else {
-                throw new ApplicationException(APIStatus.ERR_UNCORRECT_PASSWORD);
-            }
-
-        } else {
-            // notify user already exists
-            throw new ApplicationException(APIStatus.ERR_USER_NOT_FOUND);
-        }
     }
 }

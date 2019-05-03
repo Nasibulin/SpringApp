@@ -1,17 +1,11 @@
-/*
- * Copyright (c) NIT-Software. All Rights Reserved.
- * This software is the confidential and proprietary information of NIT-Software,
- * ("Confidential Information").
- * You shall not disclose such Confidential Information and shall use it only in accordance
- * with the terms of the license agreement you entered into with NIT-Software.
- */
-package com.nitsoft.ecommerce.api.response.util;
+package org.springapp.api.response.util;
 
-import com.nitsoft.ecommerce.api.response.model.APIResponse;
-import com.nitsoft.util.Constant;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.springapp.api.response.model.APIResponse;
+import org.springapp.util.Constant;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 

@@ -1,4 +1,4 @@
-package com.nitsoft.ecommerce.api.response.util;
+package org.springapp.api.response.util;
 
 public enum APIStatus {
 

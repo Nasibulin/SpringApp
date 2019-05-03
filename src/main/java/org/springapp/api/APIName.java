@@ -2,6 +2,10 @@ package org.springapp.api;
 
 public class APIName {
 
+
+    // charset
+    public static final String CHARSET = "application/json;charset=utf-8";
+
     //redirect
     public static final String REDIRECT = "redirect:";
     public static final String INDEX = "/index";
@@ -17,6 +21,7 @@ public class APIName {
     public static final String USERS = "/users";
     public static final String USER_REGISTER = "/register";
     public static final String USERS_LOGIN = "/login";
+    public static final String USERS_LOGOUT = "/logout";
 
     //cart api link
     public static final String CART = "/cart";

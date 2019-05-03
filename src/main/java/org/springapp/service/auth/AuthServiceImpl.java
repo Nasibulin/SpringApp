@@ -1,37 +1,27 @@
-/*
- * Copyright (c) NIT-Software. All Rights Reserved.
- * This software is the confidential and proprietary information of NIT-Software,
- * ("Confidential Information").
- * You shall not disclose such Confidential Information and shall use it only in accordance
- * with the terms of the license agreement you entered into with NIT-Software.
- */
-package com.nitsoft.ecommerce.service.auth;
 
-import com.nitsoft.ecommerce.api.response.model.APIResponse;
-import com.nitsoft.ecommerce.api.response.util.APIStatus;
-import com.nitsoft.ecommerce.auth.AuthUser;
-import com.nitsoft.ecommerce.auth.AuthUserFactory;
-import com.nitsoft.ecommerce.database.model.User;
-import com.nitsoft.ecommerce.database.model.UserToken;
-import com.nitsoft.ecommerce.exception.ApplicationException;
-import com.nitsoft.ecommerce.repository.UserRepository;
-import com.nitsoft.ecommerce.repository.UserTokenRepository;
-import com.nitsoft.ecommerce.service.AbstractBaseService;
-import com.nitsoft.util.Constant;
-import com.nitsoft.util.DateUtil;
-import com.nitsoft.util.UniqueID;
+package org.springapp.service.auth;
+
+
+import java.time.ZoneId;
 import java.util.Date;
+
+import com.google.gson.Gson;
+import org.springapp.auth.AuthUser;
+import org.springapp.auth.AuthUserFactory;
+import org.springapp.entity.User;
+import org.springapp.entity.UserToken;
+import org.springapp.repository.UserRepository;
+import org.springapp.repository.UserTokenRepository;
+import org.springapp.util.Constant;
+import org.springapp.util.UniqueID;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-/**
- *
- * @author Quy Duong
- */
 @Component
-public class AuthServiceImpl extends AbstractBaseService implements AuthService{
-    
+public class AuthServiceImpl implements AuthService {
+
+    private final Gson gson = new Gson();
+
     @Autowired
     UserRepository userRepository;
     
@@ -49,9 +39,9 @@ public class AuthServiceImpl extends AbstractBaseService implements AuthService{
             userToken.setCompanyId(userLogin.getCompanyId());
             userToken.setUserId(userLogin.getUserId());
             Date currentDate = new Date();
-            userToken.setLoginDate(DateUtil.convertToUTC(currentDate));
+            userToken.setLoginDate(Date.from(currentDate.toInstant().atZone(ZoneId.systemDefault()).toInstant()));
             Date expirationDate = keepMeLogin ? new Date(currentDate.getTime() + Constant.DEFAULT_REMEMBER_LOGIN_MILISECONDS) : new Date(currentDate.getTime() + Constant.DEFAULT_SESSION_TIME_OUT);
-            userToken.setExpirationDate(DateUtil.convertToUTC(expirationDate));
+            userToken.setExpirationDate(Date.from(expirationDate.toInstant().atZone(ZoneId.systemDefault()).toInstant()));
             AuthUser authUser = authUserFactory.createAuthUser(userLogin);
             // Set authUser to session data...
             userToken.setSessionData(gson.toJson(authUser));
@@ -59,7 +49,7 @@ public class AuthServiceImpl extends AbstractBaseService implements AuthService{
             return userToken;
         } catch (Exception e) {
             LOGGER.error("Error create User token ", e);
-            throw new ApplicationException(APIStatus.SQL_ERROR);
+            throw new RuntimeException("SQL_ERROR");
         }
     }
 

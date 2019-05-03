@@ -1,19 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.nitsoft.ecommerce.api.response.model;
+
+package org.springapp.api.response.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.nitsoft.ecommerce.api.response.util.APIStatus;
+import org.springapp.api.response.util.APIStatus;
 
-/**
- * Response object
- *
- * @author Admin
- */
 @JsonInclude(value = Include.NON_NULL)
 public class StatusResponse<T> {
     

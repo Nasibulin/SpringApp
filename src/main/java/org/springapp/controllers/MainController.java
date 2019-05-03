@@ -260,13 +260,13 @@ public class MainController {
         }
     }
 
-    @RequestMapping(APIName.USER_LOGIN)
+    @RequestMapping(APIName.USERS_LOGIN)
     public String getLogin(@RequestParam(value = "error", required = false) String error,
                            @RequestParam(value = "logout", required = false) String logout,
                            Model model) {
         model.addAttribute("error", error != null);
         model.addAttribute("logout", logout != null);
-        return APIName.USER_LOGIN;
+        return APIName.USERS_LOGIN;
     }
 
     @RequestMapping(value = APIName.CATEGORIES_ID, //
