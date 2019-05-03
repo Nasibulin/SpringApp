@@ -2,6 +2,7 @@ angular.module('myapp')
     .factory('ShoppingCart', ['$cookies', function ($cookies) {
 
         var items = $cookies.getObject('cartItems');
+
         return {
             addProduct: function (id, partnumber, name, price) {
                 // check product already exists in cart
@@ -10,10 +11,7 @@ angular.module('myapp')
                     if (items && angular.isArray(items)) {
                         for (var i = 0; i < items.length; i++) {
                             if (items[i].id === id) {
-                                // if there are quantity parameter then update quantity for product
                                 items[i].count++;
-                                // update cookie
-                                // $cookies.putObject('cartItems', items);
                                 return;
                             }
                         }
@@ -31,28 +29,8 @@ angular.module('myapp')
                         price: price
                     };
                     items.push(item);
-                    // console.log(items);
-                    // save into cookie
-                    // $cookies.putObject('cartItems', items);
                 }
             },
-            // addProduct: function (id, partnumber, name, price) {
-            //     var addedToExistingItem = false;
-            //     for (var i = 0; i < items.length; i++) {
-            //         if (items[i].id == id) {
-            //             items[i].count++;
-            //             addedToExistingItem = true;
-            //             // $cookies.putObject('cartItems', items);
-            //             break;
-            //         }
-            //     }
-            //     if (!addedToExistingItem) {
-            //         items.push({
-            //             count: 1, id: id, partnumber: partnumber, name: name, price: price
-            //         });
-            //         // $cookies.putObject('cartItems', items);
-            //     }
-            // },
 
             removeProduct: function (id) {
                 for (var i = 0; i < items.length; i++) {
@@ -70,7 +48,8 @@ angular.module('myapp')
                     $cookies.putObject('cartItems', items);
                     return items;
                 }
-                else {items = [];
+                else {
+                    items = [];
                     $cookies.putObject('cartItems', items);
                     return items;
                 }
@@ -105,7 +84,6 @@ angular.module('myapp')
                     }
                     return total;
                 }
-                // $state.reload();
             }]
         };
     }]);

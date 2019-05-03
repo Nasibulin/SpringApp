@@ -117,45 +117,45 @@ public class MainController {
         return APIName.SEARCH;
     }
 
-    @GetMapping(APIName.CART)
-    public String getCart(@ModelAttribute("cart") Cart cart, Model model) {
+//    @GetMapping(APIName.CART)
+//    public String getCart(@ModelAttribute("cart") Cart cart, Model model) {
+//
+//        return APIName.CART;
+//    }
 
-        return APIName.CART;
-    }
+//    @PostMapping(APIName.CART)
+//    public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute("cart") Cart cart,
+//                            Model model, HttpServletRequest request) {
+//        CartItem cartItem = new CartItem();
+//        cartItem.setId(id);
+//        cartItem.setProduct(productService.getProductById(id));
+//        cartItem.setQuantity(amount);
+//        cart.addCartItems(cartItem);
+//        model.addAttribute("cart", cart);
+//        String referer = request.getHeader("Referer");
+//        return APIName.REDIRECT.concat(referer);
+//    }
 
-    @PostMapping(APIName.CART)
-    public String addToCart(@RequestParam Integer id, @RequestParam Integer amount, @ModelAttribute("cart") Cart cart,
-                            Model model, HttpServletRequest request) {
-        CartItem cartItem = new CartItem();
-        cartItem.setId(id);
-        cartItem.setProduct(productService.getProductById(id));
-        cartItem.setQuantity(amount);
-        cart.addCartItems(cartItem);
-        model.addAttribute("cart", cart);
-        String referer = request.getHeader("Referer");
-        return APIName.REDIRECT.concat(referer);
-    }
+//    @PostMapping(APIName.CARTITEM_DELETE_BY_PRODUCT_ID)
+//    public String deleteFromCart(@RequestParam Integer id, @ModelAttribute("cart") Cart cart,
+//                                 Model model, HttpServletRequest request) {
+//
+//        CartItem cartItem = new CartItem();
+//        cartItem.setId(id);
+//        cartItem.setProduct(productService.getProductById(id));
+//        cartItem.setQuantity(1);
+//        cart.getCartItems().remove(cartItem);
+//        model.addAttribute("cart", cart);
+//
+//        String referer = request.getHeader("Referer");
+//        return APIName.REDIRECT.concat(referer);
+//    }
 
-    @PostMapping(APIName.CARTITEM_DELETE_BY_PRODUCT_ID)
-    public String deleteFromCart(@RequestParam Integer id, @ModelAttribute("cart") Cart cart,
-                                 Model model, HttpServletRequest request) {
-
-        CartItem cartItem = new CartItem();
-        cartItem.setId(id);
-        cartItem.setProduct(productService.getProductById(id));
-        cartItem.setQuantity(1);
-        cart.getCartItems().remove(cartItem);
-        model.addAttribute("cart", cart);
-
-        String referer = request.getHeader("Referer");
-        return APIName.REDIRECT.concat(referer);
-    }
-
-    @PostMapping(APIName.CART_CLEAR)
-    public String clearCart(@ModelAttribute("cart") Cart cart, Model model) {
-        cart.clearCart();
-        return APIName.CART;
-    }
+//    @PostMapping(APIName.CART_CLEAR)
+//    public String clearCart(@ModelAttribute("cart") Cart cart, Model model) {
+//        cart.clearCart();
+//        return APIName.CART;
+//    }
 
     @GetMapping(APIName.CART_CHECKOUT)
     public String getCheck(@ModelAttribute("customer") User customer, Model model) {
