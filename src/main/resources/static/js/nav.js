@@ -12,6 +12,15 @@ angular.module('navCtrl', [])
 
         loadMenu(topmenuUrl, 'topmenu');
         loadMenu(submenuUrl, 'submenu');
+        function loadMenu(menuurl, param) {
+            $http({
+                method: 'GET',
+                url: menuurl
+            }).then(function (response) {
+                $scope[param] = response.data;
+            })
+        };
+
 
         (function () {
 
@@ -20,7 +29,7 @@ angular.module('navCtrl', [])
                 var script = document.createElement('script')
                 script.type = 'text/javascript';
                 script.async = false;
-                script.defer = true;
+                script.defer = false;
 
                 if (script.readyState) { //IE
                     script.onreadystatechange = function () {
@@ -50,13 +59,4 @@ angular.module('navCtrl', [])
             });
         })();
 
-
-        function loadMenu(menuurl, param) {
-            $http({
-                method: 'GET',
-                url: menuurl
-            }).then(function (response) {
-                $scope[param] = response.data;
-            })
-        };
     });
