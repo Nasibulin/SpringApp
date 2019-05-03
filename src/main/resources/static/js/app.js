@@ -5,7 +5,6 @@ angular.module('myapp', [
     'ngCookies',
     'myapp.products',
     'myapp.cart',
-    'myapp.cartview',
     'myapp.nav'
 ])// Define all route of our app
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {

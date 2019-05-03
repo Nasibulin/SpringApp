@@ -1,5 +1,5 @@
 angular.module('myapp.products', [])
-    .controller('productCtrl', function ($scope, $state, $http, $stateParams, cart) {
+    .controller('productCtrl', ['$scope', '$state', '$http', '$stateParams', 'ShoppingCart', function ($scope, $state, $http, $stateParams, cart) {
 
         var productsUrl = '/categories/'+$stateParams.id+'/products';
         $scope.products = [];
@@ -22,4 +22,4 @@ angular.module('myapp.products', [])
         $scope.removeProductFromCart = function (product) {
             cart.removeProduct(product.id);
         }
-    });
+    }]);

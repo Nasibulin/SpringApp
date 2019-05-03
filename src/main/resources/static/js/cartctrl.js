@@ -1,5 +1,5 @@
-angular.module('myapp.cartview', [])
-    .controller('cartCtrl', function ($scope, cart) {
+angular.module('myapp.cart', [])
+    .controller('cartCtrl', ['$scope', 'ShoppingCart', '$state', function ($scope, cart, $state) {
 
         $scope.items = cart.getProducts();
         $scope.total = 0;
@@ -16,8 +16,8 @@ angular.module('myapp.cartview', [])
         };
 
         $scope.clearCart = function () {
-            cart.getProducts().length = 0;
+            $scope.items.length = 0;
             cart.clear();
         };
 
-    });
+    }]);
