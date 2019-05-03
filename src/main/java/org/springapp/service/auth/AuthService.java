@@ -1,19 +1,8 @@
-/*
- * Copyright (c) NIT-Software. All Rights Reserved.
- * This software is the confidential and proprietary information of NIT-Software,
- * ("Confidential Information").
- * You shall not disclose such Confidential Information and shall use it only in accordance
- * with the terms of the license agreement you entered into with NIT-Software.
- */
-package com.nitsoft.ecommerce.service.auth;
+package org.springapp.service.auth;
 
-import com.nitsoft.ecommerce.database.model.User;
-import com.nitsoft.ecommerce.database.model.UserToken;
+import org.springapp.entity.User;
+import org.springapp.entity.UserToken;
 
-/**
- *
- * @author Quy Duong
- */
 public interface AuthService {
     
     public User getUserByEmailAndCompanyIdAndStatus (String email, Long companyId, int status);

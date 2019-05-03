@@ -1,12 +1,6 @@
 
 package org.springapp.api.request.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-
 public class ListProductModel {
     private long categoryId;
     private long attributeId;
