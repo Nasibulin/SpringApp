@@ -5,7 +5,8 @@ angular.module('myapp', [
     'ngCookies',
     'myapp.products',
     'myapp.cart',
-    'myapp.nav'
+    'myapp.nav',
+    'myapp.master'
 ])// Define all route of our app
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/index");
@@ -15,6 +16,7 @@ angular.module('myapp', [
             .state('master', {
                 templateUrl: 'fragments/master.html',
                 abstract: true,
+                controller: 'masterCtrl'
                 // controller: ['$scope', 'Session', '$state', function ($scope, Session, $state) {
                 //     Session.init().then(function () {
                 //         // binding session user

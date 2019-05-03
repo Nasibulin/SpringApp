@@ -2,7 +2,7 @@ angular.module('myapp.cart', [])
     .controller('cartCtrl', ['$scope', 'ShoppingCart', '$state', function ($scope, cart, $state) {
 
         $scope.items = cart.getProducts();
-        $scope.total = 0;
+        // $scope.total = 0;
         $scope.total = function () {
             var total = 0;
             for (var i = 0; i < $scope.items.length; i++) {

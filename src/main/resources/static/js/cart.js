@@ -67,6 +67,9 @@ angular.module('myapp')
 
             getProducts: function () {
                 items = $cookies.getObject('cartItems');
+                // items = [{count: 1, id: 5960, partnumber: "7600-SIP-600", name: "Cisco 7600 Series SPA Interface Processor-600", price: 112500},
+                // {count: 1, id: 5961, partnumber: "7600-SIP-600=", name: "Cisco 7600 Series SPA Interface Processor-600", price: 112500},
+                // {count: 1, id: 5964, partnumber: "SPA-OC192POS-XFP=", name: "1-port OC192/STM64 POS/RPR XFP Optics", price: 125000}]
                 return items;
                 // return cartData;
             },
@@ -82,10 +85,10 @@ angular.module('myapp')
         return {
             restrict: "E",
             templateUrl: "views/cartSummary.html",
-            controller: ['$scope', '$state', 'ShoppingCart',  function ($scope, $state, cart) {
+            controller: ['$scope', '$state', 'ShoppingCart', function ($scope, $state, cart) {
 
                 var items = cart.getProducts();
-
+                console.log(items);
                 $scope.total = function () {
                     var total = 0;
                     for (var i = 0; i < items.length; i++) {
@@ -101,6 +104,7 @@ angular.module('myapp')
                     }
                     return total;
                 }
+                // $state.reload();
             }]
         };
     }]);

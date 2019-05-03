@@ -1,7 +1,7 @@
 angular.module('myapp.products', [])
     .controller('productCtrl', ['$scope', '$state', '$http', '$stateParams', 'ShoppingCart', function ($scope, $state, $http, $stateParams, cart) {
 
-        var productsUrl = '/categories/'+$stateParams.id+'/products';
+        var productsUrl = '/categories/' + $stateParams.id + '/products';
         $scope.products = [];
 
         loadProducts();
@@ -18,8 +18,10 @@ angular.module('myapp.products', [])
         $scope.addProductToCart = function (product) {
             // cart.addProduct(product.id, product.partNumber, product.description, product.price);
             cart.addProduct(product.id, product.partNumber, product.description, product.price);
+            // $state.reload();
         }
         $scope.removeProductFromCart = function (product) {
             cart.removeProduct(product.id);
+            // $state.reload();
         }
     }]);
