@@ -50,7 +50,7 @@ public class MainController {
     private UserAddressService userAddressService;
     @Autowired
     private AuthUserDetailsService authUserDetailsService;
-    private AuthUser guest;
+    private AuthUser customer;
 
     @ModelAttribute("cart")
     public Cart cart() {
@@ -64,7 +64,7 @@ public class MainController {
 
     @PostConstruct
     public void init() {
-        guest = (AuthUser) authUserDetailsService.loadUserByUsername("guest@gmail.com");
+        customer = (AuthUser) authUserDetailsService.loadUserByUsername("denzel@gmail.com");
     }
 
 
@@ -80,7 +80,7 @@ public class MainController {
             model.addAttribute("principal", authUser);
             model.addAttribute("customer", customer);
         } catch (ClassCastException ex) {
-            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(guest));
+            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(customer));
         }
 
     }
@@ -90,7 +90,7 @@ public class MainController {
 //        return APIName.INDEX;
 //    }
 
-    @RequestMapping(value = "/menu/{level}", //
+    @RequestMapping(value = APIName.MENU, //
             method = RequestMethod.GET, //
             produces = { MediaType.APPLICATION_JSON_VALUE, //
                     MediaType.APPLICATION_XML_VALUE })
@@ -165,11 +165,11 @@ public class MainController {
     }
 
     @GetMapping(APIName.ORDERS)
-    public String getOrders(@ModelAttribute("customer") User customer, Model model) {
+    public Set<Order> getOrders(@ModelAttribute("customer") User customer, Model model) {
         Set<Order> orderSet = orderService.findAllByUserOrderByIdAsc(customer);
-        model.addAttribute("orderset", orderSet);
-        model.addAttribute("orderstotal", orderSet.stream().map(i -> i.getOrderTotal()).reduce(BigDecimal.ZERO, BigDecimal::add));
-        return APIName.ORDERS;
+//        model.addAttribute("orderset", orderSet);
+//        model.addAttribute("orderstotal", orderSet.stream().map(i -> i.getOrderTotal()).reduce(BigDecimal.ZERO, BigDecimal::add));
+        return orderSet;
     }
 
     @GetMapping(APIName.ORDERS_DETAIL_BY_ID)

@@ -1,0 +1,53 @@
+<div ng-controller="ordersCtrl">
+		<!-- Orders -->
+		<div class="cart_section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1">
+						<div class="cart_container">
+							<div class="cart_title">Orders</div>
+							<div class="cart_items">
+								<ul class="cart_list">
+									<li class="cart_item clearfix">
+															
+										<table class="table table-borderless table-hover horizontal-align">
+										<thead>
+											<th class="cart_item_title" style="width: 20%">#Order</th>
+											<th class="cart_item_title" style="width: 58%">Date</th>
+											<th class="cart_item_title" style="width: 58%">Status</th>
+											<th class="cart_item_title" style="width: 4%">Count</th>
+											<th class="cart_item_title" style="width: 4%">Quantity</th>
+											<th class="cart_item_title" style="width: 4%">OrderTotal</th>
+										</thead>
+										<tbody>
+										<tr ng-repeat="order in orders" >
+											<td><a href="/order/{{order.id}}"><span class="cart_item_text">{{order.id}}</span></a></td>
+											<td class="cart_item_text" ng-bind="order.createdAt| date:'dd/MM/yyyy hh:mm'">{{order.createdAt}}</td>
+											<td class="cart_item_text">{{order.status}}</td>
+											<td class="cart_item_text">{{order.itemsCount}}</td>
+											<td class="cart_item_text">{{order.itemsQuantity}}</td>
+											<td class="cart_item_total">{{order.orderTotal}}</td>
+										</tr>
+										</tbody>
+										
+										</table>
+
+										<!-- </div> -->
+									</li>
+								</ul>
+							</div>
+							
+							<!-- Orders Total -->
+							<div class="order_total">
+								<div class="order_total_content text-md-right">
+									<div class="order_total_title">Orders Total:</div>
+									<div class="order_total_amount">{{getTotal()}}</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

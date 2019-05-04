@@ -1,6 +1,8 @@
 package org.springapp.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -29,6 +31,7 @@ public class OrderDetail implements Serializable {
         this.id = id;
     }
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "orders_id")
     public Order getOrder() {

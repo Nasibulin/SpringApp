@@ -36,6 +36,8 @@ angular.module('myapp.master', [])
             });
             loadScript('js/custom2.js', function () {
             });
+            // loadScript('js/lodash.js', function () {
+            // });
         })();
 
 

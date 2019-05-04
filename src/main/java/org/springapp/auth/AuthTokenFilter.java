@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springapp.auth.service.AuthUserDetailsService;
 import org.springapp.auth.service.CustomUserAuthService;
 import org.springapp.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
     @Autowired
     private CustomUserAuthService userAuthService;
+
+    @Autowired
+    private AuthUserDetailsService authUserDetailsService;
 
     /**
      * Do filter all request, if any request don't have token => though error =>
@@ -41,7 +45,9 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         if (authToken != null) {
             try {
                 // try to load sessio
-                AuthUser user = userAuthService.loadUserByAccessToken(authToken);
+//                AuthUser user = userAuthService.loadUserByAccessToken(authToken); temporary comment
+                AuthUser user = (AuthUser) authUserDetailsService.loadUserByUsername("denzel@gmail.com");
+
                 if (user != null) {
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

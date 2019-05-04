@@ -1,7 +1,7 @@
 angular.module('myapp.products', [])
     .controller('productCtrl', ['$scope', '$state', '$http', '$stateParams', 'ShoppingCart', function ($scope, $state, $http, $stateParams, cart) {
 
-        var productsUrl = '/categories/' + $stateParams.id + '/products';
+        var productsUrl = '/api/categories/' + $stateParams.id + '/products';
         $scope.products = [];
 
         loadProducts();

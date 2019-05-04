@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // we don't need CSRF because our token is invulnerable
                 .csrf().disable()
                 // don't create session
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS).and()
                 .authorizeRequests()
                         // Allow access public resource
                 .antMatchers(
@@ -39,9 +39,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/categories/**",
                         "/catalog/**",
                         "/search/**",
-                        "/cart/**",
+//                        "/cart/**",
                         "/register/**",
-                        "/order/**",
+//                        "/order/**",
                         "/images/**",
                         "/styles/**",
                 "/plugins/**", "/css/**", "/js/**"
@@ -49,10 +49,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.OPTIONS, "/categories/**").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/cart/**").permitAll()
-                .antMatchers("/orders/**").permitAll()
+                .antMatchers("/api/orders/**").permitAll()
                 .antMatchers("/register").permitAll()
-                .antMatchers("/checkout/**").permitAll()
-                .antMatchers("/order/**").permitAll()
+                .antMatchers("/api/checkout/**").permitAll()
+                .antMatchers("/api/order/**").permitAll()
                 .anyRequest().authenticated();
 
     }

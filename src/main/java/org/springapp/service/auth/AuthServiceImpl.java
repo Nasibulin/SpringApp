@@ -36,8 +36,8 @@ public class AuthServiceImpl implements AuthService {
         try {
             UserToken userToken = new UserToken();
             userToken.setToken(UniqueID.getUUID());
-            userToken.setCompanyId(userLogin.getCompanyId());
-            userToken.setUserId(userLogin.getUserId());
+//            userToken.setCompanyId(userLogin.getCompanyId());
+            userToken.setUserId(userLogin.getUserId().toString());
             Date currentDate = new Date();
             userToken.setLoginDate(Date.from(currentDate.toInstant().atZone(ZoneId.systemDefault()).toInstant()));
             Date expirationDate = keepMeLogin ? new Date(currentDate.getTime() + Constant.DEFAULT_REMEMBER_LOGIN_MILISECONDS) : new Date(currentDate.getTime() + Constant.DEFAULT_SESSION_TIME_OUT);
@@ -48,24 +48,24 @@ public class AuthServiceImpl implements AuthService {
             userTokenRepository.save(userToken);
             return userToken;
         } catch (Exception e) {
-            LOGGER.error("Error create User token ", e);
+//            LOGGER.error("Error create User token ", e);
             throw new RuntimeException("SQL_ERROR");
         }
     }
 
     @Override
     public User getUserByEmailAndCompanyIdAndStatus(String email, Long companyId, int status) {
-        return userRepository.findByEmailAndCompanyIdAndStatus(email, companyId, Constant.USER_STATUS.ACTIVE.getStatus());
+        return userRepository.findByEmail(email);
     }
 
     @Override
     public User getUserByUserIdAndCompanyIdAndStatus(String userId, Long companyId, int status) {
-        return userRepository.findByUserIdAndCompanyIdAndStatus(userId ,companyId, Constant.USER_STATUS.ACTIVE.getStatus());
+        return userRepository.findByUserIdEquals(Integer.parseInt(userId));
     }
 
     @Override
     public UserToken getUserTokenById(String id) {
-        return userTokenRepository.findOne(id);
+        return userTokenRepository.findById(id).orElse(null);
     }
 
     @Override

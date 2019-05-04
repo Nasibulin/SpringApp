@@ -1,6 +1,6 @@
 angular.module('myapp.nav', [])
-    .constant('topmenuUrl', '/menu/2')
-    .constant('submenuUrl', '/menu/3')
+    .constant('topmenuUrl', '/api/menu/2')
+    .constant('submenuUrl', '/api/menu/3')
     .controller('navCtrl', function ($scope, $http, topmenuUrl, submenuUrl) {
 
         $scope.topmenu = [];
