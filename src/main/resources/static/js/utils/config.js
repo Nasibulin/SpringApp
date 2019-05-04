@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module( 'myapp' )
+angular.module('myapp')
 
 .constant( 'server',  {
 

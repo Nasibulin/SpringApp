@@ -10,24 +10,19 @@ public class UserToken implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @Column(name = "token")
+
     private String token;
 
-    @Column(name = "users_user_id")
     private Integer userId;
 
-    @Column(name = "login_date")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date loginDate;
 
-    @Column(name = "expiration_date")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date expirationDate;
 
-    @Column(name = "session_data")
     private String sessionData;
 
+    @Id
+    @Column(name = "token")
     public String getToken() {
         return token;
     }
@@ -35,7 +30,7 @@ public class UserToken implements Serializable {
     public void setToken(String token) {
         this.token = token;
     }
-
+    @Column(name = "users_user_id")
     public Integer getUserId() {
         return userId;
     }
@@ -43,7 +38,8 @@ public class UserToken implements Serializable {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
-
+    @Column(name = "login_date")
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getLoginDate() {
         return loginDate;
     }
@@ -52,6 +48,8 @@ public class UserToken implements Serializable {
         this.loginDate = loginDate;
     }
 
+    @Column(name = "expiration_date")
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getExpirationDate() {
         return expirationDate;
     }
@@ -60,6 +58,7 @@ public class UserToken implements Serializable {
         this.expirationDate = expirationDate;
     }
 
+    @Column(name = "session_data")
     public String getSessionData() {
         return sessionData;
     }

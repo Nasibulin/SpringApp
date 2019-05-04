@@ -55,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/fragments/**",
                         "/views/**",
 //                        "/menu/**",
-                        "/categories/**",
+                        "/api/categories/**",
                         "/catalog/**",
                         "/search/**",
 //                        "/cart/**",

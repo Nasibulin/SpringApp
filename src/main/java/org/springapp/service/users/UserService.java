@@ -24,7 +24,7 @@ public class UserService {
         return userRepository.save(users);
     }
 
-    public User getUserByUserIdAndComIdAndStatus(Integer userId) {
+    public User getUserByUserId(Integer userId) {
         return userRepository.findByUserIdEquals(userId);
     }
 
