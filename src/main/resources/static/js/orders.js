@@ -15,7 +15,6 @@ angular.module('myapp.orders', [])
                 $scope.orders = response.data;
                 console.log($scope.orders);
                 _.map($scope.orders, function (item) {
-                    console.log(item);
                     switch (item.status) {
                         case 0:
                             item.status = "Pending";
@@ -31,13 +30,12 @@ angular.module('myapp.orders', [])
                             break;
                     }
                 });
-                console.log($scope.orders);
             });
         };
 
-        $scope.getTotal = function(){
+        $scope.getTotal = function () {
             var total = 0;
-            for(var i = 0; i < $scope.orders.length; i++){
+            for (var i = 0; i < $scope.orders.length; i++) {
                 var order = $scope.orders[i];
                 total += order.orderTotal;
             }
