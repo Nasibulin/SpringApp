@@ -1,7 +1,7 @@
 package org.springapp.util;
 
 import org.springapp.entity.User;
-import org.springapp.service.users.UserService;
+import org.springapp.service.users.UserServiceIf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -11,7 +11,7 @@ import org.springframework.validation.Validator;
 public class UserValidator implements Validator {
 
     @Autowired
-    private UserService userService;
+    private UserServiceIf userServiceIf;
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -23,7 +23,7 @@ public class UserValidator implements Validator {
 
         User user = (User) target;
 
-        if (userService.findByEmail(user.getEmail()) != null) {
+        if (userServiceIf.findByEmail(user.getEmail()) != null) {
             errors
                     .rejectValue("email", "error.user",
                                  Constant.ParamError.USER_EMAIL_ALREADY_EXIST.getDesc());

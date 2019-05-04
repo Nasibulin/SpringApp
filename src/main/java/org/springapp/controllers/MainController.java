@@ -2,7 +2,6 @@ package org.springapp.controllers;
 
 import org.springapp.api.APIName;
 import org.springapp.auth.AuthUser;
-import org.springapp.auth.UserAuthentication;
 import org.springapp.auth.service.AuthUserDetailsService;
 import org.springapp.entity.*;
 import org.springapp.service.categories.CategoryService;
@@ -10,23 +9,18 @@ import org.springapp.service.orders.OrderService;
 import org.springapp.service.products.ProductService;
 import org.springapp.service.roles.RoleService;
 import org.springapp.service.users.UserAddressService;
-import org.springapp.service.users.UserService;
+import org.springapp.service.users.UserServiceIf;
 import org.springapp.util.Constant;
 import org.springapp.util.StringUtil;
 import org.springapp.util.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.math.BigDecimal;
 import java.util.*;
 
 
@@ -41,7 +35,7 @@ public class MainController {
     @Autowired
     private ProductService productService;
     @Autowired
-    private UserService userService;
+    private UserServiceIf userService;
     @Autowired
     private OrderService orderService;
     @Autowired

@@ -2,10 +2,6 @@
 package org.springapp.service.auth;
 
 
-import java.time.ZoneId;
-import java.util.Date;
-
-import com.google.gson.Gson;
 import org.springapp.auth.AuthUser;
 import org.springapp.auth.AuthUserFactory;
 import org.springapp.entity.User;
@@ -18,6 +14,8 @@ import org.springapp.util.DateUtil;
 import org.springapp.util.UniqueID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 @Component
 public class AuthServiceImpl extends AbstractBaseService implements AuthService {
@@ -37,7 +35,7 @@ public class AuthServiceImpl extends AbstractBaseService implements AuthService 
             UserToken userToken = new UserToken();
             userToken.setToken(UniqueID.getUUID());
 //            userToken.setCompanyId(userLogin.getCompanyId());
-            userToken.setUserId(userLogin.getUserId().toString());
+            userToken.setUserId(userLogin.getUserId());
             Date currentDate = new Date();
             userToken.setLoginDate(DateUtil.convertToUTC(currentDate));
             Date expirationDate = keepMeLogin ? new Date(currentDate.getTime() + Constant.DEFAULT_REMEMBER_LOGIN_MILISECONDS) : new Date(currentDate.getTime() + Constant.DEFAULT_SESSION_TIME_OUT);
@@ -54,13 +52,13 @@ public class AuthServiceImpl extends AbstractBaseService implements AuthService 
     }
 
     @Override
-    public User getUserByEmailAndCompanyIdAndStatus(String email, Long companyId, int status) {
+    public User getUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
     @Override
-    public User getUserByUserIdAndCompanyIdAndStatus(String userId, Long companyId, int status) {
-        return userRepository.findByUserIdEquals(Integer.parseInt(userId));
+    public User getUserByUserId(Integer userId) {
+        return userRepository.findByUserIdEquals(userId);
     }
 
     @Override

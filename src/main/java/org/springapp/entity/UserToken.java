@@ -15,7 +15,7 @@ public class UserToken implements Serializable {
     private String token;
 
     @Column(name = "users_user_id")
-    private String userId;
+    private Integer userId;
 
     @Column(name = "login_date")
     @Temporal(TemporalType.TIMESTAMP)
@@ -36,11 +36,11 @@ public class UserToken implements Serializable {
         this.token = token;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

@@ -5,11 +5,11 @@ import org.springapp.entity.UserToken;
 
 public interface AuthService {
     
-    public User getUserByEmailAndCompanyIdAndStatus (String email, Long companyId, int status);
+    public User getUserByEmail (String email);
 
     public UserToken createUserToken(User adminUser, boolean keepMeLogin);
     
-    public User getUserByUserIdAndCompanyIdAndStatus (String userId, Long companyId, int status);
+    public User getUserByUserId (Integer userId);
     
     public UserToken getUserTokenById (String id);
     

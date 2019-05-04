@@ -11,7 +11,7 @@ import org.springapp.entity.UserAddress;
 import org.springapp.entity.UserToken;
 import org.springapp.service.auth.AuthService;
 import org.springapp.service.users.UserAddressService;
-import org.springapp.service.users.UserService;
+import org.springapp.service.users.UserServiceIf;
 import org.springapp.service.users.UserTokenService;
 import org.springapp.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ import java.util.regex.Pattern;
 public class UserAPI extends AbstractBaseController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceIf userServiceIf;
     @Autowired
     private UserTokenService userTokenService;
     @Autowired
@@ -58,7 +58,7 @@ public class UserAPI extends AbstractBaseController {
             // invalid paramaters
             throw new RuntimeException("INVALID_PARAMETER");
         } else {
-            User userLogin = userService.findByEmail(authRequestModel.getUsername());
+            User userLogin = userServiceIf.findByEmail(authRequestModel.getUsername());
 
             if (userLogin != null) {
 
@@ -106,7 +106,7 @@ public class UserAPI extends AbstractBaseController {
             @RequestBody UserRequestModel user
     ) {
         // check user already exists
-        User existedUser = userService.findByEmail(user.getEmail());
+        User existedUser = userServiceIf.findByEmail(user.getEmail());
         if (existedUser == null) {
             // email is valid to create user
             String email = user.getEmail();
@@ -133,7 +133,7 @@ public class UserAPI extends AbstractBaseController {
 //                userSignUp.setRoleId(Constant.USER_ROLE.NORMAL_USER.getRoleId());
                 userSignUp.setStatus(Constant.USER_STATUS.ACTIVE.getStatus());
 
-                userService.saveUser(userSignUp);
+                userServiceIf.saveUser(userSignUp);
 
                 UserAddress userAddress = new UserAddress();
                 userAddress.setUser(userSignUp);

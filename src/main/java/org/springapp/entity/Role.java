@@ -1,5 +1,6 @@
 package org.springapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class Role implements Serializable, GrantedAuthority {
 
     private Set<User> users;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<User> getUsers() {
         return users;
