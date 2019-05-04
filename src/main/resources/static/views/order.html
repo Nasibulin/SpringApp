@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="eng"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="order">
+		<!-- Order -->
+		<div class="cart_section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1">
+						<div class="cart_container">
+							<div class="cart_title" th:text="'Order #'+${order.id}">Order</div>
+
+
+								<div class="contact_info_container d-flex flex-lg-row flex-column justify-content-between align-items-between">							
+										<!-- Contact Item -->
+										<div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+											<div class="contact_info_image"><i class="fas fa-mobile-alt fa-2x"></i></div>
+											<div class="contact_info_content">
+												<div class="contact_info_title">Phone</div>
+												<div class="contact_info_text" th:text="${order.user.printPhone()}">+38 068 005 3570</div>
+											</div>
+										</div>
+
+										<!-- Contact Item -->
+										<div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+											<div class="contact_info_image"><i class="far fa-envelope fa-2x"></i></div>
+											<div class="contact_info_content">
+												<div class="contact_info_title">Email</div>
+												<div class="contact_info_text" th:text="${order.user.email}">sales@gmail.com</div>
+											</div>
+										</div>
+
+										<!-- Contact Item -->
+										<div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+											<div class="contact_info_image"><i class="fas fa-map-marker-alt fa-2x"></i></div>
+											<div class="contact_info_content">
+												<div class="contact_info_title">Address</div>
+												<div class="contact_info_text" th:text="${order.orderAddress.region}+' '+${order.orderAddress.suffix}">10 Suffolk at Soho, London, UK</div>
+											</div>
+										</div>
+								</div>
+		
+							
+							
+							<div class="cart_items">
+								<ul class="cart_list">
+									<li class="cart_item clearfix">
+															
+										<table class="table table-borderless table-hover horizontal-align">
+										<thead>
+											<th class="cart_item_title" style="width: 20%">#PartNumber</th>
+											<th class="cart_item_title" style="width: 58%">Product</th>
+											<th class="cart_item_title" style="width: 4%">Quantity</th>
+											<th class="cart_item_title" style="width: 4%">Price</th>
+											<th class="cart_item_title" style="width: 4%">Total</th>
+										</thead>
+										<tbody>
+										<tr th:each="item : ${order.orderDetailsSet}">
+											<td class="cart_item_text" th:text="${item.product.partNumber}">#PartNumber</td>
+											<td class="cart_item_text" th:text="${item.product.description}">Product</td>
+											<td class="cart_item_text" th:text="${item.quantity}">Quantity</td>
+											<td class="cart_item_text" th:text="${item.product.price}">Price</td>
+											<td class="cart_item_text" th:text="${item.subTotal}">Total</td>
+										</tr>
+										</tbody>
+										
+										</table>
+
+									</li>
+								</ul>
+							</div>
+							
+							<!-- Order Total -->
+							<div class="order_total">
+								<div class="order_total_content text-md-right">
+									<div class="order_total_title">Order Total:</div>
+									<div class="order_total_amount" th:text="${order.orderTotal}">$2000</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+</html>
