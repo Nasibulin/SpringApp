@@ -13,7 +13,6 @@ angular.module('myapp.orders', [])
                 url: ordersUrl
             }).then(function (response) {
                 $scope.orders = response.data;
-                console.log($scope.orders);
                 _.map($scope.orders, function (item) {
                     switch (item.status) {
                         case 0:
@@ -42,12 +41,4 @@ angular.module('myapp.orders', [])
             return total;
         }
 
-
-        // $scope.addProductToCart = function (product) {
-        //     // cart.addProduct(product.id, product.partNumber, product.description, product.price);
-        //     cart.addProduct(product.id, product.partNumber, product.description, product.price);
-        // }
-        // $scope.removeProductFromCart = function (product) {
-        //     cart.removeProduct(product.id);
-        // }
     }]);

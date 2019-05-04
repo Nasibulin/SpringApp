@@ -1,10 +1,5 @@
 package org.springapp.auth;
 
-import java.io.IOException;
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springapp.auth.service.AuthUserDetailsService;
@@ -17,14 +12,18 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 @Component
 public class AuthTokenFilter extends OncePerRequestFilter {
 
     private final Log LOGGER = LogFactory.getLog(this.getClass());
-
     @Autowired
     private CustomUserAuthService userAuthService;
-
     @Autowired
     private AuthUserDetailsService authUserDetailsService;
 
@@ -45,8 +44,8 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         if (authToken != null) {
             try {
                 // try to load sessio
-//                AuthUser user = userAuthService.loadUserByAccessToken(authToken); temporary comment
-                AuthUser user = (AuthUser) authUserDetailsService.loadUserByUsername("denzel@gmail.com");
+                AuthUser user = userAuthService.loadUserByAccessToken(authToken);
+//                AuthUser user = (AuthUser) authUserDetailsService.loadUserByUsername("denzel@gmail.com");
 
                 if (user != null) {
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());

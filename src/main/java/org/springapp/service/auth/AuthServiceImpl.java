@@ -12,15 +12,15 @@ import org.springapp.entity.User;
 import org.springapp.entity.UserToken;
 import org.springapp.repository.UserRepository;
 import org.springapp.repository.UserTokenRepository;
+import org.springapp.service.AbstractBaseService;
 import org.springapp.util.Constant;
+import org.springapp.util.DateUtil;
 import org.springapp.util.UniqueID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AuthServiceImpl implements AuthService {
-
-    private final Gson gson = new Gson();
+public class AuthServiceImpl extends AbstractBaseService implements AuthService {
 
     @Autowired
     UserRepository userRepository;
@@ -39,9 +39,9 @@ public class AuthServiceImpl implements AuthService {
 //            userToken.setCompanyId(userLogin.getCompanyId());
             userToken.setUserId(userLogin.getUserId().toString());
             Date currentDate = new Date();
-            userToken.setLoginDate(Date.from(currentDate.toInstant().atZone(ZoneId.systemDefault()).toInstant()));
+            userToken.setLoginDate(DateUtil.convertToUTC(currentDate));
             Date expirationDate = keepMeLogin ? new Date(currentDate.getTime() + Constant.DEFAULT_REMEMBER_LOGIN_MILISECONDS) : new Date(currentDate.getTime() + Constant.DEFAULT_SESSION_TIME_OUT);
-            userToken.setExpirationDate(Date.from(expirationDate.toInstant().atZone(ZoneId.systemDefault()).toInstant()));
+            userToken.setExpirationDate(DateUtil.convertToUTC(expirationDate));
             AuthUser authUser = authUserFactory.createAuthUser(userLogin);
             // Set authUser to session data...
             userToken.setSessionData(gson.toJson(authUser));

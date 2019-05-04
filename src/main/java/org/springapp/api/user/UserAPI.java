@@ -16,25 +16,23 @@ import org.springapp.service.users.UserTokenService;
 import org.springapp.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.domain.Page;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Date;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @RestController
-@RequestMapping(APIName.USERS)
+@RequestMapping(value = APIName.USERS, method = RequestMethod.POST)
 public class UserAPI extends AbstractBaseController {
 
     @Autowired
@@ -53,7 +51,6 @@ public class UserAPI extends AbstractBaseController {
 
     @RequestMapping(value = APIName.USERS_LOGIN, method = RequestMethod.POST, produces = APIName.CHARSET)
     public ResponseEntity<APIResponse> login(
-            @PathVariable Long company_id,
             @RequestBody AuthRequestModel authRequestModel
     ) {
 
@@ -64,10 +61,9 @@ public class UserAPI extends AbstractBaseController {
             User userLogin = userService.findByEmail(authRequestModel.getUsername());
 
             if (userLogin != null) {
-                String passwordHash = null;
-                passwordHash = bcryptPasswordEncoder().encode(authRequestModel.getPassword());
 
-                if (passwordHash.equals(userLogin.getRepassword())) {
+                if (bcryptPasswordEncoder().matches(authRequestModel.getPassword(),userLogin.getPassword())) {
+//                if (passwordHash.equals(userLogin.getPassword())) {
                     UserToken userToken = authService.createUserToken(userLogin, authRequestModel.isKeepMeLogin());
                     // Create Auth User -> Set to filter config
                     // Perform the security
@@ -92,9 +88,8 @@ public class UserAPI extends AbstractBaseController {
 
     @RequestMapping(value = APIName.USERS_LOGOUT, method = RequestMethod.POST, produces = APIName.CHARSET)
     public ResponseEntity<APIResponse> logout(
-            @PathVariable Long company_id,
             HttpServletRequest request) {
-        
+
         String authToken = request.getHeader(Constant.HEADER_TOKEN);
         UserToken userToken = userTokenService.getTokenById(authToken);
         if (userToken != null) {
@@ -108,7 +103,6 @@ public class UserAPI extends AbstractBaseController {
 
     @RequestMapping(path = APIName.USER_REGISTER, method = RequestMethod.POST, produces = APIName.CHARSET)
     public ResponseEntity<APIResponse> register(
-            @PathVariable Long company_id,
             @RequestBody UserRequestModel user
     ) {
         // check user already exists
@@ -134,7 +128,7 @@ public class UserAPI extends AbstractBaseController {
                 //                    String generatedString = RandomStringUtils.randomAlphabetic(6);
                 String generatedString = "123456";
                 String password = bcryptPasswordEncoder().encode(generatedString);
-                userSignUp.setPassword(bcryptPasswordEncoder().encode(password));
+                userSignUp.setPassword(password);
 
 //                userSignUp.setRoleId(Constant.USER_ROLE.NORMAL_USER.getRoleId());
                 userSignUp.setStatus(Constant.USER_STATUS.ACTIVE.getStatus());

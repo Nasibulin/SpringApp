@@ -62,28 +62,28 @@ public class MainController {
         return new ArrayList<Product>();
     }
 
-    @PostConstruct
-    public void init() {
-        customer = (AuthUser) authUserDetailsService.loadUserByUsername("denzel@gmail.com");
-    }
+//    @PostConstruct
+//    public void init() {
+//        customer = (AuthUser) authUserDetailsService.loadUserByUsername("denzel@gmail.com");
+//    }
 
 
-    @ModelAttribute
-    public void globalAttributes(@ModelAttribute("cart") Cart cart, Model model) {
-//        List<Category> catname = categoryService.findCatPathById(Constant.CATALOG_LEVEL.ROOT.getLevel());
-//        model.addAttribute("catname", catname);
-//        model.addAttribute("cart", cart);
-        AuthUser user = null;
-        try {
-            AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            User customer = userService.findByEmail(authUser.getUsername());
-            model.addAttribute("principal", authUser);
-            model.addAttribute("customer", customer);
-        } catch (ClassCastException ex) {
-            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(customer));
-        }
-
-    }
+//    @ModelAttribute
+//    public void globalAttributes(@ModelAttribute("cart") Cart cart, Model model) {
+////        List<Category> catname = categoryService.findCatPathById(Constant.CATALOG_LEVEL.ROOT.getLevel());
+////        model.addAttribute("catname", catname);
+////        model.addAttribute("cart", cart);
+//        AuthUser user = null;
+//        try {
+//            AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//            User customer = userService.findByEmail(authUser.getUsername());
+//            model.addAttribute("principal", authUser);
+//            model.addAttribute("customer", customer);
+//        } catch (ClassCastException ex) {
+//            SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(customer));
+//        }
+//
+//    }
 
 //    @GetMapping(APIName.ROOT)
 //    public String getMain(Model model) {
@@ -260,14 +260,14 @@ public class MainController {
         }
     }
 
-    @RequestMapping(APIName.USERS_LOGIN)
-    public String getLogin(@RequestParam(value = "error", required = false) String error,
-                           @RequestParam(value = "logout", required = false) String logout,
-                           Model model) {
-        model.addAttribute("error", error != null);
-        model.addAttribute("logout", logout != null);
-        return APIName.USERS_LOGIN;
-    }
+//    @RequestMapping(APIName.USERS_LOGIN)
+//    public String getLogin(@RequestParam(value = "error", required = false) String error,
+//                           @RequestParam(value = "logout", required = false) String logout,
+//                           Model model) {
+//        model.addAttribute("error", error != null);
+//        model.addAttribute("logout", logout != null);
+//        return APIName.USERS_LOGIN;
+//    }
 
     @RequestMapping(value = APIName.CATEGORIES_ID, //
             method = RequestMethod.GET, //

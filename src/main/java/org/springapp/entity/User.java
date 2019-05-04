@@ -1,6 +1,7 @@
 package org.springapp.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springapp.util.StringUtil;
 
 import javax.persistence.*;
@@ -112,6 +113,7 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(name = "password_hash")
     public String getPassword() {
         return password;
