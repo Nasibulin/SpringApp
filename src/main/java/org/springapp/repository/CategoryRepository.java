@@ -23,8 +23,8 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
             nativeQuery = true)
     List<Category> findCatPathById(@Param("catid") Integer catId);
 
-    @Query(value = "select id, parent_id, catname from categories where level = :lev and is_root=0 connect by prior id = parent_id start with id = -1",
+    @Query(value = "select id, parent_id, catname from categories where level = :level connect by prior id = parent_id start with id = -1",
             nativeQuery = true)
-    List<Category> findCatnameByLevel(@Param("lev") Integer level);
+    List<Category> findCatnameByLevel(@Param("level") Integer level);
 
 }

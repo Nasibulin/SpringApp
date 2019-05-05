@@ -1,6 +1,9 @@
 package org.springapp.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,19 +13,22 @@ public class UserToken implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-
-    private String token;
-
-    private Integer userId;
-
-    private Date loginDate;
-
-    private Date expirationDate;
-
-    private String sessionData;
-
     @Id
     @Column(name = "token")
+    private String token;
+
+    @Column(name = "user_id")
+    private String userId;
+
+    @Column(name = "login_date")
+    private Date loginDate;
+
+    @Column(name = "expiration_date")
+    private Date expirationDate;
+
+    @Column(name = "session_data")
+    private String sessionData;
+
     public String getToken() {
         return token;
     }
@@ -30,16 +36,15 @@ public class UserToken implements Serializable {
     public void setToken(String token) {
         this.token = token;
     }
-    @Column(name = "users_user_id")
-    public Integer getUserId() {
+
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
-    @Column(name = "login_date")
-    @Temporal(TemporalType.TIMESTAMP)
+
     public Date getLoginDate() {
         return loginDate;
     }
@@ -48,8 +53,6 @@ public class UserToken implements Serializable {
         this.loginDate = loginDate;
     }
 
-    @Column(name = "expiration_date")
-    @Temporal(TemporalType.TIMESTAMP)
     public Date getExpirationDate() {
         return expirationDate;
     }
@@ -58,7 +61,6 @@ public class UserToken implements Serializable {
         this.expirationDate = expirationDate;
     }
 
-    @Column(name = "session_data")
     public String getSessionData() {
         return sessionData;
     }

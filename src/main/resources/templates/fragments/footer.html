@@ -1,4 +1,8 @@
-<div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="footer">
 	<!-- Copyright -->
 	<div class="copyright">
 		<div class="container">
@@ -23,15 +27,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</div>
 		</div>
 	</div>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap4/popper.min.js"></script>
-<script src="js/bootstrap4/bootstrap.min.js"></script>
-<script src="js/jquery.maskedinput.js"></script>
-<script src="js/custom.js"></script>
+<script src="../static/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script src="../static/js/bootstrap4/popper.min.js" th:src="@{/js/bootstrap4/popper.min.js}"></script>
+<script src="../static/js/bootstrap4/bootstrap.min.js" th:src="@{/js/bootstrap4/bootstrap.min.js}"></script>
+<script src="../static/js/jquery.maskedinput.js" th:src="@{/js/jquery.maskedinput.js}"></script>
+<script src="../static/js/custom.js" th:src="@{/js/custom.js}"></script>
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=b9fef526-ce00-4915-bd6d-b4aca80960d3" type="text/javascript"></script>
-<script src="js/input_validation.js"></script>
-<script src="js/angular.min.js"></script>
-<!--<script src="../static/js/nav.js" th:src="@{/js/nav.js}"></script>-->
+<script src="../static/js/input_validation.js" th:src="@{/js/input_validation.js}"></script>
 
 <script>
 	$(document).ready(function() {
@@ -48,3 +50,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 });
 </script>
 </div>
+</html>

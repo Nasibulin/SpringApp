@@ -1,7 +1,5 @@
 package org.springapp.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -24,7 +22,6 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     public Category getCategory() {

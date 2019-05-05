@@ -1,6 +1,5 @@
 package org.springapp.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springapp.util.Constant;
 
 import javax.persistence.*;
@@ -41,7 +40,6 @@ public class Order implements Serializable {
         this.orderTotal = BigDecimal.ZERO;
     }
 
-    @JsonIgnore
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<OrderDetail> getOrderDetailsSet() {
         return orderDetailsSet;
@@ -51,7 +49,6 @@ public class Order implements Serializable {
         this.orderDetailsSet = orderDetailsSet;
     }
 
-    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "users_user_id")
     public User getUser() {
@@ -74,7 +71,6 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    @JsonIgnore
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     public OrderAddress getOrderAddress() {
         return orderAddress;

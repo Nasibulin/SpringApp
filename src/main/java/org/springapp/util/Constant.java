@@ -2,22 +2,6 @@ package org.springapp.util;
 
 public class Constant {
 
-    // API FORMAT DATE
-    public static final String API_FORMAT_DATE = "yyyy/MM/dd HH:mm:ss";
-
-    public static final long ONE_MINUTE_IN_MILLIS = 60000;
-    public static final long ONE_SECOND_IN_MILLIS = 1000;
-
-    public static final long DEFAULT_REMEMBER_LOGIN_MILISECONDS = 1296000000; // 15 days
-    public static final long DEFAULT_SESSION_TIME_OUT = 1800000; // 30 minutes
-
-    // define paging results, use for default value of @RequestParam, so type of data is String
-    public static final String DEFAULT_PAGE_SIZE = "25";
-    public static final String DEFAULT_PAGE_NUMBER = "0";
-
-    // Custom token header
-    public static final String HEADER_TOKEN = "X-Access-Token";
-
     public static enum STATUS {
         ACTIVE_STATUS(0, "Active"),
         DELETED_STATUS(1, "Deleted"),

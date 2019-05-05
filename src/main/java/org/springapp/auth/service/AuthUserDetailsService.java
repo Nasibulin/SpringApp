@@ -19,10 +19,10 @@ public class AuthUserDetailsService implements UserDetailsService {
     @Autowired
     AuthUserFactoryImpl authUserFactory;
 
-//    @Bean
-//    public PasswordEncoder bcryptPasswordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
+    @Bean
+    public PasswordEncoder bcryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
