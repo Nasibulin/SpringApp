@@ -13,7 +13,6 @@ import org.springapp.util.Constant;
 import org.springapp.util.StringUtil;
 import org.springapp.util.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -24,10 +23,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
-
-@RestController
+@Controller
 @SessionAttributes({"cart", "search"})
 public class MainController {
 
@@ -80,16 +81,6 @@ public class MainController {
     @GetMapping(APIName.ROOT)
     public String getMain(Model model) {
         return APIName.INDEX;
-    }
-
-    @RequestMapping(value = "/topcat/{level}", //
-            method = RequestMethod.GET, //
-            produces = { MediaType.APPLICATION_JSON_VALUE, //
-                    MediaType.APPLICATION_XML_VALUE })
-    @ResponseBody
-    public List<Category> getTopMenu(@RequestParam) {
-        List<Category> topmenu = categoryService.findCatnameByLevel(Constant.CATALOG_LEVEL.SECOND.getLevel());
-        return topmenu;
     }
 
     @PostMapping(APIName.SEARCH)
