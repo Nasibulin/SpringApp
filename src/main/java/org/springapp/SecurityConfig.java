@@ -63,7 +63,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                        "/order/**",
                         "/images/**",
                         "/styles/**",
-                        "/plugins/**", "/css/**", "/js/**"
+                        "/plugins/**",
+                        "/css/**",
+                        "/js/**"
                 ).permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/categories/**").permitAll()
                 .antMatchers("/users/**").permitAll()

@@ -26,13 +26,13 @@ angular.module('myapp.master', [])
                 document.getElementsByTagName('head')[0].appendChild(script);
             }
 
-            loadScript('js/jquery-3.3.1.min.js', function () {
+            loadScript('js/lib/jquery-3.3.1.min.js', function () {
             });
-            loadScript('js/bootstrap4/bootstrap.min.js', function () {
+            loadScript('js/lib/bootstrap4/bootstrap.min.js', function () {
             });
             loadScript('js/custom.js', function () {
             });
-            loadScript('js/jquery.maskedinput.js', function () {
+            loadScript('js/lib/jquery.maskedinput.js', function () {
             });
             loadScript('js/custom2.js', function () {
             });
