@@ -1,41 +1,20 @@
 package org.springapp.service.users;
 
-
+import org.springapp.entity.Role;
 import org.springapp.entity.User;
-import org.springapp.entity.UserToken;
-import org.springapp.repository.UserRepository;
-import org.springapp.repository.UserTokenRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
-public class UserService {
+import java.util.List;
 
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private UserTokenRepository userTokenRepository;
-    
-    public User getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
-    }
+public interface UserService {
+    User findByUserIdEquals(Integer id);
 
-    public User save(User users) {
-        return userRepository.save(users);
-    }
+    User findByFirstName(String firstname);
 
-    public User getUserByUserId(Integer userId) {
-        return userRepository.findByUserIdEquals(userId);
-    }
+    User findByEmail(String email);
 
-    public User getUserByActivationCode(String token) {
-        UserToken userToken = userTokenRepository.getOne(token);
+    List<User> findByRole(Role role);
 
-        if (userToken != null) {
-            return userRepository.findByUserIdEquals(userToken.getUserId());
-        } else {
-            return null;
-        }
-    }
-    
+    void saveUser(User user);
+
+    void deleteUser(Integer id);
 }
