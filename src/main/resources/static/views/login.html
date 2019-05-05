@@ -1,4 +1,4 @@
-<div>
+<div ng-controller="loginCtrl">
     <!-- Login -->
     <div class="container"><span>
 				<div class="row justify-content-md-center">
@@ -18,16 +18,16 @@
 								<div class="form-group">
 									<label for="username">Username</label>
 									<input type="text" class="form-control" id="username" placeholder="Username"
-                                           ng-model="email" name="username">
+                                           name="username">
 								</div>
 								<div class="form-group">
 									<label for="password">Password</label>
 									<input type="password" class="form-control" id="password" placeholder="Password"
-                                           ng-model="password" name="password">
+                                           name="password">
 								</div>
 								<div>
 								<label>Keep me signed in</label>
-									<input type="checkbox" class="custom-control-input" ng-model="keepMeLogin">
+									<input type="checkbox" class="custom-control-input">
 								</div>
 								<button type="submit" class="btn btn-lg btn-primary btn-block"
                                         style="margin-bottom:25px">Log in</button>
