@@ -1,6 +1,6 @@
 package org.springapp;
 
-import org.springapp.auth.JWTTokenAuthFilter;
+import org.springapp.auth.AuthTokenFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -21,8 +21,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //    private AuthEntryPointException unauthorizedHandler;
 
     @Bean
-    public JWTTokenAuthFilter authenticationTokenFilterBean() throws Exception {
-        return new JWTTokenAuthFilter();
+    public AuthTokenFilter authenticationTokenFilterBean() throws Exception {
+        return new AuthTokenFilter();
     }
 
 //    @Bean
