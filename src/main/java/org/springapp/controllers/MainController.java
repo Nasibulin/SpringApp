@@ -9,7 +9,7 @@ import org.springapp.service.orders.OrderService;
 import org.springapp.service.products.ProductService;
 import org.springapp.service.roles.RoleService;
 import org.springapp.service.users.UserAddressService;
-import org.springapp.service.users.UserServiceIf;
+import org.springapp.service.users.UserService;
 import org.springapp.util.Constant;
 import org.springapp.util.StringUtil;
 import org.springapp.util.UserValidator;
@@ -35,7 +35,7 @@ public class MainController {
     @Autowired
     private ProductService productService;
     @Autowired
-    private UserServiceIf userService;
+    private UserService userService;
     @Autowired
     private OrderService orderService;
     @Autowired

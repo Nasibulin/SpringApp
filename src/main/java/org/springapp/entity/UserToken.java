@@ -10,16 +10,25 @@ public class UserToken implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-
     private String token;
 
-    private Integer userId;
+    private User user;
 
     private Date loginDate;
 
     private Date expirationDate;
 
     private String sessionData;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "users_user_id")
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Id
     @Column(name = "token")
@@ -30,14 +39,8 @@ public class UserToken implements Serializable {
     public void setToken(String token) {
         this.token = token;
     }
-    @Column(name = "users_user_id")
-    public Integer getUserId() {
-        return userId;
-    }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+
     @Column(name = "login_date")
     @Temporal(TemporalType.TIMESTAMP)
     public Date getLoginDate() {

@@ -34,6 +34,7 @@ public class User implements Serializable {
     private String salt;
     private Set<Order> orders;
     private UserAddress userAddress;
+    private UserToken userToken;
 
     public User() {
         createDate = null;
@@ -50,6 +51,7 @@ public class User implements Serializable {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+
     @JsonIgnore
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     public UserAddress getUserAddress() {
@@ -68,6 +70,16 @@ public class User implements Serializable {
 
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
+    }
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    public UserToken getUserToken() {
+        return userToken;
+    }
+
+    public void setUserToken(UserToken userToken) {
+        this.userToken = userToken;
     }
 
     @JsonIgnore
@@ -140,7 +152,7 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public String printPhone (){
+    public String printPhone() {
         return StringUtil.printPhone(phone);
     }
 //    @Column(name = "created_at")

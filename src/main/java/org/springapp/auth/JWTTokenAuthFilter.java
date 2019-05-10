@@ -24,9 +24,13 @@ public class JWTTokenAuthFilter extends OncePerRequestFilter {
     public static final String JWT_KEY = "JWT-TOKEN-SECRET";
 
     static {
-        AUTH_ROUTES.add(Pattern.compile("/api/*"));
-        NO_AUTH_ROUTES.add("/api/user/authenticate");
-        NO_AUTH_ROUTES.add("/api/user/register");
+        AUTH_ROUTES.add(Pattern.compile("/api/orders/*"));
+        AUTH_ROUTES.add(Pattern.compile("/api/order/*"));
+        AUTH_ROUTES.add(Pattern.compile("/api/checkout/*"));
+        NO_AUTH_ROUTES.add("/api/users/login");
+        NO_AUTH_ROUTES.add("/api/users/register");
+//        NO_AUTH_ROUTES.add("/api/menu/2");
+//        NO_AUTH_ROUTES.add("/api/menu/3");
     }
 
     private Logger LOG = LoggerFactory.getLogger(JWTTokenAuthFilter.class);
@@ -51,9 +55,9 @@ public class JWTTokenAuthFilter extends OncePerRequestFilter {
             }
         }
 
-        if(route.startsWith("/api/")) {
-            needsAuthentication = true;
-        }
+//        if(route.startsWith("/api/")) {
+//            needsAuthentication = true;
+//        }
 
         if (NO_AUTH_ROUTES.contains(route)) {
             needsAuthentication = false;

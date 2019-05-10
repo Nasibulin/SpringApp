@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/favicon.ico",
                         "/fragments/**",
                         "/views/**",
-//                        "/menu/**",
+//                        "/api/menu/**",
                         "/api/categories/**",
                         "/catalog/**",
                         "/search/**",
@@ -58,14 +58,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/styles/**",
                         "/plugins/**", "/css/**", "/js/**"
                 ).permitAll()
-                .antMatchers(HttpMethod.OPTIONS, "/categories/**").permitAll()
+//                .antMatchers(HttpMethod.OPTIONS, "/api/menu/**").permitAll()
+//                .antMatchers(HttpMethod.OPTIONS, "/categories/**").permitAll()
                 .antMatchers("/users/**").permitAll()
                 .antMatchers("/api/orders/**").permitAll()
-                .antMatchers("/api/menu/**").permitAll()
-                .antMatchers("/register").permitAll()
+//                .antMatchers("/api/menu/**").permitAll()
+//                .antMatchers("/register").permitAll()
                 .antMatchers("/api/checkout/**").permitAll()
                 .antMatchers("/api/order/**").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().permitAll();
 
         // Custom JWT based security filter
         httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
