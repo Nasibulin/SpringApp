@@ -1,9 +1,14 @@
 package org.springapp.controllers;
 
 import org.springapp.api.APIName;
+import org.springapp.api.request.model.AuthRequestModel;
+import org.springapp.api.response.model.APIResponse;
+import org.springapp.api.response.util.APIStatus;
 import org.springapp.auth.AuthUser;
 import org.springapp.auth.service.AuthUserDetailsService;
 import org.springapp.entity.*;
+import org.springapp.exception.ApplicationException;
+import org.springapp.service.auth.AuthService;
 import org.springapp.service.categories.CategoryService;
 import org.springapp.service.orders.OrderService;
 import org.springapp.service.products.ProductService;
@@ -14,19 +19,29 @@ import org.springapp.util.Constant;
 import org.springapp.util.StringUtil;
 import org.springapp.util.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.*;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 
 @RestController
 @SessionAttributes({"cart", "search"})
-public class MainController {
+public class MainController extends AbstractBaseController {
 
     @Autowired
     private UserValidator userValidator;
@@ -45,6 +60,15 @@ public class MainController {
     @Autowired
     private AuthUserDetailsService authUserDetailsService;
     private AuthUser customer;
+
+    @Autowired
+    private AuthService authService;
+
+
+    @Bean
+    public PasswordEncoder bcryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @ModelAttribute("cart")
     public Cart cart() {
@@ -254,14 +278,41 @@ public class MainController {
         }
     }
 
-//    @RequestMapping(APIName.USERS_LOGIN)
-//    public String getLogin(@RequestParam(value = "error", required = false) String error,
-//                           @RequestParam(value = "logout", required = false) String logout,
-//                           Model model) {
-//        model.addAttribute("error", error != null);
-//        model.addAttribute("logout", logout != null);
-//        return APIName.USERS_LOGIN;
-//    }
+    @RequestMapping(value = APIName.USERS_LOGIN, method = RequestMethod.POST, produces = APIName.CHARSET)
+    public ResponseEntity<APIResponse> login(
+            @RequestBody AuthRequestModel authRequestModel
+    ) {
+
+        if ("".equals(authRequestModel.getUsername()) || "".equals(authRequestModel.getPassword())) {
+            // invalid paramaters
+            throw new ApplicationException(APIStatus.INVALID_PARAMETER);
+        } else {
+            User userLogin = userService.findByEmail(authRequestModel.getUsername());
+
+            if (userLogin != null) {
+
+                if (bcryptPasswordEncoder().matches(authRequestModel.getPassword(),userLogin.getPassword())) {
+                    UserToken userToken = authService.createUserToken(userLogin, authRequestModel.isKeepMeLogin());
+                    // Create Auth User -> Set to filter config
+                    // Perform the security
+                    Authentication authentication = new UsernamePasswordAuthenticationToken(
+                            userLogin.getEmail(),
+                            userLogin.getPassword()
+                    );
+                    //final Authentication authentication = authenticationManager.authenticate();
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                    return responseUtil.successResponse(userToken.getToken());
+                } else {
+                    // wrong password
+                    throw new ApplicationException(APIStatus.ERR_USER_NOT_VALID);
+                }
+
+            } else {
+                // can't find user by email address in database
+                throw new ApplicationException(APIStatus.ERR_USER_NOT_EXIST);
+            }
+        }
+    }
 
     @RequestMapping(value = APIName.CATEGORIES_ID, //
             method = RequestMethod.GET, //

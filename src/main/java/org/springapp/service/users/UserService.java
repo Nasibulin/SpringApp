@@ -6,7 +6,6 @@ import org.springapp.entity.User;
 import java.util.List;
 
 public interface UserService {
-    User findByUserIdEquals(Integer id);
 
     User findByFirstName(String firstname);
 
@@ -17,4 +16,6 @@ public interface UserService {
     void saveUser(User user);
 
     void deleteUser(Integer id);
+
+    User findByUserId(Integer id);
 }
