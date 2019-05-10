@@ -12,10 +12,11 @@
     $scope.signinform = function() {
       var pass=$scope.user.password;
       var enc_pass= window.btoa(pass);
-      $scope.user.password=enc_pass;
+      $scope.user.password=pass;
+      $scope.user.keepMeLogin = 1;
       $http({
           method  : 'POST',
-          url     : 'http://localhost:3000/signin/',
+          url     : 'http://localhost:8080/api/login',
           data    : $scope.user, //forms user object
        }).success(function(results) {
           console.log(results.data[0]);
@@ -23,7 +24,7 @@
           Session.put('user_name', results.data[0].first_name + ' ' + results.data[0].last_name);
 
           console.log($scope.user_name);
-          $location.path('/dashboard');
+          $location.path('/login');
         });
 
     }

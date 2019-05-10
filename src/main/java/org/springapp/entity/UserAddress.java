@@ -1,5 +1,7 @@
 package org.springapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -46,6 +48,7 @@ public class UserAddress implements Serializable {
         this.addressId = addressId;
     }
 
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "users_user_id")
     public User getUser() {

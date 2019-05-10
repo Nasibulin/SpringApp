@@ -36,8 +36,15 @@ public class User implements Serializable {
     private UserAddress userAddress;
     private UserToken userToken;
 
-    public User() {
-        createDate = null;
+    @JsonIgnore
+    @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     @Id
@@ -53,6 +60,7 @@ public class User implements Serializable {
     }
 
     @JsonIgnore
+    @Transient
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     public UserAddress getUserAddress() {
         return userAddress;
@@ -73,6 +81,7 @@ public class User implements Serializable {
     }
 
     @JsonIgnore
+    @Transient
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     public UserToken getUserToken() {
         return userToken;
@@ -164,6 +173,7 @@ public class User implements Serializable {
 //        this.createDate = createDate;
 //    }
 
+    @JsonIgnore
     public String getSalt() {
         return salt;
     }

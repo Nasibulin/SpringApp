@@ -40,7 +40,7 @@ import java.util.Set;
 
 
 @RestController
-@SessionAttributes({"cart", "search"})
+//@SessionAttributes({"cart", "search"})
 public class MainController extends AbstractBaseController {
 
     @Autowired

@@ -25,7 +25,7 @@ public class APIName {
     //user api link
     public static final String USERS = "/users";
     public static final String USER_REGISTER = "/register";
-    public static final String USERS_LOGIN = "/login";
+    public static final String USERS_LOGIN = API_VERSION+"/login";
     public static final String USERS_LOGOUT = "/logout";
 
     //cart api link

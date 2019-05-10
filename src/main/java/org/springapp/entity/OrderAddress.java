@@ -1,5 +1,7 @@
 package org.springapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -46,6 +48,7 @@ public class OrderAddress implements Serializable {
         this.id = id;
     }
 
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "orders_id")
     public Order getOrder() {

@@ -43,12 +43,13 @@ public class AuthServiceImpl extends AbstractBaseService implements AuthService 
             Date expirationDate = keepMeLogin ? new Date(currentDate.getTime() + Constant.DEFAULT_REMEMBER_LOGIN_MILISECONDS) : new Date(currentDate.getTime() + Constant.DEFAULT_SESSION_TIME_OUT);
             userToken.setExpirationDate(DateUtil.convertToUTC(expirationDate));
             AuthUser authUser = authUserFactory.createAuthUser(userLogin);
+            System.err.println(authUser);
             // Set authUser to session data...
             userToken.setSessionData(gson.toJson(authUser));
             userTokenRepository.save(userToken);
             return userToken;
         } catch (Exception e) {
-            LOGGER.error("Error create User token ", e);
+            //LOGGER.error("Error create User token ", e);
             throw new ApplicationException(APIStatus.SQL_ERROR);
         }
     }

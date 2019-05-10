@@ -1,5 +1,6 @@
 package org.springapp.auth;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springapp.entity.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,6 +31,7 @@ public class AuthUser implements UserDetails {
         this.enabled = enabled;
     }
 
+    @JsonIgnore
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.unmodifiableList(Arrays.asList(this.authorities));
@@ -95,5 +97,18 @@ public class AuthUser implements UserDetails {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    @Override
+    public String toString() {
+        return "AuthUser{" +
+                "username='" + username + '\'' +
+                ", authorities=" + authorities +
+                ", password='" + password + '\'' +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
+                ", enabled=" + enabled +
+                '}';
     }
 }

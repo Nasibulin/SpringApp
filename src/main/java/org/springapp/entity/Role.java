@@ -23,6 +23,7 @@ public class Role implements Serializable, GrantedAuthority {
     private Set<User> users;
 
     @JsonIgnore
+    @Transient
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<User> getUsers() {
         return users;

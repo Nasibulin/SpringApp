@@ -13,22 +13,21 @@
 
                             <!--<div th:if="${(param.error != null)}" class="alert alert-danger" role="alert">Invalid Username or Password!</div>-->
 
-							<form ng-submit="registerConsoleUser()">
+							<form method="post" role="form" ng-submit="signinform()">
 								<!-- <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden"> -->
 								<div class="form-group">
 									<label for="username">Username</label>
 									<input type="text" class="form-control" id="username" placeholder="Username"
-                                           name="username">
+                                           name="username" ng-model="user.username">
 								</div>
 								<div class="form-group">
 									<label for="password">Password</label>
 									<input type="password" class="form-control" id="password" placeholder="Password"
-                                           name="password">
+                                           name="password" ng-model="user.password">
 								</div>
-								<div>
 								<div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="keep-me"">
-											  <label class="custom-control-label" for="keep-me">Keep me signed in</label>
+											  <input type="checkbox" class="custom-control-input" id="keep-me">
+											  <label class="custom-control-label" for="keep-me" ng-model="user.keepMeLogin">Keep me signed in</label>
 								</div>
 								<button type="submit" class="btn btn-lg btn-primary btn-block"
                                         style="margin-bottom:25px">Log in</button>

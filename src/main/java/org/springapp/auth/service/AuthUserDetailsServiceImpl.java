@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthUserDetailsServiceImpl implements CustomUserAuthService {
     
-    Gson gson = new Gson();
+    final Gson gson = new Gson();
     
     @Autowired
     private UserTokenRepository userTokenRepository;

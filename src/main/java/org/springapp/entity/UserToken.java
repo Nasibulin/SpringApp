@@ -1,5 +1,7 @@
 package org.springapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -20,6 +22,7 @@ public class UserToken implements Serializable {
 
     private String sessionData;
 
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "users_user_id")
     public User getUser() {
@@ -31,6 +34,7 @@ public class UserToken implements Serializable {
     }
 
     @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "token")
     public String getToken() {
         return token;

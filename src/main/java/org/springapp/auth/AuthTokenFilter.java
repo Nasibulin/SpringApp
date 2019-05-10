@@ -21,7 +21,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 @Component
 public class AuthTokenFilter extends OncePerRequestFilter {
 
-    private final Log LOGGER = LogFactory.getLog(this.getClass());
+    //private final Log LOGGER = LogFactory.getLog(this.getClass());
 
     @Autowired
     private CustomUserAuthService userAuthService;
@@ -41,7 +41,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
                 }
             } catch (ApplicationException ex) {
                 // token not found or expired
-                LOGGER.debug("doFilterInternal", ex);
+                //LOGGER.debug("doFilterInternal", ex);
             }
         }
 
