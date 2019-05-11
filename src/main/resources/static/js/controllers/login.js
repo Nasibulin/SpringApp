@@ -18,10 +18,11 @@
           method  : 'POST',
           url     : 'http://localhost:8080/api/login',
           data    : $scope.user, //forms user object
-       }).success(function(results) {
-          console.log(results.data[0]);
-          Session.put('token', '"'+results.token+'"');
-          Session.put('user_name', results.data[0].first_name + ' ' + results.data[0].last_name);
+       }).then(function(response) {
+          console.log(response.status);
+          console.log(response.data.data);
+          // Session.put('token', '"'+results.token+'"');
+          // Session.put('user_name', results.data[0].first_name + ' ' + results.data[0].last_name);
 
           console.log($scope.user_name);
           $location.path('/login');

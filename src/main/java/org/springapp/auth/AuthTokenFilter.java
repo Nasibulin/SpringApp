@@ -32,7 +32,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         String authToken = request.getHeader(Constant.HEADER_TOKEN);
         if (authToken != null) {
             try {
-                // try to load sessio
+                // try to load session
                 AuthUser user = userAuthService.loadUserByAccessToken(authToken);
                 if (user != null) {
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());

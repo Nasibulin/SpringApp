@@ -1,8 +1,6 @@
 
 package org.springapp.service.auth;
 
-import java.util.Date;
-
 import org.springapp.api.response.util.APIStatus;
 import org.springapp.auth.AuthUser;
 import org.springapp.auth.AuthUserFactory;
@@ -12,13 +10,13 @@ import org.springapp.exception.ApplicationException;
 import org.springapp.repository.UserRepository;
 import org.springapp.repository.UserTokenRepository;
 import org.springapp.service.AbstractBaseService;
-import org.springapp.service.auth.AuthService;
 import org.springapp.util.Constant;
 import org.springapp.util.DateUtil;
 import org.springapp.util.UniqueID;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 @Component
 public class AuthServiceImpl extends AbstractBaseService implements AuthService {
