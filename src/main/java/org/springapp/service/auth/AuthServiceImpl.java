@@ -20,18 +20,16 @@ import java.util.Date;
 
 @Component
 public class AuthServiceImpl extends AbstractBaseService implements AuthService {
-    
+
     @Autowired
     UserRepository userRepository;
-    
-    @Autowired
-    private UserTokenRepository userTokenRepository;
-    
     @Autowired
     AuthUserFactory authUserFactory;
-    
+    @Autowired
+    private UserTokenRepository userTokenRepository;
+
     @Override
-    public UserToken createUserToken (User userLogin, boolean keepMeLogin){
+    public UserToken createUserToken(User userLogin, boolean keepMeLogin) {
         try {
             UserToken userToken = new UserToken();
             userToken.setToken(UniqueID.getUUID());
@@ -47,7 +45,7 @@ public class AuthServiceImpl extends AbstractBaseService implements AuthService 
             userTokenRepository.save(userToken);
             return userToken;
         } catch (Exception e) {
-            //LOGGER.error("Error create User token ", e);
+            LOGGER.error("Error create User token ", e);
             throw new ApplicationException(APIStatus.SQL_ERROR);
         }
     }
@@ -71,5 +69,5 @@ public class AuthServiceImpl extends AbstractBaseService implements AuthService 
     public void deleteUserToken(UserToken userToken) {
         userTokenRepository.delete(userToken);
     }
-    
+
 }

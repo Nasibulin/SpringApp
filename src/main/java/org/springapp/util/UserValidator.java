@@ -26,7 +26,7 @@ public class UserValidator implements Validator {
         if (userService.findByEmail(user.getEmail()) != null) {
             errors
                     .rejectValue("email", "error.user",
-                                 Constant.ParamError.USER_EMAIL_ALREADY_EXIST.getDesc());
+                                 Constant.ParamError.EMAIL_ADDRESS.getDesc());
         }
         if (!EmailUtil.isEmailFormat(user.getEmail())) {
             errors
@@ -37,7 +37,7 @@ public class UserValidator implements Validator {
         if (!user.getPassword().equals(user.getRepassword())) {
             errors
                     .rejectValue("password", "error.user",
-                                 Constant.ParamError.PASSWORD_NOT_MATCH.getDesc());
+                                 Constant.ParamError.PASSWORD.getDesc());
         }
 
     }

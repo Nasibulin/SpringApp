@@ -3,7 +3,7 @@ package org.springapp.util;
 public class Constant {
 
     // API FORMAT DATE
-    public static final String API_FORMAT_DATE = "yyyy/MM/dd HH:mm:ss";
+    public static final String API_FORMAT_DATE = "dd/MM/yyyy HH:mm:ss";
 
     public static final long ONE_MINUTE_IN_MILLIS = 60000;
     public static final long ONE_SECOND_IN_MILLIS = 1000;
@@ -119,9 +119,20 @@ public class Constant {
 
     public enum ParamError {
 
-        USER_EMAIL_ALREADY_EXIST("email", "There is already a user registered with the email provided"),
-        EMAIL_ADDRESS("email", "E-mail address you entered is incorrect or invalid"),
-        PASSWORD_NOT_MATCH("password", "Password does not match...");
+        MISSING_USERNAME_AND_EMAIL("accountName", "Missing both user name and email address"),
+        USER_NAME("userName", "Invalid user name"),
+        EMAIL_ADDRESS("email", "Invalid email address"),
+        PASSWORD("passwordHash", "Invalid password hash"),
+        PHONE_NUMBER("phone", "Invalid phone number"),
+        FIRST_NAME("firstName", "Invalid first name"),
+        LAST_NAME("lastName", "Invalid last name"),
+        APP_NAME("appName", "Invalid app name"),
+        APP_DOMAIN("appDomain", "Invalid app domain"),
+        SERVER_KEY("serverKey", "Invalid server key"),
+        TOKEN_EXPIRE_DURATION("tokenExpireDuration", "Invalid token expiry duration"),
+        REDIRECT_URL("redirectUrl", "Invalid redirect URL"),
+        ROLE_NAME("roleName", "Invalid role name"),
+        ROLE_DESC("roleDescription", "Invalid role description");
 
         private final String name;
         private final String desc;
@@ -131,16 +142,7 @@ public class Constant {
             this.desc = desc;
         }
 
-        private ParamError(String name, String type, String desc) {
-            this.name = name;
-            this.desc = desc;
-        }
-
         public String getName() {
-            return name;
-        }
-
-        public String getType() {
             return name;
         }
 

@@ -21,7 +21,7 @@ public abstract class AbstractBaseController {
     
     public AuthUser getAuthUserFromSession(HttpServletRequest request) {
         String authToken = request.getHeader(Constant.HEADER_TOKEN);
-        // try to load sessio
+        // try to load session
         AuthUser user = userDetailsService.loadUserByAccessToken(authToken);
         return user;
     }

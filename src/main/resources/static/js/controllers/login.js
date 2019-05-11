@@ -1,75 +1,38 @@
-(function (window, angular, undefined) {
-  'use strict';
+'use strict';
 
-  angular.module('myapp').controller('loginCtrl', loginCtrl_);
+angular.module('myapp.login', [])
 
-  loginCtrl_.$inject = ['$scope', '$http', '$location', 'Session'];
+    .controller('loginCtrl', ['$scope', 'Session', "$state", 'toastr', 'util', function ($scope, Session, $state, toastr, util) {
+        // Checking admin already login
+        if (Session.getAccessToken() && Session.getUser()) {
+            $state.go('index');
+            return;
+        }
+        $scope.email = '';
+        $scope.password = '';
 
-  function loginCtrl_($scope, $http, $location, Session) {
-    $scope.user={};
-    $scope.newuser={};
+        $scope.registerConsoleUser = function () {
+            $scope.submitting = true;
 
-    $scope.signinform = function() {
-      var pass=$scope.user.password;
-      var enc_pass= window.btoa(pass);
-      $scope.user.password=pass;
-      $scope.user.keepMeLogin = 1;
-      $http({
-          method  : 'POST',
-          url     : 'http://localhost:8080/api/login',
-          data    : $scope.user, //forms user object
-       }).then(function(response) {
-          console.log(response.status);
-          console.log(response.data.data);
-          // Session.put('token', '"'+results.token+'"');
-          // Session.put('user_name', results.data[0].first_name + ' ' + results.data[0].last_name);
-
-          console.log($scope.user_name);
-          $location.path('/login');
-        });
-
-    }
-
-    $scope.signupform = function() {
-        var pass = $scope.newuser.password;
-       var enc_pass = window.btoa(pass);
-       $scope.newuser.password = enc_pass;
-       $http({
-            method  : 'POST',
-            url     : 'http://localhost:3000/signup/',
-            data    : $scope.newuser, //forms user object
-         })
-            .success(function(data) {
-             console.log("done");
+            Session.consoleLogin({
+                username: $scope.email,
+                password: $scope.password,
+                // password: util.MD5($scope.password),
+                keepMeLogin: 1
+            }, function (response) {
+                var status = response.status;
+                if (status === 200) {
+                    // redirect page
+                    $state.go('index');
+                } else {
+                    util.showErrorToast(response.message);
+                }
+            }).finally(function () {
+                $scope.submitting = false;
             });
-    }
+        };
 
-    $scope.check_user=function(){
-      $scope.test_user={};
-      var check_user=$scope.newuser.email;
-      $scope.test_user.check_user=check_user;
-      if($scope.test_user.check_user  != null){
-        $http({
-            method  : 'POST',
-            url     : 'http://localhost:3000/check_user/',
-            data    : $scope.test_user, //forms user object
-         }).success(function(data) {
-             console.log(data.results.status);
-             $scope.status=data.results.status;
-             if(data.results.status == "false"){
-                 $scope.message_success="";
-                $scope.message_error="User of Same Name Already Exists";
-             }
-             else if(data.results.status == "true"){
-                 $scope.message_error="";
-                 $scope.message_success="Valid User Name";
-             }
-            
-          });
-      } else if($scope.test_user.check_user  == null){
-           $scope.message_error="";
-           $scope.message_success="";
-       }
-    }
-  }
-})(window, window.angular);
+
+
+
+    }]);

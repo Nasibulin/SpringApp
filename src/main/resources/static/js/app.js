@@ -3,8 +3,12 @@
 angular.module('myapp', [
     'ui.router',
     'ngCookies',
+    'jm.i18next',
+    'toastr',
+    'ui.bootstrap',
     'myapp.products',
-    'myapp.common',
+    'myapp.authen',
+    'myapp.login',
     'myapp.cart',
     'myapp.nav',
     'myapp.master',

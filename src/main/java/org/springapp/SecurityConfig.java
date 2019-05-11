@@ -60,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 ).permitAll()
 //                .antMatchers(HttpMethod.OPTIONS, "/api/menu/**").permitAll()
 //                .antMatchers(HttpMethod.OPTIONS, "/categories/**").permitAll()
-                .antMatchers("/users/**").permitAll()
+                .antMatchers("/api/users/**").permitAll()
                 .antMatchers("/api/orders/**").permitAll()
 //                .antMatchers("/api/menu/**").permitAll()
 //                .antMatchers("/register").permitAll()
