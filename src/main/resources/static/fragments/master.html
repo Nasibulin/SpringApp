@@ -19,7 +19,7 @@
                                     <div ng-hide="isLogin"><a ui-sref="register">Register</a></div>
                                     <div ng-hide="isLogin"><a ui-sref="login">Login</a></div>
                                     <div ng-show="isLogin"><a href="#" ng-click="logout()">Logout</a></div>
-                                    <div><a href="/orders">Orders</a></div>
+                                    <div><a href="#" ui-sref="orders">Orders</a></div>
                                 </div>
                             </div>
                         </div>
@@ -181,4 +181,12 @@
         </div>
     </div>
 
+
+    <script defer src="js/lib/jquery-3.3.1.min.js"></script>
+    <script defer src="js/lib/bootstrap4/bootstrap.min.js"></script>
+    <script defer src="js/lib/jquery.maskedinput.js"></script>
+    <script defer src="js/custom.js"></script>
+    <script defer src="js/custom2.js"></script>
+    <script defer src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=b9fef526-ce00-4915-bd6d-b4aca80960d3" type="text/javascript"></script>
+    <script defer src="js/input_validation.js"></script>
 </div>

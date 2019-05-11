@@ -40,7 +40,7 @@ public class APIName {
     public static final String CART_CHECKOUT = "/checkout";
 
     //orders api link
-    public static final String ORDERS = API_VERSION+"/orders";
+    public static final String ORDERS = "/api/users/orders";
     public static final String ORDER = API_VERSION+"/order";
     public static final String ORDER_CREATE = API_VERSION+"/create";
     public static final String ORDERS_DETAIL_BY_ID = API_VERSION+"/order/{id}";

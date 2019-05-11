@@ -2,6 +2,7 @@ package org.springapp.controllers;
 
 import org.springapp.api.APIName;
 import org.springapp.api.request.model.AuthRequestModel;
+import org.springapp.api.request.model.OrderRequestModel;
 import org.springapp.api.response.model.APIResponse;
 import org.springapp.api.response.util.APIStatus;
 import org.springapp.auth.AuthUser;
@@ -182,12 +183,12 @@ public class MainController extends AbstractBaseController {
         return APIName.CART_CHECKOUT;
     }
 
-    @GetMapping(APIName.ORDERS)
-    public Set<Order> getOrders(@ModelAttribute("customer") User customer, Model model) {
-        Set<Order> orderSet = orderService.findAllByUserOrderByIdAsc(customer);
-//        model.addAttribute("orderset", orderSet);
-//        model.addAttribute("orderstotal", orderSet.stream().map(i -> i.getOrderTotal()).reduce(BigDecimal.ZERO, BigDecimal::add));
-        return orderSet;
+    @RequestMapping(value = APIName.ORDERS, method = RequestMethod.POST, produces = APIName.CHARSET)
+    @ResponseBody
+    public ResponseEntity<APIResponse> getOrders(@RequestBody OrderRequestModel orderRequest) {
+        User user = userService.findByUserId(orderRequest.getUser().getUserId());
+        Set<Order> orderSet = orderService.findAllByUserOrderByIdAsc(user);
+        return responseUtil.successResponse(orderSet);
     }
 
     @GetMapping(APIName.ORDERS_DETAIL_BY_ID)

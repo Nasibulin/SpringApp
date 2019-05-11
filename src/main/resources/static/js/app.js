@@ -11,6 +11,7 @@ angular.module('myapp', [
     'myapp.nav',
     'myapp.master',
     'myapp.orders',
+    'myapp.orderlist',
 ])// Define all route of our app
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/");
@@ -70,7 +71,7 @@ angular.module('myapp', [
                 url: '/orders',
                 parent: 'master',
                 templateUrl: 'views/orders.html',
-                controller: 'ordersCtrl'
+                controller: 'orderlistCtrl'
             })
             // .state('orders', {
             //     url: '/checkout',

@@ -12,6 +12,7 @@ angular.module('myapp')
 .constant('api', {
     REGISTER: {name: 'users/register', type: 'POST'},
     LOGIN: {name: 'users/login', type: 'POST'},  
+    ORDERS: {name: 'api/orders', type: 'POST'},
     LOGOUT: {name: 'users/logout', type: 'POST', token: true},
     GET_USER_PROFILE: {name: 'auth/session/data', type: 'GET'}
 })

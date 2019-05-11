@@ -1,7 +1,6 @@
 package org.springapp.api.response.model;
 
 import java.util.Date;
-import java.util.List;
 
 
 public class UserDetailResponseModel {
