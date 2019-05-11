@@ -3,7 +3,7 @@
 angular.module('myapp')
 
 // Utilities for our app
-        .factory('util', ['$http', '$q', 'server', '$log', '_', 'api', '$modal', '$i18next', 'toastr', function ($http, $q, server, $log, _, api, $modal, $i18next, toastr) {
+        .factory('util', ['$http', '$q', 'server', '$log', '_', 'api', '$modal', function ($http, $q, server, $log, _, api, $modal) {
 
                 // Check array has all empty value or not
                 // Example [ '', '', '' ]
@@ -86,23 +86,23 @@ angular.module('myapp')
                         return dfd.promise;
                     },
 
-                    // Get text from path
-                    translate: function (path) {
-
-                        return $i18next(path);
-                    },
-                    showSuccessToast: function (mgs) {
-
-                        if (mgs) {
-                            toastr.success(mgs);
-                        }
-                    },
-                    showErrorToast: function (mgs) {
-
-                        if (mgs) {
-                            toastr.error(mgs);
-                        }
-                    },
+                    // // Get text from path
+                    // translate: function (path) {
+                    //
+                    //     return $i18next(path);
+                    // },
+                    // showSuccessToast: function (mgs) {
+                    //
+                    //     if (mgs) {
+                    //         toastr.success(mgs);
+                    //     }
+                    // },
+                    // showErrorToast: function (mgs) {
+                    //
+                    //     if (mgs) {
+                    //         toastr.error(mgs);
+                    //     }
+                    // },
 
                     // Escape HTML
                     escape: function (text) {

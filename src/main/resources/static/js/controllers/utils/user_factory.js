@@ -11,9 +11,8 @@ angular.module('myapp.authen', ['ngCookies', 'myapp'])
             '$state',
             '$q',
             'AppConstant',
-            'toastr',
 
-            function ($cookies, api, util, $state, $q, AppConstant, toastr) {
+            function ($cookies, api, util, $state, $q, AppConstant) {
 
                 // store current user
                 var sessionUser;
@@ -80,20 +79,20 @@ angular.module('myapp.authen', ['ngCookies', 'myapp'])
                         return request;
                     },
 
-                    detectBrowserLang: function () {
-                        // Language code: http://4umi.com/web/html/languagecodes.php || http://msdn.microsoft.com/en-us/library/ie/ms533052.aspx
-                        var lang = window.navigator.browserLanguage || window.navigator.language;
-                        var language = lang.substr(0, 2);
-                        switch (language) {
-                            case 'en':
-                            case 'ja':
-                                return language;
-                                break;
-                            default:
-                                return 'en';
-                                break;
-                        }
-                    },
+                    // detectBrowserLang: function () {
+                    //     // Language code: http://4umi.com/web/html/languagecodes.php || http://msdn.microsoft.com/en-us/library/ie/ms533052.aspx
+                    //     var lang = window.navigator.browserLanguage || window.navigator.language;
+                    //     var language = lang.substr(0, 2);
+                    //     switch (language) {
+                    //         case 'en':
+                    //         case 'ja':
+                    //             return language;
+                    //             break;
+                    //         default:
+                    //             return 'en';
+                    //             break;
+                    //     }
+                    // },
 
                     init: function () {
 
@@ -116,7 +115,7 @@ angular.module('myapp.authen', ['ngCookies', 'myapp'])
                                     // show error
                                     var err = _.find(AppConstant, {status: status});
                                     if (err) {
-                                        toastr.error($i18next(err.mgsKey));
+                                        //toastr.error($i18next(err.mgsKey));
                                     }
                                     defer.reject();
                                 }
