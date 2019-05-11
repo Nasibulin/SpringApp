@@ -102,6 +102,7 @@ angular.module('myapp.authen', ['ngCookies', 'myapp'])
                             // get user info
                             util.callRequest("/auth/session/data", "GET", {}).then(function (response) {
                                 var status = response.status;
+                                console.log(response.status);
                                 if (status === 200) {
 
                                     // store user into session
