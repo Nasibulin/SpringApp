@@ -31,7 +31,7 @@ public class APIName {
     public static final String USERS = "/users";
     public static final String USER_REGISTER = "/register";
     public static final String USERS_LOGIN = "/api/users/login";
-    public static final String USERS_LOGOUT = "/logout";
+    public static final String USERS_LOGOUT = "/api/users/logout";
 
     //cart api link
     public static final String CART = "/cart";

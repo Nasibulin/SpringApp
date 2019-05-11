@@ -314,6 +314,23 @@ public class MainController extends AbstractBaseController {
         }
     }
 
+    @RequestMapping(path = APIName.USERS_LOGOUT, method = RequestMethod.POST)
+    public ResponseEntity<APIResponse> logout(
+            @RequestHeader(value = Constant.HEADER_TOKEN) String tokenId
+    ) {
+        if (tokenId != null && !"".equals(tokenId)) {
+            UserToken userToken = authService.getUserTokenById(tokenId);
+            if (userToken != null) {
+                authService.deleteUserToken(userToken);
+                return responseUtil.successResponse("OK");
+            } else {
+                throw new ApplicationException(APIStatus.ERR_SESSION_NOT_FOUND);
+            }
+        } else {
+            throw new ApplicationException(APIStatus.INVALID_PARAMETER);
+        }
+    }
+
     @RequestMapping(value = APIName.CATEGORIES_ID, //
             method = RequestMethod.GET, //
             produces = { MediaType.APPLICATION_JSON_VALUE, //

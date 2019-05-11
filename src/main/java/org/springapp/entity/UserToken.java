@@ -23,7 +23,7 @@ public class UserToken implements Serializable {
     private String sessionData;
 
     @JsonIgnore
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "users_user_id")
     public User getUser() {
         return user;

@@ -25,6 +25,8 @@ angular.module('myapp.login', [])
                 if (status === 200) {
                     // redirect page
                     $state.go('index');
+                    //$state.reload();
+
                 } else {
                     // util.showErrorToast(response.message);
                     $scope.message = response.message;

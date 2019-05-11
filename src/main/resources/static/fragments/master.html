@@ -15,10 +15,10 @@
                             <div class="top_bar_content ml-auto">
                                 <div class="top_bar_user">
                                     <div class="user_icon"><i class="far fa-user"></i></div>
-                                    <!--<div><a href="#" th:text="${principal.username}"></a></div>-->
-                                    <div><a href="/admin">Register</a></div>
-                                    <div><a href="/login">Sign in</a></div>
-                                    <!--<div><a href="/logout">Sign out</a></div>-->
+                                    <div><a href="#" ng-bind="username"></a></div>
+                                    <div ng-hide="isLogin"><a ui-sref="register">Register</a></div>
+                                    <div ng-hide="isLogin"><a ui-sref="login">Login</a></div>
+                                    <div ng-show="isLogin"><a href="#" ng-click="logout()">Logout</a></div>
                                     <div><a href="/orders">Orders</a></div>
                                 </div>
                             </div>

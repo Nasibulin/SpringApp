@@ -1,14 +1,12 @@
 angular.module('myapp.master', [])
-    .controller('masterCtrl', function () {
-
-        (function () {
+    .controller('masterCtrl', (function () {
 
             function loadScript(url, callback) {
 
                 var script = document.createElement('script')
                 script.type = 'text/javascript';
                 script.async = false;
-                script.defer = true;
+                script.defer = false;
 
                 if (script.readyState) { //IE
                     script.onreadystatechange = function () {
@@ -38,7 +36,4 @@ angular.module('myapp.master', [])
             });
             // loadScript('js/lodash.js', function () {
             // });
-        })();
-
-
-    });
+        })());

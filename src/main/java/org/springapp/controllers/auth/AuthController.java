@@ -48,6 +48,7 @@ public class AuthController extends AbstractBaseController {
             HttpServletRequest request
     ) {
         String userId = getAuthUserFromSession(request).getUsername();
+        //System.err.println(userId);
         if (userId != null && !"".equals(userId)) {
             User user = authService.getUserByEmail(userId);
             UserAddress userAddress = userAddressService.getAddressByUser(user);
