@@ -10,7 +10,6 @@ angular.module('myapp', [
     'myapp.cart',
     'myapp.nav',
     'myapp.master',
-    'myapp.orders',
     'myapp.orderlist',
 ])// Define all route of our app
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {

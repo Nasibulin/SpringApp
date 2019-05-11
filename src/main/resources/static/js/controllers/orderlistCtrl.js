@@ -30,7 +30,7 @@ angular.module('myapp.orderlist', ['myapp.authen'])
             util.callRequest('users/orders', "POST", params).then(function (response) {
                 var status = response.status;
                 if (status === 200) {
-                    console.log(response.data);
+                    console.log(response);
                     $scope.orders = response.data;
                     _.map($scope.orders, function (item) {
                         switch (item.status) {
@@ -57,6 +57,17 @@ angular.module('myapp.orderlist', ['myapp.authen'])
             });
             $scope.submitting = false;
         };
+
+        $scope.getTotal = function () {
+            var total = 0;
+            for (var i = 0; i < $scope.orders.length; i++) {
+                var order = $scope.orders[i];
+                total += order.orderTotal;
+            }
+            return total;
+        }
+
+
     }]);
 
 
