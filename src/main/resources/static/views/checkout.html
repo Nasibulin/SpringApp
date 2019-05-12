@@ -7,7 +7,7 @@
 				<div class="row">
 					<div class="col-lg-10 offset-lg-1">
 						<div class="cart_container">
-						<form autocomplete="off" action="#" th:action="@{/create}" th:object="${userAddress}" method="post" role="form" >
+						<form autocomplete="off" action="#" action="@{/create}" method="post" role="form" >
 							<div class="cart_title">Checkout</div>
 							<div class="cart_items">
 
@@ -21,43 +21,43 @@
 											<div class="row">
 											  <div class="col-md-6 mb-3 ">
 												<label for="firstName">First name</label>
-												<input type="text" class="form-control" id="firstName" th:value="${customer.firstName}" th:placeholder="${customer.firstName}" placeholder="" required>
+												<input type="text" class="form-control" id="firstName" value="${customer.firstName}" placeholder="${customer.firstName}" placeholder="" required>
 											  </div>
 											  <div class="col-md-6 mb-3">
 												<label for="lastName">Last name</label>
-												<input type="text" class="form-control" id="lastName" th:value="${customer.lastName}" th:placeholder="${customer.lastName}" placeholder="" required>
+												<input type="text" class="form-control" id="lastName" value="${customer.lastName}" placeholder="${customer.lastName}" placeholder="" required>
 											  </div>
 											</div>
 
 											<div class="mb-3">
 											  <label for="phone">Phone</label>
 											  <div class="input-group">
-												<input type="tel" class="form-control" th:value="${customer.printPhone()}" id="phone" placeholder="" required>
+												<input type="tel" class="form-control" value="${customer.printPhone()}" id="phone" placeholder="" required>
 											  </div>
 											</div>
 
 											<div class="mb-3">
 											  <label for="email" >Email <span class="text-muted">(Optional)</span></label>
-											  <input type="email" class="form-control" id="email" th:value="${customer.email}" placeholder="you@example.com">
+											  <input type="email" class="form-control" id="email" value="${customer.email}" placeholder="you@example.com">
 											</div>
 
 											<div class="mb-3">
-											  <label for="address">Address</label>
-											  <input type="text" class="form-control" id="suggest" th:field="*{address}" th:placeholder="${customer.userAddress}!=null?${customer.userAddress.address}:'1234 Main St'" required>
+											  <label for="suggest">Address</label>
+											  <input type="text" class="form-control" id="suggest" field="address" placeholder="${customer.userAddress}!=null?${customer.userAddress.address}:'1234 Main St'" required>
 											</div>
 
 											<div class="mb-3">
 											  <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-											  <input type="text" class="form-control" id="address2" th:field="*{apartment}" th:placeholder="${customer.userAddress}!=null?${customer.userAddress.apartment}:'Apartment or suite'">
+											  <input type="text" class="form-control" id="address2" field="*{apartment}" placeholder="${customer.userAddress}!=null?${customer.userAddress.apartment}:'Apartment or suite'">
 											</div>
 
 											<hr class="mb-4">
 											<div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="same-address" th:name="same-address" th:checked="${true}">
+											  <input type="checkbox" class="custom-control-input" id="same-address" name="same-address" checked="${true}">
 											  <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
 											</div>
 											<div class="custom-control custom-checkbox">
-											  <input type="checkbox" class="custom-control-input" id="save-info" th:name="save-info" th:checked="${true}">
+											  <input type="checkbox" class="custom-control-input" id="save-info" name="save-info" checked="${true}">
 											  <label class="custom-control-label" for="save-info">Save this information for next time</label>
 											</div>
 											<hr class="mb-4">
@@ -72,12 +72,12 @@
 							<div class="order_total">
 								<div class="order_total_content text-md-right">
 									<div class="order_total_title">Order Total:</div>
-									<div class="order_total_amount" th:text="${cart.grandTotal}">$2000</div>
+									<div class="order_total_amount" text="${cart.grandTotal}">$2000</div>
 								</div>
 							</div>
 
 							<div class="cart_buttons d-flex justify-content-end">
-								<span><a th:href="@{'/cart'}" href="#"><button type="button" class="button cart_button_clear">Return to Cart</button></a></span>
+								<span><a href="@{'/cart'}" href="#"><button type="button" class="button cart_button_clear">Return to Cart</button></a></span>
 								<span><button type="submit" class="button cart_button_checkout">Complete Order</button></span>
 							</div>
 						</form>

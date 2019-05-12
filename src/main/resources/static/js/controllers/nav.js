@@ -51,7 +51,7 @@ angular.module('myapp.nav', [])
             loadScript('https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=b9fef526-ce00-4915-bd6d-b4aca80960d3', function () {});
             loadScript('js/input_validation.js', function () {});
 
-            
+
         })()
 
     });
