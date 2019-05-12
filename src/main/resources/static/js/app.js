@@ -72,12 +72,12 @@ angular.module('myapp', [
                 templateUrl: 'views/orders.html',
                 controller: 'orderlistCtrl'
             })
-        // .state('orders', {
-        //     url: '/checkout',
-        //     parent: 'master',
-        //     templateUrl: 'views/checkout.html',
-        //     controller: 'checkoutCtrl'
-        // })
+            .state('checkout', {
+                url: '/checkout',
+                parent: 'master',
+                templateUrl: 'views/checkout.html',
+                // controller: 'checkoutCtrl'
+            })
     }])
     .config(function ($locationProvider) {
         $locationProvider.html5Mode(true);
