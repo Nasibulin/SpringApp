@@ -41,7 +41,8 @@
 							<div class="order_total">
 								<div class="order_total_content text-md-right">
 									<div class="order_total_title">Orders Total:</div>
-									<div class="order_total_amount">{{getTotal()}}</div>
+									<div ng-if="getTotal()" class="order_total_amount">{{getTotal()}}</div>
+									<div ng-if="!getTotal()" class="order_total_amount">0</div>
 								</div>
 							</div>
 

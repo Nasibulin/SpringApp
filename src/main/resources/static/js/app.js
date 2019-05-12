@@ -3,13 +3,13 @@
 angular.module('myapp', [
     'ui.router',
     'ngCookies',
-    'ui.bootstrap',
+    // 'ui.bootstrap',
+    'myapp.master',
     'myapp.products',
     'myapp.authen',
     'myapp.login',
     'myapp.cart',
     'myapp.nav',
-    'myapp.master',
     'myapp.orderlist',
 ])// Define all route of our app
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -25,22 +25,22 @@ angular.module('myapp', [
             .state('master', {
                 templateUrl: 'fragments/master.html',
                 abstract: true,
-                //controller: 'masterCtrl'
-                controller:  ['$scope', 'Session', '$state', function ($scope, Session, $state) {
-                    Session.init().then(function () {
-                        // binding session user
-                        $scope.user = Session.getUser();
-                        $scope.isLogin = Session.isLogin();
-                        $scope.username = $scope.user.firstName + ' ' + $scope.user.lastName;
-
-                        $scope.logout = function () {
-                            Session.logout();
-                            $state.reload();
-                        };
-                    }, function () {
-                        // error handle, show message if necessary
-                    });
-                }]
+                controller: 'masterCtrl'
+            //     controller: ['$scope', 'Session', '$state', function ($scope, Session, $state) {
+            //         Session.init().then(function () {
+            //             // binding session user
+            //             $scope.user = Session.getUser();
+            //             $scope.isLogin = Session.isLogin();
+            //             $scope.username = $scope.user.firstName + ' ' + $scope.user.lastName;
+            //
+            //             $scope.logout = function () {
+            //                 Session.logout();
+            //                 $state.go('index');
+            //             };
+            //         }, function () {
+            //             // error handle, show message if necessary
+            //         });
+            //     }]
             })
             .state('index', {
                 url: '/',
@@ -72,12 +72,12 @@ angular.module('myapp', [
                 templateUrl: 'views/orders.html',
                 controller: 'orderlistCtrl'
             })
-            // .state('orders', {
-            //     url: '/checkout',
-            //     parent: 'master',
-            //     templateUrl: 'views/checkout.html',
-            //     controller: 'checkoutCtrl'
-            // })
+        // .state('orders', {
+        //     url: '/checkout',
+        //     parent: 'master',
+        //     templateUrl: 'views/checkout.html',
+        //     controller: 'checkoutCtrl'
+        // })
     }])
     .config(function ($locationProvider) {
         $locationProvider.html5Mode(true);
@@ -85,6 +85,19 @@ angular.module('myapp', [
     .config(['$compileProvider', function ($compileProvider) {
         $compileProvider.debugInfoEnabled(false);
     }])
+    // .config(['$httpProvider', function ($httpProvider) {
+    //
+    //     $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+    //
+    //     $httpProvider.interceptors.push(function ($q, $cookies) {
+    //         return {
+    //             'request': function (config) {
+    //                 config.headers['X-Access-Token'] = $cookies.get('AccessToken');
+    //                 return config;
+    //             }
+    //         };
+    //     });
+    // }]);
     .config(['$httpProvider', function ($httpProvider) {
 
         $httpProvider.interceptors.push(function ($q, $injector, $location, $timeout, $cookies) {
@@ -161,36 +174,6 @@ angular.module('myapp', [
                                     return;
                                 }
 
-                                // Handle other errors
-                                // Show error as toast
-                                //var e = _.find(error.OTHERS, {code: errCode});
-
-                                // if (e !== undefined) {
-                                //
-                                //     var notyOpts = {
-                                //
-                                //         text: "There's an erorr occur",
-                                //         type: 'error', // success, information ...
-                                //         theme: 'bootstrapTheme',
-                                //         layout: 'top',
-                                //         closeWith: ['button', 'click']
-                                //         // timeout: 5000 // 5s
-                                //     };
-                                //
-                                //     var opts = {
-                                //
-                                //         text: e.desc
-                                //     };
-                                //
-                                //     // Check instance
-                                //     if (notyInstance) {
-                                //
-                                //         // Close & clean up
-                                //         notyInstance.closeCleanUp();
-                                //     }
-                                //
-                                //     notyInstance = noty(angular.extend(notyOpts, opts));
-                                // }
                             }
                         }
                     }

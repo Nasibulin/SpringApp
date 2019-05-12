@@ -3,6 +3,12 @@ angular.module('myapp.orderlist', ['myapp.authen'])
     .constant('_', window._)
     .controller('orderlistCtrl', ['$scope', 'util','$timeout', '$stateParams', '_', 'Session', '$cookies', '$state', function ($scope, util, $timeout, $stateParams, _, Session, $cookies, $state) {
 
+        // Checking user already login
+        if (!Session.getAccessToken() && !Session.getUser()) {
+            $state.go('login');
+            return;
+        }
+
         $scope.currentUser = Session.getUser();
         $scope.isLogin = Session.isLogin();
 
@@ -30,7 +36,7 @@ angular.module('myapp.orderlist', ['myapp.authen'])
             util.callRequest('users/orders', "POST", params).then(function (response) {
                 var status = response.status;
                 if (status === 200) {
-                    console.log(response);
+                    // console.log(response);
                     $scope.orders = response.data;
                     _.map($scope.orders, function (item) {
                         switch (item.status) {

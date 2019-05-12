@@ -3,7 +3,7 @@
 angular.module('myapp.login', [])
 
     .controller('loginCtrl', ['$scope', 'Session', "$state", 'util', function ($scope, Session, $state, util) {
-        // Checking admin already login
+        // Checking user already login
         if (Session.getAccessToken() && Session.getUser()) {
             $state.go('index');
             return;
@@ -13,7 +13,7 @@ angular.module('myapp.login', [])
         $scope.message = '';
 
         $scope.registerConsoleUser = function () {
-            $scope.submitting = true;
+            // $scope.submitting = true;
 
             Session.consoleLogin({
                 username: $scope.email,
@@ -24,15 +24,15 @@ angular.module('myapp.login', [])
                 var status = response.status;
                 if (status === 200) {
                     // redirect page
-                    $state.go('index');
+                    // $state.go('index');
+                    $state.reload();
 
                 } else {
                     // util.showErrorToast(response.message);
                     $scope.message = response.message;
                 }
             }).finally(function () {
-                $scope.submitting = false;
-                $state.reload();
+                // $scope.submitting = false;
             });
         };
 

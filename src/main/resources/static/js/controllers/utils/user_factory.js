@@ -72,7 +72,7 @@ angular.module('myapp.authen', ['ngCookies', 'myapp'])
                         $cookies.remove(AppConstant.SESSION_COOKIES);
                         sessionUser = undefined;
                         // redirect to login page
-//                            $state.go('login');
+                        $state.reload(); // may be not needed!!!
                     });
 
                     return request;

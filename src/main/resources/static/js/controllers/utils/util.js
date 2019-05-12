@@ -3,7 +3,7 @@
 angular.module('myapp')
 
 // Utilities for our app
-        .factory('util', ['$http', '$q', 'server', '$log', '_', 'api', '$modal', function ($http, $q, server, $log, _, api, $modal) {
+        .factory('util', ['$http', '$q', 'server', '$log', '_', 'api', function ($http, $q, server, $log, _, api) {
 
                 // Check array has all empty value or not
                 // Example [ '', '', '' ]
@@ -120,38 +120,38 @@ angular.module('myapp')
                     // So that It's all up to you based on the context of using the method
                     // @param {object} opts : The setting of modal
                     // @param {function} dismissCallback : The dismiss callback
-                    openModal: function (opts, dismissCallback) {
-
-                        var setting = {
-
-                            backdrop: 'static',
-                            templateUrl: opts.tmpl,
-                            controller: opts.ctrl
-                        };
-
-                        if (opts.data) {
-
-                            setting.resolve = {
-
-                                data: function () {
-
-                                    return opts.data;
-                                }
-                            };
-                        }
-
-                        var instance = $modal.open(setting);
-
-                        // Bind event dismiss modal
-                        instance.result.then(function (type) {
-
-                            if (typeof dismissCallback === 'function')
-                                dismissCallback(type);
-
-                        });
-
-                        return instance;
-                    },
+                    // openModal: function (opts, dismissCallback) {
+                    //
+                    //     var setting = {
+                    //
+                    //         backdrop: 'static',
+                    //         templateUrl: opts.tmpl,
+                    //         controller: opts.ctrl
+                    //     };
+                    //
+                    //     if (opts.data) {
+                    //
+                    //         setting.resolve = {
+                    //
+                    //             data: function () {
+                    //
+                    //                 return opts.data;
+                    //             }
+                    //         };
+                    //     }
+                    //
+                    //     var instance = $modal.open(setting);
+                    //
+                    //     // Bind event dismiss modal
+                    //     instance.result.then(function (type) {
+                    //
+                    //         if (typeof dismissCallback === 'function')
+                    //             dismissCallback(type);
+                    //
+                    //     });
+                    //
+                    //     return instance;
+                    // },
 
                     isInt: function (value) {
                         return !isNaN(value) &&
