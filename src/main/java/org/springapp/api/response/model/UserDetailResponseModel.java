@@ -12,6 +12,7 @@ public class UserDetailResponseModel {
     private Date createDate;
     private String salt;
     private String address;
+    private String apartment;
     private String phone;
     private String fax;
     private String city;
@@ -79,6 +80,14 @@ public class UserDetailResponseModel {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getApartment() {
+        return apartment;
+    }
+
+    public void setApartment(String apartment) {
+        this.apartment = apartment;
     }
 
     public String getPhone() {

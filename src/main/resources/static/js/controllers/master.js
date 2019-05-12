@@ -3,6 +3,7 @@ angular.module('myapp.master', [])
         Session.init().then(function () {
             // binding session user
             $scope.user = Session.getUser();
+            console.log($scope.user);
             $scope.isLogin = Session.isLogin();
             $scope.username = $scope.user.firstName + ' ' + $scope.user.lastName;
 

@@ -11,6 +11,7 @@ angular.module('myapp', [
     'myapp.cart',
     'myapp.nav',
     'myapp.orderlist',
+    'myapp.checkout'
 ])// Define all route of our app
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/");
@@ -76,7 +77,7 @@ angular.module('myapp', [
                 url: '/checkout',
                 parent: 'master',
                 templateUrl: 'views/checkout.html',
-                // controller: 'checkoutCtrl'
+                controller: 'checkoutCtrl'
             })
     }])
     .config(function ($locationProvider) {

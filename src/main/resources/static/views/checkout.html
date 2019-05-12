@@ -21,34 +21,34 @@
 											<div class="row">
 											  <div class="col-md-6 mb-3 ">
 												<label for="firstName">First name</label>
-												<input type="text" class="form-control" id="firstName" value="${customer.firstName}" placeholder="${customer.firstName}" placeholder="" required>
+												<input type="text" class="form-control" id="firstName" ng-model="user.firstName" placeholder="user.firstName" placeholder="" required>
 											  </div>
 											  <div class="col-md-6 mb-3">
 												<label for="lastName">Last name</label>
-												<input type="text" class="form-control" id="lastName" value="${customer.lastName}" placeholder="${customer.lastName}" placeholder="" required>
+												<input type="text" class="form-control" id="lastName" ng-model="user.lastName" placeholder="user.lastName" placeholder="" required>
 											  </div>
 											</div>
 
 											<div class="mb-3">
 											  <label for="phone">Phone</label>
 											  <div class="input-group">
-												<input type="tel" class="form-control" value="${customer.printPhone()}" id="phone" placeholder="" required>
+												<input type="tel" class="form-control" ng-model="user.phone" id="phone" placeholder="" required>
 											  </div>
 											</div>
 
 											<div class="mb-3">
 											  <label for="email" >Email <span class="text-muted">(Optional)</span></label>
-											  <input type="email" class="form-control" id="email" value="${customer.email}" placeholder="you@example.com">
+											  <input type="email" class="form-control" id="email" ng-model="user.email" placeholder="you@example.com">
 											</div>
 
 											<div class="mb-3">
-											  <label for="suggest">Address</label>
-											  <input type="text" class="form-control" id="suggest" field="address" placeholder="${customer.userAddress}!=null?${customer.userAddress.address}:'1234 Main St'" required>
+											  <label for="address">Address</label>
+											  <input type="text" class="form-control" id="suggest" ng-model="user.address" name="address" placeholder="1234 Main St" required>
 											</div>
 
 											<div class="mb-3">
 											  <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-											  <input type="text" class="form-control" id="address2" field="*{apartment}" placeholder="${customer.userAddress}!=null?${customer.userAddress.apartment}:'Apartment or suite'">
+											  <input type="text" class="form-control" ng-model="user.apartment" id="address2">
 											</div>
 
 											<hr class="mb-4">
@@ -69,15 +69,15 @@
 							</div>
 							
 							<!-- Order Total -->
-							<div class="order_total">
+							<div class="order_total" ng-controller="cartCtrl">
 								<div class="order_total_content text-md-right">
 									<div class="order_total_title">Order Total:</div>
-									<div class="order_total_amount" text="${cart.grandTotal}">$2000</div>
+									<div class="order_total_amount" text="">{{total()}}</div>
 								</div>
 							</div>
 
 							<div class="cart_buttons d-flex justify-content-end">
-								<span><a href="@{'/cart'}" href="#"><button type="button" class="button cart_button_clear">Return to Cart</button></a></span>
+								<span><a href="/cart"><button type="button" class="button cart_button_clear">Return to Cart</button></a></span>
 								<span><button type="submit" class="button cart_button_checkout">Complete Order</button></span>
 							</div>
 						</form>

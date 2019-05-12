@@ -56,6 +56,7 @@ public class AuthController extends AbstractBaseController {
                 UserDetailResponseModel userResponse = new UserDetailResponseModel();
                 userResponse.setUserId(user.getUserId());
                 userResponse.setEmail(user.getEmail());
+                userResponse.setPhone(user.printPhone());
                 userResponse.setFirstName(user.getFirstName());
                 userResponse.setLastName(user.getLastName());
                 userResponse.setRoleId(user.getRole().getRoleId());
@@ -63,7 +64,7 @@ public class AuthController extends AbstractBaseController {
                     userResponse.setAddress(userAddress.getAddress());
                     userResponse.setCity(userAddress.getCity());
                     userResponse.setCountry(userAddress.getCountry());
-                    userResponse.setPhone(userAddress.getPhone());
+                    userResponse.setApartment(userAddress.getApartment());
                 }
                 return responseUtil.successResponse(userResponse);
             } else {
