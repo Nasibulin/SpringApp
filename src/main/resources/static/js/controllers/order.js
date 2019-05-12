@@ -11,6 +11,7 @@ angular.module('myapp.order', ['myapp.authen'])
 
         $scope.orderDetailsSet = [];
         $scope.address = '';
+        $scope.ordertotal = 0;
 
         loadOrder();
 
@@ -31,6 +32,7 @@ angular.module('myapp.order', ['myapp.authen'])
 
             util.callRequest('order/' + $stateParams.id, "GET").then(function (data) {
                 $scope.orderDetailsSet = data.data.orderDetailsSet;
+                $scope.ordertotal = data.data.orderTotal;
                 $scope.address = data.data.orderAddress.region+' '+data.data.orderAddress.suffix;
             });
 
