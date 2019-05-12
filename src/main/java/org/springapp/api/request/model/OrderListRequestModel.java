@@ -1,7 +1,7 @@
 package org.springapp.api.request.model;
 
 
-public class OrderRequestModel {
+public class OrderListRequestModel {
     public UserRequestModel getUser() {
         return user;
     }

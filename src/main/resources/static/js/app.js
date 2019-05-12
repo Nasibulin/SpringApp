@@ -11,6 +11,7 @@ angular.module('myapp', [
     'myapp.cart',
     'myapp.nav',
     'myapp.orderlist',
+    'myapp.order',
     'myapp.checkout'
 ])// Define all route of our app
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -60,6 +61,12 @@ angular.module('myapp', [
                 parent: 'master',
                 templateUrl: 'views/products.html',
                 controller: 'productCtrl'
+            })
+            .state('order', {
+                url: '/order/:id',
+                parent: 'master',
+                templateUrl: 'views/order.html',
+                controller: 'orderCtrl'
             })
             .state('cart', {
                 url: '/cart',

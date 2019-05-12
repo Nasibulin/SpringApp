@@ -2,7 +2,7 @@ package org.springapp.controllers;
 
 import org.springapp.api.APIName;
 import org.springapp.api.request.model.AuthRequestModel;
-import org.springapp.api.request.model.OrderRequestModel;
+import org.springapp.api.request.model.OrderListRequestModel;
 import org.springapp.api.response.model.APIResponse;
 import org.springapp.api.response.util.APIStatus;
 import org.springapp.auth.AuthUser;
@@ -33,7 +33,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -185,17 +184,18 @@ public class MainController extends AbstractBaseController {
 
     @RequestMapping(value = APIName.ORDERS, method = RequestMethod.POST, produces = APIName.CHARSET)
     @ResponseBody
-    public ResponseEntity<APIResponse> getOrders(@RequestBody OrderRequestModel orderRequest) {
+    public ResponseEntity<APIResponse> getOrders(@RequestBody OrderListRequestModel orderRequest) {
         User user = userService.findByUserId(orderRequest.getUser().getUserId());
         Set<Order> orderSet = orderService.findAllByUserOrderByIdAsc(user);
         return responseUtil.successResponse(orderSet);
     }
 
     @GetMapping(APIName.ORDERS_DETAIL_BY_ID)
-    public String getOrder(@PathVariable Integer id, @ModelAttribute("customer") User customer, Model model) {
-        Order order = orderService.getOrderByIdAndUser(id, customer);
-        model.addAttribute("order", order);
-        return APIName.ORDER;
+//    @RequestMapping(value = APIName.ORDERS, method = RequestMethod.POST, produces = APIName.CHARSET)
+    @ResponseBody
+    public ResponseEntity<APIResponse> getOrder(@PathVariable Integer id) {
+        Order order = orderService.getByOrderId(id);
+        return responseUtil.successResponse(order);
     }
 
     @PostMapping(APIName.ORDER_CREATE)

@@ -41,7 +41,7 @@ public class Order implements Serializable {
         this.orderTotal = BigDecimal.ZERO;
     }
 
-    @JsonIgnore
+//    @JsonIgnore
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<OrderDetail> getOrderDetailsSet() {
         return orderDetailsSet;
@@ -74,7 +74,7 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    @JsonIgnore
+//    @JsonIgnore
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     public OrderAddress getOrderAddress() {
         return orderAddress;

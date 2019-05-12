@@ -13,6 +13,7 @@ angular.module('myapp')
     REGISTER: {name: 'users/register', type: 'POST'},
     LOGIN: {name: 'users/login', type: 'POST'},  
     ORDERS: {name: 'api/orders', type: 'POST'},
+    ORDER: {name: 'api/order', type: 'GET'},
     LOGOUT: {name: 'users/logout', type: 'POST', token: true},
     GET_USER_PROFILE: {name: 'auth/session/data', type: 'GET'}
 })

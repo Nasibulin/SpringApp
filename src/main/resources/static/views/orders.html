@@ -21,7 +21,7 @@
 										</thead>
 										<tbody>
 										<tr ng-repeat="order in orders" >
-											<td><a href="/order/{{order.id}}"><span class="cart_item_text">{{order.id}}</span></a></td>
+											<td><a ng-href="/order/{{order.id}}"><span class="cart_item_text">{{order.id}}</span></a></td>
 											<td class="cart_item_text" ng-bind="order.createdAt| date:'dd/MM/yyyy hh:mm'">{{order.createdAt}}</td>
 											<td class="cart_item_text">{{order.status}}</td>
 											<td class="cart_item_text">{{order.itemsCount}}</td>
