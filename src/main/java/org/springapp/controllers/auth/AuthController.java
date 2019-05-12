@@ -1,10 +1,6 @@
 package org.springapp.controllers.auth;
 
-import java.security.NoSuchAlgorithmException;
-import javax.servlet.http.HttpServletRequest;
-
 import org.springapp.api.APIName;
-import org.springapp.api.request.model.AuthRequestModel;
 import org.springapp.api.response.model.APIResponse;
 import org.springapp.api.response.model.UserDetailResponseModel;
 import org.springapp.api.response.util.APIStatus;
@@ -19,15 +15,12 @@ import org.springapp.service.users.UserAddressService;
 import org.springapp.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping(APIName.AUTH_API)
