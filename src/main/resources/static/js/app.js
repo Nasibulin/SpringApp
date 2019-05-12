@@ -85,108 +85,108 @@ angular.module('myapp', [
     .config(['$compileProvider', function ($compileProvider) {
         $compileProvider.debugInfoEnabled(false);
     }])
-    // .config(['$httpProvider', function ($httpProvider) {
-    //
-    //     $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
-    //
-    //     $httpProvider.interceptors.push(function ($q, $cookies) {
-    //         return {
-    //             'request': function (config) {
-    //                 config.headers['X-Access-Token'] = $cookies.get('AccessToken');
-    //                 return config;
-    //             }
-    //         };
-    //     });
-    // }]);
     .config(['$httpProvider', function ($httpProvider) {
 
-        $httpProvider.interceptors.push(function ($q, $injector, $location, $timeout, $cookies) {
+        $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
 
-            var api = $injector.get('api'),
-                app = $injector.get('app'),
-                error = $injector.get('error'),
-                cookie = $injector.get('$cookies');
-
-            // Init fix token
-
-
-            // Lodash
-            var _ = $injector.get('_');
-
-            // Noty toast
-            //var noty = $injector.get('noty');
-
-            // Manage just one instance of noty
-            //var notyInstance;
-
-            function tokenExpiredHandler() {
-
-                // Transition to login page
-                $timeout(function () {
-
-                    // Clear token
-                    cookie.remove(app.COOKIE_NAME);
-                    // Redirect
-                    // $location.path( '/login' );
-                });
-            }
-
+        $httpProvider.interceptors.push(function ($q, $cookies) {
             return {
-
-                request: function (config) {
+                'request': function (config) {
                     config.headers['X-Access-Token'] = $cookies.get('AccessToken');
-                    // Loop to find
-                    angular.forEach(api, function (a) {
-
-                        if (a.token && config.url.indexOf(a.name) > 0) {
-
-                            // Add token to request
-                            config.data.token = cookie.get(app.COOKIE_NAME);
-                        }
-                    });
-
                     return config;
-                },
-
-                response: function (response) {
-
-                    var contentType = response.headers()['content-type'];
-
-                    contentType = (contentType) ? contentType.toLowerCase() : null;
-
-                    if (contentType === "application/json;charset=utf-8") {
-
-                        var status = response.data;
-
-                        // Get error code
-                        if ('errCode' in status) {
-
-                            var errCode = status.errCode;
-
-                            if (errCode > 0) {
-
-                                // Check authen
-                                if (_.find(error.AUTH, {code: errCode}) !== undefined) {
-
-                                    // Handler
-                                    tokenExpiredHandler();
-
-                                    return;
-                                }
-
-                            }
-                        }
-                    }
-
-                    return response || $q.when(response);
-                },
-
-                responseError: function (rejection) {
-
-                    // Handle reponse error
-                    return $q.reject(rejection);
                 }
             };
         });
-
     }]);
+    // .config(['$httpProvider', function ($httpProvider) {
+    //
+    //     $httpProvider.interceptors.push(function ($q, $injector, $location, $timeout, $cookies) {
+    //
+    //         var api = $injector.get('api'),
+    //             app = $injector.get('app'),
+    //             error = $injector.get('error'),
+    //             cookie = $injector.get('$cookies');
+    //
+    //         // Init fix token
+    //
+    //
+    //         // Lodash
+    //         var _ = $injector.get('_');
+    //
+    //         // Noty toast
+    //         //var noty = $injector.get('noty');
+    //
+    //         // Manage just one instance of noty
+    //         //var notyInstance;
+    //
+    //         function tokenExpiredHandler() {
+    //
+    //             // Transition to login page
+    //             $timeout(function () {
+    //
+    //                 // Clear token
+    //                 cookie.remove(app.COOKIE_NAME);
+    //                 // Redirect
+    //                 // $location.path( '/login' );
+    //             });
+    //         }
+    //
+    //         return {
+    //
+    //             request: function (config) {
+    //                 config.headers['X-Access-Token'] = $cookies.get('AccessToken');
+    //                 // Loop to find
+    //                 angular.forEach(api, function (a) {
+    //
+    //                     if (a.token && config.url.indexOf(a.name) > 0) {
+    //
+    //                         // Add token to request
+    //                         config.data.token = cookie.get(app.COOKIE_NAME);
+    //                     }
+    //                 });
+    //
+    //                 return config;
+    //             },
+    //
+    //             response: function (response) {
+    //
+    //                 var contentType = response.headers()['content-type'];
+    //
+    //                 contentType = (contentType) ? contentType.toLowerCase() : null;
+    //
+    //                 if (contentType === "application/json;charset=utf-8") {
+    //
+    //                     var status = response.data;
+    //
+    //                     // Get error code
+    //                     if ('errCode' in status) {
+    //
+    //                         var errCode = status.errCode;
+    //
+    //                         if (errCode > 0) {
+    //
+    //                             // Check authen
+    //                             if (_.find(error.AUTH, {code: errCode}) !== undefined) {
+    //
+    //                                 // Handler
+    //                                 tokenExpiredHandler();
+    //
+    //                                 return;
+    //                             }
+    //
+    //                         }
+    //                     }
+    //                 }
+    //
+    //                 return response || $q.when(response);
+    //             },
+    //
+    //             responseError: function (rejection) {
+    //
+    //                 // Handle reponse error
+    //                 return $q.reject(rejection);
+    //             }
+    //         };
+    //     });
+    //
+    // }]);

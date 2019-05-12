@@ -24,7 +24,7 @@ angular.module('myapp.login', [])
                 var status = response.status;
                 if (status === 200) {
                     // redirect page
-                    // $state.go('index');
+                    $state.go('index');
                     $state.reload();
 
                 } else {

@@ -8,8 +8,7 @@ angular.module('myapp.master', [])
 
             $scope.logout = function () {
                 Session.logout();
-                // $state.go('index');
-                //$state.reload();
+                $state.reload();
             };
         }, function () {
             // error handle, show message if necessary
